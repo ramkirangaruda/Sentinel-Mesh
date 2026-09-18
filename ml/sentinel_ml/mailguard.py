@@ -61,23 +61,6 @@ def pad_with_legit(texts, legit_pool, rng, n_chunks=2, chunk_len=600):
     ])
 
 
-def pad_around(texts, legit_pool, rng, before=0, after=2):
-    """Legit text before and/or after the malicious body (before=0 is pad_with_legit)."""
-    return np.array([
-        " ".join(rng.choice(legit_pool, before)) + f" {t} " + " ".join(rng.choice(legit_pool, after))
-        for t in texts
-    ])
-
-
-def interleave_with_legit(texts, legit_pool, rng, pieces=4):
-    """Split the malicious body into `pieces` runs of words and put a legit chunk between each."""
-    out = []
-    for t in texts:
-        parts = [" ".join(p) for p in np.array_split(np.array(t.split() or [""]), pieces)]
-        out.append(f" {rng.choice(legit_pool)} ".join(parts))
-    return np.array(out)
-
-
 def explain(vec, model, text, top_k=3):
     """Top-k tokens (by |coef * tfidf|) that drove the score, signed."""
     x = vec.transform([text])
@@ -138,31 +121,13 @@ def train(security_root: str, max_false_alarm: float = 0.02, seed: int = SEED):
     padded = pad_with_legit(mal, legit_pool, rng)
     legit = te[te.label == 0].t.values
 
-    # Extra attack layouts, drawn from their own generator so the shipped
-    # numbers above stay reproducible. The last three are NOT in any training
-    # augmentation (different chunk counts / placement), so they measure
-    # generalisation to layouts the model has not seen. The padding text itself
-    # comes from the same legit pool as training, so this does not test
-    # unfamiliar padding *content*.
-    rng_eval = np.random.default_rng(1)
-    extra_attacks = {
-        "recall_sandwich_3_3": pad_around(mal, legit_pool, rng_eval, 3, 3),          # trained on
-        "recall_interleaved_4": interleave_with_legit(mal, legit_pool, rng_eval, 4),  # trained on
-        "recall_unseen_append_6": pad_around(mal, legit_pool, rng_eval, 0, 6),
-        "recall_unseen_prepend_6": pad_around(mal, legit_pool, rng_eval, 6, 0),
-        "recall_unseen_interleaved_8": interleave_with_legit(mal, legit_pool, rng_eval, 8),
-    }
-
     def redteam_report(vec, mdl):
         score = lambda X: predict_proba(vec, mdl, X) >= 0.5
-        r = dict(
+        return dict(
             legit_false_alarm=round(float(score(legit).mean()), 4),
             recall_clean=round(float(score(mal).mean()), 4),
             recall_padded=round(float(score(padded).mean()), 4),
         )
-        for name, x in extra_attacks.items():
-            r[name] = round(float(score(x).mean()), 4)
-        return r
 
     redteam = {"baseline": redteam_report(v0, m0)}
 
@@ -171,13 +136,6 @@ def train(security_root: str, max_false_alarm: float = 0.02, seed: int = SEED):
     sp = tr[tr.label == 1].sample(n_sp, random_state=1).t.values
     aug_t = list(tr.t) + list(pad_with_legit(sp, legit_pool, rng))
     aug_y = list(tr.label) + [1] * len(sp)
-    # more layouts than append-only: sandwich and interleaved (own generator)
-    rng_aug = np.random.default_rng(2)
-    n_extra = min(3000, n_sp)
-    aug_t += list(pad_around(sp[:n_extra], legit_pool, rng_aug, 3, 3))
-    aug_t += list(interleave_with_legit(sp[n_extra:2 * n_extra] if n_sp >= 2 * n_extra else sp[:n_extra],
-                                        legit_pool, rng_aug, 4))
-    aug_y += [1] * (len(aug_t) - len(aug_y))
     v_final, m_final = fit(aug_t, aug_y)
     redteam["adversarially_trained"] = redteam_report(v_final, m_final)
     metrics["email_red_team_padding"] = redteam

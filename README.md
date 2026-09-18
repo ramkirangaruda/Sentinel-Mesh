@@ -209,7 +209,7 @@ To rigorously validate EnergyGate, SentinelMesh benchmarked five distinct defens
 - **Honest Evaluation & Generalization**:
   - Random 70/15/15 Split (15% test): **~98% Accuracy** (1.8% False Positive Rate).
   - **Leave-One-Corpus-Out (Strict Generalization)**: **87.6% – 94.5% Accuracy** across unseen email writing styles.
-  - **Adversarial Hardening**: Defends against filler-text padding attacks. Padding a malicious email with ordinary text collapsed recall from 99.3% to 15.8%; adversarial training on three padding layouts (append, sandwich, interleaved) recovers it to 88.6% (append), 91.6% (sandwich) and 79.7% (interleaved) at a 1.9% false-alarm rate. On layouts it never trained on: 91% (6 chunks appended), 90% (6 prepended) and **72% (interleaved into 8 pieces), the open gap**.
+  - **Adversarial Hardening**: Defends against filler-text padding attacks. Padding a malicious email with ordinary text collapsed recall from 99.3% to 15.8%; adversarial training on padded copies recovers it to 79.1% at a 1.5% false-alarm rate. Layouts it never trained on (padding before and after, interleaved) still evade it about half the time or more, and broader hardening was tried and reverted because it hurt accuracy on unseen email sources (`ml/reports/model_cards.md`).
   - **Threshold Does Not Transfer**: tuned for at most 2% false alarms on data like the training data, the threshold gives 7.5% to 25.9% false alarms on a held-out corpus (`ml/reports/experiments.json`).
 - **Explainability**: Outputs the top three feature weights per prediction mapped to human-readable strings (e.g., *"Urgent payment phrasing"*, *"Suspicious credential request"*), powering the operator dashboard's "Why" panel.
 
