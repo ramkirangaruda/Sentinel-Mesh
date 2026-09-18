@@ -5,7 +5,7 @@ else
 PY ?= .venv/bin/python
 endif
 
-.PHONY: field-model test-field-model energygate test-energygate
+.PHONY: field-model test-field-model energygate test-energygate energygate-synthetic
 
 # Train the real on-device field model from data/traces/*.jsonl (Trace
 # rows per contracts/CONTRACT.md) and export it to export/field_model.h.
@@ -24,6 +24,12 @@ test-field-model:
 # (spend/challenge/drop probability, not attack class).
 energygate:
 	$(PY) train_energygate.py
+
+# Stopgap until real traces exist: train on SIMULATED traces, parity-check the C
+# export, and copy it into firmware/ as energygate_model.h (SIMULATED banner
+# inside). Replace by running `make energygate` once data/traces/ has real rows.
+energygate-synthetic:
+	$(PY) train_energygate_synthetic.py --firmware
 
 # Proves the EnergyGate pipeline against synthetic SYNTH_-labelled data.
 # Never a substitute for energygate -- see

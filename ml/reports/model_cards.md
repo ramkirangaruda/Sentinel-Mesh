@@ -167,3 +167,46 @@ decision tree on recorded `Trace` rows and exports it to C
 (train -> C export -> gcc compile -> parity check) is verified against
 synthetic data in `ml/tests/` -- **that synthetic accuracy is not a real
 result** and is never written to this file or to `reports/metrics.json`.
+
+## EnergyGate (phase 3, on-device) -- SIMULATED, not a result
+
+**What it is.** A depth-4 decision tree (9 leaves) over 8 cheap signals
+(`hs_per_s, hs_fail, rssi_mean, rssi_var, loss_pct, dup_pct, frag_complete_pct,
+battery_pct`) that outputs the probability a sender is real, exported to C and
+compiled into field-1's firmware. The spend/challenge/drop policy, joule budget
+and cookie live in firmware (`gate_policy.h`), not here.
+
+**Data: simulated.** No real traces exist yet (`console/data/traces/` is empty),
+so this tree was trained on `tests/generate_synthetic_traces.py`'s hand-written
+generator (30 sessions, 3,600 windows, 64% "real"). It therefore learned our
+own assumptions about what a flood, replay and impersonation look like. Its
+leave-one-session-out accuracy (99.6% mean, 97.5% worst) measures how well the
+tree recovers those assumptions, **not** how it would do on real traffic, and
+must not be quoted as a result. The header carries a SIMULATED banner and
+`reports/energygate_synthetic_metrics.json` is flagged `SIMULATED`.
+
+**What it uses.** `hs_fail` (54% of importance) and `dup_pct` (43%) do almost
+all the work; `rssi_mean`, `loss_pct`, `hs_per_s` carry a little; `battery_pct`,
+`rssi_var` and `frag_complete_pct` are unused. `battery_pct` being unused is the
+sanity check that mattered: it is a per-session constant in the generator, and
+with only 6 sessions a tree can latch onto it as a stand-in for session identity.
+
+**Verified.** The C export matches sklearn exactly on 500 boundary-stressing
+rows (gcc parity check). Compiled with the ESP32 (Xtensa) toolchain the scoring
+code is 191 bytes of flash and no static RAM. Inference *energy* is not
+estimated here; Claude 3 / the INA219 rig has to measure it on the board.
+
+**Known limits.**
+- **Scores are nearly binary.** On separable simulated data almost every leaf is
+  exactly 0 or 1, so the policy's *challenge* band (0.4-0.7) is effectively
+  unused. Real, overlapping traces (e.g. weak-link vs. impersonation) are what
+  would produce graded scores; calibration is worth doing then.
+- **Vantage-point caveat.** Training windows are recorded at the gateway, but the
+  model scores at field-1 (see `contracts/CHANGELOG.md`). Irrelevant for
+  simulated data, worth watching once real traces exist.
+- **"Time since this sender's last attempt"** (a brief signal) has no Trace field;
+  `hs_per_s` stands in for it and is not equivalent.
+- One rule looks odd but is faithful to the generator: an extremely strong signal
+  (`rssi_mean > -35 dBm`) at a low handshake rate scores as not-real, because the
+  simulated impersonator transmits closer/louder than the legitimate node. Real
+  data may not support that at all.

@@ -144,6 +144,20 @@ new ground truth needed), and a known gap: the brief's "time since this
 sender's last attempt" signal has no matching Trace field, so `hs_per_s`
 (handshake rate) stands in for it -- noted, not overclaimed as equivalent.
 
+**Stopgap: a model trained on SIMULATED traces.** Until real recordings exist,
+`make energygate-synthetic` trains the tree on `tests/generate_synthetic_traces.py`'s
+hand-written generator (30 sessions), parity-checks the C export against sklearn
+(gcc, 500 rows), and copies it into the firmware as `energygate_model.h`, so the
+board runs a learned tree instead of the rule-based stand-in. The header carries a
+**SIMULATED -- NOT A RESULT** banner and its metrics live in
+`reports/energygate_synthetic_metrics.json` (flagged `SIMULATED`). It encodes our own
+assumptions about attacks, so its accuracy is never quoted as a result. Compiled with
+the ESP32 toolchain it is 191 bytes of flash and no static RAM (the rule-based
+stand-in is 307). Known limit: on separable simulated data nearly every leaf is
+exactly 0 or 1, so scores are close to binary and the policy's *challenge* band
+(0.4-0.7) is effectively unused; real, overlapping traces are what would populate it.
+Re-run `make energygate` on real traces and replace the header.
+
 **Stretch, lowest priority** (brief's own cut order puts this first to
 cut): physical-identity / radio-fingerprint separability -- can the
 gateway tell two identical boards apart by RSSI/timing/jitter alone?
