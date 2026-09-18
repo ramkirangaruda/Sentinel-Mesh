@@ -19,17 +19,21 @@
 //    console's gate_decision / budget_exhausted events ("node": "field-1").
 //    It still overhears the attacker's HELLOs for its trace windows, and it
 //    still owns the signed-handshake check (impersonation, demo beat 5).
-//
-// STATUS: structural skeleton wiring sentinel_proto together end to end.
-// The handshake/AEAD decrypt path is stubbed (TODO) pending the crypto
-// benchmark results (src/benchmark) deciding wolfCrypt vs PQClean vs the
-// HMAC-PSK fallback (auth_fallback.h) — see firmware/README.md. Not yet
-// build-verified on hardware (no ESP32 toolchain in this environment).
+//  - Real handshake (HMAC-PSK fallback, see common/handshake.h for why not
+//    true PQC yet): the gateway is always the INITIATOR (mains-powered,
+//    it's the one that wants a session with the battery-powered field
+//    node). Sends HELLO, verifies the field node's RESPONSE, replies with
+//    CONFIRM. A field node never sends HELLO in this design -- if one
+//    ever arrives claiming field-1's identity, that's an impersonation
+//    attempt by definition, verified and flagged accordingly. Once a
+//    session exists, DATA/GATE_REPORT are AES-256-GCM decrypted
+//    (common/aead.h) and the replay filter's freshness check runs against
+//    the session's own shared clock instead of raw, unsynchronized uptime.
 
 #include <Arduino.h>
 #include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+#include <vector>
+#include <LiquidCrystal_I2C.h>
 
 #include "sentinel_proto/packet.h"
 #include "sentinel_proto/fragment.h"
@@ -41,6 +45,9 @@
 #include "sentinel_proto/gate_msgs.h"
 #include "common/board_config.h"
 #include "common/status_indicators.h"
+#include "common/mesh_transport.h"
+#include "common/handshake.h"
+#include "common/aead.h"
 
 using namespace sentinel;
 
@@ -48,8 +55,8 @@ using namespace sentinel;
 // State
 // ---------------------------------------------------------------------
 
-static Adafruit_SSD1306 g_oled(board::OLED_WIDTH, board::OLED_HEIGHT, &Wire, -1);
-static bool g_oled_ok = false;
+static LiquidCrystal_I2C g_lcd(board::LCD_I2C_ADDR, board::LCD_COLS, board::LCD_ROWS);
+static bool g_lcd_ok = false;
 static StatusColor g_status = StatusColor::GREEN;
 
 static Reassembler g_reassembler;
@@ -77,6 +84,19 @@ static char g_current_label[16] = "normal";
 // Simple per-sender lockout after an attack is flagged. Index by NodeId
 // byte value (small, fixed set of nodes on this mesh).
 static bool g_locked_out[256] = {false};
+
+// ---------------------------------------------------------------------
+// Handshake / session state (HMAC-PSK fallback -- see common/handshake.h).
+// The gateway is always the INITIATOR toward field-1.
+// ---------------------------------------------------------------------
+
+static bool g_session_established = false;
+static uint8_t g_session_key[32] = {0};
+static uint32_t g_gw_session_start_ms = 0; // this node's own millis() when the session began
+static uint32_t g_gw_nonce_a = 0;
+static bool g_have_pending_hello = false;
+static uint32_t g_last_hello_attempt_ms = 0;
+constexpr uint32_t HELLO_RETRY_MS = 4000; // resend HELLO if no RESPONSE arrives in time
 
 // Maps field_model.h's short class name to the contract's details.kind
 // vocabulary (contract: attack_detected details.kind is one of
@@ -228,29 +248,48 @@ static void close_detection_window(uint32_t now_ms) {
 }
 
 // ---------------------------------------------------------------------
+// Handshake send helpers (initiator side)
+// ---------------------------------------------------------------------
+
+static void send_handshake_msg(MsgType type, const uint8_t* payload, size_t len, uint32_t now_ms) {
+    PacketHeader hdr;
+    hdr.type = type;
+    hdr.sender = static_cast<uint8_t>(NodeId::GATEWAY);
+    hdr.epoch = g_ctrl_epoch; // reuse the same per-boot random epoch CONTROL already uses
+    hdr.seq = g_ctrl_seq++;
+    hdr.time_ms = now_ms;
+    auto frags = Fragmenter::split(hdr, payload, len);
+    for (auto& frag : frags) {
+        sentinel::mesh::broadcast(frag.data(), frag.size());
+    }
+}
+
+// Sends (or re-sends) HELLO if no session exists yet. Called every loop().
+static void maybe_initiate_handshake(uint32_t now_ms) {
+    if (g_session_established) return;
+    if (now_ms - g_last_hello_attempt_ms < HELLO_RETRY_MS) return;
+    g_last_hello_attempt_ms = now_ms;
+
+    g_gw_nonce_a = esp_random();
+    g_have_pending_hello = true;
+    uint8_t hello[handshake::HELLO_LEN];
+    handshake::build_hello(static_cast<uint8_t>(NodeId::GATEWAY), g_gw_nonce_a, hello);
+    send_handshake_msg(MsgType::HELLO, hello, sizeof(hello), now_ms);
+    Serial.println("LOG handshake: sent HELLO to field-1");
+}
+
+// ---------------------------------------------------------------------
 // Serial line handling: console -> gateway (LABEL), gateway -> console (EVT/TRC/LOG)
 // ---------------------------------------------------------------------
 
-// Relays the current defence mode to field-1 as a CONTROL message. Same
-// structural transport stub as the rest of this file -- TODO: hand the
-// fragments to ESP-NOW (and AES-GCM encrypt) once the radio driver exists.
+// Relays the current defence mode to field-1 as a CONTROL message.
 static void send_control_to_field_node(uint32_t now_ms) {
     ControlMsg m;
     m.kind = ControlKind::DEFENSE;
     m.value = static_cast<uint8_t>(g_defense);
     uint8_t payload[CONTROL_LEN];
     serialize_control(m, payload, sizeof(payload));
-
-    PacketHeader hdr;
-    hdr.type = MsgType::CONTROL;
-    hdr.sender = static_cast<uint8_t>(NodeId::GATEWAY);
-    hdr.epoch = g_ctrl_epoch;
-    hdr.seq = g_ctrl_seq++;
-    hdr.time_ms = now_ms;
-    auto frags = Fragmenter::split(hdr, payload, sizeof(payload));
-    for (auto& frag : frags) {
-        (void)frag; // TODO: mesh transport (ESP-NOW) -> field-1
-    }
+    send_handshake_msg(MsgType::CONTROL, payload, sizeof(payload), now_ms);
     g_last_control_ms = now_ms;
 }
 
@@ -295,14 +334,10 @@ static void on_gate_report(const uint8_t* payload, size_t payload_len) {
 }
 
 // ---------------------------------------------------------------------
-// Mesh packet handling (placeholder transport — swap in the real radio/
-// ESP-NOW receive path once hardware is wired up)
+// Mesh packet handling
 // ---------------------------------------------------------------------
 
 // Called once per received, header-parsed packet from the mesh transport.
-// `payload`/`payload_len` is the fragment's payload (still ciphertext at
-// this point for DATA messages — decrypt AFTER reassembly + replay check,
-// per the brief v2 6.1/6.2 handshake design; decrypt call is a TODO here).
 static void on_mesh_packet(const PacketHeader& hdr, const uint8_t* payload, size_t payload_len,
                             float rssi, uint32_t now_ms) {
     g_window.add_rssi(rssi);
@@ -311,34 +346,63 @@ static void on_mesh_packet(const PacketHeader& hdr, const uint8_t* payload, size
         return; // silently drop, sender is locked out
     }
 
+    // RESPONSE finalizes the handshake this node initiated (HELLO above).
+    // Small, single-fragment, handled directly -- no reassembly/replay
+    // infra needed for a 40-byte message, and there's no session clock to
+    // freshness-check it against yet anyway.
+    if (hdr.type == MsgType::RESPONSE && hdr.sender == static_cast<uint8_t>(NodeId::FIELD_1)) {
+        uint32_t nonce_b;
+        if (g_have_pending_hello &&
+            handshake::verify_response(hdr.sender, g_gw_nonce_a, payload, payload_len, nonce_b)) {
+            handshake::derive_session_key(g_gw_nonce_a, nonce_b, g_session_key);
+            g_session_established = true;
+            g_gw_session_start_ms = millis();
+            g_have_pending_hello = false;
+
+            uint8_t confirm[handshake::CONFIRM_LEN];
+            handshake::build_confirm(static_cast<uint8_t>(NodeId::GATEWAY), g_gw_nonce_a, nonce_b, confirm);
+            send_handshake_msg(MsgType::CONFIRM, confirm, sizeof(confirm), now_ms);
+            Serial.println("LOG handshake: session established with field-1, sent CONFIRM");
+        } else {
+            Serial.println("LOG handshake: RESPONSE verify failed or unexpected (no pending HELLO)");
+        }
+        return;
+    }
+
     const char* node_name = (hdr.sender == static_cast<uint8_t>(NodeId::FIELD_1)) ? "field-1" : "attacker";
 
     if (hdr.type == MsgType::HELLO) {
         g_window.hs_count++;
         if (hdr.frag_i == 0) g_window.frag_sets_started++;
 
-        // Counted for the trace windows (FieldGuard, and EnergyGate's
-        // training data) whether the HELLO was meant for us or overheard on
-        // its way to field-1, and it continues through the replay check and
-        // reassembly below exactly as before, so the recorded windows keep
-        // their meaning. EnergyGate itself runs on field-1, not here.
-
-        // TODO: verify ML-DSA signature by the sender over the HELLO
-        // contents (brief v2 6.2: "ML-DSA signature by A over all of it"),
-        // or the HMAC-PSK fallback (auth_fallback.h), against the sender's
-        // provisioned public key. On failure: g_window.hs_fail++;
-        // g_window.auth_fail++; emit handshake_rejected EVT
-        // (technique T0830 per contract).
+        if (hdr.sender == static_cast<uint8_t>(NodeId::FIELD_1)) {
+            // The field node never sends HELLO in this handshake design
+            // (the gateway is always the initiator) -- any HELLO claiming
+            // this identity is an impersonation attempt, not a protocol
+            // bug. Verify it: it can only ever pass if whoever sent it
+            // actually holds the shared PSK.
+            uint32_t nonce_a;
+            if (!handshake::verify_hello(hdr.sender, payload, payload_len, nonce_a)) {
+                g_window.hs_fail++;
+                g_window.auth_fail++;
+                emit_event("field", "handshake_rejected", "high", "field-1", "T0830",
+                           "HELLO claiming field-1's identity failed the HMAC-PSK check",
+                           nullptr, nullptr, nullptr, nullptr);
+            }
+        }
+        // A HELLO from the attacker's own identity (FLOOD mode) isn't a
+        // signature check at all -- it's counted above for the trace
+        // window / classify_window()'s FLOOD threshold, same as before.
     }
 
-    // Replay check uses the sender's session-relative clock; until the
-    // handshake layer tracks a real per-peer clock offset (brief v2
-    // section 7: "each side records its local millis() at handshake
-    // time"), approximate now_ms in that domain with our own millis()
-    // (fine once both sides are freshly re-handshaken; TODO tighten once
-    // handshake.cpp exists).
+    // Replay/freshness check uses the session's own shared clock once a
+    // handshake has completed; before that (or for anyone outside the
+    // session, like the attacker) it falls back to raw uptime, which will
+    // reliably read "stale" -- expected, not a bug, until a session exists.
+    uint32_t effective_now_ms = g_session_established ? (millis() - g_gw_session_start_ms) : now_ms;
+
     g_window.total_received++;
-    ReplayFilter::Result rr = g_replay.check(hdr.sender, hdr.seq, hdr.time_ms, now_ms);
+    ReplayFilter::Result rr = g_replay.check(hdr.sender, hdr.seq, hdr.time_ms, effective_now_ms);
     switch (rr) {
         case ReplayFilter::Result::REPLAY_REJECTED:
             g_window.replay_rej++;
@@ -365,42 +429,85 @@ static void on_mesh_packet(const PacketHeader& hdr, const uint8_t* payload, size
     bool complete = g_reassembler.feed(hdr, payload, payload_len, now_ms, reassembled);
     if (!complete) return;
     g_window.frag_sets_completed++;
-
     g_window.packets_received++;
 
-    // v4: field-1's EnergyGate decisions. (TODO: decrypt first, like DATA.)
+    // AES-256-GCM decrypt for DATA/GATE_REPORT once a session exists. A
+    // failed decrypt (wrong key, tampered payload, or a packet that's
+    // actually still plaintext from before the session formed) drops the
+    // packet rather than guessing -- see aead.h's "reject on failure" rule.
+    const uint8_t* body = reassembled.data();
+    size_t body_len = reassembled.size();
+    std::vector<uint8_t> plaintext;
+    if (g_session_established && (hdr.type == MsgType::DATA || hdr.type == MsgType::GATE_REPORT)) {
+        uint8_t nonce[aead::GCM_NONCE_LEN];
+        aead::build_nonce(hdr.sender, hdr.epoch, hdr.seq, nonce);
+        uint8_t hdr_bytes[HEADER_SIZE];
+        hdr.serialize(hdr_bytes, sizeof(hdr_bytes));
+        if (!aead::decrypt(g_session_key, nonce, hdr_bytes, HEADER_SIZE,
+                            reassembled.data(), reassembled.size(), plaintext)) {
+            Serial.println("LOG decrypt failed -- dropping packet (wrong key, tampered, or pre-session plaintext)");
+            return;
+        }
+        body = plaintext.data();
+        body_len = plaintext.size();
+    }
+
+    // v4: field-1's EnergyGate decisions.
     if (hdr.type == MsgType::GATE_REPORT) {
         if (hdr.sender == static_cast<uint8_t>(NodeId::FIELD_1)) {
-            on_gate_report(reassembled.data(), reassembled.size());
+            on_gate_report(body, body_len);
         }
         return;
     }
 
-    // TODO: AES-256-GCM decrypt `reassembled` with the per-direction key
-    // derived at handshake time (nonce = sender||epoch||seq, GCM tag
-    // verified against the associated-data header, per brief v2 6.1),
-    // then hand the plaintext DATA payload (the pressure reading) to
-    // whatever consumes it. Once this exists, the field node can also
-    // report its own battery_pct here (currently left unset, see trace.h).
+    // DATA: `body`/`body_len` is now the plaintext pressure reading (once a
+    // session exists -- see the decrypt block above). Once the field node
+    // reports its own battery_pct here too, wire it into trace.h's optional
+    // v4 field (currently left unset).
+    (void)body;
+    (void)body_len;
+}
+
+// Bridges the ESP-NOW radio layer (raw bytes + RSSI) to on_mesh_packet()'s
+// (header, payload, rssi, now_ms) shape. Registered with
+// sentinel::mesh::init() in setup().
+static void mesh_recv_bridge(const uint8_t* data, size_t len, int rssi_dbm) {
+    PacketHeader hdr;
+    if (!PacketHeader::deserialize(data, len, hdr)) return;
+    const uint8_t* payload = data + HEADER_SIZE;
+    size_t payload_len = len - HEADER_SIZE;
+    on_mesh_packet(hdr, payload, payload_len, static_cast<float>(rssi_dbm), millis());
 }
 
 // ---------------------------------------------------------------------
 // Status display (brief v2 section 12 demo flow text)
 // ---------------------------------------------------------------------
 
+// Condensed for a real 16x2 character LCD (the BOM's "OLED" turned out to
+// be this instead, see board_config.h) -- the original 4-line pixel-OLED
+// layout doesn't fit, so this keeps just the status word and the defence
+// mode, the two most demo-relevant facts.
 static void update_status_display() {
-    if (!g_oled_ok) return;
-    g_oled.clearDisplay();
-    g_oled.setCursor(0, 0);
-    g_oled.setTextSize(1);
-    g_oled.setTextColor(SSD1306_WHITE);
+    if (!g_lcd_ok) return;
     const char* status_text =
-        (g_status == StatusColor::FLASHING_RED) ? "TAMPER" :
-        (g_status == StatusColor::STEADY_RED)   ? "ATTACK DETECTED" :
-        (g_status == StatusColor::YELLOW)       ? "Degraded, still secure" : "Secure";
-    g_oled.printf("SentinelMesh gateway\nlabel: %s\ndefence: %s\n%s\n",
-                  g_current_label, defense_mode_name(g_defense), status_text);
-    g_oled.display();
+        (g_status == StatusColor::FLASHING_RED) ? "TAMPER!" :
+        (g_status == StatusColor::STEADY_RED)   ? "ATTACK!" :
+        (g_status == StatusColor::YELLOW)       ? "Degraded" : "Secure";
+
+    char raw1[24];
+    snprintf(raw1, sizeof(raw1), "Gateway [%s]", g_current_label);
+    char line1[board::LCD_COLS + 1];
+    snprintf(line1, sizeof(line1), "%-16s", raw1);
+
+    char raw2[24];
+    snprintf(raw2, sizeof(raw2), "%s %s", status_text, g_session_established ? "S:ok" : "S:--");
+    char line2[board::LCD_COLS + 1];
+    snprintf(line2, sizeof(line2), "%-16s", raw2);
+
+    g_lcd.setCursor(0, 0);
+    g_lcd.print(line1);
+    g_lcd.setCursor(0, 1);
+    g_lcd.print(line2);
 }
 
 // ---------------------------------------------------------------------
@@ -412,8 +519,10 @@ void setup() {
     status_indicators_init();
 
     Wire.begin(board::I2C_SDA, board::I2C_SCL);
-    g_oled_ok = g_oled.begin(SSD1306_SWITCHCAPVCC, board::OLED_I2C_ADDR);
-    if (g_oled_ok) update_status_display();
+    g_lcd.init();
+    g_lcd.backlight();
+    g_lcd_ok = true; // LiquidCrystal_I2C has no return-value begin() to check
+    update_status_display();
 
     g_window.reset();
     g_window.window_ms = WINDOW_MS;
@@ -422,13 +531,15 @@ void setup() {
 
     Serial.println("LOG gateway boot complete");
 
-    // TODO once mesh transport (ESP-NOW radio driver) is wired up:
-    // register on_mesh_packet() as the receive callback. TODO: run the
-    // crypto work in its own FreeRTOS task with a large stack (brief v2
-    // section 8: "Run the crypto in its own FreeRTOS task with a large
-    // stack"). TODO (v4): the monitor board reports draw to the console
-    // directly (NRG lines on its own USB serial), so emit_energy_alert() has
-    // no data path here yet.
+    if (!sentinel::mesh::init(mesh_recv_bridge)) {
+        Serial.println("LOG gateway: ESP-NOW init failed -- mesh traffic will not work");
+    }
+
+    // TODO: run the crypto work in its own FreeRTOS task with a large stack
+    // (brief v2 section 8: "Run the crypto in its own FreeRTOS task with a
+    // large stack"). TODO (v4): the monitor board reports draw to the
+    // console directly (NRG lines on its own USB serial), so
+    // emit_energy_alert() has no data path here yet.
 }
 
 void loop() {
@@ -444,6 +555,7 @@ void loop() {
     set_status_color(g_status);
 
     uint32_t now = millis();
+    maybe_initiate_handshake(now);
     if (now - g_last_control_ms >= CONTROL_RESEND_MS) {
         send_control_to_field_node(now); // keep field-1's mode in sync
     }
