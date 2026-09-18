@@ -9,12 +9,16 @@
 
 namespace sentinel::board {
 
-// I2C bus (SSD1306 OLED + MPU6050 share it)
+// I2C bus (LCD backpack + MPU6050 share it)
 constexpr int I2C_SDA = 21;
 constexpr int I2C_SCL = 22;
-constexpr uint8_t OLED_I2C_ADDR = 0x3C;
-constexpr int OLED_WIDTH = 128;
-constexpr int OLED_HEIGHT = 64;
+// The BOM's "OLED" turned out, on the actual hardware in hand, to be a 16x2
+// character LCD behind an I2C backpack (not a real graphical SSD1306/SH1106
+// OLED) -- confirmed during bring-up on both field_node and gateway.
+// LiquidCrystal_I2C is used against this address instead of Adafruit_SSD1306.
+constexpr uint8_t LCD_I2C_ADDR = 0x27; // the other common backpack address is 0x3F
+constexpr int LCD_COLS = 16;
+constexpr int LCD_ROWS = 2;
 
 // Tamper sensing — brief v2 section 10 lists 4 independent sensors:
 // light (LDR), accelerometer (MPU6050), magnetic reed switch, and voltage.

@@ -31,7 +31,12 @@ inline void status_indicators_init() {
 inline void set_status_color(StatusColor c) {
     bool r = false, g = false, b = false;
     switch (c) {
-        case StatusColor::GREEN:        g = true; break;
+        // Using blue for "secure" instead of green -- the green LED on this
+        // hardware is noticeably dimmer/harder to see than blue. GREEN is
+        // still the enum/logical name used everywhere else in the code
+        // (it just means "secure"), this only changes which physical color
+        // represents it.
+        case StatusColor::GREEN:        b = true; break;
         case StatusColor::YELLOW:       r = true; g = true; break;
         case StatusColor::STEADY_RED:   r = true; break;
         case StatusColor::FLASHING_RED: r = (millis() / 300) % 2 == 0; break;

@@ -27,6 +27,15 @@
 //    The PIN_ENERGY_MARKER pin is raised around each decision so the monitor
 //    board measures EnergyGate's own cost (brief v4 section 3: "EnergyGate
 //    itself -- microseconds and millijoules per decision").
+//  - Real handshake (HMAC-PSK fallback, see common/handshake.h for why not
+//    true PQC yet): this node is always the RESPONDER -- the gateway
+//    initiates. On a SPEND-admitted HELLO, verifies its tag, replies with
+//    RESPONSE, and finalizes the session on a verified CONFIRM. Once
+//    established, DATA/GATE_REPORT payloads are AES-256-GCM encrypted
+//    (common/aead.h) and header.time_ms switches to "ms since session
+//    start," which is what makes the gateway's replay/freshness check
+//    actually mean something instead of comparing two unsynchronized
+//    board uptimes.
 //
 // Pressure sensor note (resolved from brief v2): the BOM (section 11) has
 // no dedicated pressure sensor — "pressure" is the storyboard's demo
@@ -34,18 +43,12 @@
 // measures. read_pressure_reading() below is intentionally a simulated
 // value, consistent with the brief's "honesty rule" (section 8): a
 // simulation is fine as long as it's labelled, which it is here.
-//
-// STATUS: structural skeleton. Handshake/encryption logic are TODO stubs
-// pending the crypto benchmark decision (src/benchmark) — see
-// firmware/README.md. Not yet build-verified on hardware.
 
 #include <Arduino.h>
 #include <Wire.h>
 #include <cstring>
-#include <Adafruit_MPU6050.h>
-#include <Adafruit_Sensor.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+#include <vector>
+#include <LiquidCrystal_I2C.h>
 
 #include "sentinel_proto/packet.h"
 #include "sentinel_proto/fragment.h"
@@ -57,13 +60,46 @@
 #include "sentinel_proto/gate_msgs.h"
 #include "common/board_config.h"
 #include "common/status_indicators.h"
+#include "common/mesh_transport.h"
+#include "common/handshake.h"
+#include "common/aead.h"
 
 using namespace sentinel;
 
-static Adafruit_MPU6050 g_mpu;
+// MPU6050 via a direct/manual I2C driver instead of Adafruit_MPU6050.
+// That library's begin() rejects this board's chip -- it does an identity
+// check (reads the WHO_AM_I register and compares against Invensense's
+// official value) that some cheap/clone MPU6050 breakouts fail even though
+// the chip answers every real command correctly. Confirmed during
+// bring-up: the chip acks on the bus at the expected address (0x68) and
+// gives sane accelerometer data once talked to directly.
+constexpr uint8_t MPU6050_I2C_ADDR = 0x68;
 static bool g_mpu_ok = false;
-static Adafruit_SSD1306 g_oled(board::OLED_WIDTH, board::OLED_HEIGHT, &Wire, -1);
-static bool g_oled_ok = false;
+
+static void mpu_wake() {
+    Wire.beginTransmission(MPU6050_I2C_ADDR);
+    Wire.write(0x6B); // power management register
+    Wire.write(0);    // clear sleep bit
+    Wire.endTransmission(true);
+}
+
+static bool mpu_read_accel(float& ax, float& ay, float& az) {
+    Wire.beginTransmission(MPU6050_I2C_ADDR);
+    Wire.write(0x3B); // first accelerometer data register
+    if (Wire.endTransmission(false) != 0) return false;
+    uint8_t n = Wire.requestFrom(static_cast<int>(MPU6050_I2C_ADDR), 6, 1);
+    if (n < 6) return false;
+    int16_t rawX = (Wire.read() << 8) | Wire.read();
+    int16_t rawY = (Wire.read() << 8) | Wire.read();
+    int16_t rawZ = (Wire.read() << 8) | Wire.read();
+    ax = rawX / 16384.0f * 9.81f; // default +-2g range, 16384 LSB/g
+    ay = rawY / 16384.0f * 9.81f;
+    az = rawZ / 16384.0f * 9.81f;
+    return true;
+}
+
+static LiquidCrystal_I2C g_lcd(board::LCD_I2C_ADDR, board::LCD_COLS, board::LCD_ROWS);
+static bool g_lcd_ok = false;
 
 static uint16_t g_epoch = 1;        // bumped on every re-handshake/rekey (16-bit, brief v2 6.1)
 static uint32_t g_seq = 0;          // bumped per DATA message sent (32-bit, brief v2 section 7)
@@ -84,6 +120,18 @@ constexpr float ACCEL_TAMPER_DELTA = 2.0f; // m/s^2
 // be flagged as tamper, separately from the slow, expected discharge curve
 // the adaptive engine already handles.
 static float g_voltage_baseline = -1.0f; // -1 = not yet initialized
+
+// ---------------------------------------------------------------------
+// Handshake / session state (HMAC-PSK fallback -- see common/handshake.h).
+// This node is always the RESPONDER; the gateway is always the initiator.
+// ---------------------------------------------------------------------
+
+static bool g_session_established = false;
+static uint8_t g_session_key[32] = {0};
+static uint32_t g_session_start_ms = 0; // this node's own millis() when the session began
+static uint32_t g_pending_nonce_a = 0;  // from the gateway's HELLO
+static uint32_t g_pending_nonce_b = 0;  // this node's own nonce, sent in RESPONSE
+static bool g_have_pending_response = false;
 
 // ---------------------------------------------------------------------
 // v4 EnergyGate state (moved here from the gateway -- see file header)
@@ -135,16 +183,18 @@ static float read_pressure_reading() {
 
 static bool check_tamper_ldr() {
     int v = analogRead(board::PIN_LDR);
-    return v > board::LDR_TAMPER_THRESHOLD; // case opened -> more light hits the LDR
+    // This specific LDR module reads INVERTED vs. the usual assumption --
+    // confirmed by hand during bring-up: covering it (dark) gives a HIGHER
+    // raw ADC value, uncovering it (light/case open) gives a LOWER one.
+    // Flipped from the naive `v > threshold`.
+    return v < board::LDR_TAMPER_THRESHOLD;
 }
 
 static bool check_tamper_motion() {
     if (!g_mpu_ok) return false;
-    sensors_event_t accel, gyro, temp;
-    g_mpu.getEvent(&accel, &gyro, &temp);
-    float mag = sqrtf(accel.acceleration.x * accel.acceleration.x +
-                       accel.acceleration.y * accel.acceleration.y +
-                       accel.acceleration.z * accel.acceleration.z);
+    float ax, ay, az;
+    if (!mpu_read_accel(ax, ay, az)) return false;
+    float mag = sqrtf(ax * ax + ay * ay + az * az);
     return fabsf(mag - g_accel_baseline) > ACCEL_TAMPER_DELTA;
 }
 
@@ -189,11 +239,13 @@ static bool check_tamper_voltage() {
 // ---------------------------------------------------------------------
 
 static void on_tamper_detected(const char* kind) {
-    // TODO: actually wipe the derived session keys from RAM (explicit_bzero
-    // or equivalent) once the handshake layer exists.
+    // A tamper event ends the current session outright -- whatever key was
+    // in use might be compromised, so don't just bump the epoch, drop the
+    // session entirely and make the gateway re-run the full handshake.
+    g_session_established = false;
+    memset(g_session_key, 0, sizeof(g_session_key));
     g_epoch++; // new epoch forces the replay window to reset on the gateway
     g_seq = 0;
-    // TODO: kick off a real re-handshake here.
 
     g_status = StatusColor::FLASHING_RED;
     buzz_alert();
@@ -224,25 +276,66 @@ static KemLevel pick_adaptive_level(float battery_pct, int rssi, bool urgent_pre
 static void maybe_rehandshake_for_level(KemLevel desired) {
     if (desired == g_kem_level) return;
     g_kem_level = desired;
-    g_epoch++;
-    g_seq = 0;
-    // TODO: real re-handshake at the new level; emit a REKEY message so the
-    // gateway can log a `rekey` EVT (details.level, details.reason).
-    Serial.printf("LOG re-handshake at level %d\n", static_cast<int>(g_kem_level));
+    // NOTE: with the HMAC-PSK fallback there's no real per-level KEM cost to
+    // re-derive -- the level is tracked for the demo's own story/status
+    // display, but doesn't currently force a fresh session the way it would
+    // once real ML-KEM levels exist. Session drops are still tamper- and
+    // gateway-initiated only.
+    Serial.printf("LOG adaptive level changed to %d (no re-handshake triggered under the HMAC-PSK fallback)\n",
+                  static_cast<int>(g_kem_level));
 }
 
 // ---------------------------------------------------------------------
 // Send path
 // ---------------------------------------------------------------------
 
+// Sends one message to the gateway. HELLO/RESPONSE/CONFIRM are never
+// encrypted (they establish the very key AES-GCM would use) -- only
+// DATA/GATE_REPORT get AES-256-GCM'd, and only once a session exists.
+static void send_to_gateway(MsgType type, const uint8_t* payload, size_t len) {
+    PacketHeader hdr;
+    hdr.type = type;
+    hdr.sender = SENTINEL_NODE_ID;
+    hdr.epoch = g_epoch;
+    hdr.seq = g_seq++;
+    hdr.time_ms = g_session_established ? (millis() - g_session_start_ms) : millis();
+    hdr.prio = 0;
+
+    const uint8_t* send_payload = payload;
+    size_t send_len = len;
+    std::vector<uint8_t> ciphertext;
+
+    bool should_encrypt = g_session_established &&
+                           (type == MsgType::DATA || type == MsgType::GATE_REPORT);
+    if (should_encrypt) {
+        uint8_t nonce[aead::GCM_NONCE_LEN];
+        aead::build_nonce(hdr.sender, hdr.epoch, hdr.seq, nonce);
+        uint8_t hdr_bytes[HEADER_SIZE];
+        hdr.serialize(hdr_bytes, sizeof(hdr_bytes));
+        // Valid only for single-fragment messages (true for everything this
+        // node sends today: a 4-byte pressure reading, a 16-byte GATE_REPORT)
+        // -- the AAD here must match the header each fragment actually
+        // carries, and multi-fragment messages would need per-fragment AAD.
+        if (aead::encrypt(g_session_key, nonce, hdr_bytes, HEADER_SIZE, payload, len, ciphertext)) {
+            send_payload = ciphertext.data();
+            send_len = ciphertext.size();
+        } else {
+            Serial.println("LOG send_to_gateway: encryption failed, sending plaintext");
+        }
+    }
+
+    auto frags = Fragmenter::split(hdr, send_payload, send_len);
+    for (auto& frag : frags) {
+        sentinel::mesh::broadcast(frag.data(), frag.size());
+    }
+}
+
 static void send_pressure_reading() {
     float p = read_pressure_reading();
 
-    // TODO: AES-256-GCM encrypt the payload with the outbound session key,
-    // nonce = sender||epoch||seq, before fragmenting/sending. Sending
-    // plaintext bytes here as a structural placeholder. If g_weak_link_debug
-    // is set, the transport should simulate cut TX power (drop/delay some
-    // fraction of frags) -- brief v2 section 12 "opt" beat.
+    // If g_weak_link_debug is set, a real transport would simulate cut TX
+    // power (drop/delay some fraction of frags) -- brief v2 section 12
+    // "opt" beat. Not implemented at the transport layer yet.
     uint8_t payload[sizeof(float)];
     memcpy(payload, &p, sizeof(p));
     send_to_gateway(MsgType::DATA, payload, sizeof(payload));
@@ -251,23 +344,6 @@ static void send_pressure_reading() {
 // ---------------------------------------------------------------------
 // v4 EnergyGate: inbound HELLO admission + reports to the gateway
 // ---------------------------------------------------------------------
-
-// Sends one message to the gateway. Same structural transport stub as
-// send_pressure_reading() -- TODO: hand the fragments to ESP-NOW once the
-// radio driver is wired up (and AES-GCM encrypt first, see there).
-static void send_to_gateway(MsgType type, const uint8_t* payload, size_t len) {
-    PacketHeader hdr;
-    hdr.type = type;
-    hdr.sender = SENTINEL_NODE_ID;
-    hdr.epoch = g_epoch;
-    hdr.seq = g_seq++;
-    hdr.time_ms = millis();
-    hdr.prio = 0;
-    auto frags = Fragmenter::split(hdr, payload, len);
-    for (auto& frag : frags) {
-        (void)frag; // TODO: mesh transport (ESP-NOW)
-    }
-}
 
 static void report_gate_decision(uint8_t sender, GateAction action, float prob_real,
                                  bool budget_exhausted_edge) {
@@ -306,8 +382,6 @@ static void build_gate_features(float f[ENERGYGATE_NUM_FEATURES]) {
 
 static void on_inbound_hello(const PacketHeader& hdr, const uint8_t* payload, size_t payload_len,
                              uint32_t now_ms) {
-    (void)payload;
-    (void)payload_len;
     g_link.hs_count++;
     if (hdr.frag_i == 0) g_link.frag_sets_started++;
 
@@ -341,16 +415,33 @@ static void on_inbound_hello(const PacketHeader& hdr, const uint8_t* payload, si
     if (action == GateAction::CHALLENGE) {
         uint8_t cookie[COOKIE_LEN];
         g_cookie.generate(hdr.sender, CookieChallenge::time_window_for(now_ms), cookie);
-        (void)cookie; // TODO: send once HELLO/RESPONSE framing exists
+        (void)cookie; // TODO: send once HELLO/RESPONSE framing carries a cookie-echo slot
         return;
     }
     if (action == GateAction::DROP) {
         return; // silence, and it's logged via the report
     }
 
-    // SPEND: TODO -- the full PQC handshake: reassemble, verify the sender's
-    // ML-DSA signature (or the HMAC-PSK fallback, auth_fallback.h), ML-KEM
-    // decapsulate, answer. On failure: g_link.hs_fail++.
+    // SPEND: verify the sender's HELLO tag (HMAC-PSK fallback -- see
+    // common/handshake.h for why not real PQC yet). A bad tag here means
+    // either a corrupted frame or someone without the shared PSK -- e.g.
+    // the attacker's FLOOD mode, which never signs anything at all.
+    uint32_t nonce_a;
+    if (!handshake::verify_hello(hdr.sender, payload, payload_len, nonce_a)) {
+        g_link.hs_fail++;
+        g_link.auth_fail++;
+        Serial.printf("LOG handshake_rejected: bad HELLO tag from sender=%u\n", hdr.sender);
+        return;
+    }
+
+    g_pending_nonce_a = nonce_a;
+    g_pending_nonce_b = esp_random();
+    g_have_pending_response = true;
+
+    uint8_t resp[handshake::RESPONSE_LEN];
+    handshake::build_response(SENTINEL_NODE_ID, g_pending_nonce_a, g_pending_nonce_b, resp);
+    send_to_gateway(MsgType::RESPONSE, resp, sizeof(resp));
+    Serial.println("LOG handshake: verified HELLO, sent RESPONSE");
 }
 
 static void on_control(const uint8_t* payload, size_t payload_len) {
@@ -364,14 +455,31 @@ static void on_control(const uint8_t* payload, size_t payload_len) {
 }
 
 // Called once per received, header-parsed packet from the mesh transport.
-// TODO: register as the ESP-NOW receive callback once the radio driver is
-// wired up (same state as the gateway's on_mesh_packet).
 static void on_mesh_packet(const PacketHeader& hdr, const uint8_t* payload, size_t payload_len,
                            float rssi, uint32_t now_ms) {
     g_link.add_rssi(rssi);
 
     if (hdr.type == MsgType::HELLO) {
         on_inbound_hello(hdr, payload, payload_len, now_ms);
+        return;
+    }
+
+    // CONFIRM finalizes the handshake this node responded to (RESPONSE
+    // above). Small, single-fragment, handled directly like HELLO -- no
+    // reassembly/replay infra needed for a 36-byte message.
+    if (hdr.type == MsgType::CONFIRM && hdr.sender == static_cast<uint8_t>(NodeId::GATEWAY)) {
+        if (g_have_pending_response &&
+            handshake::verify_confirm(hdr.sender, g_pending_nonce_a, g_pending_nonce_b, payload, payload_len)) {
+            handshake::derive_session_key(g_pending_nonce_a, g_pending_nonce_b, g_session_key);
+            g_session_established = true;
+            g_session_start_ms = millis();
+            g_epoch++;
+            g_seq = 0;
+            g_have_pending_response = false;
+            Serial.println("LOG handshake: session established with gateway");
+        } else {
+            Serial.println("LOG handshake: CONFIRM verify failed or unexpected (no pending RESPONSE)");
+        }
         return;
     }
 
@@ -390,6 +498,19 @@ static void on_mesh_packet(const PacketHeader& hdr, const uint8_t* payload, size
     }
 }
 
+// Bridges the ESP-NOW radio layer (raw bytes + RSSI) to on_mesh_packet()'s
+// (header, payload, rssi, now_ms) shape. Registered with sentinel::mesh::init()
+// in setup(). Silently drops anything that doesn't parse as a valid header
+// (wrong version/type, or too short) -- that's normal on a shared broadcast
+// channel picking up other traffic, not an error worth logging every time.
+static void mesh_recv_bridge(const uint8_t* data, size_t len, int rssi_dbm) {
+    PacketHeader hdr;
+    if (!PacketHeader::deserialize(data, len, hdr)) return;
+    const uint8_t* payload = data + HEADER_SIZE;
+    size_t payload_len = len - HEADER_SIZE;
+    on_mesh_packet(hdr, payload, payload_len, static_cast<float>(rssi_dbm), millis());
+}
+
 static void roll_link_window(uint32_t now_ms) {
     if (now_ms - g_link_window_start_ms < LINK_WINDOW_MS) return;
     g_link.reset();
@@ -398,25 +519,34 @@ static void roll_link_window(uint32_t now_ms) {
 }
 
 // ---------------------------------------------------------------------
-// Status display (brief v2 section 12: "ML-KEM-1024 | Batt 90% | Seq 0142 | Secure")
+// Status display -- condensed for a real 16x2 character LCD (the BOM's
+// "OLED" turned out to be this instead, see board_config.h). The original
+// 4-line pixel-OLED layout ("ML-KEM-1024 | Batt 90% | Seq 0142 | Secure")
+// doesn't fit; this keeps the two most demo-relevant facts per line.
 // ---------------------------------------------------------------------
 
 static void update_status_display(float battery_pct) {
-    if (!g_oled_ok) return;
-    g_oled.clearDisplay();
-    g_oled.setCursor(0, 0);
-    g_oled.setTextSize(1);
-    g_oled.setTextColor(SSD1306_WHITE);
+    if (!g_lcd_ok) return;
     const char* status_text =
-        (g_status == StatusColor::FLASHING_RED) ? "TAMPER" :
-        (g_status == StatusColor::STEADY_RED)   ? "ATTACK" :
+        (g_status == StatusColor::FLASHING_RED) ? "TAMPER!" :
+        (g_status == StatusColor::STEADY_RED)   ? "ATTACK!" :
         (g_status == StatusColor::YELLOW)       ? "Degraded" : "Secure";
-    g_oled.printf("ML-KEM-%d | Batt %d%%\nSeq %04lu | %s\ngate:%s %d/%dJ\n",
-                  static_cast<int>(g_kem_level), static_cast<int>(battery_pct),
-                  static_cast<unsigned long>(g_seq), status_text,
-                  defense_mode_name(g_defense), static_cast<int>(g_energy.balance_j()),
-                  static_cast<int>(g_energy.capacity_j()));
-    g_oled.display();
+
+    char raw1[24];
+    snprintf(raw1, sizeof(raw1), "K%d Bat%d%%",
+             static_cast<int>(g_kem_level), static_cast<int>(battery_pct));
+    char line1[board::LCD_COLS + 1];
+    snprintf(line1, sizeof(line1), "%-16s", raw1);
+
+    char raw2[24];
+    snprintf(raw2, sizeof(raw2), "%s %s", status_text, g_session_established ? "S:ok" : "S:--");
+    char line2[board::LCD_COLS + 1];
+    snprintf(line2, sizeof(line2), "%-16s", raw2);
+
+    g_lcd.setCursor(0, 0);
+    g_lcd.print(line1);
+    g_lcd.setCursor(0, 1);
+    g_lcd.print(line2);
 }
 
 // ---------------------------------------------------------------------
@@ -442,21 +572,27 @@ void setup() {
     g_link_window_start_ms = millis();
 
     Wire.begin(board::I2C_SDA, board::I2C_SCL);
-    g_mpu_ok = g_mpu.begin();
+    Wire.beginTransmission(MPU6050_I2C_ADDR);
+    g_mpu_ok = (Wire.endTransmission() == 0);
     if (g_mpu_ok) {
-        sensors_event_t accel, gyro, temp;
-        g_mpu.getEvent(&accel, &gyro, &temp);
-        g_accel_baseline = sqrtf(accel.acceleration.x * accel.acceleration.x +
-                                  accel.acceleration.y * accel.acceleration.y +
-                                  accel.acceleration.z * accel.acceleration.z);
+        mpu_wake();
+        delay(50); // let it come out of sleep before the first real read
+        float ax, ay, az;
+        if (mpu_read_accel(ax, ay, az)) {
+            g_accel_baseline = sqrtf(ax * ax + ay * ay + az * az);
+        }
     }
-    g_oled_ok = g_oled.begin(SSD1306_SWITCHCAPVCC, board::OLED_I2C_ADDR);
+    g_lcd.init();
+    g_lcd.backlight();
+    g_lcd_ok = true; // LiquidCrystal_I2C has no return-value begin() to check
 
     Serial.printf("LOG field_node boot complete; EnergyGate scorer: %s; defence: %s\n",
                   energygate_uses_trained_model() ? "trained model" : "rule-based stand-in",
                   defense_mode_name(g_defense));
-    // TODO once the mesh transport (ESP-NOW) is wired up: register
-    // on_mesh_packet() as the receive callback.
+
+    if (!sentinel::mesh::init(mesh_recv_bridge)) {
+        Serial.println("LOG field_node: ESP-NOW init failed -- mesh traffic will not work");
+    }
 }
 
 void loop() {
