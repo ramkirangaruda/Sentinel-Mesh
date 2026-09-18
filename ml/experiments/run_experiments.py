@@ -6,6 +6,7 @@ reports/experiments.json so the shipped numbers stay reproducible.
     python experiments/run_experiments.py fileguard --data <security>
     python experiments/run_experiments.py mailguard --data <security>
     python experiments/run_experiments.py chars     --data <security>
+    python experiments/run_experiments.py hardening --data <security>
 
 fileguard  Shortcut ablation: retrain without ImageBase (and the other top-gain
            columns) and measure detection at 0.1% false alarms, plus false
@@ -17,6 +18,9 @@ mailguard  Leave-one-corpus-out at a threshold tuned the way production tunes it
            threshold tuned on the held-out corpus itself.
 chars      Word TF-IDF vs word + character n-grams, under a stronger padding
            attack than the shipped one.
+hardening  Leave-one-corpus-out for the padding-hardened recipes (none / shipped
+           append-only / broader sandwich+interleaved), which the shipped LOCO
+           numbers never measured.
 """
 import argparse
 import json
@@ -302,10 +306,58 @@ def chars_experiment(data):
     save("mailguard_char_ngrams_and_stronger_padding", results)
 
 
+def _interleave_pieces(texts, pool, rng, pieces):
+    out = []
+    for t in texts:
+        parts = [" ".join(p) for p in np.array_split(np.array(t.split() or [""]), pieces)]
+        out.append(f" {rng.choice(pool)} ".join(parts))
+    return np.array(out)
+
+
+def hardening_loco(data):
+    """Leave-one-corpus-out for the PADDING-HARDENED recipes. The shipped LOCO
+    numbers (and mailguard_loco above) use the un-hardened fit(), so the hardened
+    models were never measured on an unseen corpus.
+
+    none = no augmentation; shipped = append-only padded copies (what mailguard.train
+    does); broader = shipped + sandwich + interleaved copies (tried, reverted)."""
+    em = load_emails(data)
+    em["t"] = em["text"].str.slice(0, 3000)
+    results = {}
+    for src in ["CEAS_08", "Enron", "Ling", "SpamAssasin"]:
+        a, b = em[em.source != src], em[em.source == src]
+        a_tr, a_val = train_test_split(a, test_size=0.15, stratify=a.label, random_state=0)
+        yb = b.label.values
+        pool = a_tr[a_tr.label == 0].t.str.slice(0, 600).values
+        sp = a_tr[a_tr.label == 1].sample(min(6000, int((a_tr.label == 1).sum())), random_state=1).t.values
+        for recipe in ("none", "shipped", "broader"):
+            t0 = time.time()
+            t, y = list(a_tr.t), list(a_tr.label)
+            if recipe != "none":
+                rng = np.random.default_rng(0)
+                t += list(mailguard.pad_with_legit(sp, pool, rng)); y += [1] * len(sp)
+            if recipe == "broader":
+                rng2, n = np.random.default_rng(2), min(3000, len(sp))
+                t += list(_pad(sp[:n], pool, rng2, 3, 3))
+                t += list(_interleave_pieces(sp[n:2 * n] if len(sp) >= 2 * n else sp[:n], pool, rng2, 4))
+                y += [1] * (len(t) - len(y))
+            vec, mdl = mailguard.fit(t, y)
+            thr = mailguard.threshold_for_max_fpr(a_val.label.values, mailguard.predict_proba(vec, mdl, a_val.t), 0.02)
+            s = mailguard.predict_proba(vec, mdl, b.t)
+            r = dict(tuned_threshold=round(thr, 3), auc=round(float(roc_auc_score(yb, s)), 4),
+                     recall_at_tuned=round(float((s[yb == 1] >= thr).mean()), 4),
+                     false_alarm_at_tuned=round(float((s[yb == 0] >= thr).mean()), 4),
+                     oracle_recall_at_2pct_fa=round(tpr_at(yb, s, 0.02), 4))
+            results[f"{src} | {recipe}"] = r
+            print(f"{src:12s} {recipe:8s} {r}   [{time.time() - t0:.0f}s]", flush=True)
+    save("mailguard_hardening_loco", results)
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("which", choices=["fileguard", "clusters", "mailguard", "chars"])
+    ap.add_argument("which", choices=["fileguard", "clusters", "mailguard", "chars", "hardening"])
     ap.add_argument("--data", required=True)
     a = ap.parse_args()
     {"fileguard": fileguard_ablation, "clusters": fileguard_clusters,
-     "mailguard": mailguard_loco, "chars": chars_experiment}[a.which](a.data)
+     "mailguard": mailguard_loco, "chars": chars_experiment,
+     "hardening": hardening_loco}[a.which](a.data)

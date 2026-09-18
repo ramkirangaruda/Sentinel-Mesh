@@ -55,17 +55,26 @@ mail the model's vocabulary has never seen.
   (`reports/experiments.json`, `mailguard_loco_tuned_threshold`). The 1.8%
   in the table above holds for mail like the training mail only.
 - **Red-team gap (padding).** Padding a malicious email with ordinary text
-  dropped recall from 99.3% to 15.8% (append-only, at 0.5). Adversarial
-  training now covers three layouts (append, sandwich before+after,
-  interleaved) and recovers it to 88.6% on the append attack, 91.6% on
-  sandwich, 79.7% on interleaved. On layouts it was **not** trained on:
-  91.3% (6 chunks appended), 90.0% (6 prepended), **72.3% (interleaved into
-  8 pieces)**. The un-hardened baseline scores 0.1-14% on all of these.
-  Interleaving is the open gap. Caveats: the padding text is drawn from the
-  same legit pool used in training, so this does not test unfamiliar padding
-  content; and the price is a small drop in clean recall at the tuned
-  threshold (98.7% -> 98.1% at the same 1.8% false alarms, AUC 0.9987 ->
-  0.9974).
+  dropped recall from 99.3% to 15.8% (append-only, at 0.5); adversarial
+  training on that attack recovers it to 79.1% at a small false-alarm cost
+  (1.2% -> 1.5%). The ~20-point gap is real evasion headroom. Padding layouts
+  the model was **not** trained on do worse: in `reports/experiments.json`
+  (`mailguard_char_ngrams_and_stronger_padding`) the shipped recipe catches
+  ~53% with 3 chunks before and after, ~54% with 6 appended, ~52% with 6
+  prepended, ~73% when interleaved into 4 pieces.
+- **We tried hardening against more layouts and reverted it.** Adding sandwich
+  and interleaved padding to the training data lifted those unseen layouts to
+  72-91%, but cost generalisation to email the model has not seen. On a held-out
+  corpus, at a threshold tuned on in-distribution data, recall at a 2%
+  false-alarm budget for CEAS_08 fell 69% (no hardening) -> 45% (shipped
+  append-only hardening) -> 39% (broader hardening); SpamAssasin 87% -> 78% ->
+  75%; AUC fell on 3 of 4 held-out corpora versus the shipped model. The extra
+  ~12,000 padded "malicious" rows also shift the training prior and push the
+  tuned threshold up (0.44 -> 0.51). The shipped model was kept. **Note the
+  shipped padding hardening itself carries a cross-corpus cost versus an
+  un-hardened model** (the same numbers: 69% -> 45% on CEAS_08); it was never
+  measured before. `python experiments/run_experiments.py hardening` reproduces
+  this.
 - **Character n-grams did not help and were not adopted.** A word+char
   model looked more robust (91% on the shipped append attack) only because
   its char branch read just the first 1,000 characters, so trailing padding

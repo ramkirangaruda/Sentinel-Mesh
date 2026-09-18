@@ -219,5 +219,91 @@
       "recall_UNSEEN_prepend_6x600": 0.9107,
       "recall_UNSEEN_interleaved_4_pieces": 0.756
     }
+  },
+  "mailguard_hardening_loco": {
+    "CEAS_08 | none": {
+      "tuned_threshold": 0.378,
+      "auc": 0.951,
+      "recall_at_tuned": 0.9336,
+      "false_alarm_at_tuned": 0.092,
+      "oracle_recall_at_2pct_fa": 0.6874
+    },
+    "CEAS_08 | shipped": {
+      "tuned_threshold": 0.429,
+      "auc": 0.9194,
+      "recall_at_tuned": 0.866,
+      "false_alarm_at_tuned": 0.1339,
+      "oracle_recall_at_2pct_fa": 0.447
+    },
+    "CEAS_08 | broader": {
+      "tuned_threshold": 0.505,
+      "auc": 0.9073,
+      "recall_at_tuned": 0.8267,
+      "false_alarm_at_tuned": 0.1305,
+      "oracle_recall_at_2pct_fa": 0.3874
+    },
+    "Enron | none": {
+      "tuned_threshold": 0.233,
+      "auc": 0.948,
+      "recall_at_tuned": 0.9417,
+      "false_alarm_at_tuned": 0.2585,
+      "oracle_recall_at_2pct_fa": 0.6709
+    },
+    "Enron | shipped": {
+      "tuned_threshold": 0.334,
+      "auc": 0.9337,
+      "recall_at_tuned": 0.8757,
+      "false_alarm_at_tuned": 0.1591,
+      "oracle_recall_at_2pct_fa": 0.6789
+    },
+    "Enron | broader": {
+      "tuned_threshold": 0.456,
+      "auc": 0.9345,
+      "recall_at_tuned": 0.8098,
+      "false_alarm_at_tuned": 0.0805,
+      "oracle_recall_at_2pct_fa": 0.6706
+    },
+    "Ling | none": {
+      "tuned_threshold": 0.324,
+      "auc": 0.9785,
+      "recall_at_tuned": 0.9357,
+      "false_alarm_at_tuned": 0.0753,
+      "oracle_recall_at_2pct_fa": 0.7871
+    },
+    "Ling | shipped": {
+      "tuned_threshold": 0.415,
+      "auc": 0.9864,
+      "recall_at_tuned": 0.9601,
+      "false_alarm_at_tuned": 0.0548,
+      "oracle_recall_at_2pct_fa": 0.8093
+    },
+    "Ling | broader": {
+      "tuned_threshold": 0.508,
+      "auc": 0.9856,
+      "recall_at_tuned": 0.9401,
+      "false_alarm_at_tuned": 0.0364,
+      "oracle_recall_at_2pct_fa": 0.8204
+    },
+    "SpamAssasin | none": {
+      "tuned_threshold": 0.336,
+      "auc": 0.9849,
+      "recall_at_tuned": 0.9623,
+      "false_alarm_at_tuned": 0.123,
+      "oracle_recall_at_2pct_fa": 0.8728
+    },
+    "SpamAssasin | shipped": {
+      "tuned_threshold": 0.432,
+      "auc": 0.9756,
+      "recall_at_tuned": 0.9396,
+      "false_alarm_at_tuned": 0.1054,
+      "oracle_recall_at_2pct_fa": 0.7841
+    },
+    "SpamAssasin | broader": {
+      "tuned_threshold": 0.534,
+      "auc": 0.9696,
+      "recall_at_tuned": 0.9058,
+      "false_alarm_at_tuned": 0.0718,
+      "oracle_recall_at_2pct_fa": 0.7465
+    }
   }
 }
