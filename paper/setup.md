@@ -1,0 +1,27 @@
+# Setup record (team fills in; reviewers read this)
+
+## Hardware actually in hand (as of 2026-10-08)
+- ESP32 boards: ___ x ESP32-WROOM-32 (exact model/seller: ___)
+- Current sensor: ADS1115 (ADC) with a ~2.5 ohm shunt (four 10 ohm in parallel), low-side; INA219: NOT yet bought
+- Battery: none yet
+- Display: 16x2 LCD with HW-61 I2C backpack (I2C address found by scanner: ___)
+- Other: buzzer module, RGB LEDs, resistors
+
+## Known problems with the current rig (see execution guide / chat notes)
+- ADS1115 gain x16 with a 2.5 ohm shunt saturates at about 102 mA (256 mV / 2.5 ohm). ESP32 with radio on exceeds this.
+- Low-side shunt lifts the field node's ground by I x R (about 0.25 V at 100 mA); marker wire reference shifts.
+- No battery: `battery_pct` feature and E4 run-down impossible until one is added.
+- LCD/LEDs/buzzer must be disconnected for every energy experiment.
+
+## Calibration (fill after Phase 4)
+| Load | Multimeter | Sensor | Error % |
+|---|---|---|---|
+| open | | | |
+| 22 ohm | | | |
+| 10 ohm | | | |
+
+## Versions (fill in)
+- `pio --version`: ___ | espressif32 platform: ___ | Arduino-ESP32 core: ___
+- Python ___ | gcc ___
+- PQClean commit: 0586a824fc0d49df0b6b6e9179d8d15d06d0974f (vendored 2026-10-08)
+- Firmware commit used for each run: see `runlog.csv`

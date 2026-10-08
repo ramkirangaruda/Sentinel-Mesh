@@ -15,7 +15,16 @@
 //   SENTINEL_PQC_BACKEND_PQCLEAN  (fallback if wolfCrypt's PQC build
 //                                  doesn't fit/compile for this target)
 //
-// STATUS: written against the documented wolfCrypt ML-KEM (wc_KyberKey,
+// STATUS (paper Phase 3 / E0): default backend is now PQClean's portable "clean"
+// ML-KEM-512/768/1024 and ML-DSA-44/65/87, vendored in lib/pqclean/ (see its
+// README.md for the commit and licence). It runs in a 64 KB-stack FreeRTOS task.
+// NOT yet compiled for the ESP32 (the authoring sandbox could not download the
+// PlatformIO toolchain). The vendored PQClean sources were verified on a host
+// gcc (round trips + forged-signature rejection, see paper/data/E0/HOST_TEST.md).
+// First step on real hardware: `pio run -e benchmark`, then flash and log.
+// The wolfSSL path below is kept but unused and still unverified.
+//
+// (older note) written against the documented wolfCrypt ML-KEM (wc_KyberKey,
 // historically "Kyber") and ML-DSA (wc_dilithium_key, historically
 // "Dilithium") APIs and against PQClean's reference C API. NOT YET BUILD-
 // VERIFIED on real hardware — no ESP32 toolchain or these libraries are
@@ -26,9 +35,12 @@
 // See firmware/README.md "Crypto benchmark: known risk / next step".
 
 #include <Arduino.h>
+#if defined(SENTINEL_BENCH_TRUE_RANDOM_NO_RADIO)
+#include "bootloader_random.h"
+#endif
 
 #if !defined(SENTINEL_PQC_BACKEND_WOLFSSL) && !defined(SENTINEL_PQC_BACKEND_PQCLEAN)
-#define SENTINEL_PQC_BACKEND_WOLFSSL 1
+#define SENTINEL_PQC_BACKEND_PQCLEAN 1   // default since paper Phase 3 (E0); see lib/pqclean/README.md
 #endif
 
 #if defined(SENTINEL_PQC_BACKEND_WOLFSSL)
@@ -51,6 +63,8 @@
   #include "pqclean/ml-kem-768/api.h"
   #include "pqclean/ml-kem-1024/api.h"
   #include "pqclean/ml-dsa-44/api.h"
+  #include "pqclean/ml-dsa-65/api.h"
+  #include "pqclean/ml-dsa-87/api.h"
   }
 #endif
 
@@ -63,7 +77,7 @@ struct BenchResult {
     const char* op;       // "keygen" | "encaps" | "decaps" | "sign" | "verify"
     uint32_t us;           // wall time, microseconds
     uint32_t heap_used;    // bytes: free heap before - free heap after (peak proxy)
-    uint32_t stack_hwm;    // bytes: stack high-water mark for the calling task
+    uint32_t stack_hwm;    // bytes of stack still FREE at its deepest use (higher = safer)
     bool ok;
 };
 
@@ -78,9 +92,10 @@ static void print_result(const BenchResult& r) {
 }
 
 static uint32_t stack_high_water_bytes() {
-    // uxTaskGetStackHighWaterMark returns words remaining at the
-    // deepest point seen so far; multiply by 4 for bytes on ESP32 (32-bit).
-    return uxTaskGetStackHighWaterMark(nullptr) * 4;
+    // ESP-IDF's FreeRTOS port (Xtensa) uses a byte-sized StackType_t, so
+    // uxTaskGetStackHighWaterMark already returns BYTES of stack that were
+    // never used (stock FreeRTOS returns words). Do not multiply.
+    return uxTaskGetStackHighWaterMark(nullptr);
 }
 
 // Runs `fn` once, measuring wall time and heap delta around it. Stack HWM
@@ -208,6 +223,81 @@ static void bench_mlkem(const char* name,
         return keypair(pk, sk) == 0;
     });
     print_result(r_keygen);
+    vTaskDelay(1);
+
+    auto r_encaps = time_op(name, "encaps", [&]() {
+        return encaps(ct, ss_a, pk) == 0;
+    });
+    print_result(r_encaps);
+
+    auto r_decaps = time_op(name, "decaps", [&]() {
+        return decaps(ss_b, ct, sk) == 0;
+    });
+    print_result(r_decaps);
+
+    bool match = memcmp(ss_a, ss_b, ss_len) == 0;
+    Serial.printf("%s,shared_secret_match,,,,%s\n", name, match ? "ok" : "FAIL");
+    (void)pk_len; (void)sk_len; (void)ct_len;
+}
+
+typedef int (*dsa_keypair_fn)(uint8_t*, uint8_t*);
+typedef int (*dsa_sign_fn)(uint8_t*, size_t*, const uint8_t*, size_t, const uint8_t*);
+typedef int (*dsa_verify_fn)(const uint8_t*, size_t, const uint8_t*, size_t, const uint8_t*);
+
+// ML-DSA-87 is the largest set: pk 2592 B, sk 4896 B, sig 4627 B.
+static void bench_mldsa(const char* name, dsa_keypair_fn keypair,
+                        dsa_sign_fn sign, dsa_verify_fn verify) {
+    static unsigned char pk[4096], sk[6144], sig[5120];
+    const unsigned char msg[] = "SentinelMesh handshake benchmark message";
+    size_t msg_len = sizeof(msg) - 1;
+    size_t sig_len = 0;
+
+    print_result(time_op(name, "keygen", [&]() { return keypair(pk, sk) == 0; }));
+    vTaskDelay(1);
+    print_result(time_op(name, "sign", [&]() {
+        return sign(sig, &sig_len, msg, msg_len, sk) == 0;
+    }));
+    vTaskDelay(1);
+    print_result(time_op(name, "verify", [&]() {
+        return verify(sig, sig_len, msg, msg_len, pk) == 0;
+    }));
+    vTaskDelay(1);
+
+    // Sanity: the same signature must FAIL on a different message.
+    const unsigned char bad[] = "SentinelMesh handshake benchmark messagX";
+    bool rejected = verify(sig, sig_len, bad, sizeof(bad) - 1, pk) != 0;
+    Serial.printf("%s,forged_message_rejected,,,,%s\n", name, rejected ? "ok" : "FAIL");
+    Serial.printf("%s,signature_bytes,%u,,,ok\n", name, static_cast<unsigned>(sig_len));
+}
+
+static void run_benchmarks() {
+    wc_InitRng(&g_rng);
+    bench_kyber_level("ML-KEM-512", KYBER512);
+    bench_kyber_level("ML-KEM-768", KYBER768);
+    bench_kyber_level("ML-KEM-1024", KYBER1024);
+    bench_dilithium_44();
+    wc_FreeRng(&g_rng);
+}
+
+#endif // SENTINEL_PQC_BACKEND_WOLFSSL
+
+// ---------------------------------------------------------------------
+// PQClean backend (fallback path if wolfCrypt's PQC config doesn't fit)
+// ---------------------------------------------------------------------
+#if defined(SENTINEL_PQC_BACKEND_PQCLEAN)
+
+static void bench_mlkem(const char* name,
+                         int (*keypair)(unsigned char*, unsigned char*),
+                         int (*encaps)(unsigned char*, unsigned char*, const unsigned char*),
+                         int (*decaps)(unsigned char*, const unsigned char*, const unsigned char*),
+                         size_t pk_len, size_t sk_len, size_t ct_len, size_t ss_len) {
+    static unsigned char pk[4096], sk[8192], ct[4096], ss_a[64], ss_b[64];
+
+    auto r_keygen = time_op(name, "keygen", [&]() {
+        return keypair(pk, sk) == 0;
+    });
+    print_result(r_keygen);
+    vTaskDelay(1);
 
     auto r_encaps = time_op(name, "encaps", [&]() {
         return encaps(ct, ss_a, pk) == 0;
@@ -271,7 +361,18 @@ static void run_benchmarks() {
                 PQCLEAN_MLKEM1024_CLEAN_CRYPTO_SECRETKEYBYTES,
                 PQCLEAN_MLKEM1024_CLEAN_CRYPTO_CIPHERTEXTBYTES,
                 PQCLEAN_MLKEM1024_CLEAN_CRYPTO_BYTES);
-    bench_mldsa44();
+    bench_mldsa("ML-DSA-44",
+                PQCLEAN_MLDSA44_CLEAN_crypto_sign_keypair,
+                PQCLEAN_MLDSA44_CLEAN_crypto_sign_signature,
+                PQCLEAN_MLDSA44_CLEAN_crypto_sign_verify);
+    bench_mldsa("ML-DSA-65",
+                PQCLEAN_MLDSA65_CLEAN_crypto_sign_keypair,
+                PQCLEAN_MLDSA65_CLEAN_crypto_sign_signature,
+                PQCLEAN_MLDSA65_CLEAN_crypto_sign_verify);
+    bench_mldsa("ML-DSA-87",
+                PQCLEAN_MLDSA87_CLEAN_crypto_sign_keypair,
+                PQCLEAN_MLDSA87_CLEAN_crypto_sign_signature,
+                PQCLEAN_MLDSA87_CLEAN_crypto_sign_verify);
 }
 
 #endif // SENTINEL_PQC_BACKEND_PQCLEAN
@@ -374,20 +475,50 @@ static void bench_classical_baseline() {
 // Arduino entry points
 // ---------------------------------------------------------------------
 
-void setup() {
-    Serial.begin(115200);
-    delay(2000); // give the serial monitor time to attach
+// ML-DSA's reference code keeps large polynomial vectors on the stack, far
+// more than Arduino's loopTask (about 8 KB). Everything runs in its own task
+// with a big stack (size in BYTES on ESP32). If you see "Stack canary
+// watchpoint triggered (pqc_bench)", raise BENCH_STACK_BYTES.
+#ifndef BENCH_STACK_BYTES
+#define BENCH_STACK_BYTES 65536
+#endif
+
+static void bench_task(void*) {
     Serial.println("SentinelMesh crypto benchmark");
+    Serial.printf("cpu_mhz=%u backend=%s stack_bytes=%u free_heap_start=%lu\n",
+                  static_cast<unsigned>(getCpuFrequencyMhz()),
+#if defined(SENTINEL_PQC_BACKEND_PQCLEAN)
+                  "pqclean",
+#else
+                  "wolfssl",
+#endif
+                  static_cast<unsigned>(BENCH_STACK_BYTES),
+                  static_cast<unsigned long>(ESP.getFreeHeap()));
     Serial.println("algo,op,us,heap_used_bytes,stack_hwm_bytes,ok");
 
     run_benchmarks();
     bench_classical_baseline();
 
     Serial.println("--- done ---");
-    Serial.printf("free_heap_after_all_runs=%lu\n",
-                  static_cast<unsigned long>(ESP.getFreeHeap()));
+    Serial.printf("free_heap_after_all_runs=%lu min_free_stack_bytes=%lu\n",
+                  static_cast<unsigned long>(ESP.getFreeHeap()),
+                  static_cast<unsigned long>(uxTaskGetStackHighWaterMark(nullptr)));
+    vTaskDelete(nullptr);
+}
+
+void setup() {
+    Serial.begin(115200);
+    delay(2000); // give the serial monitor time to attach
+#if defined(SENTINEL_BENCH_TRUE_RANDOM_NO_RADIO)
+    // esp_random() is only truly random while Wi-Fi/Bluetooth is on. This
+    // benchmark runs with the radio off, so enable the ADC noise source
+    // (build with -DSENTINEL_BENCH_TRUE_RANDOM_NO_RADIO). Timing is unaffected.
+    bootloader_random_enable();
+#endif
+    xTaskCreatePinnedToCore(bench_task, "pqc_bench", BENCH_STACK_BYTES,
+                            nullptr, 1, nullptr, 1);
 }
 
 void loop() {
-    delay(60000); // nothing to do; results already printed once in setup()
+    delay(60000); // nothing to do; the benchmark task prints results once
 }
