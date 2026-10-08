@@ -279,72 +279,6 @@ static void bench_mldsa(const char* name, dsa_keypair_fn keypair,
 }
 
 static void run_benchmarks() {
-    wc_InitRng(&g_rng);
-    bench_kyber_level("ML-KEM-512", KYBER512);
-    bench_kyber_level("ML-KEM-768", KYBER768);
-    bench_kyber_level("ML-KEM-1024", KYBER1024);
-    bench_dilithium_44();
-    wc_FreeRng(&g_rng);
-}
-
-#endif // SENTINEL_PQC_BACKEND_WOLFSSL
-
-// ---------------------------------------------------------------------
-// PQClean backend (fallback path if wolfCrypt's PQC config doesn't fit)
-// ---------------------------------------------------------------------
-#if defined(SENTINEL_PQC_BACKEND_PQCLEAN)
-
-static void bench_mlkem(const char* name,
-                         int (*keypair)(unsigned char*, unsigned char*),
-                         int (*encaps)(unsigned char*, unsigned char*, const unsigned char*),
-                         int (*decaps)(unsigned char*, const unsigned char*, const unsigned char*),
-                         size_t pk_len, size_t sk_len, size_t ct_len, size_t ss_len) {
-    static unsigned char pk[4096], sk[8192], ct[4096], ss_a[64], ss_b[64];
-
-    auto r_keygen = time_op(name, "keygen", [&]() {
-        return keypair(pk, sk) == 0;
-    });
-    print_result(r_keygen);
-    vTaskDelay(1);
-
-    auto r_encaps = time_op(name, "encaps", [&]() {
-        return encaps(ct, ss_a, pk) == 0;
-    });
-    print_result(r_encaps);
-
-    auto r_decaps = time_op(name, "decaps", [&]() {
-        return decaps(ss_b, ct, sk) == 0;
-    });
-    print_result(r_decaps);
-
-    bool match = memcmp(ss_a, ss_b, ss_len) == 0;
-    Serial.printf("%s,shared_secret_match,,,,%s\n", name, match ? "ok" : "FAIL");
-    (void)pk_len; (void)sk_len; (void)ct_len;
-}
-
-static void bench_mldsa44() {
-    static unsigned char pk[2048], sk[4096], sig[4096];
-    const unsigned char msg[] = "SentinelMesh handshake benchmark message";
-    size_t msg_len = sizeof(msg) - 1;
-    size_t sig_len = 0;
-
-    auto r_keygen = time_op("ML-DSA-44", "keygen", [&]() {
-        return PQCLEAN_MLDSA44_CLEAN_crypto_sign_keypair(pk, sk) == 0;
-    });
-    print_result(r_keygen);
-
-    auto r_sign = time_op("ML-DSA-44", "sign", [&]() {
-        return PQCLEAN_MLDSA44_CLEAN_crypto_sign_signature(sig, &sig_len, msg, msg_len, sk) == 0;
-    });
-    print_result(r_sign);
-
-    auto r_verify = time_op("ML-DSA-44", "verify", [&]() {
-        return PQCLEAN_MLDSA44_CLEAN_crypto_sign_verify(sig, sig_len, msg, msg_len, pk) == 0;
-    });
-    print_result(r_verify);
-}
-
-static void run_benchmarks() {
     bench_mlkem("ML-KEM-512",
                 PQCLEAN_MLKEM512_CLEAN_crypto_kem_keypair,
                 PQCLEAN_MLKEM512_CLEAN_crypto_kem_enc,
@@ -404,6 +338,9 @@ static void run_benchmarks() {
 // on-target mbedtls turns out to be 3.x with PSA enabled — say so in the
 // pitch either way, per the brief's own rule.
 
+#include <mbedtls/version.h>
+#include <mbedtls/ecp.h>
+#include <mbedtls/bignum.h>
 #include <mbedtls/ecdh.h>
 #include <mbedtls/ecdsa.h>
 #include <mbedtls/entropy.h>
@@ -418,36 +355,35 @@ static void bench_classical_baseline() {
     mbedtls_ctr_drbg_seed(&ctr_drbg, mbedtls_entropy_func, &entropy,
                            reinterpret_cast<const unsigned char*>(pers), strlen(pers));
 
-    // --- X25519 ECDH ---
-    mbedtls_ecdh_context ecdh_a, ecdh_b;
-    mbedtls_ecdh_init(&ecdh_a);
-    mbedtls_ecdh_init(&ecdh_b);
-    unsigned char buf_a[32], buf_b[32], secret_a[32], secret_b[32];
-    size_t olen = 0;
+    // --- X25519 ECDH (low-level ECP API: identical in mbedtls 2.x and 3.x) ---
+    mbedtls_ecp_group grp;
+    mbedtls_mpi d_a, d_b, z_a, z_b;
+    mbedtls_ecp_point q_a, q_b;
+    mbedtls_ecp_group_init(&grp);
+    mbedtls_mpi_init(&d_a); mbedtls_mpi_init(&d_b);
+    mbedtls_mpi_init(&z_a); mbedtls_mpi_init(&z_b);
+    mbedtls_ecp_point_init(&q_a); mbedtls_ecp_point_init(&q_b);
+    bool grp_ok = mbedtls_ecp_group_load(&grp, MBEDTLS_ECP_DP_CURVE25519) == 0;
 
     auto r_keygen = time_op("X25519", "keygen", [&]() {
-        if (mbedtls_ecdh_setup(&ecdh_a, MBEDTLS_ECP_DP_CURVE25519) != 0) return false;
-        if (mbedtls_ecdh_setup(&ecdh_b, MBEDTLS_ECP_DP_CURVE25519) != 0) return false;
-        if (mbedtls_ecdh_gen_public(&ecdh_a.MBEDTLS_PRIVATE(grp), &ecdh_a.MBEDTLS_PRIVATE(d),
-                                     &ecdh_a.MBEDTLS_PRIVATE(Q), mbedtls_ctr_drbg_random, &ctr_drbg) != 0) return false;
-        return mbedtls_ecdh_gen_public(&ecdh_b.MBEDTLS_PRIVATE(grp), &ecdh_b.MBEDTLS_PRIVATE(d),
-                                        &ecdh_b.MBEDTLS_PRIVATE(Q), mbedtls_ctr_drbg_random, &ctr_drbg) == 0;
+        if (!grp_ok) return false;
+        if (mbedtls_ecdh_gen_public(&grp, &d_a, &q_a, mbedtls_ctr_drbg_random, &ctr_drbg) != 0) return false;
+        return mbedtls_ecdh_gen_public(&grp, &d_b, &q_b, mbedtls_ctr_drbg_random, &ctr_drbg) == 0;
     });
     print_result(r_keygen);
 
     auto r_exchange = time_op("X25519", "ecdh_compute_shared", [&]() {
-        if (mbedtls_ecdh_compute_shared(&ecdh_a.MBEDTLS_PRIVATE(grp), &ecdh_a.MBEDTLS_PRIVATE(z),
-                                         &ecdh_b.MBEDTLS_PRIVATE(Q), &ecdh_a.MBEDTLS_PRIVATE(d),
-                                         mbedtls_ctr_drbg_random, &ctr_drbg) != 0) return false;
-        return mbedtls_ecdh_compute_shared(&ecdh_b.MBEDTLS_PRIVATE(grp), &ecdh_b.MBEDTLS_PRIVATE(z),
-                                            &ecdh_a.MBEDTLS_PRIVATE(Q), &ecdh_b.MBEDTLS_PRIVATE(d),
-                                            mbedtls_ctr_drbg_random, &ctr_drbg) == 0;
+        if (!grp_ok) return false;
+        if (mbedtls_ecdh_compute_shared(&grp, &z_a, &q_b, &d_a, mbedtls_ctr_drbg_random, &ctr_drbg) != 0) return false;
+        if (mbedtls_ecdh_compute_shared(&grp, &z_b, &q_a, &d_b, mbedtls_ctr_drbg_random, &ctr_drbg) != 0) return false;
+        return mbedtls_mpi_cmp_mpi(&z_a, &z_b) == 0;
     });
     print_result(r_exchange);
-    (void)buf_a; (void)buf_b; (void)secret_a; (void)secret_b; (void)olen;
 
-    mbedtls_ecdh_free(&ecdh_a);
-    mbedtls_ecdh_free(&ecdh_b);
+    mbedtls_ecp_point_free(&q_a); mbedtls_ecp_point_free(&q_b);
+    mbedtls_mpi_free(&d_a); mbedtls_mpi_free(&d_b);
+    mbedtls_mpi_free(&z_a); mbedtls_mpi_free(&z_b);
+    mbedtls_ecp_group_free(&grp);
 
     // --- ECDSA / P-256 (classical signature stand-in, see note above) ---
     mbedtls_ecdsa_context ecdsa;
@@ -463,9 +399,15 @@ static void bench_classical_baseline() {
     print_result(r_dsa_keygen);
 
     auto r_dsa_sign = time_op("ECDSA-P256", "sign", [&]() {
+#if MBEDTLS_VERSION_NUMBER >= 0x03000000
         return mbedtls_ecdsa_write_signature(&ecdsa, MBEDTLS_MD_SHA256, hash, sizeof(hash),
                                               sig, sizeof(sig), &sig_len,
                                               mbedtls_ctr_drbg_random, &ctr_drbg) == 0;
+#else   // mbedtls 2.x (Arduino-ESP32 2.x / IDF 4.4): no sig buffer-size argument
+        return mbedtls_ecdsa_write_signature(&ecdsa, MBEDTLS_MD_SHA256, hash, sizeof(hash),
+                                              sig, &sig_len,
+                                              mbedtls_ctr_drbg_random, &ctr_drbg) == 0;
+#endif
     });
     print_result(r_dsa_sign);
 
