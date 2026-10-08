@@ -2,6 +2,7 @@
 
 ## Hardware actually in hand (as of 2026-10-08)
 - ESP32 boards: ___ x ESP32-WROOM-32 (exact model/seller: ___)
+- Board a4:f0:0f:77:a2:70: ESP32-D0WD-V3 rev v3.1, 40 MHz crystal, CP2102 USB bridge (first benchmarked 2026-10-08, COM6)
 - Current sensor: ADS1115 + ~2.5 ohm shunt (rehearsal only, `env:monitor`); INA219 ordered for the paper rig (`env:monitor_ina219`)
 - Battery: none yet
 - Display: 16x2 LCD with HW-61 I2C backpack (I2C address found by scanner: ___)
