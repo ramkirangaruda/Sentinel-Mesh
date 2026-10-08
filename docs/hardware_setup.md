@@ -1,3 +1,21 @@
+# Hardware setup -- paper rig (2026-10-08 addendum, read this first)
+
+For the research paper the sensor is an **INA219** (high-side, no ground lift, 0.1 mA
+resolution), build `env:monitor_ina219`. The ADS1115 + hand-made shunt below stays as a
+rehearsal rig (`env:monitor`). Energy pass for crypto: flash `env:benchmark_energy` to the
+board under test (raises GPIO4 around every op, repeats x20, no LEDs/buzzer) and power it
+ONLY through the INA219, no USB. Full step list: paper/setup.md and the shared
+"SentinelMesh Hardware Build Instructions" doc.
+
+```
+charger 5V -> INA219 Vin+ ;  INA219 Vin- -> board-under-test VIN(5V)
+charger GND -> board-under-test GND  AND  Monitor GND  AND  INA219 GND
+INA219 VCC -> Monitor 3V3, SDA -> GPIO21, SCL -> GPIO22
+board-under-test GPIO4 --1k--> Monitor GPIO4 (marker)
+```
+
+---
+
 # Hardware setup — energy rig (v4)
 
 **Updated 2026-09-19, night before/of demo, from what's actually wired and

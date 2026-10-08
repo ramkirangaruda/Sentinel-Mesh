@@ -19,6 +19,13 @@ namespace sentinel {
 
 enum class StatusColor { GREEN, YELLOW, STEADY_RED, FLASHING_RED, OFF };
 
+// Measurement builds (-DSENTINEL_MEASUREMENT_BUILD) must not drive LEDs or the
+// buzzer: they draw current that would be counted as crypto energy.
+#if defined(SENTINEL_MEASUREMENT_BUILD)
+inline void status_indicators_init() {}
+inline void set_status_color(StatusColor) {}
+inline void buzz_alert(uint16_t = 2000, uint16_t = 150) {}
+#else
 inline void status_indicators_init() {
     pinMode(board::PIN_LED_R, OUTPUT);
     pinMode(board::PIN_LED_G, OUTPUT);
@@ -47,5 +54,7 @@ inline void set_status_color(StatusColor c) {
 inline void buzz_alert(uint16_t freq_hz = 2000, uint16_t duration_ms = 150) {
     tone(board::PIN_BUZZER, freq_hz, duration_ms);
 }
+
+#endif // SENTINEL_MEASUREMENT_BUILD
 
 } // namespace sentinel

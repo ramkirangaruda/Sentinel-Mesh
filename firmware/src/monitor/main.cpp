@@ -47,13 +47,23 @@
 
 #include <Arduino.h>
 #include <Wire.h>
+#if defined(SENTINEL_SENSOR_INA219)
+#include <Adafruit_INA219.h>
+#else
 #include <Adafruit_ADS1X15.h>
+#endif
 #include "common/board_config.h"
 
 using namespace sentinel; // board:: lives in sentinel::board (common/board_config.h)
 
+#if defined(SENTINEL_SENSOR_INA219)
+// INA219 on the HIGH side of the field node's 5 V line (charger 5V -> Vin+, Vin- -> node VIN).
+static Adafruit_INA219 g_ina(board::INA219_I2C_ADDR);
+static bool g_ads_ok = false;   // name kept: "sensor ok"
+#else
 static Adafruit_ADS1115 g_ads;
 static bool g_ads_ok = false;
+#endif
 
 // Battery voltage barely moves within one short crypto operation, so we
 // don't need to re-read it every sample -- and we can't read both channels
@@ -72,7 +82,11 @@ static int g_sample_count = 0;
 // makes the true average a bit slower than this -- documented so real
 // hardware isn't "surprised" that this lands under ~800Hz average rather
 // than the INA219 version's ~1kHz.
+#if defined(SENTINEL_SENSOR_INA219)
+constexpr uint32_t SAMPLE_INTERVAL_US = 1000;
+#else
 constexpr uint32_t SAMPLE_INTERVAL_US = 1200;
+#endif
 
 static bool g_marker_active = false;
 static uint32_t g_interval_start_us = 0;
@@ -121,6 +135,23 @@ static void poll_marker(uint32_t now_us) {
     }
 }
 
+#if defined(SENTINEL_SENSOR_INA219)
+static void sample_ina219(double dt_s) {
+    if (!g_ads_ok) return;
+    float current_ma = g_ina.getCurrent_mA();
+    float bus_v = g_ina.getBusVoltage_V();
+    float power_mw = bus_v * current_ma;
+    g_last_bus_v = bus_v;
+    g_nrg_energy_mj += static_cast<double>(power_mw) * dt_s;
+    g_nrg_seconds += dt_s;
+    g_last_load_v = bus_v;
+    g_last_current_ma = current_ma;
+    if (g_marker_active) {
+        g_interval_energy_uj += static_cast<double>(power_mw) * dt_s * 1000.0;
+        if (current_ma > g_interval_peak_ma) g_interval_peak_ma = current_ma;
+    }
+}
+#else
 // Reads the low-side shunt (A0-A1 differential) every call for the best
 // achievable time resolution on current; only re-reads bus voltage (A2,
 // through the divider) every VOLTAGE_REFRESH_EVERY_N_SAMPLES-th call and
@@ -153,6 +184,8 @@ static void sample_ads1115(double dt_s) {
     }
 }
 
+#endif // !SENTINEL_SENSOR_INA219
+
 // Battery % from the cell voltage. A2 reads the cell directly through the
 // divider (see the file header), so the voltage here is the cell's. An
 // estimate -- voltage sags under load -- which is why battery_pct is optional
@@ -184,15 +217,25 @@ static void emit_nrg_line() {
 
 void setup() {
     Serial.begin(board::CONSOLE_SERIAL_BAUD);
-    pinMode(board::PIN_ENERGY_MARKER, INPUT);
+    pinMode(board::PIN_ENERGY_MARKER, INPUT_PULLDOWN); // floating INPUT flooded serial with noise edges
 
     Wire.begin(board::I2C_SDA, board::I2C_SCL);
+#if defined(SENTINEL_SENSOR_INA219)
+    Wire.setClock(400000);
+    g_ads_ok = g_ina.begin();
+    if (g_ads_ok) {
+        g_ina.setCalibration_32V_2A(); // 0.1 mA/bit, up to 3.2 A: covers any ESP32 burst
+    } else {
+        Serial.println("LOG monitor: INA219 not found on I2C bus");
+    }
+#else
     g_ads_ok = g_ads.begin(board::ADS1115_I2C_ADDR);
     if (g_ads_ok) {
         g_ads.setDataRate(RATE_ADS1115_860SPS); // fastest available -- default 128SPS is far too slow here
     } else {
         Serial.println("LOG monitor: ADS1115 not found on I2C bus");
     }
+#endif
 
     Serial.println("LOG monitor boot complete");
     Serial.println("monitor,op,us,mJ,peak_current_mA");
@@ -204,7 +247,11 @@ void loop() {
     uint32_t now_us = micros();
     if (now_us - g_last_sample_us >= SAMPLE_INTERVAL_US) {
         double dt_s = static_cast<double>(now_us - g_last_sample_us) / 1e6;
+#if defined(SENTINEL_SENSOR_INA219)
+        sample_ina219(dt_s);
+#else
         sample_ads1115(dt_s);
+#endif
         poll_marker(now_us);
         g_last_sample_us = now_us;
     }
