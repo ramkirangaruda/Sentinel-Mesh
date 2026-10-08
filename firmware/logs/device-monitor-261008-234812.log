@@ -1,0 +1,225 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x0
+SentinelMesh crypto benchmark
+board_mac=a03e05f57630 chip_rev=3
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224192
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,5932,0,21816,ok
+ML-KEM-512,encaps,6053,0,19176,ok
+ML-KEM-512,decaps,7355,0,18456,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8593,0,17720,ok
+ML-KEM-768,encaps,9876,0,14568,ok
+ML-KEM-768,decaps,11602,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13138,0,12568,ok
+ML-KEM-1024,encaps,14373,0,8920,ok
+ML-KEM-1024,decaps,16455,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15289,0,55192,ok
+ML-DSA-44,sign,66767,0,41720,ok
+ML-DSA-44,verify,15971,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26004,0,32664,ok
+ML-DSA-65,sign,61082,0,14072,ok
+ML-DSA-65,verify,26246,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+ML-DSA-87,SKIPPED,,,,does_not_fit_94KB_stack
+X25519,keygen,398880,516,14072,ok
+X25519,ecdh_compute_shared,400177,96,14072,ok
+ECDSA-P256,keygen,190959,1392,14072,ok
+ECDSA-P256,sign,89050,100,14072,ok
+ECDSA-P256,verify,202202,0,14072,ok
+--- done ---
+free_heap_after_all_runs=223892 min_free_stack_bytes=14072
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x0
+SentinelMesh crypto benchmark
+board_mac=a03e05f57630 chip_rev=3
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224192
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,5929,0,21816,ok
+ML-KEM-512,encaps,6053,0,19176,ok
+ML-KEM-512,decaps,7352,0,18456,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8594,0,17720,ok
+ML-KEM-768,encaps,9877,0,14568,ok
+ML-KEM-768,decaps,11606,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13133,0,12568,ok
+ML-KEM-1024,encaps,14366,0,8904,ok
+ML-KEM-1024,decaps,16452,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15566,0,55192,ok
+ML-DSA-44,sign,76622,0,41720,ok
+ML-DSA-44,verify,15969,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,25998,0,32664,ok
+ML-DSA-65,sign,91328,0,14072,ok
+ML-DSA-65,verify,26246,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+ML-DSA-87,SKIPPED,,,,does_not_fit_94KB_stack
+X25519,keygen,396324,516,14072,ok
+X25519,ecdh_compute_shared,402939,96,14072,ok
+ECDSA-P256,keygen,191434,1392,14072,ok
+ECDSA-P256,sign,89242,100,14072,ok
+ECDSA-P256,verify,202814,0,14072,ok
+--- done ---
+free_heap_after_all_runs=223892 min_free_stack_bytes=14072
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x0
+SentinelMesh crypto benchmark
+board_mac=a03e05f57630 chip_rev=3
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224192
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,5930,0,21816,ok
+ML-KEM-512,encaps,6053,0,19176,ok
+ML-KEM-512,decaps,7353,0,18456,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8590,0,17720,ok
+ML-KEM-768,encaps,9874,0,14568,ok
+ML-KEM-768,decaps,11603,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13135,0,12568,ok
+ML-KEM-1024,encaps,14368,0,8936,ok
+ML-KEM-1024,decaps,16454,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15196,0,55192,ok
+ML-DSA-44,sign,33886,0,41720,ok
+ML-DSA-44,verify,15969,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26003,0,32664,ok
+ML-DSA-65,sign,47943,0,14072,ok
+ML-DSA-65,verify,26245,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+ML-DSA-87,SKIPPED,,,,does_not_fit_94KB_stack
+X25519,keygen,397123,516,14072,ok
+X25519,ecdh_compute_shared,404826,96,14072,ok
+ECDSA-P256,keygen,191408,1392,14072,ok
+ECDSA-P256,sign,88987,100,14072,ok
+ECDSA-P256,verify,202795,0,14072,ok
+--- done ---
+free_heap_after_all_runs=223892 min_free_stack_bytes=14072
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x0
+SentinelMesh crypto benchmark
+board_mac=a03e05f57630 chip_rev=3
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224192
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,5931,0,21816,ok
+ML-KEM-512,encaps,6056,0,19176,ok
+ML-KEM-512,decaps,7355,0,18456,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8594,0,17720,ok
+ML-KEM-768,encaps,9876,0,14568,ok
+ML-KEM-768,decaps,11606,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13135,0,12568,ok
+ML-KEM-1024,encaps,14366,0,8904,ok
+ML-KEM-1024,decaps,16453,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15474,0,55192,ok
+ML-DSA-44,sign,24126,0,41720,ok
+ML-DSA-44,verify,15969,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26005,0,32664,ok
+ML-DSA-65,sign,98198,0,14072,ok
+ML-DSA-65,verify,26246,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+ML-DSA-87,SKIPPED,,,,does_not_fit_94KB_stack
+X25519,keygen,398614,516,14072,ok
+X25519,ecdh_compute_shared,399233,96,14072,ok
+ECDSA-P256,keygen,191434,1392,14072,ok
+ECDSA-P256,sign,89319,100,14072,ok
+ECDSA-P256,verify,202467,0,14072,ok
+--- done ---
+free_heap_after_all_runs=223892 min_free_stack_bytes=14072
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x0
+SentinelMesh crypto benchmark
+board_mac=a03e05f57630 chip_rev=3
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224192
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,5930,0,21816,ok
+ML-KEM-512,encaps,6053,0,19176,ok
+ML-KEM-512,decaps,7353,0,18456,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8589,0,17720,ok
+ML-KEM-768,encaps,9873,0,14568,ok
+ML-KEM-768,decaps,11599,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13136,0,12568,ok
+ML-KEM-1024,encaps,14368,0,8920,ok
+ML-KEM-1024,decaps,16456,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15377,0,55192,ok
+ML-DSA-44,sign,51889,0,41720,ok
+ML-DSA-44,verify,15972,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26001,0,32664,ok
+ML-DSA-65,sign,50240,0,14072,ok
+ML-DSA-65,verify,26235,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+ML-DSA-87,SKIPPED,,,,does_not_fit_94KB_stack
+X25519,keygen,398420,516,14072,ok
+X25519,ecdh_compute_shared,404913,96,14072,ok
+ECDSA-P256,keygen,190845,1392,14072,ok
+ECDSA-P256,sign,88823,100,14072,ok
+ECDSA-P256,verify,202749,0,14072,ok
+--- done ---
+free_heap_after_all_runs=223892 min_free_stack_bytes=14072
