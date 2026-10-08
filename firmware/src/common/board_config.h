@@ -64,7 +64,10 @@ constexpr int PIN_ENERGY_MARKER = 4;
 // src/monitor/main.cpp for the read path and docs/hardware_setup.md for the
 // physical wiring this implies.
 constexpr uint8_t ADS1115_I2C_ADDR = 0x48;      // default with the breakout's ADDR pin tied to GND
-constexpr float SHUNT_RESISTANCE_OHMS = 0.1f;   // low-side shunt -- update if the one on hand differs
+// ADS1115 rehearsal rig only (ignored by the INA219 build). MEASURE your shunt with a
+// multimeter and put the real value here; the team's pack of four 10 ohm in parallel is ~2.5.
+constexpr float SHUNT_RESISTANCE_OHMS = 2.5f;
+constexpr uint8_t INA219_I2C_ADDR = 0x40;       // default with A0/A1 open on the breakout
 
 // Serial link to console (gateway only): USB serial, 115200 8N1, one
 // message (EVT/TRC/LOG in, LABEL out) per line, per contract.

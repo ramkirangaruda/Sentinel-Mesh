@@ -35,6 +35,7 @@
 // See firmware/README.md "Crypto benchmark: known risk / next step".
 
 #include <Arduino.h>
+#include "common/board_config.h"
 #if defined(SENTINEL_BENCH_TRUE_RANDOM_NO_RADIO)
 #include "bootloader_random.h"
 #endif
@@ -103,9 +104,16 @@ static uint32_t stack_high_water_bytes() {
 template <typename Fn>
 static BenchResult time_op(const char* algo, const char* op, Fn&& fn) {
     uint32_t heap_before = ESP.getFreeHeap();
+#if defined(SENTINEL_BENCH_MARKER)
+    digitalWrite(sentinel::board::PIN_ENERGY_MARKER, HIGH); // Monitor integrates energy while HIGH
+#endif
     uint32_t t0 = micros();
     bool ok = fn();
     uint32_t t1 = micros();
+#if defined(SENTINEL_BENCH_MARKER)
+    digitalWrite(sentinel::board::PIN_ENERGY_MARKER, LOW);
+    delay(20); // idle gap so consecutive windows are separable on the Monitor
+#endif
     uint32_t heap_after = ESP.getFreeHeap();
 
     BenchResult r;
@@ -496,8 +504,13 @@ static void bench_task(void*) {
                   static_cast<unsigned long>(ESP.getFreeHeap()));
     Serial.println("algo,op,us,heap_used_bytes,stack_hwm_bytes,ok");
 
-    run_benchmarks();
-    bench_classical_baseline();
+#ifndef BENCH_REPEAT
+#define BENCH_REPEAT 1   // energy build sets this higher: many windows per op
+#endif
+    for (int rep = 0; rep < BENCH_REPEAT; rep++) {
+        run_benchmarks();
+        bench_classical_baseline();
+    }
 
     Serial.println("--- done ---");
     Serial.printf("free_heap_after_all_runs=%lu min_free_stack_bytes=%lu\n",
@@ -508,6 +521,11 @@ static void bench_task(void*) {
 
 void setup() {
     Serial.begin(115200);
+#if defined(SENTINEL_BENCH_MARKER)
+    pinMode(sentinel::board::PIN_ENERGY_MARKER, OUTPUT);
+    digitalWrite(sentinel::board::PIN_ENERGY_MARKER, LOW);
+    delay(10000); // energy build: 10 s idle so the Monitor sees a clean baseline first
+#endif
     delay(2000); // give the serial monitor time to attach
 #if defined(SENTINEL_BENCH_TRUE_RANDOM_NO_RADIO)
     // esp_random() is only truly random while Wi-Fi/Bluetooth is on. This
