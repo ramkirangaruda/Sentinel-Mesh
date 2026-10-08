@@ -352,10 +352,17 @@ static void run_benchmarks() {
                 PQCLEAN_MLDSA65_CLEAN_crypto_sign_keypair,
                 PQCLEAN_MLDSA65_CLEAN_crypto_sign_signature,
                 PQCLEAN_MLDSA65_CLEAN_crypto_sign_verify);
+#if defined(BENCH_RUN_MLDSA87)
     bench_mldsa("ML-DSA-87",
                 PQCLEAN_MLDSA87_CLEAN_crypto_sign_keypair,
                 PQCLEAN_MLDSA87_CLEAN_crypto_sign_signature,
                 PQCLEAN_MLDSA87_CLEAN_crypto_sign_verify);
+#else
+    // Measured 2026-10-08: signing overflows the ~94 KB stack available on a stock
+    // ESP32 (largest free heap block 110580 B). Build with -DBENCH_RUN_MLDSA87 to retry.
+    g_stage_idx++;
+    Serial.println("ML-DSA-87,SKIPPED,,,,does_not_fit_94KB_stack");
+#endif
 }
 
 #endif // SENTINEL_PQC_BACKEND_PQCLEAN
@@ -476,6 +483,7 @@ static void bench_classical_baseline() {
 
 static void bench_task(void*) {
     Serial.println("SentinelMesh crypto benchmark");
+    Serial.printf("board_mac=%012llx chip_rev=%d\n", static_cast<unsigned long long>(ESP.getEfuseMac()), ESP.getChipRevision());
     Serial.printf("cpu_mhz=%u backend=%s stack_bytes=%u free_heap_start=%lu\n",
                   static_cast<unsigned>(getCpuFrequencyMhz()),
 #if defined(SENTINEL_PQC_BACKEND_PQCLEAN)
