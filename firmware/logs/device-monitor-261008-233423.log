@@ -1,0 +1,552 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x0
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6036,0,21816,ok
+ML-KEM-512,encaps,6116,0,19176,ok
+ML-KEM-512,decaps,7483,0,18584,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8774,0,17720,ok
+ML-KEM-768,encaps,9964,0,14552,ok
+ML-KEM-768,decaps,11763,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13589,0,12584,ok
+ML-KEM-1024,encaps,14962,0,8936,ok
+ML-KEM-1024,decaps,17284,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15164,0,55192,ok
+ML-DSA-44,sign,24061,0,41720,ok
+ML-DSA-44,verify,15979,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26028,0,32664,ok
+ML-DSA-65,sign,74001,0,14072,ok
+ML-DSA-65,verify,26175,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+
+***ERROR*** A stack overflow in task pqc_bench has been detected.
+
+
+Backtrace: 0x40083571:0x3ffe36e0 0x40088265:0x3ffe3700 0x4008b1a1:0x3ffe3720 0x40089b6b:0x3ffe37a0 0x40088374:0x3ffe37d0 0x40088324:0xd21c812c |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 4a0fcdf10b7ad772
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x20
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6037,0,21816,ok
+ML-KEM-512,encaps,6114,0,19176,ok
+ML-KEM-512,decaps,7481,0,18584,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8656,0,17720,ok
+ML-KEM-768,encaps,9851,0,14552,ok
+ML-KEM-768,decaps,11650,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13589,0,12568,ok
+ML-KEM-1024,encaps,14965,0,8936,ok
+ML-KEM-1024,decaps,17290,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15542,0,55192,ok
+ML-DSA-44,sign,32214,0,41720,ok
+ML-DSA-44,verify,15977,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26034,0,32664,ok
+ML-DSA-65,sign,149579,0,14072,ok
+ML-DSA-65,verify,26174,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+ML-DSA-87,SKIPPED,,,,crashed_earlier_stack_overflow
+X25519,keygen,397223,516,14072,ok
+X25519,ecdh_compute_shared,398877,96,14072,ok
+ECDSA-P256,keygen,201009,1392,14072,ok
+ECDSA-P256,sign,91607,100,14072,ok
+ECDSA-P256,verify,212427,0,14072,ok
+--- done ---
+free_heap_after_all_runs=223924 min_free_stack_bytes=14072
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x0
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6036,0,21816,ok
+ML-KEM-512,encaps,6115,0,19176,ok
+ML-KEM-512,decaps,7483,0,18584,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8658,0,17720,ok
+ML-KEM-768,encaps,9852,0,14552,ok
+ML-KEM-768,decaps,11650,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13583,0,12552,ok
+ML-KEM-1024,encaps,14960,0,8936,ok
+ML-KEM-1024,decaps,17280,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15446,0,55192,ok
+ML-DSA-44,sign,74630,0,41720,ok
+ML-DSA-44,verify,15977,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26032,0,32664,ok
+ML-DSA-65,sign,191139,0,14072,ok
+ML-DSA-65,verify,26173,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+
+***ERROR*** A stack overflow in task pqc_bench has been detected.
+
+
+Backtrace: 0x40083571:0x3ffe36e0 0x40088265:0x3ffe3700 0x4008b1a1:0x3ffe3720 0x40089b6b:0x3ffe37a0 0x40088374:0x3ffe37d0 0x40088324:0x5c47e89a |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 4a0fcdf10b7ad772
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x20
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6037,0,21816,ok
+ML-KEM-512,encaps,6117,0,19176,ok
+ML-KEM-512,decaps,7483,0,18584,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8656,0,17720,ok
+ML-KEM-768,encaps,9850,0,14552,ok
+ML-KEM-768,decaps,11650,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13586,0,12568,ok
+ML-KEM-1024,encaps,14964,0,8936,ok
+ML-KEM-1024,decaps,17288,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15075,0,55192,ok
+ML-DSA-44,sign,24061,0,41720,ok
+ML-DSA-44,verify,15978,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26034,0,32664,ok
+ML-DSA-65,sign,93242,0,14072,ok
+ML-DSA-65,verify,26174,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+ML-DSA-87,SKIPPED,,,,crashed_earlier_stack_overflow
+X25519,keygen,396112,516,14072,ok
+X25519,ecdh_compute_shared,404865,96,14072,ok
+ECDSA-P256,keygen,201067,1392,14072,ok
+ECDSA-P256,sign,91972,100,14072,ok
+ECDSA-P256,verify,212511,0,14072,ok
+--- done ---
+free_heap_after_all_runs=223924 min_free_stack_bytes=14072
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x0
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6036,0,21816,ok
+ML-KEM-512,encaps,6116,0,19176,ok
+ML-KEM-512,decaps,7483,0,18584,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8661,0,17720,ok
+ML-KEM-768,encaps,9854,0,14552,ok
+ML-KEM-768,decaps,11652,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13584,0,12568,ok
+ML-KEM-1024,encaps,14961,0,8936,ok
+ML-KEM-1024,decaps,17284,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15450,0,55192,ok
+ML-DSA-44,sign,59808,0,41720,ok
+ML-DSA-44,verify,15979,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26029,0,32664,ok
+ML-DSA-65,sign,36955,0,14072,ok
+ML-DSA-65,verify,26173,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+
+***ERROR*** A stack overflow in task pqc_bench has been detected.
+
+
+Backtrace: 0x40083571:0x3ffe36e0 0x40088265:0x3ffe3700 0x4008b1a1:0x3ffe3720 0x40089b6b:0x3ffe37a0 0x40088374:0x3ffe37d0 0x40088324:0xc71db634 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 4a0fcdf10b7ad772
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x20
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6040,0,21816,ok
+ML-KEM-512,encaps,6118,0,19176,ok
+ML-KEM-512,decaps,7484,0,18584,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8659,0,17720,ok
+ML-KEM-768,encaps,9853,0,14552,ok
+ML-KEM-768,decaps,11649,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13700,0,12552,ok
+ML-KEM-1024,encaps,15074,0,8936,ok
+ML-KEM-1024,decaps,17397,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15349,0,55192,ok
+ML-DSA-44,sign,24061,0,41720,ok
+ML-DSA-44,verify,15978,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26035,0,32664,ok
+ML-DSA-65,sign,217389,0,14072,ok
+ML-DSA-65,verify,26174,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+ML-DSA-87,SKIPPED,,,,crashed_earlier_stack_overflow
+X25519,keygen,397631,516,14072,ok
+X25519,ecdh_compute_shared,407974,96,14072,ok
+ECDSA-P256,keygen,201165,1392,14072,ok
+ECDSA-P256,sign,92047,100,14072,ok
+ECDSA-P256,verify,211963,0,14072,ok
+--- done ---
+free_heap_after_all_runs=223924 min_free_stack_bytes=14072
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x0
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6036,0,21816,ok
+ML-KEM-512,encaps,6115,0,19176,ok
+ML-KEM-512,decaps,7483,0,18584,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8663,0,17720,ok
+ML-KEM-768,encaps,9854,0,14552,ok
+ML-KEM-768,decaps,11652,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13588,0,12568,ok
+ML-KEM-1024,encaps,14964,0,8936,ok
+ML-KEM-1024,decaps,17291,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15268,0,55192,ok
+ML-DSA-44,sign,100182,0,41720,ok
+ML-DSA-44,verify,15976,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26033,0,32664,ok
+ML-DSA-65,sign,132560,0,14072,ok
+ML-DSA-65,verify,26175,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+
+***ERROR*** A stack overflow in task pqc_bench has been detected.
+
+
+Backtrace: 0x40083571:0x3ffe36e0 0x40088265:0x3ffe3700 0x4008b1a1:0x3ffe3720 0x40089b6b:0x3ffe37a0 0x40088374:0x3ffe37d0 0x40088324:0xad266466 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 4a0fcdf10b7ad772
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x20
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6149,0,21880,ok
+ML-KEM-512,encaps,6228,0,19176,ok
+ML-KEM-512,decaps,7588,0,18456,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8665,0,17720,ok
+ML-KEM-768,encaps,9855,0,14552,ok
+ML-KEM-768,decaps,11652,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13588,0,12552,ok
+ML-KEM-1024,encaps,14965,0,8936,ok
+ML-KEM-1024,decaps,17291,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15266,0,55192,ok
+ML-DSA-44,sign,24061,0,41720,ok
+ML-DSA-44,verify,15978,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26036,0,32664,ok
+ML-DSA-65,sign,145629,0,14072,ok
+ML-DSA-65,verify,26176,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+ML-DSA-87,SKIPPED,,,,crashed_earlier_stack_overflow
+X25519,keygen,397323,516,14072,ok
+X25519,ecdh_compute_shared,403409,96,14072,ok
+ECDSA-P256,keygen,201330,1392,14072,ok
+ECDSA-P256,sign,91508,100,14072,ok
+ECDSA-P256,verify,212410,0,14072,ok
+--- done ---
+free_heap_after_all_runs=223924 min_free_stack_bytes=14072
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x0
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6039,0,21816,ok
+ML-KEM-512,encaps,6117,0,19176,ok
+ML-KEM-512,decaps,7484,0,18584,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8661,0,17720,ok
+ML-KEM-768,encaps,9854,0,14552,ok
+ML-KEM-768,decaps,11652,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13588,0,12568,ok
+ML-KEM-1024,encaps,14965,0,8936,ok
+ML-KEM-1024,decaps,17292,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15355,0,55192,ok
+ML-DSA-44,sign,24061,0,41720,ok
+ML-DSA-44,verify,15976,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26032,0,32664,ok
+ML-DSA-65,sign,143327,0,14072,ok
+ML-DSA-65,verify,26175,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+
+***ERROR*** A stack overflow in task pqc_bench has been detected.
+
+
+Backtrace: 0x40083571:0x3ffe36e0 0x40088265:0x3ffe3700 0x4008b1a1:0x3ffe3720 0x40089b6b:0x3ffe37a0 0x40088374:0x3ffe37d0 0x40088324:0xbd517258 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 4a0fcdf10b7ad772
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x20
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6037,0,21816,ok
+ML-KEM-512,encaps,6116,0,19176,ok
+ML-KEM-512,decaps,7484,0,18584,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8661,0,17720,ok
+ML-KEM-768,encaps,9854,0,14552,ok
+ML-KEM-768,decaps,11649,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13587,0,12568,ok
+ML-KEM-1024,encaps,14965,0,8936,ok
+ML-KEM-1024,decaps,17292,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15266,0,55192,ok
+ML-DSA-44,sign,24061,0,41720,ok
+ML-DSA-44,verify,15977,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26030,0,32664,ok
+ML-DSA-65,sign,93256,0,14072,ok
+ML-DSA-65,verify,26174,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+ML-DSA-87,SKIPPED,,,,crashed_earlier_stack_overflow
+X25519,keygen,397551,516,14072,ok
+X25519,ecdh_compute_shared,402560,96,14072,ok
+ECDSA-P256,keygen,200790,1392,14072,ok
+ECDSA-P256,sign,91428,100,14072,ok
+ECDSA-P256,verify,211625,0,14072,ok
+--- done ---
+free_heap_after_all_runs=223924 min_free_stack_bytes=14072
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x0
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6040,0,21816,ok
+ML-KEM-512,encaps,6118,0,19176,ok
+ML-KEM-512,decaps,7485,0,18584,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8663,0,17720,ok
+ML-KEM-768,encaps,9854,0,14552,ok
+ML-KEM-768,decaps,11652,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13580,0,12568,ok
+ML-KEM-1024,encaps,14959,0,8936,ok
+ML-KEM-1024,decaps,17278,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15263,0,55192,ok
+ML-DSA-44,sign,32248,0,41720,ok
+ML-DSA-44,verify,15977,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26032,0,32664,ok
+ML-DSA-65,sign,111012,0,14072,ok
+ML-DSA-65,verify,26174,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+
+***ERROR*** A stack overflow in task pqc_bench has been detected.
+
+
+Backtrace: 0x40083571:0x3ffe36e0 0x40088265:0x3ffe3700 0x4008b1a1:0x3ffe3720 0x40089b6b:0x3ffe37a0 0x40088374:0x3ffe37d0 0x40088324:0x2a51dcf0 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 4a0fcdf10b7ad772
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+largest_free_block=110580 stack_bytes_used=94196 skipmask=0x20
+SentinelMesh crypto benchmark
+cpu_mhz=240 backend=pqclean stack_bytes=196608 free_heap_start=224224
+algo,op,us,heap_used_bytes,stack_hwm_bytes,ok
+ML-KEM-512,keygen,6037,0,21816,ok
+ML-KEM-512,encaps,6115,0,19176,ok
+ML-KEM-512,decaps,7482,0,18584,ok
+ML-KEM-512,shared_secret_match,,,,ok
+ML-KEM-768,keygen,8659,0,17720,ok
+ML-KEM-768,encaps,9853,0,14552,ok
+ML-KEM-768,decaps,11649,0,13528,ok
+ML-KEM-768,shared_secret_match,,,,ok
+ML-KEM-1024,keygen,13592,0,12568,ok
+ML-KEM-1024,encaps,14965,0,8936,ok
+ML-KEM-1024,decaps,17293,0,7416,ok
+ML-KEM-1024,shared_secret_match,,,,ok
+ML-DSA-44,keygen,15267,0,55192,ok
+ML-DSA-44,sign,68003,0,41720,ok
+ML-DSA-44,verify,15978,0,41720,ok
+ML-DSA-44,forged_message_rejected,,,,ok
+ML-DSA-44,signature_bytes,2420,,,ok
+ML-DSA-65,keygen,26031,0,32664,ok
+ML-DSA-65,sign,63205,0,14072,ok
+ML-DSA-65,verify,26175,0,14072,ok
+ML-DSA-65,forged_message_rejected,,,,ok
+ML-DSA-65,signature_bytes,3309,,,ok
+ML-DSA-87,SKIPPED,,,,crashed_earlier_stack_overflow
+X25519,keygen,397905,516,14072,ok
+X25519,ecdh_compute_shared,404781,96,14072,ok
+ECDSA-P256,keygen,201125,1392,14072,ok
+ECDSA-P256,sign,91294,100,14072,ok
+ECDSA-P256,verify,212272,0,14072,ok
+--- done ---
+free_heap_after_all_runs=223924 min_free_stack_bytes=14072
