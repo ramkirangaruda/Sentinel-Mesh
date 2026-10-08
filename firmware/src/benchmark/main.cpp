@@ -36,6 +36,8 @@
 
 #include <Arduino.h>
 #include "common/board_config.h"
+#include "esp_system.h"
+#include "esp_heap_caps.h"
 #if defined(SENTINEL_BENCH_TRUE_RANDOM_NO_RADIO)
 #include "bootloader_random.h"
 #endif
@@ -72,6 +74,41 @@
 // ---------------------------------------------------------------------
 // Timing + resource measurement helpers
 // ---------------------------------------------------------------------
+
+
+// ---------------------------------------------------------------------
+// Crash-safe stages. A stack overflow reboots the chip; RTC_NOINIT memory
+// survives that reset, so the next boot knows which stage was running, marks it
+// SKIPPED, and carries on instead of looping forever.
+// ---------------------------------------------------------------------
+#define BENCH_MAGIC 0x53454e54u
+RTC_NOINIT_ATTR static uint32_t g_rtc_magic;
+RTC_NOINIT_ATTR static uint32_t g_rtc_inflight;   // 1-based stage id in progress, 0 = none
+RTC_NOINIT_ATTR static uint32_t g_rtc_skipmask;   // bit (id-1) set = stage crashed before
+static uint32_t g_stage_idx = 0;                  // reset at the start of each run
+
+static void stage_boot_init() {
+    if (g_rtc_magic != BENCH_MAGIC) {             // power-on or garbage: start clean
+        g_rtc_magic = BENCH_MAGIC;
+        g_rtc_inflight = 0;
+        g_rtc_skipmask = 0;
+    } else if (g_rtc_inflight != 0 && esp_reset_reason() == ESP_RST_PANIC) {
+        g_rtc_skipmask |= (1u << (g_rtc_inflight - 1)); // that stage crashed the chip
+    }
+    g_rtc_inflight = 0;
+}
+
+// Returns false (and prints SKIPPED) if this stage crashed on an earlier boot.
+static bool stage_begin(const char* name) {
+    g_stage_idx++;
+    if (g_rtc_skipmask & (1u << (g_stage_idx - 1))) {
+        Serial.printf("%s,SKIPPED,,,,crashed_earlier_stack_overflow\n", name);
+        return false;
+    }
+    g_rtc_inflight = g_stage_idx;
+    return true;
+}
+static void stage_end() { g_rtc_inflight = 0; }
 
 struct BenchResult {
     const char* algo;
@@ -226,6 +263,7 @@ static void bench_mlkem(const char* name,
                          int (*decaps)(unsigned char*, const unsigned char*, const unsigned char*),
                          size_t pk_len, size_t sk_len, size_t ct_len, size_t ss_len) {
     static unsigned char pk[4096], sk[8192], ct[4096], ss_a[64], ss_b[64];
+    if (!stage_begin(name)) return;
 
     auto r_keygen = time_op(name, "keygen", [&]() {
         return keypair(pk, sk) == 0;
@@ -246,6 +284,7 @@ static void bench_mlkem(const char* name,
     bool match = memcmp(ss_a, ss_b, ss_len) == 0;
     Serial.printf("%s,shared_secret_match,,,,%s\n", name, match ? "ok" : "FAIL");
     (void)pk_len; (void)sk_len; (void)ct_len;
+    stage_end();
 }
 
 typedef int (*dsa_keypair_fn)(uint8_t*, uint8_t*);
@@ -256,6 +295,7 @@ typedef int (*dsa_verify_fn)(const uint8_t*, size_t, const uint8_t*, size_t, con
 static void bench_mldsa(const char* name, dsa_keypair_fn keypair,
                         dsa_sign_fn sign, dsa_verify_fn verify) {
     static unsigned char pk[4096], sk[6144], sig[5120];
+    if (!stage_begin(name)) return;
     const unsigned char msg[] = "SentinelMesh handshake benchmark message";
     size_t msg_len = sizeof(msg) - 1;
     size_t sig_len = 0;
@@ -276,6 +316,7 @@ static void bench_mldsa(const char* name, dsa_keypair_fn keypair,
     bool rejected = verify(sig, sig_len, bad, sizeof(bad) - 1, pk) != 0;
     Serial.printf("%s,forged_message_rejected,,,,%s\n", name, rejected ? "ok" : "FAIL");
     Serial.printf("%s,signature_bytes,%u,,,ok\n", name, static_cast<unsigned>(sig_len));
+    stage_end();
 }
 
 static void run_benchmarks() {
@@ -430,7 +471,7 @@ static void bench_classical_baseline() {
 // with a big stack (size in BYTES on ESP32). If you see "Stack canary
 // watchpoint triggered (pqc_bench)", raise BENCH_STACK_BYTES.
 #ifndef BENCH_STACK_BYTES
-#define BENCH_STACK_BYTES 65536
+#define BENCH_STACK_BYTES 196608   // requested; clamped to the largest free heap block at boot
 #endif
 
 static void bench_task(void*) {
@@ -450,6 +491,7 @@ static void bench_task(void*) {
 #define BENCH_REPEAT 1   // energy build sets this higher: many windows per op
 #endif
     for (int rep = 0; rep < BENCH_REPEAT; rep++) {
+        g_stage_idx = 0;
         run_benchmarks();
         bench_classical_baseline();
     }
@@ -475,7 +517,14 @@ void setup() {
     // (build with -DSENTINEL_BENCH_TRUE_RANDOM_NO_RADIO). Timing is unaffected.
     bootloader_random_enable();
 #endif
-    xTaskCreatePinnedToCore(bench_task, "pqc_bench", BENCH_STACK_BYTES,
+    stage_boot_init();
+    size_t largest = heap_caps_get_largest_free_block(MALLOC_CAP_8BIT);
+    uint32_t stack_bytes = BENCH_STACK_BYTES;
+    if (largest > 16384 && stack_bytes > largest - 16384) stack_bytes = largest - 16384;
+    Serial.printf("largest_free_block=%lu stack_bytes_used=%lu skipmask=0x%lx\n",
+                  static_cast<unsigned long>(largest), static_cast<unsigned long>(stack_bytes),
+                  static_cast<unsigned long>(g_rtc_skipmask));
+    xTaskCreatePinnedToCore(bench_task, "pqc_bench", stack_bytes,
                             nullptr, 1, nullptr, 1);
 }
 
