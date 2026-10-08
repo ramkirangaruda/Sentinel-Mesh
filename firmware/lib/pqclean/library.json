@@ -1,0 +1,12 @@
+{
+  "name": "pqclean",
+  "version": "0.0.0-pqclean-0586a824",
+  "description": "Vendored PQClean clean implementations of ML-KEM-512/768/1024 and ML-DSA-44/65/87 (FIPS 203/204) for the SentinelMesh ESP32 benchmark and handshake. Public domain / CC0.",
+  "frameworks": "arduino",
+  "platforms": "espressif32",
+  "build": {
+    "srcDir": "src",
+    "includeDir": "src",
+    "srcFilter": ["+<*>"]
+  }
+}
