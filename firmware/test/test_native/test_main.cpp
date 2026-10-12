@@ -25,6 +25,7 @@
 #include "sentinel_proto/energygate.h"
 #include "sentinel_proto/gate_policy.h"
 #include "sentinel_proto/gate_msgs.h"
+#include "sentinel_proto/link_window.h"
 
 using namespace sentinel;
 
@@ -668,7 +669,8 @@ static void test_gate_action_contract_vocabulary() {
 static void test_new_msg_types_are_valid_on_the_wire() {
     CHECK(is_valid_msg_type(static_cast<uint8_t>(MsgType::GATE_REPORT)));
     CHECK(is_valid_msg_type(static_cast<uint8_t>(MsgType::CONTROL)));
-    CHECK(!is_valid_msg_type(0x09));
+    CHECK(is_valid_msg_type(static_cast<uint8_t>(MsgType::CHALLENGE)));
+    CHECK(!is_valid_msg_type(0x0A));
     PacketHeader h;
     h.type = MsgType::GATE_REPORT;
     h.sender = 1;
@@ -752,7 +754,37 @@ static void test_control_round_trip_and_rejects_bad_mode() {
     CHECK(!deserialize_control(buf, 1, back));
 }
 
+static void test_sliding_link_window_rolls_and_features() {
+    SlidingLink w;
+    w.reset(10000);
+    w.advance(10000);
+    for (int i = 0; i < 10; i++) { w.cur().hs_count++; w.cur().total_received++; w.add_rssi(-60.0f); }
+    float f[ENERGYGATE_NUM_FEATURES];
+    w.features(f, 80.0f, 10500);                 // < 1 s since start -> window treated as 1 s
+    CHECK(f[EG_HS_PER_S] == 10.0f);
+    CHECK(f[EG_RSSI_MEAN] == -60.0f);
+    CHECK(f[EG_BATTERY_PCT] == 80.0f);
+    CHECK(f[EG_FRAG_COMPLETE_PCT] == 100.0f);    // nothing started -> 100
+    // 6 s later the old bucket has rotated out
+    w.advance(16100);
+    w.features(f, 80.0f, 16100);
+    CHECK(f[EG_HS_PER_S] == 0.0f);
+    // frag completion + loss + dup
+    w.cur().frag_started = 4; w.cur().frag_completed = 1;
+    w.cur().total_received = 8; w.cur().lost = 2; w.cur().duplicate_count = 2;
+    w.features(f, 50.0f, 16200);
+    CHECK(f[EG_FRAG_COMPLETE_PCT] == 25.0f);
+    CHECK(f[EG_LOSS_PCT] == 20.0f);
+    CHECK(f[EG_DUP_PCT] == 25.0f);
+    // sustained rate over a full 5 s window = count / 5
+    SlidingLink v; v.reset(0);
+    for (uint32_t t = 0; t < 5000; t += 1000) { v.advance(t); v.cur().hs_count = 20; }
+    v.features(f, 100.0f, 4900);
+    CHECK(f[EG_HS_PER_S] > 20.0f && f[EG_HS_PER_S] < 21.0f);  // 100 attempts / 4.9 s
+}
+
 int main() {
+    RUN(test_sliding_link_window_rolls_and_features);
     RUN(test_header_roundtrip_basic);
     RUN(test_header_all_msg_types_roundtrip);
     RUN(test_header_rejects_short_buffer);
