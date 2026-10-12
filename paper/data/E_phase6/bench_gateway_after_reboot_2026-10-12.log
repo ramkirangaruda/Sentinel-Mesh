@@ -1,0 +1,158 @@
+.venv) PS C:\Users\ramki\Sentinel-mesh\firmware> pio device monitor --baud 115200
+--- Terminal on COM6 | 115200 8-N-1
+--- Available filters and text transformations: debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+xx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xxx␀x␀x�x␀����␀�xx�␀�xets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+LOG gateway boot: heap free=242408 largest_block=110580
+LOG crypto_task: 90112 B stack on core 0
+[    35][I][esp32-hal-i2c.c:75] i2cInit(): Initialising I2C Master: sda=21 scl=22 freq=100000
+[    53][W][Wire.cpp:301] begin(): Bus already started in Master Mode.
+LOG mesh: ESP-NOW ready ch=1 mac=5C:01:3B:BE:A0:10 rssi_sniffer=on
+LOG gateway boot complete: ML-KEM-768+ML-DSA-65 crypto_task=ok mesh=ok heap free=93540 largest_block=55284
+{"ts":5063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG hs fail reason=timeout epoch=28616 tries=1 challenged=0 total_ms=2611 next_in_ms=1000
+LOG hs fail reason=timeout epoch=28617 tries=1 challenged=0 total_ms=2684 next_in_ms=2000
+LOG gw stats hs started=2 ok=0 failed=2 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93532
+{"ts":10063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG hs fail reason=timeout epoch=28618 tries=1 challenged=0 total_ms=2575 next_in_ms=4000
+{"ts":15063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-37,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG gw stats hs started=4 ok=0 failed=3 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":20063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG hs fail reason=timeout epoch=28619 tries=1 challenged=0 total_ms=2681 next_in_ms=8000
+{"ts":25063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-34.5,"rssi_var":2.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG gw stats hs started=5 ok=0 failed=4 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":30063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG hs fail reason=timeout epoch=28620 tries=1 challenged=0 total_ms=2564 next_in_ms=15000
+{"ts":35063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-34.5,"rssi_var":6.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG gw stats hs started=5 ok=0 failed=5 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":40063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-34.5,"rssi_var":2.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+{"ts":45063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG hs fail reason=timeout epoch=28621 tries=1 challenged=0 total_ms=2561 next_in_ms=15000
+LOG gw stats hs started=6 ok=0 failed=6 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":50063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+{"ts":55063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG gw stats hs started=6 ok=0 failed=6 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":60063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+{"ts":65063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-34.5,"rssi_var":6.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG hs fail reason=timeout epoch=28622 tries=1 challenged=0 total_ms=2738 next_in_ms=15000
+LOG gw stats hs started=7 ok=0 failed=7 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":70063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+{"ts":75063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-32,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG gw stats hs started=7 ok=0 failed=7 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":80063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-34,"rssi_var":4,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG hs fail reason=timeout epoch=28623 tries=1 challenged=0 total_ms=2550 next_in_ms=15000
+{"ts":85063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-32.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG gw stats hs started=8 ok=0 failed=8 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":90063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+{"ts":95063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-32.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG gw stats hs started=9 ok=0 failed=8 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":100063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":1,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG hs fail reason=timeout epoch=28624 tries=1 challenged=0 total_ms=2580 next_in_ms=15000
+{"ts":105063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-32,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG gw stats hs started=9 ok=0 failed=9 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":110063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+{"ts":115063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-32,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG hs fail reason=timeout epoch=28625 tries=1 challenged=0 total_ms=2602 next_in_ms=15000
+LOG gw stats hs started=10 ok=0 failed=10 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":120063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-32,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+{"ts":125063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-32.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG gw stats hs started=10 ok=0 failed=10 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":130063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-32,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+{"ts":135063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG hs fail reason=timeout epoch=28626 tries=1 challenged=0 total_ms=2550 next_in_ms=15000
+LOG gw stats hs started=11 ok=0 failed=11 session=0 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93540
+{"ts":140063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-32,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+{"ts":145063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-32,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+(.venv) PS C:\Users\ramki\Sentinel-mesh\firmware> 
