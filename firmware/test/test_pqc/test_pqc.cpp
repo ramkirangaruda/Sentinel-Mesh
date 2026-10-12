@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <vector>
 #include "sentinel_pqc/pqc_handshake.h"
+#include "sentinel_proto/fragment.h"
 
 using namespace sentinel::pqc;
 
@@ -111,6 +112,29 @@ int main() {
             CHECK(responder_handle_confirm(Ra, cf.data(), cf.size(), kk) == Result::OK);
         }
         CHECK(memcmp(k1.k_i2r, k2.k_i2r, KEY_BYTES) != 0);
+    }
+    // --- the messages survive the real fragmenter/reassembler (ESP-NOW MTU), frame counts as expected
+    {
+        static InitiatorState If; static ResponderState Rf; SessionKeys k1, k2;
+        std::vector<uint8_t> h(HELLO_LEN), rs(RESPONSE_LEN), cf(CONFIRM_LEN);
+        CHECK(initiator_make_hello(If, GW, F1, gw.sk.data(), Hooks{}, h.data()) == Result::OK);
+        sentinel::PacketHeader tmpl; tmpl.type = sentinel::MsgType::HELLO; tmpl.sender = GW; tmpl.epoch = 7; tmpl.seq = 1;
+        auto frames = sentinel::Fragmenter::split(tmpl, h.data(), h.size());
+        printf("HELLO -> %zu frames, RESPONSE -> ", frames.size());
+        CHECK(!frames.empty() && frames.size() == (HELLO_LEN + 234) / 235);
+        sentinel::Reassembler ra; std::vector<uint8_t> got; bool done = false;
+        for (size_t i = frames.size(); i-- > 0;) {            // deliver in reverse order
+            sentinel::PacketHeader ph;
+            CHECK(sentinel::PacketHeader::deserialize(frames[i].data(), frames[i].size(), ph));
+            done = ra.feed(ph, frames[i].data() + sentinel::HEADER_SIZE, frames[i].size() - sentinel::HEADER_SIZE, 0, got);
+        }
+        CHECK(done && got.size() == HELLO_LEN && memcmp(got.data(), h.data(), HELLO_LEN) == 0);
+        CHECK(responder_handle_hello(Rf, F1, GW, gw.pk.data(), f1.sk.data(), got.data(), got.size(), Hooks{}, rs.data()) == Result::OK);
+        auto rframes = sentinel::Fragmenter::split(tmpl, rs.data(), rs.size());
+        printf("%zu frames\n", rframes.size());
+        CHECK(!rframes.empty());
+        CHECK(initiator_handle_response(If, GW, F1, f1.pk.data(), rs.data(), rs.size(), Hooks{}, k1, cf.data()) == Result::OK);
+        CHECK(responder_handle_confirm(Rf, cf.data(), cf.size(), k2) == Result::OK);
     }
     printf(g_fail ? "FAILED (%d)\n" : "all pqc tests passed\n", g_fail);
     return g_fail ? 1 : 0;

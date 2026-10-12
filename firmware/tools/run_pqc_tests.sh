@@ -15,7 +15,7 @@ for LEVEL in 1 3; do
   gcc -O2 -c -I$P/common $P/common/fips202.c -o "$B/fips202.o"
   gcc -O2 -c -I$P/common test/test_pqc/host_randombytes.c -o "$B/rb.o"
   g++ -std=gnu++17 -O2 -Wall -Wextra -DSENTINEL_PQC_LEVEL=$LEVEL -Ilib/sentinel_pqc/include -Ilib/pqclean/src -I$P/common \
-      test/test_pqc/test_pqc.cpp lib/sentinel_pqc/src/*.cpp "$B"/*.o "$B"/$KEM/*.o "$B"/$SIG/*.o -o "$OUT"
+      test/test_pqc/test_pqc.cpp lib/sentinel_pqc/src/*.cpp lib/sentinel_proto/src/fragment.cpp lib/sentinel_proto/src/packet.cpp -Ilib/sentinel_proto/include "$B"/*.o "$B"/$KEM/*.o "$B"/$SIG/*.o -o "$OUT"
   rm -rf "$B"
   "$OUT"
 done

@@ -1,155 +1,198 @@
-// SentinelMesh attacker firmware — demo red-team node.
+// SentinelMesh attacker firmware -- demo / experiment red-team node.
 //
-// Modes, selected over USB serial (so it can be driven from the console or
-// a terminal during the demo), per the brief:
-//   MODE REPLAY        capture the next packet seen, then replay it on repeat
-//   MODE FLOOD          handshake flood (spam HELLOs) at field-1 -- the
-//                        battery-powered node EnergyGate protects (brief v4
-//                        "drain attack"). Sent as broadcast, so the gateway
-//                        overhears it for its trace windows / FieldGuard.
-//   MODE IMPERSONATE    spoof the field node's sender id with the attacker's
-//                        own keys (should fail signature/HMAC verification
-//                        on the gateway, which is the point — see brief
-//                        threat model)
-//   MODE WEAK_LINK      simulate a degraded link (drop/delay/jitter its own
-//                        traffic) rather than attacking outright
-//   MODE SLOW_DRIP      v4: ~1 handshake/min at field-1 -- stays under any
-//                        fixed rate limit but still drains the battery over
-//                        time (brief v4 section 6)
-//   MODE OFF             stop whatever mode is running
+// Phase 6 (paper branch): sends real frames over ESP-NOW at field-1.
 //
-// This only needs to construct and send plausible-looking packets; it does
-// NOT need to hold valid keys for anything except IMPERSONATE, where using
-// its OWN keys under the field node's claimed identity is exactly the
-// attack (and exactly what the gateway's signature check should catch).
+// Modes, selected over USB serial (`MODE <name>`); a mode keeps running with no
+// laptop attached, so the cable can be pulled after the command is sent:
 //
-// STATUS: structural skeleton. Real packet transmission depends on the
-// mesh transport (TODO, same as field_node/gateway) and on the packet
-// capture buffer for REPLAY mode. Not yet build-verified on hardware.
+//   FLOOD        Forged HELLOs that CLAIM THE GATEWAY'S IDENTITY (an enrolled
+//                sender id) with random key/signature bytes, full length. Costs
+//                the attacker nothing; costs field-1 the radio reception plus
+//                (if admitted) one ML-DSA verification that fails. The loud flood.
+//   INSIDER      HELLOs correctly signed with the ATTACKER's own key. field-1 has
+//                that key enrolled (a compromised / hostile enrolled peer), so
+//                every admitted HELLO forces a FULL handshake: verify + ML-KEM
+//                encapsulation + ML-DSA signature + ~19 frames of RESPONSE. The
+//                strongest attacker. Rate-limited by this board's own signing cost.
+//   SLOW_DRIP    INSIDER at ~1 per minute: under any fixed rate limit, but it still
+//                costs a full handshake each time (brief v4 section 6).
+//   REPLAY       Captures the first DATA frame from field-1 and re-broadcasts it.
+//   IMPERSONATE  HELLOs claiming to be field-1 (which only ever responds) with the
+//                attacker's own signature; the gateway flags them.
+//   WEAK_LINK    Sends harmless frames with deliberate gaps/jitter (not an attack).
+//   OFF          stop.
+//
+// Other lines: `RATE <per second>` (FLOOD / INSIDER / REPLAY / IMPERSONATE),
+// `ECHO on|off` (answer a CHALLENGE by echoing its cookie -- ESP-NOW is a shared
+// broadcast medium, so an attacker in range can always hear the cookie; default
+// off = a naive attacker), `STATS`.
+//
+// The attacker never completes a handshake. Its secret key is a committed DEMO
+// key (common/demo_keys.h).
 
 #include <Arduino.h>
 #include <vector>
+#include <cstring>
+#include <esp_system.h>
+#include <esp_heap_caps.h>
+
 #include "sentinel_proto/packet.h"
 #include "sentinel_proto/fragment.h"
+#include "sentinel_pqc/pqc_handshake.h"
 #include "common/board_config.h"
+#include "common/mesh_transport.h"
+#include "common/msg_io.h"
+#include "common/crypto_task.h"
+#include "common/demo_keys.h"
 
 using namespace sentinel;
 
-enum class AttackMode { OFF, REPLAY, FLOOD, IMPERSONATE, WEAK_LINK, SLOW_DRIP };
+#ifndef PQC_TASK_STACK_BYTES
+#  if SENTINEL_PQC_LEVEL == 1
+#    define PQC_TASK_STACK_BYTES 49152
+#  else
+#    define PQC_TASK_STACK_BYTES 90112
+#  endif
+#endif
+
+enum class AttackMode { OFF, REPLAY, FLOOD, INSIDER, IMPERSONATE, WEAK_LINK, SLOW_DRIP };
 static AttackMode g_mode = AttackMode::OFF;
+static const char* mode_name(AttackMode m) {
+    switch (m) {
+        case AttackMode::OFF: return "OFF";
+        case AttackMode::REPLAY: return "REPLAY";
+        case AttackMode::FLOOD: return "FLOOD";
+        case AttackMode::INSIDER: return "INSIDER";
+        case AttackMode::IMPERSONATE: return "IMPERSONATE";
+        case AttackMode::WEAK_LINK: return "WEAK_LINK";
+        case AttackMode::SLOW_DRIP: return "SLOW_DRIP";
+    }
+    return "?";
+}
 
-// Captured packet for REPLAY mode.
-static std::vector<uint8_t> g_captured_packet;
-static bool g_have_capture = false;
+static float g_rate_hz = 5.0f;             // attempts per second for the rate-driven modes
+constexpr uint32_t SLOW_DRIP_INTERVAL_MS = 60000;
+static bool g_echo_cookie = false;
 
-static uint16_t g_flood_epoch_base = 0xA11C;  // 16-bit epoch (brief v2 6.1), bogus each time
-static uint32_t g_flood_seq = 0;   // 32-bit seq per brief v2 section 7
+static uint16_t g_epoch = 0xA11C;
+static uint32_t g_seq = 1;
+static uint32_t g_sent_attempts = 0, g_sent_frames = 0, g_challenges_heard = 0, g_cookie_echoes = 0;
 
-// v4 (docs/v4_energy_split.md, firmware task 4): "the slow-drip profile
-// (~1/min, brief section 6 -- 'sits under any fixed rate limit but still
-// drains the cell')". A handshake attempt roughly once a minute never
-// looks like a flood by rate alone -- the whole point is that a naive
-// rate-limit defense passes it through, while EnergyGate's token bucket
-// still bleeds down over the hour even at that low a rate. Reuses the
-// FLOOD path's packet construction, just at a much slower cadence.
-static uint16_t g_slow_drip_epoch_base = 0x5D91; // distinct base from FLOOD's, purely cosmetic
-static uint32_t g_slow_drip_seq = 0;
-constexpr uint32_t SLOW_DRIP_INTERVAL_MS = 60000; // ~1/min
+// Buffers (static: several kB).
+static uint8_t g_hello[pqc::HELLO_LEN];
+static pqc::InitiatorState g_init;
+static volatile bool g_hello_valid = false;     // g_hello holds a correctly signed HELLO
+static uint16_t g_last_epoch = 0;
+static uint32_t g_last_seq = 0;
+static uint32_t g_last_tx_ms = 0;
+
+// Captured frame for REPLAY.
+static uint8_t g_captured[mesh::MAX_FRAME];
+static size_t g_captured_len = 0;
+
+static void send_hello_frames(uint8_t sender_id, const uint8_t* body, size_t len, uint16_t epoch, uint32_t seq) {
+    PacketHeader h;
+    h.type = MsgType::HELLO;
+    h.sender = sender_id;
+    h.epoch = epoch;
+    h.seq = seq;
+    h.time_ms = millis();
+    g_last_epoch = epoch;
+    g_last_seq = seq;
+    if (send_message(h, body, len) > 0) g_sent_frames += (len + MAX_FRAGMENT_PAYLOAD - 1) / MAX_FRAGMENT_PAYLOAD;
+    g_sent_attempts++;
+}
 
 // ---------------------------------------------------------------------
-// Mode handlers — called from loop() at whatever cadence suits the mode.
+// Modes
 // ---------------------------------------------------------------------
 
-static void tick_replay() {
-    if (!g_have_capture) {
-        // TODO: hook into the real mesh receive path; on the first packet
-        // seen from field-1, copy its raw bytes into g_captured_packet and
-        // set g_have_capture = true.
+static void tick_flood(uint32_t now) {
+    uint32_t interval = static_cast<uint32_t>(1000.0f / g_rate_hz);
+    if (now - g_last_tx_ms < interval) return;
+    g_last_tx_ms = now;
+    esp_fill_random(g_hello, sizeof(g_hello));                 // forged: random nonce / key / signature
+    memset(g_hello, 0, pqc::COOKIE_BYTES);                      // no cookie
+    send_hello_frames(static_cast<uint8_t>(NodeId::GATEWAY), g_hello, sizeof(g_hello), g_epoch++, g_seq++);
+}
+
+static void job_make_signed_hello(void*) {
+    // Valid HELLO under the attacker's OWN enrolled key, addressed to field-1.
+    pqc::Hooks none;
+    if (pqc::initiator_make_hello(g_init, static_cast<uint8_t>(NodeId::ATTACKER), static_cast<uint8_t>(NodeId::FIELD_1),
+                                  demo_keys::SIG_SK_ATTACKER, none, g_hello) != pqc::Result::OK) {
+        g_hello_valid = false;
         return;
     }
-    // TODO: re-transmit g_captured_packet verbatim on the mesh transport.
-    // This should be rejected by the gateway's replay window / freshness
-    // check (contract: field/replay_rejected, or attack_detected with
-    // details.kind = "replay_campaign" if sent in a burst).
-    delay(500);
+    g_hello_valid = true;
+    send_hello_frames(static_cast<uint8_t>(NodeId::ATTACKER), g_hello, sizeof(g_hello), g_epoch++, g_seq++);
 }
 
-static void tick_flood() {
+static void tick_insider(uint32_t now, uint32_t interval_ms) {
+    if (now - g_last_tx_ms < interval_ms || crypto_task_busy()) return;
+    g_last_tx_ms = now;
+    crypto_task_submit(job_make_signed_hello, nullptr);
+}
+
+static void tick_replay(uint32_t now) {
+    if (g_captured_len == 0) return;      // nothing captured yet: listen
+    uint32_t interval = static_cast<uint32_t>(1000.0f / g_rate_hz);
+    if (now - g_last_tx_ms < interval) return;
+    g_last_tx_ms = now;
+    if (mesh::broadcast(g_captured, g_captured_len)) { g_sent_frames++; g_sent_attempts++; }
+}
+
+static void tick_impersonate(uint32_t now) {
+    uint32_t interval = static_cast<uint32_t>(1000.0f / g_rate_hz);
+    if (now - g_last_tx_ms < interval) return;
+    g_last_tx_ms = now;
+    esp_fill_random(g_hello, sizeof(g_hello));
+    memset(g_hello, 0, pqc::COOKIE_BYTES);
+    send_hello_frames(static_cast<uint8_t>(NodeId::FIELD_1), g_hello, sizeof(g_hello), g_epoch++, g_seq++);
+}
+
+static void tick_weak_link(uint32_t now) {
+    static uint32_t next = 0;
+    if (now < next) return;
+    next = now + 1000 + random(0, 400);                 // jitter
+    if (random(0, 5) == 0) return;                      // ~1 in 5 dropped
+    uint8_t junk[8];
+    esp_fill_random(junk, sizeof(junk));
+    PacketHeader h;
+    h.type = MsgType::DATA;
+    h.sender = static_cast<uint8_t>(NodeId::ATTACKER);
+    h.epoch = g_epoch;
+    h.seq = g_seq++;
+    h.time_ms = now;
+    send_message(h, junk, sizeof(junk));
+}
+
+// ---------------------------------------------------------------------
+// Receive path: capture for REPLAY, hear CHALLENGEs for ECHO
+// ---------------------------------------------------------------------
+
+static void on_frame(const mesh::Frame& fr) {
     PacketHeader hdr;
-    hdr.type = MsgType::HELLO;
-    hdr.sender = static_cast<uint8_t>(NodeId::ATTACKER);
-    hdr.epoch = g_flood_epoch_base++; // new bogus epoch each time
-    hdr.seq = g_flood_seq++;
-    hdr.time_ms = millis();
-    hdr.frag_n = 1;
+    if (!PacketHeader::deserialize(fr.data, fr.len, hdr)) return;
 
-    uint8_t buf[HEADER_SIZE];
-    hdr.serialize(buf, sizeof(buf));
-    // TODO: broadcast `buf` (no valid signature attached) on the mesh
-    // transport. Expected: field-1's EnergyGate rules on every one
-    // (gate_decision events via the gateway, "node": "field-1"), and the
-    // gateway's trace window crosses classify_window()'s threshold ->
-    // attack_detected with details.kind = "handshake_flood".
-    delay(50); // fast enough to trip hs_per_s thresholds, not so fast it starves the radio
-}
+    if (g_mode == AttackMode::REPLAY && g_captured_len == 0 &&
+        hdr.type == MsgType::DATA && hdr.sender == static_cast<uint8_t>(NodeId::FIELD_1)) {
+        memcpy(g_captured, fr.data, fr.len);
+        g_captured_len = fr.len;
+        Serial.printf("LOG captured a DATA frame from field-1 (%u bytes) for replay\n", (unsigned)fr.len);
+        return;
+    }
 
-static void tick_impersonate() {
-    PacketHeader hdr;
-    hdr.type = MsgType::HELLO;
-    hdr.sender = static_cast<uint8_t>(NodeId::FIELD_1); // spoofed identity
-    hdr.epoch = millis(); // plausible-looking, attacker doesn't know the real epoch
-    hdr.seq = 0;
-    hdr.time_ms = millis();
-    hdr.frag_n = 1;
-
-    uint8_t buf[HEADER_SIZE];
-    hdr.serialize(buf, sizeof(buf));
-    // TODO: sign with the ATTACKER's own ML-DSA/HMAC key (not field-1's —
-    // that's the whole point) and send on the transport. Expected gateway
-    // behavior: signature/HMAC verification fails ->
-    // handshake_rejected + attack_detected(details.kind="impersonation").
-    delay(1000);
-}
-
-static void tick_slow_drip() {
-    static uint32_t last_ms = 0;
-    uint32_t now = millis();
-    if (now - last_ms < SLOW_DRIP_INTERVAL_MS) return;
-    last_ms = now;
-
-    PacketHeader hdr;
-    hdr.type = MsgType::HELLO;
-    hdr.sender = static_cast<uint8_t>(NodeId::ATTACKER);
-    hdr.epoch = g_slow_drip_epoch_base++;
-    hdr.seq = g_slow_drip_seq++;
-    hdr.time_ms = now;
-    hdr.frag_n = 1;
-
-    uint8_t buf[HEADER_SIZE];
-    hdr.serialize(buf, sizeof(buf));
-    // TODO: broadcast `buf` on the mesh transport, same as tick_flood().
-    // At ~1/min this shouldn't trip classify_window()'s hs_per_s/hs_fail
-    // FLOOD threshold (field_model.h) -- that's the point, per brief
-    // section 6: a fixed rate limit lets it through (gate_policy.h's
-    // RATELIMIT mode admits it), so it is where EnergyGate has to earn its
-    // place. Expected: individually unremarkable gate_decision events from
-    // field-1, while field-1's battery trends down over the run.
-    (void)buf;
-}
-
-static void tick_weak_link() {
-    // Simulate a degraded link by sending the attacker's own traffic with
-    // deliberately induced jitter/drops, rather than targeting anyone.
-    // This exercises the gateway's `link_degraded` classification path
-    // (rssi_var / loss_pct / jitter_ms thresholds in field_model.h)
-    // without it being flagged as an attack.
-    static uint32_t last = 0;
-    uint32_t now = millis();
-    uint32_t jitter = random(0, 400); // ms
-    if (now - last >= 1000 + jitter) {
-        // TODO: send a normal-looking DATA packet, occasionally dropped
-        // (skip sending ~1 in 5) to simulate loss.
-        last = now;
+    if (hdr.type == MsgType::CHALLENGE && hdr.sender == static_cast<uint8_t>(NodeId::FIELD_1) &&
+        (g_mode == AttackMode::INSIDER || g_mode == AttackMode::SLOW_DRIP) &&
+        hdr.epoch == g_last_epoch && hdr.seq == g_last_seq) {
+        g_challenges_heard++;
+        if (g_echo_cookie && g_hello_valid && !crypto_task_busy() && hdr.frag_n == 1 &&
+            fr.len - HEADER_SIZE >= pqc::COOKIE_BYTES) {
+            pqc::hello_set_cookie(g_hello, fr.data + HEADER_SIZE);
+            send_hello_frames(static_cast<uint8_t>(NodeId::ATTACKER), g_hello, sizeof(g_hello), g_epoch++, g_seq++);
+            g_cookie_echoes++;
+        }
     }
 }
 
@@ -158,26 +201,35 @@ static void tick_weak_link() {
 // ---------------------------------------------------------------------
 
 static void handle_command(const String& cmd) {
-    if (cmd == "MODE REPLAY") {
-        g_mode = AttackMode::REPLAY;
-        g_have_capture = false;
-    } else if (cmd == "MODE FLOOD") {
-        g_mode = AttackMode::FLOOD;
-    } else if (cmd == "MODE IMPERSONATE") {
-        g_mode = AttackMode::IMPERSONATE;
-    } else if (cmd == "MODE WEAK_LINK") {
-        g_mode = AttackMode::WEAK_LINK;
-    } else if (cmd == "MODE SLOW_DRIP") {
-        g_mode = AttackMode::SLOW_DRIP;
-    } else if (cmd == "MODE OFF") {
-        g_mode = AttackMode::OFF;
-    } else {
-        Serial.print("LOG unknown command: ");
-        Serial.println(cmd);
-        return;
+    if (cmd.startsWith("MODE ")) {
+        String m = cmd.substring(5);
+        m.trim();
+        AttackMode nm;
+        if (m == "OFF") nm = AttackMode::OFF;
+        else if (m == "REPLAY") nm = AttackMode::REPLAY;
+        else if (m == "FLOOD") nm = AttackMode::FLOOD;
+        else if (m == "INSIDER") nm = AttackMode::INSIDER;
+        else if (m == "IMPERSONATE") nm = AttackMode::IMPERSONATE;
+        else if (m == "WEAK_LINK") nm = AttackMode::WEAK_LINK;
+        else if (m == "SLOW_DRIP") nm = AttackMode::SLOW_DRIP;
+        else { Serial.print("LOG unknown mode: "); Serial.println(m); return; }
+        g_mode = nm;
+        if (nm == AttackMode::REPLAY) g_captured_len = 0;
+        // SLOW_DRIP fires its first attempt immediately instead of after a minute.
+        g_last_tx_ms = (nm == AttackMode::SLOW_DRIP) ? millis() - SLOW_DRIP_INTERVAL_MS : 0;
+        Serial.printf("LOG mode set to MODE %s\n", mode_name(g_mode));
+    } else if (cmd.startsWith("RATE ")) {
+        float r = cmd.substring(5).toFloat();
+        if (r > 0.0f && r <= 200.0f) { g_rate_hz = r; Serial.printf("LOG rate %.2f /s\n", g_rate_hz); }
+    } else if (cmd == "ECHO on" || cmd == "ECHO off") {
+        g_echo_cookie = (cmd == "ECHO on");
+        Serial.printf("LOG cookie echo %s\n", g_echo_cookie ? "on" : "off");
+    } else if (cmd == "STATS") {
+        Serial.printf("LOG attacker stats mode=%s attempts=%lu frames=%lu challenges_heard=%lu cookie_echoes=%lu rate=%.2f\n",
+                      mode_name(g_mode), (unsigned long)g_sent_attempts, (unsigned long)g_sent_frames,
+                      (unsigned long)g_challenges_heard, (unsigned long)g_cookie_echoes, g_rate_hz);
     }
-    Serial.print("LOG mode set to ");
-    Serial.println(cmd);
+    // Other lines (LABEL, DEFENSE, HS ...) belong to other boards: ignore.
 }
 
 // ---------------------------------------------------------------------
@@ -187,7 +239,10 @@ static void handle_command(const String& cmd) {
 void setup() {
     Serial.begin(board::CONSOLE_SERIAL_BAUD);
     randomSeed(esp_random());
-    Serial.println("LOG attacker boot complete. Commands: MODE REPLAY|FLOOD|IMPERSONATE|WEAK_LINK|SLOW_DRIP|OFF");
+    bool crypto_ok = crypto_task_start(PQC_TASK_STACK_BYTES, 0);   // before Wi-Fi fragments the heap
+    bool mesh_ok = mesh::init();
+    Serial.printf("LOG attacker boot complete (%s+%s) crypto_task=%s mesh=%s. Commands: MODE FLOOD|INSIDER|SLOW_DRIP|REPLAY|IMPERSONATE|WEAK_LINK|OFF, RATE <hz>, ECHO on|off, STATS\n",
+                  SM_PQC_KEM_NAME, SM_PQC_SIG_NAME, crypto_ok ? "ok" : "FAILED", mesh_ok ? "ok" : "FAILED");
 }
 
 void loop() {
@@ -197,12 +252,19 @@ void loop() {
         if (line.length() > 0) handle_command(line);
     }
 
+    int handled = 0;
+    mesh::Frame fr;
+    while (handled < 16 && mesh::poll(fr)) { on_frame(fr); handled++; }
+
+    uint32_t now = millis();
     switch (g_mode) {
-        case AttackMode::REPLAY: tick_replay(); break;
-        case AttackMode::FLOOD: tick_flood(); break;
-        case AttackMode::IMPERSONATE: tick_impersonate(); break;
-        case AttackMode::WEAK_LINK: tick_weak_link(); break;
-        case AttackMode::SLOW_DRIP: tick_slow_drip(); break;
-        case AttackMode::OFF: delay(100); break;
+        case AttackMode::FLOOD: tick_flood(now); break;
+        case AttackMode::INSIDER: tick_insider(now, static_cast<uint32_t>(1000.0f / g_rate_hz)); break;
+        case AttackMode::SLOW_DRIP: tick_insider(now, SLOW_DRIP_INTERVAL_MS); break;
+        case AttackMode::REPLAY: tick_replay(now); break;
+        case AttackMode::IMPERSONATE: tick_impersonate(now); break;
+        case AttackMode::WEAK_LINK: tick_weak_link(now); break;
+        case AttackMode::OFF: break;
     }
+    delay(handled ? 0 : 1);
 }
