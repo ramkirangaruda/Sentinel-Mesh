@@ -398,6 +398,32 @@ static void start_attempt(uint32_t now_ms) {
 }
 
 static void drive_handshake(uint32_t now_ms) {
+    // Consume a finished attempt FIRST: it sets the next start time, and the state machine
+    // below must not see the stale one (it used to start a second handshake straight away).
+    if (g_result.ready) {
+        g_result.ready = false;
+        uint32_t now = millis();
+        if (g_result.ok) {
+            g_hs_ok++;
+            schedule_next(now, true);
+            Serial.printf("LOG hs ok epoch=%u tries=%u challenged=%d total_ms=%lu to_response_ms=%lu keygen_us=%lu sign_us=%lu verify_us=%lu decaps_us=%lu\n",
+                          g_result.epoch, g_result.tries, g_result.challenged, (unsigned long)g_result.total_ms,
+                          (unsigned long)g_result.resp_ms,
+                          (unsigned long)g_result.phase_us[(int)pqc::Phase::KEM_KEYGEN],
+                          (unsigned long)g_result.phase_us[(int)pqc::Phase::SIG_SIGN],
+                          (unsigned long)g_result.phase_us[(int)pqc::Phase::SIG_VERIFY],
+                          (unsigned long)g_result.phase_us[(int)pqc::Phase::KEM_DECAPS]);
+            emit_rekey(g_first_session ? "initial" : "scheduled");
+            g_first_session = false;
+        } else {
+            g_hs_failed++;
+            schedule_next(now, false);
+            Serial.printf("LOG hs fail reason=%s epoch=%u tries=%u challenged=%d total_ms=%lu next_in_ms=%lu\n",
+                          g_result.reason, g_result.epoch, g_result.tries, g_result.challenged,
+                          (unsigned long)g_result.total_ms, (unsigned long)(g_next_hs_ms - now));
+        }
+    }
+
     switch (g_hs_state) {
         case HsState::IDLE:
             if (now_ms >= g_next_hs_ms) start_attempt(now_ms);
@@ -424,30 +450,6 @@ static void drive_handshake(uint32_t now_ms) {
                 g_hs_state = HsState::IDLE;
             }
             break;
-    }
-
-    if (g_result.ready) {
-        g_result.ready = false;
-        uint32_t now = millis();
-        if (g_result.ok) {
-            g_hs_ok++;
-            schedule_next(now, true);
-            Serial.printf("LOG hs ok epoch=%u tries=%u challenged=%d total_ms=%lu to_response_ms=%lu keygen_us=%lu sign_us=%lu verify_us=%lu decaps_us=%lu\n",
-                          g_result.epoch, g_result.tries, g_result.challenged, (unsigned long)g_result.total_ms,
-                          (unsigned long)g_result.resp_ms,
-                          (unsigned long)g_result.phase_us[(int)pqc::Phase::KEM_KEYGEN],
-                          (unsigned long)g_result.phase_us[(int)pqc::Phase::SIG_SIGN],
-                          (unsigned long)g_result.phase_us[(int)pqc::Phase::SIG_VERIFY],
-                          (unsigned long)g_result.phase_us[(int)pqc::Phase::KEM_DECAPS]);
-            emit_rekey(g_first_session ? "initial" : "scheduled");
-            g_first_session = false;
-        } else {
-            g_hs_failed++;
-            schedule_next(now, false);
-            Serial.printf("LOG hs fail reason=%s epoch=%u tries=%u challenged=%d total_ms=%lu next_in_ms=%lu\n",
-                          g_result.reason, g_result.epoch, g_result.tries, g_result.challenged,
-                          (unsigned long)g_result.total_ms, (unsigned long)(g_next_hs_ms - now));
-        }
     }
 }
 
