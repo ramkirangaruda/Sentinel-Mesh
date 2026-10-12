@@ -18,6 +18,12 @@ for f in files:
         if r and mac: data[mac][(r.group(1), r.group(2))].append(int(r.group(3)))
 def pretty(m):   # firmware prints the efuse MAC byte-reversed
     b = [m[i:i+2] for i in range(0, 12, 2)][::-1]; return ":".join(b)
+labels = {}
+_bc = os.path.join(root, "paper", "data", "E1", "boards.csv")
+if os.path.exists(_bc):
+    for r in csv.DictReader(open(_bc)): labels[r["mac"]] = r["label"]
+def name(m):
+    p = pretty(m); return f"{labels[p]} ({p})" if p in labels else p
 order = ["ML-KEM-512","ML-KEM-768","ML-KEM-1024","ML-DSA-44","ML-DSA-65","X25519","ECDSA-P256"]
 keys = sorted({k for d in data.values() for k in d}, key=lambda k: (order.index(k[0]) if k[0] in order else 99, k[1]))
 d1 = os.path.join(root, "paper", "data", "E1")
@@ -26,8 +32,8 @@ with open(os.path.join(d1, "summary_per_board.csv"), "w", newline="") as fh:
     for mac in sorted(data):
         for k in keys:
             v = sorted(data[mac].get(k, []))
-            if v: w.writerow([pretty(mac), k[0], k[1], len(v), f"{st.median(v)/1000:.2f}", f"{v[0]/1000:.2f}", f"{v[-1]/1000:.2f}"])
-print(f"boards: {len(data)}  ->", ", ".join(f"{pretty(m)} (n={len(next(iter(data[m].values())))})" for m in sorted(data)))
+            if v: w.writerow([name(mac), k[0], k[1], len(v), f"{st.median(v)/1000:.2f}", f"{v[0]/1000:.2f}", f"{v[-1]/1000:.2f}"])
+print(f"boards: {len(data)}  ->", ", ".join(f"{name(m)} (n={len(next(iter(data[m].values())))})" for m in sorted(data)))
 print(f"{'algo':12} {'op':20} {'median of board medians (ms)':>30} {'between-board range (ms)':>26} {'spread %':>9}")
 with open(os.path.join(d1, "summary_pooled.csv"), "w", newline="") as fh:
     w = csv.writer(fh); w.writerow(["algo","op","boards","median_of_board_medians_ms","board_min_ms","board_max_ms","between_board_spread_pct"])
