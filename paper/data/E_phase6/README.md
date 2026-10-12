@@ -12,3 +12,9 @@ Known artefact: this run was recorded BEFORE a gateway fix. Every scheduled hand
 immediately followed by a second one (the state machine read the stale next-start time before
 consuming the result). Fixed in the commit after this file was added; do not count these as 2x
 the intended rate.
+
+`bench_gateway_after_reboot_2026-10-12.log`: gateway reflashed (9ccc095 build) while field node F kept
+running its previous image state. Every handshake times out (`reason=timeout`, backoff 1 s to 15 s).
+Cause: F's replay guard compared epochs numerically; the rebooted gateway drew a random epoch lower than
+the one F had recorded, so F dropped every HELLO as a replay before the gate. Fixed by an exact-epoch
+ring (decision 15). A failure that was a bug, kept here as a record, not a result.

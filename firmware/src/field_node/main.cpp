@@ -131,11 +131,18 @@ static PhaseTimes g_phase;
 struct HsJob { uint8_t peer; uint16_t epoch; uint32_t seq; };
 static HsJob g_job;
 
-// Highest (epoch, seq) per sender whose HELLO has actually VERIFIED. Only
-// verified HELLOs advance it, so an unauthenticated flood cannot push it
-// forward and lock the real gateway out.
+// (epoch, seq) pairs of HELLOs that have actually VERIFIED, kept per sender in a small ring of
+// epochs. Only verified HELLOs are recorded, so an unauthenticated flood cannot fill it and lock
+// the real gateway out. Epochs are NOT ordered: a rebooted gateway starts from a random epoch that
+// may be lower than before (an earlier version compared epochs numerically and rejected the
+// gateway after its first reboot -- found on hardware). A HELLO is a replay only if its exact
+// epoch is in the ring with seq <= the recorded one. Limit (see decisions.md): a captured
+// signed HELLO whose epoch has aged out of the ring can be replayed once more, costing one full
+// handshake; a stateless responder cannot do better without a clock or its own nonce.
 struct Verified { bool valid; uint16_t epoch; uint32_t seq; };
-static volatile Verified g_verified[4];
+constexpr int kVerifiedRing = 8;
+static volatile Verified g_verified[4][kVerifiedRing];
+static volatile uint8_t g_verified_next[4];
 
 // After RESPONSE is sent we wait for the initiator's CONFIRM.
 struct Await { volatile bool active; uint8_t peer; uint16_t epoch; uint32_t seq; uint32_t deadline_ms; };
@@ -301,8 +308,18 @@ static void crypto_job_hello(void*) {
         return;
     }
     if (j.peer < 4) {
-        volatile Verified& v = g_verified[j.peer];
-        v.epoch = j.epoch; v.seq = j.seq; v.valid = true;
+        int slot = -1;
+        for (int i = 0; i < kVerifiedRing; i++)
+            if (g_verified[j.peer][i].valid && g_verified[j.peer][i].epoch == j.epoch) { slot = i; break; }
+        if (slot < 0) {
+            slot = g_verified_next[j.peer];
+            g_verified_next[j.peer] = static_cast<uint8_t>((slot + 1) % kVerifiedRing);
+            g_verified[j.peer][slot].epoch = j.epoch;
+            g_verified[j.peer][slot].seq = j.seq;
+        } else if (j.seq > g_verified[j.peer][slot].seq) {
+            g_verified[j.peer][slot].seq = j.seq;
+        }
+        g_verified[j.peer][slot].valid = true;
     }
     g_await.peer = j.peer; g_await.epoch = j.epoch; g_await.seq = j.seq;
     g_await.deadline_ms = millis() + AWAIT_CONFIRM_MS;
@@ -327,10 +344,11 @@ static void build_gate_features(float f[ENERGYGATE_NUM_FEATURES], uint32_t now_m
 
 static bool verified_before(const PacketHeader& h) {
     if (h.sender >= 4) return false;
-    const volatile Verified& v = g_verified[h.sender];
-    if (!v.valid) return false;
-    // Already-verified (epoch, seq) or older -> a replay of a past HELLO.
-    return (h.epoch < v.epoch) || (h.epoch == v.epoch && h.seq <= v.seq);
+    for (int i = 0; i < kVerifiedRing; i++) {
+        if (g_verified[h.sender][i].valid && g_verified[h.sender][i].epoch == h.epoch)
+            return h.seq <= g_verified[h.sender][i].seq;   // same epoch, already-used sequence number
+    }
+    return false;
 }
 
 static int admit_slot_free() {
@@ -546,7 +564,8 @@ void setup() {
 
     g_cookie = CookieChallenge(esp_random());
     g_link.reset(millis());
-    memset(const_cast<Verified*>(g_verified), 0, sizeof(g_verified));
+    memset(const_cast<Verified*>(&g_verified[0][0]), 0, sizeof(g_verified));
+    memset(const_cast<uint8_t*>(g_verified_next), 0, sizeof(g_verified_next));
     bool mesh_ok = mesh::init();
 
     Serial.printf("LOG field_node ready: %s+%s crypto_task=%s mesh=%s EnergyGate scorer=%s defence=%s heap free=%u largest_block=%u\n",
