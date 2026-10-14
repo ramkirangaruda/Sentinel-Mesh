@@ -123,3 +123,27 @@ Baseline (0-132 s, no attack): 9 attempts, 4 ok, 5 timeouts (44% per attempt) wi
   tracks overheard HELLO fragment sets and these partial forged sets expire. So that counter is flood-driven here;
   it does not by itself show lost RESPONSE frames (revises the reading of the earlier cookie-mode log).
 - G free heap 93.5 kB at start, 86.5 kB at the end (same pattern as before: it dips during/after a flood).
+
+## 2026-10-15 00:44 — scripted run, gate policy v2, flood, boards adjacent (the clean comparison)
+
+Files: `runs/20261015_004448_gate_flood_{G,F,A}.log` + `_timeline.txt`, produced by `paper/tools/run_flood_test.py`
+(all three boards on the laptop; script sends DEFENSE/MODE lines; times in the logs are seconds since script start).
+Boards side by side (not touching). RSSI at G about -27 dBm before the flood (strong link). Radio on, USB power,
+NOT an energy measurement. Gate model trained on SIMULATED traces; challenge cost 0.0005 J is a placeholder.
+Timeline: 0 s defence none, 60 s `DEFENSE gate`, 90 s `MODE FLOOD` (5/s), 210 s `MODE OFF`, 271 s end.
+
+- A reports 601 forged HELLOs (12,020 frames) in 120 s.
+- G, this run only (gw stats started 39->48, ok 34->43, failed stays 5): **9 of 9 handshakes ok, 0 timeouts**.
+  4 of them fell inside the flood (epochs 40312-40315, at 109, 140, 170, 201 s): every one needed exactly one
+  challenge (`tries=2 challenged=1`), total 394-527 ms, versus 335-397 ms with no challenge. Handshake at 30 s
+  intervals was never missed. v1 under flood (earlier run): 0 of 10.
+- F counters (F was not reset, so use deltas; F's absolute counters include earlier runs), flood window only:
+  challenge 0 -> 606, drop 0, busy_drop unchanged (65), spend +6 of which 4 are the legitimate handshakes, hs_fail +2.
+  So about 2 of 601 forged HELLOs (0.3%) were admitted and cost a full verify (at flood onset, before the
+  challenge path was in effect for them; same as v1's "about 3 at onset"), the rest got a challenge frame.
+  Challenge counter 606 is 3 above 599 (601 forged - 2 admitted) + 4 legit = 603 expected; not explained,
+  possibly re-sent first fragments. Do not quote more precision than "about 600".
+- Signing time tail with Wi-Fi on: sign_us on G ranged 38-287 ms over the 9 handshakes (287 ms at 231 s). Report
+  median and tail, not a mean.
+- Caveats: one run per condition; no `none`-defence flood run at this distance in this session (the earlier
+  adjacent `none` run: 0 of 7). Admitted-forged count is inferred from F's counters, not from a per-frame log.
