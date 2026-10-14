@@ -101,3 +101,25 @@ about 47 s (G uptime). Radio on, boards adjacent, NOT an energy measurement.
   and the 13700 failure coincides with a window where G's mean RSSI dropped to -58.6 dBm with variance 71.8
   (a link dip). Both the earlier unexplained timeouts and this one happened at or after the first
   re-handshake. Count attempts and failures per run and report the per-attempt success rate.
+
+`bench_gateway_2026-10-15_flood_defence_gate_v2_weak_link.log`: FLOOD with `DEFENSE gate`, policy v2 (challenge
+instead of drop), F on `field_node_bench` v2, attacker_flood 5/s. Times noted by the operator (wall clock):
+G monitor 00:22:13, `DEFENSE gate` 00:23:40, A on 00:24:25, A off 00:26:25, Ctrl+C 00:27:25. In G uptime the
+log shows `DEFENSE gate` at 75 s, forged HELLOs 132-255 s. NOT an energy measurement. Model still trained on
+SIMULATED traces.
+CONFOUND, read first: the boards were further apart than in the earlier runs. G's RSSI for field-1 was about -61 dBm
+(-60 to -63 before the flood) versus about -42 dBm before, so the link was weak even with no attacker.
+Baseline (0-132 s, no attack): 9 attempts, 4 ok, 5 timeouts (44% per attempt) with `none` then `gate`.
+- During the flood (132-255 s) with policy v2: 7 legitimate attempts (epochs 663-669), 4 ok, 3 timeouts; every
+  timeout was followed by a successful retry about 1 s later (664->665, 666->667, 668->669), so a session was
+  restored within about 4 s each time. v1 (earlier run, strong link, RSSI -35 to -44): 0 of 10.
+  Per-attempt success during the flood (4/7) is NOT lower than this run's own no-attack baseline (4/9), so the
+  v2 result is "legit connectivity is no longer blocked by the gate", not "better than no attack". Repeat with
+  the boards adjacent (RSSI about -40) for the clean comparison.
+- field-1 counters: challenge 0 -> 558 (about 4.5/s, one per forged HELLO), drop 0, busy_drop 0; spend rose only
+  with legitimate handshakes (19 at the end; 9 ok, 3 hs_fail on F). Essentially no forged HELLO was admitted. The
+  price: a challenge frame TX per forged HELLO (about 558 in 123 s); energy cost to be measured on the rig.
+- G's `frag_timeout` counter rose to about 8 per 5 s window during the flood (186 over the flood vs 0 before): G
+  tracks overheard HELLO fragment sets and these partial forged sets expire. So that counter is flood-driven here;
+  it does not by itself show lost RESPONSE frames (revises the reading of the earlier cookie-mode log).
+- G free heap 93.5 kB at start, 86.5 kB at the end (same pattern as before: it dips during/after a flood).
