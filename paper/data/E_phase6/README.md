@@ -35,3 +35,13 @@ ok (377 ms), the second (at the 30 s period) and the retry timed out while F's g
 HELLO) and F's counters showed no failure. Not reproduced in the two runs above. Possible causes not yet
 excluded: lost RESPONSE frames at G, a power/reset condition on F. Watch for it in later runs (`hs fail
 reason=timeout` after a successful first handshake) and do not claim 100% handshake success from these logs.
+
+`bench_gateway_2026-10-14_after_flood_attacker_rebooted.log` (first ~25 s only; the leading `_pct":0}` lines are
+serial-buffer leftovers from the previous session). First flood attempt, defence none. A was set to `MODE FLOOD`
+over USB for about 5-6 min, then unplugged and moved to a charger. A does NOT remember its mode across a power
+cycle, so the flood STOPPED at that moment: the field-1 counters in this log are frozen (spend=896,
+busy_drop=690, hs_fail=735, hs_ok=24 for the whole window) and G's first handshake succeeded in 486 ms.
+The counters are cumulative since F's boot and include the pre-flood handshakes, so they are NOT a clean
+flood measurement. What they do show: with defence none, F admitted about 900 forged HELLOs into the
+crypto slot and refused about 690 more because the slot was busy, i.e. roughly the 5/s default rate for the
+few minutes A was attached. Lesson: for a charger-powered attacker use `env:attacker_flood` (boots flooding).
