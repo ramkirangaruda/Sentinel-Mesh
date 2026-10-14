@@ -61,3 +61,29 @@ What it shows (defence none, boards adjacent, radio on, NOT an energy measuremen
   With defence none the score is only logged, not acted on. Not a result until the model is retrained on recorded traces.
 - G heap fell from 93.2 kB to 86.5 kB during the flood (overheard-HELLO tracking); stack_free_min unchanged.
 Redo with the monitor's log file for a complete baseline / flood / recovery record.
+
+`bench_gateway_2026-10-14_flood_defence_gate_full.log`: FLOOD (attacker_flood, 5/s) with `DEFENSE gate`, complete
+monitor log (log2file). F power-cycled before; G uptime in seconds below. Radio on, boards adjacent, USB power,
+NOT an energy measurement. EnergyGate model trained on SIMULATED traces (not retrained on recorded data).
+Timeline: baseline 0-72 s (6 of 6 handshakes ok); `DEFENSE gate` relayed about 72 s; forged HELLOs from 142 s to
+about 269 s (about 127 s); recovery after.
+- field-1 counters across the flood: drop 0 -> 589 (about 4.6/s, i.e. essentially every forged HELLO), spend 6 -> 9
+  (3 admitted at flood onset, before the gate's rate features rose), busy_drop +3, hs_fail +1. Nothing admitted for
+  the rest of the flood. Compare defence none (partial run): about 25% of forged HELLOs admitted, 75% busy_drop.
+- BUT legitimate handshakes during the flood: 10 attempts (epochs 54761-54770), 10 timeouts, 0 ok, backoff to 15 s.
+  The gate dropped the real gateway's HELLOs too: the forged and the real HELLOs claim the same sender id and the
+  window features cannot tell them apart. challenge=0 throughout (the gate never issued a cookie challenge).
+  So: victim's crypto load protected, availability for the legit peer NOT protected. Same 0-for-N legit outcome as
+  defence none. Report both numbers.
+- Recovery: first legit handshake ok at about 287 s, about 17 s after the flood ended (one 15 s backoff).
+- G's detector (rules, not ML here) classified windows as impersonation / handshake_flood (26 attack_detected
+  events); the gateway window showed hs_per_s about 5, auth_fail about 25 per 5 s, RSSI about -62 dBm for the
+  forged frames vs about -41 dBm for the real field node.
+- Another handshake timeout after the flood ended (epoch 54772, then 54773 ok). Same signature as the earlier
+  unexplained timeout: field-1 counted a `spend` (it received the first HELLO fragment), no hs_fail, G timed out.
+  Leading hypothesis, NOT verified: ESP-NOW broadcast has no retransmission, a handshake needs about 39 frames to all
+  arrive, so a single lost frame fails the attempt (G's backoff retry then succeeds within seconds). Roughly 3 such
+  timeouts in about 35 clean-condition attempts so far (about 8%): count and report per-attempt success, and capture
+  F's own serial log at the same time to confirm.
+- G free heap trend: 93.2 kB at start, 86.5 kB during the flood, 81.8 kB at the end. Watch it (possible slow leak or
+  fragmentation in the overheard-HELLO tracking) before any long slow-drip run.
