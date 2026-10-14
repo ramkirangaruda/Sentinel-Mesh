@@ -610,10 +610,41 @@ static void test_gate_challenges_a_middling_score_without_charging() {
     CHECK(decide_admission(DefenseMode::GATE, gate_in(0.5f), b, cfg, 0) == GateAction::CHALLENGE);
     CHECK(b.balance_j() == 1.0f);
 }
-static void test_gate_drops_a_low_score() {
+static void test_gate_v1_drops_a_low_score() {
     EnergyBudget b(1.0f, 0.0f);
     GatePolicyConfig cfg;
+    cfg.challenge_low_scores = false;   // policy v1
     CHECK(decide_admission(DefenseMode::GATE, gate_in(0.1f), b, cfg, 0) == GateAction::DROP);
+    CHECK(b.balance_j() == 1.0f);
+}
+static void test_gate_v2_challenges_a_low_score_and_charges_a_little() {
+    EnergyBudget b(1.0f, 0.0f);
+    GatePolicyConfig cfg;
+    cfg.handshake_cost_j = 0.25f;
+    cfg.challenge_cost_j = 0.01f;
+    CHECK(decide_admission(DefenseMode::GATE, gate_in(0.1f), b, cfg, 0) == GateAction::CHALLENGE);
+    CHECK(b.balance_j() > 0.98f && b.balance_j() < 0.995f);
+}
+static void test_gate_v2_admits_a_low_score_that_echoed_the_cookie() {
+    EnergyBudget b(1.0f, 0.0f);
+    GatePolicyConfig cfg;
+    cfg.handshake_cost_j = 0.25f;
+    CHECK(decide_admission(DefenseMode::GATE, gate_in(0.01f, true), b, cfg, 0) == GateAction::SPEND);
+    CHECK(b.balance_j() > 0.74f && b.balance_j() < 0.76f);
+}
+static void test_gate_v2_a_flood_of_challenges_is_budget_bounded() {
+    EnergyBudget b(0.1f, 0.0f);
+    GatePolicyConfig cfg;
+    cfg.handshake_cost_j = 0.02f;
+    cfg.challenge_cost_j = 0.01f;
+    int challenged = 0, dropped = 0;
+    for (int i = 0; i < 100; i++) {
+        GateAction a = decide_admission(DefenseMode::GATE, gate_in(0.0f), b, cfg, 0);
+        if (a == GateAction::CHALLENGE) challenged++;
+        else if (a == GateAction::DROP) dropped++;
+    }
+    CHECK(challenged <= 9);    // ~(0.1 - one handshake) / 0.01
+    CHECK(dropped >= 91);
 }
 static void test_gate_admits_a_returned_cookie_on_recheck() {
     EnergyBudget b(1.0f, 0.0f);
@@ -621,7 +652,8 @@ static void test_gate_admits_a_returned_cookie_on_recheck() {
     cfg.handshake_cost_j = 0.25f;
     CHECK(decide_admission(DefenseMode::GATE, gate_in(0.5f, true), b, cfg, 0) == GateAction::SPEND);
     CHECK(b.balance_j() < 1.0f);
-    // a returned cookie does not rescue a sender the model distrusts
+    // policy v1: a returned cookie does not rescue a sender the model distrusts
+    cfg.challenge_low_scores = false;
     CHECK(decide_admission(DefenseMode::GATE, gate_in(0.1f, true), b, cfg, 0) == GateAction::DROP);
 }
 static void test_gate_drops_when_the_budget_cannot_pay_for_a_handshake() {
@@ -846,7 +878,10 @@ int main() {
     RUN(test_gate_cookie_challenges_until_echoed);
     RUN(test_gate_spends_on_a_confident_score_and_charges_the_budget);
     RUN(test_gate_challenges_a_middling_score_without_charging);
-    RUN(test_gate_drops_a_low_score);
+    RUN(test_gate_v1_drops_a_low_score);
+    RUN(test_gate_v2_challenges_a_low_score_and_charges_a_little);
+    RUN(test_gate_v2_admits_a_low_score_that_echoed_the_cookie);
+    RUN(test_gate_v2_a_flood_of_challenges_is_budget_bounded);
     RUN(test_gate_admits_a_returned_cookie_on_recheck);
     RUN(test_gate_drops_when_the_budget_cannot_pay_for_a_handshake);
     RUN(test_gate_budget_refills_and_admits_again);

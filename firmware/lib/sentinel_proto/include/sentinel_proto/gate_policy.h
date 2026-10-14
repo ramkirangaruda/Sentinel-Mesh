@@ -57,6 +57,16 @@ struct GatePolicyConfig {
     // RATELIMIT mode: minimum gap between admissions from one sender. 10 s
     // stops a loud flood and lets a ~1/min slow drip straight through.
     uint32_t ratelimit_min_interval_ms = 10000;
+    // Policy v2 (default) vs v1. v1 DROPPED a low score outright; the first hardware flood run
+    // (paper/data/E_phase6, defence gate) showed that drops the real gateway too, because a forged
+    // HELLO and the real one claim the same sender id and look alike to the window features.
+    // v2 keeps the model for SPEND-vs-CHALLENGE and spends a SMALL budget charge on a challenge
+    // instead of dropping: the real sender can echo the cookie and then be admitted (the budget
+    // still bounds the total), a blind forger cannot. false restores v1 (the ablation baseline).
+    bool challenge_low_scores = true;
+    // Joules booked per challenge sent to a low-scoring sender (v2). PLACEHOLDER: a few frames of
+    // radio TX, far below a handshake; replace with the measured value from the INA219 rig.
+    float challenge_cost_j = 0.0005f;
 };
 
 // ms_since_last_attempt value for a sender never seen before.
@@ -80,7 +90,11 @@ struct GateInputs {
 //   3. the budget cannot cover even one handshake ("nearly gone")   -> DROP
 //      (a cookie would only lead to a handshake it can't pay for)
 //   4. score >= challenge_threshold                                  -> CHALLENGE
-//   5. otherwise                                                     -> DROP
+//   5. otherwise: v2 (challenge_low_scores) -> CHALLENGE, charged cfg.challenge_cost_j; DROP only if
+//      even that cannot be paid. v1 -> DROP.
+// Rule 2 in v2 also admits a returned cookie whatever the score (v1 required score >=
+// challenge_threshold). Limitation: a listening attacker can echo the cookie (shared medium); the
+// joule budget is what bounds that.
 GateAction decide_admission(DefenseMode mode, const GateInputs& in, EnergyBudget& budget,
                             const GatePolicyConfig& cfg, uint32_t now_ms);
 

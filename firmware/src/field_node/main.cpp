@@ -563,11 +563,15 @@ void setup() {
 #endif
 
     g_cookie = CookieChallenge(esp_random());
+#ifdef SENTINEL_GATE_V1
+    g_gate_cfg.challenge_low_scores = false;   // ablation: policy v1 drops a low score (and the real gateway with it)
+#endif
     g_link.reset(millis());
     memset(const_cast<Verified*>(&g_verified[0][0]), 0, sizeof(g_verified));
     memset(const_cast<uint8_t*>(g_verified_next), 0, sizeof(g_verified_next));
     bool mesh_ok = mesh::init();
 
+    Serial.printf("LOG gate policy: %s\n", g_gate_cfg.challenge_low_scores ? "v2 (challenge low scores)" : "v1 (drop low scores)");
     Serial.printf("LOG field_node ready: %s+%s crypto_task=%s mesh=%s EnergyGate scorer=%s defence=%s heap free=%u largest_block=%u\n",
                   SM_PQC_KEM_NAME, SM_PQC_SIG_NAME, crypto_ok ? "ok" : "FAILED", mesh_ok ? "ok" : "FAILED",
                   energygate_uses_trained_model() ? "trained model" : "rule-based stand-in",
