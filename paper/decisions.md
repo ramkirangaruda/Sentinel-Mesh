@@ -41,6 +41,8 @@ These are the choices made while writing the handshake firmware. Each one change
 
 | 15 | Replay guard (revises #9) | Per sender, a ring of 8 verified epochs, each with its highest verified seq. A HELLO is a replay only if its epoch is in the ring and seq <= the recorded one. A new epoch is never "older". | The first version compared epochs numerically; a rebooted gateway with a lower random epoch was locked out until F power-cycled (bench log `bench_gateway_after_reboot_2026-10-12.log`). Limitation: a captured signed HELLO whose epoch has aged out of the ring can be replayed once and costs one full handshake. Report it. |
 
+| 16 | Attacker boot mode | `env:attacker_flood`, `attacker_insider`, `attacker_slowdrip` start attacking at power-up (`-DSENTINEL_ATTACKER_BOOT_MODE`, optional `-DSENTINEL_ATTACKER_RATE_HZ`). `env:attacker` still boots OFF. | The attack mode is not persisted. A charger- or INA219-powered attacker (E5, and C2's attacker energy) has no serial link, so it needs a build-time mode. Every run must record which attacker env and rate were used. |
+
 ## Open risks in this firmware (nothing here has run on a board yet)
 
 1. **Heap.** The crypto task reserves its stack (90 112 B at level 3, 49 152 B at level 1) before Wi-Fi starts. If ML-DSA-65 plus Wi-Fi plus the buffers do not fit, the boot log says so (`crypto_task: cannot allocate` or `FAILED`). The real stack need is read off `stack_free_min` in the logs and the reservation lowered accordingly.

@@ -56,7 +56,14 @@ using namespace sentinel;
 #endif
 
 enum class AttackMode { OFF, REPLAY, FLOOD, INSIDER, IMPERSONATE, WEAK_LINK, SLOW_DRIP };
+// Boot-time mode: a board powered from a charger has no serial link to type MODE into, and the
+// mode is not stored across a power cycle. Build env:attacker_flood / _insider / _slowdrip to
+// start attacking at power-up. Plain env:attacker still boots OFF and is driven by MODE lines.
+#ifdef SENTINEL_ATTACKER_BOOT_MODE
+static AttackMode g_mode = AttackMode::SENTINEL_ATTACKER_BOOT_MODE;
+#else
 static AttackMode g_mode = AttackMode::OFF;
+#endif
 static const char* mode_name(AttackMode m) {
     switch (m) {
         case AttackMode::OFF: return "OFF";
@@ -70,7 +77,11 @@ static const char* mode_name(AttackMode m) {
     return "?";
 }
 
+#ifdef SENTINEL_ATTACKER_RATE_HZ
+static float g_rate_hz = SENTINEL_ATTACKER_RATE_HZ;   // build-time rate
+#else
 static float g_rate_hz = 5.0f;             // attempts per second for the rate-driven modes
+#endif
 constexpr uint32_t SLOW_DRIP_INTERVAL_MS = 60000;
 static bool g_echo_cookie = false;
 
@@ -243,6 +254,9 @@ void setup() {
     bool mesh_ok = mesh::init();
     Serial.printf("LOG attacker boot complete (%s+%s) crypto_task=%s mesh=%s. Commands: MODE FLOOD|INSIDER|SLOW_DRIP|REPLAY|IMPERSONATE|WEAK_LINK|OFF, RATE <hz>, ECHO on|off, STATS\n",
                   SM_PQC_KEM_NAME, SM_PQC_SIG_NAME, crypto_ok ? "ok" : "FAILED", mesh_ok ? "ok" : "FAILED");
+    if (g_mode == AttackMode::SLOW_DRIP) g_last_tx_ms = millis() - SLOW_DRIP_INTERVAL_MS;   // first attempt at once
+    if (g_mode != AttackMode::OFF)
+        Serial.printf("LOG boot mode: MODE %s at %.2f /s (build-time default)\n", mode_name(g_mode), g_rate_hz);
 }
 
 void loop() {

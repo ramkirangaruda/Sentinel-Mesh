@@ -1,0 +1,136 @@
+(.venv) PS C:\Users\ramki\Sentinel-mesh\firmware>    pio device monitor --baud 115200 --port COM6 -f log2file
+--- Logging an output to C:\Users\ramki\Sentinel-mesh\firmware\logs\device-monitor-261014-222822.log
+--- Terminal on COM6 | 115200 8-N-1
+--- Available filters and text transformations: debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+_pct":0}
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+LOG gateway boot: heap free=242408 largest_block=110580
+LOG crypto_task: 90112 B stack on core 0
+[    34][I][esp32-hal-i2c.c:75] i2cInit(): Initialising I2C Master: sda=21 scl=22 freq=100000
+[    53][W][Wire.cpp:301] begin(): Bus already started in Master Mode.
+LOG mesh: ESP-NOW ready ch=1 mac=5C:01:3B:BE:A0:10 rssi_sniffer=on
+LOG gateway boot complete: ML-KEM-768+ML-DSA-65 crypto_task=ok mesh=ok heap free=93540 largest_block=55284
+{"id":"ed9e544f-5f86-44bf-bdb2-120bccbce789","ts":3063,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: none)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+LOG hs ok epoch=16618 tries=1 challenged=0 total_ms=486 to_response_ms=438 keygen_us=9987 sign_us=40156 verify_us=28628 decaps_us=12470
+{"id":"771c9fe0-5a61-4f34-9666-caa6374eb930","ts":3497,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"initial"}}
+LOG field1 pressure=101.89 spend=896 challenge=0 drop=0 busy_drop=690 hs_ok=24 hs_fail=735
+{"ts":5063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-35.81818,"rssi_var":3.421612,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG field1 pressure=101.95 spend=896 challenge=0 drop=0 busy_drop=690 hs_ok=24 hs_fail=735
+LOG gw stats hs started=1 ok=1 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+{"ts":10063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-33,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG field1 pressure=102.03 spend=896 challenge=0 drop=0 busy_drop=690 hs_ok=24 hs_fail=735
+LOG field1 pressure=101.99 spend=896 challenge=0 drop=0 busy_drop=690 hs_ok=24 hs_fail=735
+{"ts":15063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-37.5,"rssi_var":2.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG field1 pressure=101.95 spend=896 challenge=0 drop=0 busy_drop=690 hs_ok=24 hs_fail=735
+LOG field1 pressure=102.01 spend=896 challenge=0 drop=0 busy_drop=690 hs_ok=24 hs_fail=735
+LOG gw stats hs started=1 ok=1 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+{"ts":20063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-37,"rssi_var":4,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG field1 pressure=101.96 spend=896 challenge=0 drop=0 busy_drop=690 hs_ok=24 hs_fail=735
+{"ts":25063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-35,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+LOG field1 pressure=101.92 spend=896 challenge=0 drop=0 busy_drop=690 hs_ok=24 hs_fail=735
