@@ -1,0 +1,1354 @@
+ets Jul 29 2019 12:21:46
+
+
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+
+configsip: 0, SPIWP:0xee
+
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+
+mode:DIO, clock div:2
+
+load:0x3fff0030,len:1184
+
+load:0x40078000,len:13232
+
+load:0x40080400,len:3028
+
+entry 0x400805e4
+
+LOG gateway boot: heap free=242408 largest_block=110580
+LOG crypto_task: 90112 B stack on core 0
+[    35][I][esp32-hal-i2c.c:75] i2cInit(): Initialising I2C Master: sda=21 scl=22 freq=100000
+
+[    53][W][Wire.cpp:301] begin(): Bus already started in Master Mode.
+
+LOG mesh: ESP-NOW ready ch=1 mac=5C:01:3B:BE:A0:10 rssi_sniffer=on
+LOG gateway boot complete: ML-KEM-768+ML-DSA-65 crypto_task=ok mesh=ok heap free=93540 largest_block=55284
+{"id":"e90aafce-12f1-451d-aad8-f8fb7ad4682c","ts":3173,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: none)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG hs ok epoch=54756 tries=1 challenged=0 total_ms=441 to_response_ms=391 keygen_us=10783 sign_us=144893 verify_us=28325 decaps_us=12810
+{"id":"a05e6c16-1a52-4761-af2b-e356d94ad531","ts":3452,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"initial"}}
+
+LOG field1 pressure=101.30 spend=2 challenge=0 drop=0 busy_drop=0 hs_ok=2 hs_fail=0
+{"ts":5063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-42.63636,"rssi_var":4.77683,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.21 spend=2 challenge=0 drop=0 busy_drop=0 hs_ok=2 hs_fail=0
+LOG gw stats hs started=1 ok=1 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+{"ts":10063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-41,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.28 spend=2 challenge=0 drop=0 busy_drop=0 hs_ok=2 hs_fail=0
+LOG field1 pressure=101.22 spend=2 challenge=0 drop=0 busy_drop=0 hs_ok=2 hs_fail=0
+{"ts":15063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-39.5,"rssi_var":2.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.24 spend=2 challenge=0 drop=0 busy_drop=0 hs_ok=2 hs_fail=0
+LOG field1 pressure=101.26 spend=2 challenge=0 drop=0 busy_drop=0 hs_ok=2 hs_fail=0
+LOG gw stats hs started=1 ok=1 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+{"ts":20063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-37,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.31 spend=2 challenge=0 drop=0 busy_drop=0 hs_ok=2 hs_fail=0
+{"ts":25063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-40,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.29 spend=2 challenge=0 drop=0 busy_drop=0 hs_ok=2 hs_fail=0
+LOG field1 pressure=101.36 spend=2 challenge=0 drop=0 busy_drop=0 hs_ok=2 hs_fail=0
+LOG gw stats hs started=1 ok=1 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+{"ts":30063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-41.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.32 spend=2 challenge=0 drop=0 busy_drop=0 hs_ok=2 hs_fail=0
+{"id":"7a0c035f-26fc-4552-a10b-ff2b46e317df","ts":33501,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: none)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG hs ok epoch=54757 tries=1 challenged=0 total_ms=394 to_response_ms=347 keygen_us=9308 sign_us=38740 verify_us=27692 decaps_us=11991
+{"id":"c24a8722-b723-4d86-9fec-d64759c7b477","ts":33846,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+
+LOG field1 pressure=101.30 spend=3 challenge=0 drop=0 busy_drop=0 hs_ok=3 hs_fail=0
+{"ts":35063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-43.68182,"rssi_var":0.3077,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.22 spend=3 challenge=0 drop=0 busy_drop=0 hs_ok=3 hs_fail=0
+LOG gw stats hs started=2 ok=2 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+{"ts":40063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-38,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.28 spend=3 challenge=0 drop=0 busy_drop=0 hs_ok=3 hs_fail=0
+LOG field1 pressure=101.22 spend=3 challenge=0 drop=0 busy_drop=0 hs_ok=3 hs_fail=0
+{"ts":45063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-42.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.22 spend=3 challenge=0 drop=0 busy_drop=0 hs_ok=3 hs_fail=0
+LOG field1 pressure=101.30 spend=3 challenge=0 drop=0 busy_drop=0 hs_ok=3 hs_fail=0
+LOG gw stats hs started=2 ok=2 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+{"ts":50063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-42,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.37 spend=3 challenge=0 drop=0 busy_drop=0 hs_ok=3 hs_fail=0
+{"ts":55063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-44,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.47 spend=3 challenge=0 drop=0 busy_drop=0 hs_ok=3 hs_fail=0
+LOG field1 pressure=101.57 spend=3 challenge=0 drop=0 busy_drop=0 hs_ok=3 hs_fail=0
+LOG gw stats hs started=2 ok=2 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+{"ts":60063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-45,"rssi_var":1,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.65 spend=3 challenge=0 drop=0 busy_drop=0 hs_ok=3 hs_fail=0
+{"id":"31b201dc-a0d1-4ac2-9ed3-0be5555ef468","ts":63974,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: none)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG hs ok epoch=54758 tries=1 challenged=0 total_ms=494 to_response_ms=445 keygen_us=9386 sign_us=113233 verify_us=30818 decaps_us=11916
+{"id":"ae0d1a1d-7751-4e49-8737-170815477387","ts":64340,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+
+LOG field1 pressure=101.69 spend=4 challenge=0 drop=0 busy_drop=0 hs_ok=4 hs_fail=0
+{"ts":65063,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-43.09091,"rssi_var":0.173643,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.77 spend=4 challenge=0 drop=0 busy_drop=0 hs_ok=4 hs_fail=0
+LOG defence mode gate relayed to field-1
+LOG field1 pressure=101.82 spend=4 challenge=0 drop=0 busy_drop=0 hs_ok=4 hs_fail=0
+{"ts":72137,"node":"gateway","label":"normal","window_ms":7074,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-42,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG gw stats hs started=3 ok=3 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+LOG field1 pressure=101.74 spend=4 challenge=0 drop=0 busy_drop=0 hs_ok=4 hs_fail=0
+LOG field1 pressure=101.75 spend=4 challenge=0 drop=0 busy_drop=0 hs_ok=4 hs_fail=0
+LOG field1 pressure=101.71 spend=4 challenge=0 drop=0 busy_drop=0 hs_ok=4 hs_fail=0
+{"ts":79705,"node":"gateway","label":"normal","window_ms":7568,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-42.66667,"rssi_var":10.88878,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG gw stats hs started=3 ok=3 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+LOG field1 pressure=101.67 spend=4 challenge=0 drop=0 busy_drop=0 hs_ok=4 hs_fail=0
+{"ts":84705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-42,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.68 spend=4 challenge=0 drop=0 busy_drop=0 hs_ok=4 hs_fail=0
+LOG field1 pressure=101.71 spend=4 challenge=0 drop=0 busy_drop=0 hs_ok=4 hs_fail=0
+{"ts":89705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-42.5,"rssi_var":2.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.72 spend=4 challenge=0 drop=0 busy_drop=0 hs_ok=4 hs_fail=0
+LOG gw stats hs started=3 ok=3 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+LOG field1 pressure=101.68 spend=4 challenge=0 drop=0 busy_drop=0 hs_ok=4 hs_fail=0
+{"id":"6ce76243-82d0-4763-8d2e-b5fcda24e20c","ts":94400,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: gate)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":19.98,"budget_max_j":20}}
+
+{"ts":94705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-41.22727,"rssi_var":1.357495,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG hs ok epoch=54759 tries=1 challenged=0 total_ms=377 to_response_ms=331 keygen_us=9148 sign_us=49869 verify_us=27004 decaps_us=12092
+{"id":"15dbca14-8983-4893-a82a-ad6c031002ac","ts":94742,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+
+LOG field1 pressure=101.74 spend=5 challenge=0 drop=0 busy_drop=0 hs_ok=5 hs_fail=0
+{"ts":99705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-43,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.75 spend=5 challenge=0 drop=0 busy_drop=0 hs_ok=5 hs_fail=0
+LOG gw stats hs started=4 ok=4 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+LOG field1 pressure=101.68 spend=5 challenge=0 drop=0 busy_drop=0 hs_ok=5 hs_fail=0
+{"ts":104705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-40.5,"rssi_var":2.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.75 spend=5 challenge=0 drop=0 busy_drop=0 hs_ok=5 hs_fail=0
+LOG field1 pressure=101.72 spend=5 challenge=0 drop=0 busy_drop=0 hs_ok=5 hs_fail=0
+{"ts":109705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-43.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG gw stats hs started=4 ok=4 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+LOG field1 pressure=101.77 spend=5 challenge=0 drop=0 busy_drop=0 hs_ok=5 hs_fail=0
+{"ts":114705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-40,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.71 spend=5 challenge=0 drop=0 busy_drop=0 hs_ok=5 hs_fail=0
+LOG field1 pressure=101.79 spend=5 challenge=0 drop=0 busy_drop=0 hs_ok=5 hs_fail=0
+{"ts":119705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-42.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.87 spend=5 challenge=0 drop=0 busy_drop=0 hs_ok=5 hs_fail=0
+LOG gw stats hs started=4 ok=4 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+LOG field1 pressure=101.90 spend=5 challenge=0 drop=0 busy_drop=0 hs_ok=5 hs_fail=0
+{"ts":124705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-42.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+{"id":"a7588775-01bd-48d0-8377-436d0ae63810","ts":124838,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: gate)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":19.98,"budget_max_j":20}}
+
+LOG hs ok epoch=54760 tries=1 challenged=0 total_ms=533 to_response_ms=482 keygen_us=12292 sign_us=81656 verify_us=29465 decaps_us=12152
+{"id":"a3586a9d-a5f9-4bb7-95f3-21340b0164af","ts":125275,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+
+LOG field1 pressure=101.98 spend=6 challenge=0 drop=0 busy_drop=0 hs_ok=6 hs_fail=0
+{"ts":129705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-42.14286,"rssi_var":1.074876,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=102.02 spend=6 challenge=0 drop=0 busy_drop=0 hs_ok=6 hs_fail=0
+LOG gw stats hs started=5 ok=5 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+LOG field1 pressure=101.95 spend=6 challenge=0 drop=0 busy_drop=0 hs_ok=6 hs_fail=0
+{"ts":134705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-42.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=101.99 spend=6 challenge=0 drop=0 busy_drop=0 hs_ok=6 hs_fail=0
+LOG field1 pressure=102.06 spend=6 challenge=0 drop=0 busy_drop=0 hs_ok=6 hs_fail=0
+{"ts":139705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-43,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+{"id":"396300d6-8350-4e23-94d5-3ce143e691b5","ts":142129,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"2df94984-d2dd-42e6-bf5b-3fac5c55c8fa","ts":142151,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: gate)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":19.98,"budget_max_j":20}}
+
+LOG gw stats hs started=5 ok=5 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=93212
+LOG field1 pressure=102.13 spend=8 challenge=0 drop=0 busy_drop=0 hs_ok=6 hs_fail=1
+{"id":"bdb8f22f-e60e-43ce-9b0c-1c881b73d3e2","ts":142520,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: gate)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":19.95925,"budget_max_j":20}}
+
+{"id":"01059bff-a092-4dab-95fa-767c5b668846","ts":142920,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: gate)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":19.97908,"budget_max_j":20}}
+
+{"id":"4731defe-13c0-43a7-b833-5277664837ac","ts":143123,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: gate)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":19.989,"budget_max_j":20}}
+
+{"id":"90a7ac24-53c6-4526-8c57-be952a463563","ts":143322,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":19.99903,"budget_max_j":20}}
+
+{"id":"cef1dbc4-b11f-4afa-9847-d4a58088c257","ts":143721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"5dad861e-66d5-4066-b755-d6a4d2c1c39e","ts":143922,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"1c61cbf8-7d9e-4f80-840a-f05bd9d48944","ts":144316,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"bd496b90-3a13-4d31-aa71-d4289ecf6a68","ts":144338,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6dc5e138-6dfe-4f71-af74-c115acc3636a","ts":144527,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":144705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":2.6,"hs_fail":13,"replay_rej":0,"auth_fail":13,"stale":0,"frag_timeout":1,"rssi_mean":-60.97015,"rssi_var":15.95424,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":84.61539,"dup_pct":0}
+
+E (146507) ledc: ledc_get_duty(745): LEDC is not initialized
+
+{"id":"6c3d4d3f-e66b-4b52-9768-2d0a5405fef0","ts":144727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"6b04ad81-92cc-41fb-9fa9-fb4cf1933d2f","ts":144923,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e3d1a4c2-2266-4072-b7c1-ac23ac30d8c6","ts":145126,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"fa318609-a512-438e-abd3-3172d30e6670","ts":145325,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.19 spend=9 challenge=0 drop=11 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"bedc4aa8-9881-4df5-9ac6-d82a3729e660","ts":145720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"192f8a9b-41b9-47eb-85de-bdfc5171b6b9","ts":145920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"58d9be6f-ed7a-4e87-9340-31ba2213d407","ts":146120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"77a2a9a4-682a-46fe-8b0d-e768f16ab131","ts":146516,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"5523ca63-2fef-4b2e-bf84-fd4d38aefc2e","ts":146538,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ae0d88cd-6d17-4412-8350-ad71655cdb32","ts":146720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e071ce18-dbc6-4ff3-8ea5-578d9d7c3923","ts":147120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"9b46e860-7c07-4b43-9ed7-16cef4204018","ts":147522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ff2981ae-ed6b-414e-b26b-f9364811164a","ts":147924,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"67ef242f-854d-4c20-8ef1-456bdf2c629b","ts":148324,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.25 spend=9 challenge=0 drop=26 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"552a88b0-ee98-4282-a71f-90de929be516","ts":148520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"0b0a8663-6a11-4f01-b1dc-db96cf4f65ec","ts":148718,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"dc054212-aa54-47e8-8f44-a0fb0c0fe4c5","ts":148921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"358ad83d-0617-409f-966c-dcdb385aee94","ts":149320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8f6ff391-e2dd-4ae1-81e5-01d802b9e730","ts":149520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":149705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":8,"rssi_mean":-62.20119,"rssi_var":15.45559,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":61.11111,"dup_pct":0}
+
+{"id":"15b85829-b832-4365-a4bf-834f5b881d1c","ts":149727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"99d62888-af8e-49f4-a710-c1335a1cea18","ts":149754,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"cfc7fa6a-d312-44c1-8101-1911f6cdb440","ts":150120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e0dffe36-0170-44c0-b31a-8355559c1f64","ts":150318,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"61654a98-0cbf-48de-810b-0c95b459305c","ts":150523,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c78bf480-a1a8-4792-a0b5-157f0a765d8f","ts":150916,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"4d875c16-f875-42d0-a297-b25c46d645fd","ts":150938,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"050bedd8-0d4b-4962-bd77-aceee148a99a","ts":151325,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.26 spend=9 challenge=0 drop=40 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"1d62f13a-b647-403f-9412-ed857ace1c63","ts":151720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3fd45a47-c9e1-487b-aad0-7a22ff96436a","ts":152122,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=5 ok=5 failed=0 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+{"id":"53c088e8-9f2b-4ac6-9cd9-fa9fa56b6910","ts":152522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c7728306-a7f0-4073-ab50-dc3ed93d81d5","ts":152923,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"0b3ac21d-457a-4581-9701-a3475cf13f25","ts":153116,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"0f6b4b72-81fc-461d-9eef-608b0a17598f","ts":153138,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"22fe8bb8-2d43-4499-aa9c-3bf1853eee47","ts":153322,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"b379d009-7cca-4e93-89e8-9afeb688aca8","ts":153720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"5f8ff4f9-db8f-43a1-a605-c3cee6b887b4","ts":154123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.34 spend=9 challenge=0 drop=54 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"60cb8b9c-a449-4da4-9f39-73ff18f29bc9","ts":154523,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":154705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":7,"rssi_mean":-62.53557,"rssi_var":16.32397,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":61.90476,"dup_pct":0}
+
+{"id":"cf501df7-3b9d-460d-8537-e7e17c33bfbb","ts":154727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"161ce4fc-cfae-4aa9-b0bb-37015441d412","ts":154753,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a040dd0b-06dd-473d-8047-2a4292b1aa85","ts":155120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"cab05fc8-165f-432e-8e7f-429aae74cddc","ts":155319,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"e859f880-e5f0-4d82-90f6-da22493d6878","ts":155341,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"0ce661e0-9c71-42e4-977b-fab71b290e23","ts":155721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"5b5ed828-52d2-4ce5-935c-df635c412bc8","ts":155920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d74d42d8-1763-450f-bf96-317b59f97408","ts":156320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3afcdbf8-ca49-4066-84d3-4f22cfdc0015","ts":156523,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"579edba0-4b77-4cff-8b73-751daaacdd4e","ts":156724,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ad30a6b4-fe18-417b-b001-835a3f07a644","ts":157121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"252d61eb-6eb6-4a1c-8e69-3233eb35009c","ts":157322,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"2dc6d3c5-0f87-4ed3-8dc3-a17997298a00","ts":157344,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.43 spend=9 challenge=0 drop=70 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"b053efdb-ae37-43d7-90f4-7f6a6e4ea63b","ts":157720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG hs fail reason=timeout epoch=54761 tries=1 challenged=0 total_ms=2645 next_in_ms=1000
+{"id":"d5f85235-bbc3-476e-b1a8-c0bc97514a5a","ts":158121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"07f0a521-bd6e-4138-976e-65dc88c8b516","ts":158520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ee9acb0b-6c69-4a69-80da-18fb636073ee","ts":158722,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3bdc1251-5deb-4d57-b683-7b6b81e6abd9","ts":159087,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c3bdabd5-1563-49a4-8b15-8cc4506e0fea","ts":159320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"4d8cf625-795c-4e50-9722-a235aab09838","ts":159518,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"2f50359f-52ac-440f-afba-e7876fc86564","ts":159540,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":159705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":4,"rssi_mean":-63.90551,"rssi_var":20.40863,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":69.56522,"dup_pct":0}
+
+{"id":"20bdf218-4d2a-48d4-8dee-df7547a4196e","ts":159727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"b427d11b-80d4-425a-8ff6-58c3bf7acfaa","ts":159924,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"18902bb2-e7fd-4eda-8ea1-b119932d1fa2","ts":160120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.35 spend=9 challenge=0 drop=85 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"cfd77919-9936-4230-af98-5f3d06448bbd","ts":160520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"b2faa913-43e9-49ee-bd9b-c4bf53f7253b","ts":160722,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"672635aa-d21f-4740-aa1a-da8b9dc8bf30","ts":160923,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"293a57cd-6579-4108-a28a-2c7c126f843f","ts":161320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG hs fail reason=timeout epoch=54762 tries=1 challenged=0 total_ms=2666 next_in_ms=2000
+{"id":"45960799-7e0d-4858-827e-6f091ecd36a9","ts":161719,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"546fcc68-f82c-43af-9072-1e25c8de8a81","ts":161741,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"1f2685ed-68a4-43b6-b82d-382d1571cc4e","ts":161924,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=7 ok=5 failed=2 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+{"id":"6b0a1286-4cb2-46bf-92be-10fc5a054e29","ts":162319,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"9b20ad44-38f6-409d-b9bd-c78896593348","ts":162920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c08b0219-84e9-48a9-868f-52a5662b88a4","ts":163123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.43 spend=9 challenge=0 drop=99 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"8a7e1466-01bf-44bb-9a6b-146f1210734d","ts":163520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2d8369ef-bd67-4605-a201-d8a51c7c31eb","ts":163722,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"22cf16e7-3e06-4cde-a87f-ed721583d3d5","ts":163916,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"58cafda1-9301-460d-8804-47a369126391","ts":164120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"4f8e03ba-0d7c-4ab7-a2a4-227925676a2b","ts":164524,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":164705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4.6,"hs_fail":23,"replay_rej":0,"auth_fail":23,"stale":0,"frag_timeout":8,"rssi_mean":-62.55533,"rssi_var":15.3777,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":0,"dup_pct":0}
+
+{"id":"fa15f6ed-97f6-4353-843a-90bd60ec4586","ts":164727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"7795532c-5375-4910-a591-89057a6d20c0","ts":164921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"15ba49e9-3fee-4b89-b480-628ddde31ada","ts":165118,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"08030df8-1470-41ea-a8ef-53526fefbd95","ts":165521,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"15f1843f-5844-4e6c-8a44-1cb33e4389d1","ts":165723,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8d64865d-a005-48aa-9126-8e33a39ef287","ts":165918,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"534c5dc3-a89c-4e14-999d-81fc7b1ec4ba","ts":165940,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"b0e656f7-e83b-4a20-95ca-5451fcc142df","ts":166123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG hs fail reason=timeout epoch=54763 tries=1 challenged=0 total_ms=2569 next_in_ms=4000
+LOG field1 pressure=102.42 spend=9 challenge=0 drop=113 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"806d6921-7eb4-4ea3-b59d-245be5cf17c2","ts":166523,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"cec9c073-0821-4160-afdf-3c40a439958e","ts":166720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"f30c7180-71c5-4f67-a8fe-d03ed5a16ac5","ts":166920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"cf6484ad-b0c8-40a5-94a2-33b9679fa17a","ts":167121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"139e9503-8ce8-4224-8168-0f9b454ddb5e","ts":167321,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"f5cdeb46-5dba-4786-bd91-37304a15a965","ts":167721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"49094fb5-726c-4e06-bed4-8ba5d771e86d","ts":168116,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"1caea90f-7976-448c-a8fe-84ee5b134661","ts":168138,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2d0ab0f8-0c75-4bca-bfb1-6b2294a37268","ts":168319,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"716573b6-1a88-46bd-9b57-18829dfda128","ts":168520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"5dc2c36f-df94-4896-8210-aa4f2427bf38","ts":169123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.34 spend=9 challenge=0 drop=127 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"fba02a15-c461-4db0-9873-499ed437f16c","ts":169525,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":169705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":8,"rssi_mean":-62.76721,"rssi_var":23.42536,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":42.85714,"dup_pct":0}
+
+{"id":"b6b098d0-cc7b-46e4-b6e1-0984477197d7","ts":169727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"64ce4ad6-34eb-4e19-b007-248745e420d0","ts":169928,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"78253ecf-4d79-40ce-a6e7-2951af0e9969","ts":170116,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"c0321312-d5ad-4e8e-8f7a-39baebcd421e","ts":170223,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a7178934-bbf1-42a6-bd64-d9b87a22a39b","ts":170520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ba178c36-f5dd-4ba8-a4c7-bbe36a8c33db","ts":170720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"eb158a80-7fb4-42a9-aac1-6c6e34394fce","ts":170918,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"fe2f2ed9-e253-46c8-8157-504d6bd4d5a0","ts":171120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8d602952-f1ea-4ff0-aa24-696483a114e1","ts":171318,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"43786c39-bbdd-44c7-a008-cf3e4f41dfd6","ts":171521,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"1a6a2fdb-9fce-48eb-bd90-95dfd1d997c3","ts":171721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"50df7561-bfbf-44e3-9b5f-c581b2c073d6","ts":172121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=9 ok=5 failed=3 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+{"id":"e7f47320-5e4a-4431-8a5a-6081a45de04b","ts":172316,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+LOG field1 pressure=102.26 spend=9 challenge=0 drop=143 busy_drop=3 hs_ok=6 hs_fail=1
+LOG hs fail reason=timeout epoch=54764 tries=1 challenged=0 total_ms=2567 next_in_ms=8000
+{"id":"ea255f37-2f2a-4731-9112-ba1fc0e42289","ts":172720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"99bb9cdc-1f43-402c-8cea-36cbc0dc7812","ts":173120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a1fe986a-0c74-49fc-9533-7934aa739d46","ts":173320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2fd761c3-4109-4110-92f9-76c7b1c97ab2","ts":173521,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"1fd8bc0f-1b09-4830-ab2a-d6faae160635","ts":173726,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ee8302aa-f127-42f3-9d3c-b7580c87606c","ts":174129,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2d9c2450-7f4e-4ef6-ac4f-566e94779cdd","ts":174316,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"3463deb5-36a4-42c2-968b-874ccfaf44d4","ts":174519,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":174705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":8,"rssi_mean":-63.02434,"rssi_var":21.59363,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":38.46154,"dup_pct":0}
+
+{"id":"2d5ec2db-f674-4f52-8945-e8fda6a40b8c","ts":174727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"e57c4d2a-1a54-4d29-9fa9-bdae12beb898","ts":174920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c1e57ad7-fa66-48b3-894d-931c9303d881","ts":175120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"22af3bb7-9b2a-42f1-b08e-25b148f53b47","ts":175323,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.24 spend=9 challenge=0 drop=155 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"e226f039-40e7-464e-b5c5-f2d0f07b9678","ts":175522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a86e24ca-7a71-4149-88f9-e6f77a0c7692","ts":175724,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"76ad2f21-7c11-4635-a8ea-eae340c78bfe","ts":176320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"37387836-d294-457f-990a-8ab66cf9013d","ts":176517,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"834158e5-c584-4e10-b2c2-d8855b717eff","ts":176539,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ff1bc748-8af5-4178-877a-98fd343fb764","ts":176920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a90cafc8-e515-49b5-89b5-369c7035de90","ts":177123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"200f0fbf-e76d-4964-b994-460917edc6d3","ts":177722,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"99557791-f755-46e7-94ac-2811670b2941","ts":178121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.20 spend=9 challenge=0 drop=166 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"84294b8d-1f60-4984-90bf-d8fb75250270","ts":178520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"18a68e22-8c63-49e8-9c26-88c1b2935d69","ts":178716,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"b44ac7a7-f522-48c0-b1f7-85427ac5561d","ts":178738,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"9585af2f-0a69-4eec-8dd3-71f4fd0ace10","ts":178919,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"f7454742-5dd6-46a8-925e-18dfc9c6745d","ts":179122,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8092dbd6-2f98-44d6-b4fa-a0e3573705ed","ts":179321,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":179705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4,"hs_fail":20,"replay_rej":0,"auth_fail":20,"stale":0,"frag_timeout":8,"rssi_mean":-61.96371,"rssi_var":19.32113,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":52.94118,"dup_pct":0}
+
+{"id":"bc7d61ac-3e7c-4bfa-b2cb-463ea4c7858a","ts":179727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"43f117db-acb5-4274-a962-050744731087","ts":179753,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8ee65ba5-c215-43e5-91d3-6be5f2685cff","ts":180120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"773ff879-09a1-4a95-90ce-beab0572b576","ts":180520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ca94b298-a497-4654-a292-7319b32d8725","ts":180720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"102020da-49e2-49e7-8192-9d8d7dc586f4","ts":180917,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"12f8c9e4-4998-44c9-8f39-65606e485ae0","ts":180939,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"63e30fac-3ff7-4b1b-9fa7-16be5cb0b890","ts":181120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.20 spend=9 challenge=0 drop=181 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"fbc824dc-ac30-413d-ac11-f13b35a35e9d","ts":181520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"64ce74ba-39a1-416a-9ad2-3519ffb7d484","ts":181721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2b5e6940-917c-4f1d-aa96-69e1ba2a8ae2","ts":182120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=10 ok=5 failed=4 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+{"id":"14ad4eda-2ab0-42da-9b76-db142e4e9139","ts":182322,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"70240064-2614-4bd9-a987-b433493e4553","ts":182720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3a911082-d12e-4401-803c-dc6e2c571381","ts":182921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"33cbaa96-ef05-4279-8323-1cb5d28ff506","ts":183116,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"df037e7f-a78a-4cd4-9d3c-b1dff2467890","ts":183319,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG hs fail reason=timeout epoch=54765 tries=1 challenged=0 total_ms=2660 next_in_ms=15000
+{"id":"4c19424f-d894-443a-b261-e2435a0f25b6","ts":183520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"34bb77a1-2d74-451f-bdb4-f39b5027058b","ts":183921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"fe75685e-cbba-43af-bfb3-c3eb53849ebd","ts":184320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.30 spend=9 challenge=0 drop=196 busy_drop=3 hs_ok=6 hs_fail=1
+{"ts":184705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":8,"rssi_mean":-61.31548,"rssi_var":16.59302,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":50,"dup_pct":0}
+
+{"id":"99602dd1-b2c8-44c9-a8a5-7b5146d5016c","ts":184728,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"0855109f-bd3b-4702-b211-dba6740360ca","ts":184754,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c4e2d385-6397-4ac0-8845-5f4ac1b78338","ts":185121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e5168efe-775d-4de7-baad-f8f134420753","ts":185316,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"d09e6aa0-bc98-42de-9737-144dc0469697","ts":185338,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"35d92d14-997c-4f3d-a224-8e44e458d586","ts":185524,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c6c5f21d-1511-48d2-9e6a-bf14792294ce","ts":185921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"da615be9-7eef-4c2a-a94d-e2a4c6824914","ts":186120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"5062de2d-6c2d-4850-92e6-19f47be3ee0b","ts":186321,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d11a986c-437b-48a1-931a-58c9d662059f","ts":186525,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"9e0a16bc-1cfa-4346-b69c-c3e3fb451308","ts":186927,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3569d170-25ca-4be7-b197-73ce14e62811","ts":187119,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"4095417f-1c50-451e-9d74-1a9ff815ab50","ts":187320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.31 spend=9 challenge=0 drop=211 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"cfbaefcf-3b54-4a2a-a1e9-df525831bd3e","ts":187518,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"f66ce547-9917-4be5-a191-c4b6bf401125","ts":187540,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3ccd30ec-3cbb-4463-86e0-ce7766517bca","ts":187920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"92b52240-6b9c-41d9-bf45-1f5454eeab81","ts":188120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"1b03dd6b-de0d-44b9-8eb4-fd1dc03bbc2a","ts":188319,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e14183c7-2ae9-477a-8af6-9e303dedd2f3","ts":188527,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"b15ad99c-2916-4c55-8e6b-01021a5f1bf7","ts":188920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"943fcba9-32b7-4c8d-b595-66a25119b443","ts":189321,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2941efdc-411e-4641-8092-c89b9969fc42","ts":189520,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"4944e7af-c0a4-468b-8cd7-b1201678263b","ts":189542,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":189705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4.8,"hs_fail":24,"replay_rej":0,"auth_fail":24,"stale":0,"frag_timeout":8,"rssi_mean":-61.078,"rssi_var":22.58402,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":38.46154,"dup_pct":0}
+
+{"id":"6dfbdf95-2859-4a64-aec3-abbe6e6fde9d","ts":189727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"3d6595f1-89ff-4387-820c-c6593c5c365a","ts":189921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2b0fa111-68ce-4f0f-8078-c35ee8a0cdcc","ts":190126,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6b0ccc94-4252-4551-aa3b-209f759216b9","ts":190324,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.31 spend=9 challenge=0 drop=226 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"8a586157-3957-44bf-8fa1-c5db0eef0bc5","ts":190522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"4ccf8c4d-ecbe-422c-b540-e2cd2d1b4b75","ts":190723,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"af10ffac-dfec-4da7-8902-ba21c5f91525","ts":190930,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6d2a6892-ab9d-4598-a267-17e6eba05890","ts":191326,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d9f07a10-9dd9-40fd-b213-42198e319423","ts":191522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6f33c1c1-26a0-46cc-a1a2-7398e2d69494","ts":191720,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"b1f1ec8b-ef27-459b-9ce4-e956adc64dc9","ts":191742,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"1a985134-26a0-4a86-9120-32fad0fbbcdc","ts":192121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=10 ok=5 failed=5 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86188
+{"id":"7174bf19-c0b4-47f2-8dd5-bc91c8cacceb","ts":192523,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3f7a0777-eb8c-4b02-90b7-9b5ca765f26f","ts":192924,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"aaaaf8f0-bfcc-42a2-b9c0-d46e6138f107","ts":193125,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.38 spend=9 challenge=0 drop=241 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"bdad0262-ac62-4635-9335-f36fabafd3a7","ts":193526,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"459313a6-201a-4a81-a564-cad850c5df05","ts":193916,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"74942beb-c4be-494a-b4ca-7a79988a5a16","ts":193938,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ae2054b4-c8ab-4385-929a-c81cb08136c9","ts":194120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"896cf7ba-6d0a-4bb2-9a9f-0f7a987655c4","ts":194522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":194705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":8,"rssi_mean":-61.49802,"rssi_var":23.63882,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":52.94118,"dup_pct":0}
+
+{"id":"1283d7a1-b0b2-4a63-bc72-a4f09e6274a7","ts":194727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"80cdc114-b2da-4e0b-acfa-483d017faace","ts":194921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"312b49d0-347c-4516-9449-86c14f5dc7e7","ts":195118,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a6379165-587f-4051-8bc1-146bbfe94ad3","ts":195321,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6254a076-331e-4aa4-8984-8627d90a6564","ts":195520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"324fdb8b-837b-4ccf-a227-9724bf0b866c","ts":195721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"334a5c06-8b4f-49bf-9d00-0382e99a3d25","ts":195918,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"33ed03ac-1926-41e1-b022-e8a5c54102e7","ts":195940,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2dd14a45-76e5-4324-a336-40bd6dbbefe5","ts":196321,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.41 spend=9 challenge=0 drop=256 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"4732bc5b-9172-4dd8-adb7-868005384a32","ts":196520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ac63663f-e328-4154-895e-966ba28eb74d","ts":196921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"1bbdce1b-e440-4ef0-aede-fcb4b12f23d9","ts":197123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d49d9548-30e6-4feb-90e3-4adf508a88c3","ts":197521,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"84369eba-88ad-41b2-bc86-51a34b2f5ba0","ts":197721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2280de94-7325-4ab9-bc34-b8df50df72a8","ts":198116,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"dea1b918-fbdf-4cf1-a502-e02bd07e2547","ts":198138,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"7b4a3b91-0f7d-423b-82e9-be087135909a","ts":198327,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"954ad482-3434-4a3d-9865-ddbf7fe6620b","ts":198721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"cdd87b2c-65d1-4a3d-bea8-d9a829b19b25","ts":198920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.40 spend=9 challenge=0 drop=269 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"31366200-6181-4603-80be-c9f0ecac5ba8","ts":199520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":199705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4.6,"hs_fail":23,"replay_rej":0,"auth_fail":23,"stale":0,"frag_timeout":8,"rssi_mean":-61.22421,"rssi_var":23.4241,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":55.55556,"dup_pct":0}
+
+{"id":"dd328004-c048-4384-8d12-66b4093beb48","ts":199727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"770b2cfc-88e3-43f1-bb90-b5118f84ed60","ts":199754,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"14427116-ea5a-4932-96d2-9f482053341b","ts":199920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3fa51a54-7436-434d-b478-f2b0e4af0e7d","ts":200123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"816b90e6-d788-44c3-8e9c-bc0919ed29d7","ts":200317,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"dddf2cd3-900d-47cd-895d-142bbe573099","ts":200339,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c623cb3f-2d23-436f-a10b-bde0fef2ae2f","ts":200521,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG hs fail reason=timeout epoch=54766 tries=1 challenged=0 total_ms=2600 next_in_ms=15000
+{"id":"35c45bea-af1a-424a-8fbb-bb089b63c984","ts":201320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"5f555693-cd6e-44a8-8953-779beef367ad","ts":201522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"0eb700e0-f5e6-4931-a4bb-6d1d98d603e7","ts":201920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"4ee20a87-7ed2-425f-a280-b3fd83eb68ef","ts":202119,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=11 ok=5 failed=6 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+LOG field1 pressure=102.46 spend=9 challenge=0 drop=282 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"937a9772-285f-4113-b85e-b5ee980663d5","ts":202516,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"25437d4a-89c0-4608-b522-115e274a7ad6","ts":202538,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e60cb551-8d91-4649-ac1e-fa36a0e005f0","ts":202720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a92dff4f-c517-4161-81f1-675b9b99a912","ts":203120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"dd8c9557-9f04-44ce-8d22-38db92ffa19f","ts":203521,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6fef1a2e-9f34-4aed-9106-82c012f204fb","ts":203921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"90914188-8910-44df-b53a-fd4f80e846da","ts":204123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"63774eef-c26c-4845-92fb-93d7dc476cb8","ts":204522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":204705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4.6,"hs_fail":23,"replay_rej":0,"auth_fail":23,"stale":0,"frag_timeout":8,"rssi_mean":-62.66734,"rssi_var":21.37515,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":52.94118,"dup_pct":0}
+
+{"id":"51e74e56-8baa-4365-ac43-a638761163e5","ts":204727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"b75293ea-e2fc-4ab0-96bc-d3b00199a3af","ts":204754,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"b5a1e11c-eb8b-4158-ba89-3c827177ca23","ts":204775,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"0e994587-3134-4e02-bce8-e8aaa12ffdfd","ts":205120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"47e334a0-5bb3-4485-ba94-6ea3daa86d74","ts":205326,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.56 spend=9 challenge=0 drop=295 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"58dfbe9f-78d1-4cd7-a42d-54b6ed239c57","ts":205721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"59cb55df-7b25-4e75-afc2-360142c8b404","ts":206125,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"924bd43e-0e05-4184-9a0d-9747c80aaad4","ts":206323,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"16cb77ca-6abf-4931-9da1-5c758fab62c1","ts":206722,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"16c7e8d7-b7a1-4870-b3cd-50d8678f7481","ts":206916,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"0d067142-bb4f-4ce5-84f9-2347783d9f60","ts":207120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d5935152-515f-49b8-b57c-08e704a69581","ts":207320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"b08795e4-a798-4eea-ad43-c9820340460d","ts":207527,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"35a4998a-b953-4c83-b854-d4ac3d0f7231","ts":207929,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"7c2de438-1172-42c7-a026-04728d978205","ts":208321,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.52 spend=9 challenge=0 drop=310 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"3ee716ae-f50b-43e9-b622-c24cbbe1f88a","ts":208522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"f4cbb926-dc1b-48c5-99d7-409529c645b9","ts":208722,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2121625e-0b86-44a2-93e6-2e1146158a4b","ts":209116,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"d1c4e93e-dabc-42e7-9824-a2f96fa2787a","ts":209138,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6d926df7-9fa3-4feb-8706-0a3be9aa0a0a","ts":209320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"abeaa5eb-5217-4db6-9424-996cbcf128fc","ts":209520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":209705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":7,"rssi_mean":-63.43026,"rssi_var":25.65175,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":57.89474,"dup_pct":0}
+
+{"id":"49a6d155-507f-414d-905f-01b12d25c89a","ts":209727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"862363d4-2f23-4eb1-98e1-6a8943822fc8","ts":209754,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"0d09465c-3c89-4313-867f-d0d8db2afb66","ts":210120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"76a9598b-c727-41c5-b414-8f1d14091fb6","ts":210520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8a4b7edd-9a00-474f-857e-347fbd924dc7","ts":210720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8287ee73-5077-4c06-945e-9141ab5e9827","ts":210920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"9e36ae69-f97c-4247-93f3-2867b99a6e3d","ts":211120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6ad7dcac-57a6-476a-a246-efafc7c87dd1","ts":211317,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"a44b6982-d3a7-4fdf-b9cb-9f86cf97351f","ts":211339,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.43 spend=9 challenge=0 drop=325 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"23836601-10b7-4a99-83fd-686ae433efb6","ts":211721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"371e8788-1aa7-4b37-802d-04ca6ae5f23c","ts":211920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=11 ok=5 failed=6 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+{"id":"5819c567-baaa-43db-8794-1feb4caae4a4","ts":212320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"dbb7eec5-aae6-4828-8157-24850df67910","ts":212523,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8e806f6c-ba61-42a2-8d12-994ead67ddfe","ts":212922,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d3820b46-b87b-431b-9b97-a15a1e0f50fd","ts":213320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d2923d7e-7de9-43a9-bb13-1690e197cfdd","ts":213516,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"d14c2a74-4c6f-4864-a1b1-1bc98c28aae1","ts":213538,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"fee98d94-fff4-4882-b228-579d48cedbb9","ts":213725,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ae926f20-e71d-4dde-aef7-1b7e6e2a9a50","ts":214119,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"173079cc-15da-4c02-a29e-169c1fda887b","ts":214322,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.46 spend=9 challenge=0 drop=339 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"086506e5-1df1-4910-8843-46f89b466244","ts":214519,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":214705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":3,"rssi_mean":-63.6353,"rssi_var":28.06677,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":70.83334,"dup_pct":0}
+
+{"id":"93e7857a-3657-4f4e-910c-15b0baac53ef","ts":214727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"7a14a7b0-0292-4359-b0f4-5a10c9709e25","ts":214754,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6ee9d1b9-4eee-4c40-93d1-59bca305a4ab","ts":215118,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"46683be7-b0e5-47a1-9806-eea1098109a7","ts":215320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c2190eb2-4410-4769-81cd-a653f4625d8f","ts":215520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"db153144-0e17-43fc-b9ad-a82d29f9e3f1","ts":215716,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"96a5ac82-aaef-4e07-a74f-d16817c3c892","ts":215738,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"06d8d0bf-29c3-463f-957e-1fa44ca7c562","ts":215921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"39b3474e-f11f-4fa4-9cb2-6032fcc938e1","ts":216319,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"70322384-96db-4b17-bcea-2b69aba48040","ts":216523,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"20c5f8b9-589d-43d8-81a7-21f3ff4c05fe","ts":216723,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"325f6aa1-bae9-4226-95a2-3cd4d4af39e1","ts":217129,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.41 spend=9 challenge=0 drop=355 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"c6fc9232-2042-45c4-b84f-6afddba948db","ts":217721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"5452f383-7a0f-41f0-9c11-fcc36fccd49b","ts":217916,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"aaf77580-d3d4-40a0-b4db-dbd2b2509d27","ts":217938,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"58500a71-f946-40d9-b6c3-073d996c87af","ts":218124,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d62ccdbe-a681-4d25-b1d5-1f5be1a9fec0","ts":218520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG hs fail reason=timeout epoch=54767 tries=1 challenged=0 total_ms=2582 next_in_ms=15000
+{"id":"94211627-0c1d-4375-bc00-93203e25239b","ts":218723,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"174e37c3-28a0-4f83-af79-9a8c503abef2","ts":219120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"638db082-5ab6-45b9-8507-28e30ea40114","ts":219320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"1167bd1e-b3cf-47f0-bf4c-a71a1fc613dc","ts":219522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":219705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4.8,"hs_fail":24,"replay_rej":0,"auth_fail":24,"stale":0,"frag_timeout":8,"rssi_mean":-63.70766,"rssi_var":25.66663,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":62.5,"dup_pct":0}
+
+{"id":"64a5dc00-b96d-49eb-96f1-590c46980350","ts":219727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"98a7576a-3f80-4a4f-aca3-b6789f6f2147","ts":220117,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"c894b721-cf5d-4891-aa29-a0890235ff8c","ts":220138,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"b8571360-9f3f-45c9-a5ce-20d470716b17","ts":220328,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.44 spend=9 challenge=0 drop=367 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"6b7e3476-0abe-4555-925a-afdcf17af3ab","ts":220720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d2d0898a-6fbc-45ab-972e-fef732d03f70","ts":220920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6c8a2008-5931-4c1f-a914-c5c7015f8625","ts":221119,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"409217ee-e5da-4d6c-9ff0-82ff9723b85f","ts":221530,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e9d152fb-dec3-4e02-aab6-91898232ab8d","ts":221724,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"bf4e8cbc-4784-456b-a570-83b7753c7e8f","ts":221920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=12 ok=5 failed=7 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+{"id":"e3776d07-ffa3-4f57-9526-b6a2a8852f77","ts":222316,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"bd670b10-1101-4ed5-88f8-613457d61ee9","ts":222338,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"83748ad6-c602-4979-ab6e-d639f930a37f","ts":222723,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e5482717-8939-48f8-a94f-39f868bbd248","ts":222919,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"26f8d83a-d76e-45c1-a91f-539780046eb4","ts":223122,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d80c1153-0ae9-44a5-8c1f-229ca3a03b2d","ts":223325,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.35 spend=9 challenge=0 drop=381 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"73ba986d-d019-4044-8a08-5abae2ab4ea7","ts":223722,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"190ee403-6c23-4c55-a017-fb20510a514d","ts":224121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"675f4ff8-bb8d-4d08-8134-f986f56595c3","ts":224529,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"e9252694-1ca0-4cc0-9b2a-0e625c8039f1","ts":224551,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":224705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4.6,"hs_fail":23,"replay_rej":0,"auth_fail":23,"stale":0,"frag_timeout":8,"rssi_mean":-63.21888,"rssi_var":23.25526,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":0,"dup_pct":0}
+
+{"id":"63b8bf37-11e3-49a9-ab91-e3a392103fc2","ts":224727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"5eb05e4f-8cec-412a-831e-71612c8bf159","ts":224930,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"7c616496-2ecb-4a4e-a2c8-efadef7ccf12","ts":225321,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d84ea655-b2b3-4c89-8b33-31ef4723249a","ts":225519,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"aa72bddf-689c-49da-bca1-5b9f2a8420d8","ts":225724,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"f35a87fa-62d7-4d46-827f-423faf094688","ts":226122,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a75e2500-c391-45e7-99e1-a77336274be0","ts":226327,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.44 spend=9 challenge=0 drop=396 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"4c2969c3-0c48-42d9-b5aa-b45aa2b11f90","ts":226716,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"9a4bdcc7-d45a-42c4-a92f-eab019f2e132","ts":226738,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"bef59042-9fe3-40b3-8e93-421ed398b3f0","ts":226920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"25e24fa6-8f45-40d0-b248-9f4c28bdd04f","ts":227122,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"91fea290-1fa3-4674-9534-677f6282eb95","ts":227522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"9402c3e9-ccc3-4442-91de-6ecbbfc47e2f","ts":227921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"adc5c706-d6e6-4737-ab82-22dd8a1ee8fa","ts":228121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d4faa8cd-0107-4db4-9bff-3a3d3d54cea6","ts":228325,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"7aa6bfe2-59f4-4c2a-b441-fee346da7528","ts":228720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"adb30867-3c36-4699-8f80-0cb95ed2374c","ts":228916,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"584d67bf-eef1-4b7c-80b8-694e27764d1d","ts":228938,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"97a91b37-3d93-4f63-8b08-17244ffa7e47","ts":229123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.49 spend=9 challenge=0 drop=411 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"91ff7156-3397-4b25-b001-b9fd54979ca6","ts":229520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":229705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":5,"rssi_mean":-63.00395,"rssi_var":26.07515,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":65.21739,"dup_pct":0}
+
+{"id":"dac75b88-3514-4985-a8c4-28e356a3f970","ts":229727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"e0e89589-74f5-4421-bcc6-d806965564ad","ts":229754,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8a258db6-f99a-4547-b8dd-1f7eaa8f2ee0","ts":229921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"cca55f93-564d-4140-93e6-cfa119d6a8fa","ts":230122,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"db35dc0e-db13-49e6-a1dd-142c72e71a0a","ts":230321,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"1ffd3071-ea23-481f-b6e6-654dcb4f0819","ts":230718,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e77a8e39-97fd-4d80-a13e-05853ab0658c","ts":231119,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"3d7abdbf-f2da-4ca5-a4f3-e05cbe9e0df1","ts":231141,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ecc67114-6fd7-49a1-9d53-78f0cd765155","ts":231520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a84eadc3-1f7c-4015-b668-a1b6d03dfe53","ts":231725,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"39ecf0cb-4d09-40b4-b66c-ee761aa2eb65","ts":232123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=12 ok=5 failed=7 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86188
+{"id":"98961876-60b3-4c9e-a2eb-86f910557671","ts":232325,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.58 spend=9 challenge=0 drop=425 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"76c60797-feca-480a-bcc4-ee286c0f3a78","ts":232722,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"24f83e72-d7c8-48bd-9760-736e0656ea6f","ts":232921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3502804e-e6b1-485c-96ac-d4e5cd6eaa40","ts":233120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"b37b398b-d506-4c9e-8bde-2cce2a7d9a94","ts":233321,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"52fa9849-634a-49da-a49d-23a45918f769","ts":233343,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"94d29472-3ef9-48b8-8743-14bde09d6148","ts":233721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"231ee937-e72b-4c5a-bbb5-d760c9758b21","ts":233921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c2cee060-f804-4018-8d2c-92bf8e54d926","ts":234118,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"737c8482-fe77-4632-aae2-bc4ee02cf1eb","ts":234520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":234705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4.8,"hs_fail":24,"replay_rej":0,"auth_fail":24,"stale":0,"frag_timeout":8,"rssi_mean":-61.726,"rssi_var":23.36671,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":58.33333,"dup_pct":0}
+
+{"id":"6dbba1c7-2f09-442c-a7a5-81e472e37b95","ts":234727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"2679f7e4-f83f-4475-b29d-465f732ae6a4","ts":234754,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"63215c98-5c3c-401d-96a3-8ef0422da10e","ts":234920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"4a2e51bd-18dd-4a76-b081-31164121716a","ts":235320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.64 spend=9 challenge=0 drop=439 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"8b80fcdb-010c-43b6-ab3f-98b6476d2d35","ts":235516,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"9ec3d21a-deaf-4245-94b1-1f424b6d64f6","ts":235721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8ad8163c-1d03-43fa-9749-779f32ebb540","ts":235921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"218dc2c4-9a26-4ec8-8b43-f86a90f5a202","ts":236121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG hs fail reason=timeout epoch=54768 tries=1 challenged=0 total_ms=2709 next_in_ms=15000
+{"id":"ddd51f7f-772c-4c2f-bb60-e191e8b6afdf","ts":236522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"85ae1a4d-6ee8-4a45-8d60-91e8e513c12f","ts":236722,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ddaf76a7-3e2c-4cd2-92ae-ecae02b95673","ts":237121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"eef85d67-504b-4ee6-869f-0395ad9e8fe9","ts":237521,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"18721515-40f7-45a4-801c-ac73f560d93e","ts":237716,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"31439889-b8eb-4991-838c-7050513df234","ts":237922,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3aa9f59a-7dba-4701-8d88-7502d347a2f7","ts":238320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.60 spend=9 challenge=0 drop=453 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"e18b8db3-e752-45db-aeba-0d52830e3ec8","ts":238522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"25b03085-50a9-451d-942a-454193e20634","ts":239121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c382435c-af88-44ef-b398-dc5eff2a147a","ts":239522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":239705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4.8,"hs_fail":24,"replay_rej":0,"auth_fail":24,"stale":0,"frag_timeout":8,"rssi_mean":-62.9501,"rssi_var":23.49026,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":27.27273,"dup_pct":0}
+
+{"id":"3603a5bd-b9f1-4512-aa52-adc35d9c6690","ts":239727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"897737ed-f95d-4cde-81b7-373c2c5f5192","ts":239917,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"84a487e1-14d0-47bb-9334-0f3daba3f922","ts":239938,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"f039ae64-85f0-4191-be36-87ada928101f","ts":240323,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"988824e5-3611-4044-887c-c9fd91c3454a","ts":240722,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"1d25eb41-9f1b-41ca-ac2e-ee472e04e956","ts":241120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"4d55f02b-9820-460d-a1a7-2cbd93750555","ts":241325,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.57 spend=9 challenge=0 drop=465 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"7b184137-d3c4-4ac9-8055-620e9fc6fc35","ts":241721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"b688de88-5464-4089-8465-2442aa26373a","ts":241921,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"3caf3579-e894-4277-9a2d-66c4037f28bf","ts":241943,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=13 ok=5 failed=8 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+{"id":"c03a2b2d-2de6-4c3a-be4e-9652207ae12a","ts":242320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"28ecbaf0-9668-4f6b-8f09-5e68dc6d8dd0","ts":242721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"aaf0f932-9199-45d9-9057-e6c4943af473","ts":243121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3b20b161-6369-46b6-8f08-9b5b0e1bf5a3","ts":243324,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"9a019d27-8adc-4503-b695-cadecd00367c","ts":243519,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d5695d26-1b0a-41a4-8b95-ce3580da2c9c","ts":243721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e2ef16b5-b52c-4124-9886-896938b8de98","ts":243920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"339eae19-ab0d-4f15-94a8-4462bca24de1","ts":244117,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"baa52089-cd0d-402a-aedb-9f04970f5975","ts":244319,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.52 spend=9 challenge=0 drop=479 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"cc0973a2-a0e1-4302-aa37-e7fc210d31f1","ts":244521,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":244705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4.8,"hs_fail":24,"replay_rej":0,"auth_fail":24,"stale":0,"frag_timeout":8,"rssi_mean":-62.40657,"rssi_var":21.6828,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":42.85714,"dup_pct":0}
+
+{"id":"4404f3cb-a50a-429f-afb0-606e4ab01d60","ts":244727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"505bbd16-8987-4690-a787-2a7d675908ce","ts":244754,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"80b9d074-a030-46a2-bcea-7ffc11eb1d1c","ts":244920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a83ef1cb-d8aa-406b-819e-1af627640995","ts":245319,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"fc40b353-5f54-4195-8fba-dc2413749a68","ts":245721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d00b74bc-5daa-4977-b93d-0d2964717f42","ts":245921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"86b39d27-04f7-4695-b6df-f19cf8c82d89","ts":246119,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"6c67c41a-8d63-4b98-8af3-86aee8f6d865","ts":246141,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"51245ecd-40c3-438b-988a-277c85e00053","ts":246519,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e0fff245-f0a2-4e0f-a006-d6141f58d3ef","ts":246921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"22447a1f-8278-4e95-9ea9-b5baac73085a","ts":247324,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.62 spend=9 challenge=0 drop=492 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"cd3a91ae-b02d-4cbc-b961-b4277d0833bc","ts":247720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c5c0eeaa-2fb7-404d-a771-b49118f16588","ts":247924,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"65395f4b-2dc4-4684-aa27-1cfa782655bb","ts":248123,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"1d8e0709-9464-48ef-9248-07871654a1b4","ts":248145,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ade97b5d-64b3-4de8-9bc4-82f1e6ebbab7","ts":248518,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"605ef5c3-d70a-44ea-9f4f-413c7d8d955f","ts":248723,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"b5932b0a-dd16-4a68-bc3f-75f12f9a2fae","ts":248924,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2f10203e-d163-433f-8b4a-d6646fdee742","ts":249121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a96fbe75-b21d-46da-909a-cdd6ab0fcb01","ts":249521,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":249705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4.8,"hs_fail":24,"replay_rej":0,"auth_fail":24,"stale":0,"frag_timeout":8,"rssi_mean":-63.15385,"rssi_var":25.15297,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":27.27273,"dup_pct":0}
+
+{"id":"7370cf7e-d8d3-4062-bbf9-fb01691c39b1","ts":249727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"7ce63780-257e-4ff1-92ca-034fa92c3f72","ts":249924,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a7201234-09f8-4e9a-905b-7a98f329a341","ts":250318,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+LOG field1 pressure=102.52 spend=9 challenge=0 drop=506 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"b4c29831-79ca-46c9-bb78-619a2f41f551","ts":250523,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6db5137d-da1a-4b75-b4f5-71d182fd2bb3","ts":250920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"9e5199de-a24e-47d5-89db-0d47973c1a94","ts":251120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"f67b28e7-dc8a-4318-9dbf-ec3cf3ef7058","ts":251344,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"e081d9b5-bdf5-44e7-a6b4-b6a1b1e18e3a","ts":251718,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c80c556f-f6ec-451c-8641-9ff9f002aad7","ts":251920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"786d3d1b-3aad-4ca0-bee9-94e8b170e10d","ts":252120,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=14 ok=5 failed=8 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+{"id":"34991532-2ddd-407b-b879-325aeac56256","ts":252322,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"27fcb859-3034-44dc-8b74-45ad47785b32","ts":252516,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"d3019e29-8e1b-40e9-8b65-5f3dc9df2607","ts":252538,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"9d5efa84-a8ad-4d25-84a3-8ef154e38152","ts":252720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d8e8f589-7469-46b0-b6f0-db14a00a74e3","ts":252921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"6c6dc0f2-392c-4375-a236-da4a14f2a542","ts":253122,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.59 spend=9 challenge=0 drop=521 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"0768085d-2f41-420c-9132-fb05451a70e0","ts":253521,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"df7d60e7-1382-41b1-a575-7d190f1e453f","ts":253721,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG hs fail reason=timeout epoch=54769 tries=1 challenged=0 total_ms=2550 next_in_ms=15000
+{"id":"47955e49-895b-478c-8605-5aa904bec4d1","ts":253920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3a52db2d-1086-4608-8fa3-ed069cd8680b","ts":254121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c8e357d8-3084-458e-b326-35212dbb339a","ts":254523,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":254705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":4.8,"hs_fail":24,"replay_rej":0,"auth_fail":24,"stale":0,"frag_timeout":8,"rssi_mean":-62.59465,"rssi_var":23.31922,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":11.11111,"dup_pct":0}
+
+{"id":"c7713a8d-5130-4410-b34a-d42184266b77","ts":254727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+{"id":"35184ea4-5ba2-4a5d-aacc-f424e70d009f","ts":254754,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"183e82a9-729e-4b08-adfc-293b9c81bb79","ts":254776,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"859008d7-019e-4df6-ab18-54ed09396a4f","ts":254921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"641556a4-d522-4292-8338-cffae525c2cd","ts":255123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"490d502c-a2f6-4157-b772-c5c650ae2ecd","ts":255345,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"4e7bbf3e-28d6-426c-981c-cf6f5ef055d7","ts":255724,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"614ca670-6be9-43c2-a8c7-fe0d834cd936","ts":255920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"aed5b29f-fe3f-48b0-a98a-de686fc42e0d","ts":256320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.68 spend=9 challenge=0 drop=536 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"aa5b139f-4e98-4116-bcde-7acce90ca887","ts":256520,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"3805c1fa-ec26-4ca2-afc0-af34ab8c71b7","ts":256720,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"ae4154f7-332b-46d4-99cc-10e0b36c791e","ts":256916,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"23ff22ff-2e94-4a7d-8af5-0a1d5a1766fb","ts":257122,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"0ced2d70-d4df-4a0b-973b-4531897c32b0","ts":257533,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"abd69bd9-6a07-4350-b212-17fb3519a5a7","ts":257924,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"9d6323ca-a93a-4f27-808c-19a9afce8b27","ts":258123,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c1cd164e-100d-4094-9fb2-e8a172e1f3dd","ts":258536,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"2ff04370-280d-4ae4-adcd-4283ad20a617","ts":258921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"135916bb-da44-4d32-b0aa-f07c3c57b460","ts":259116,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"843cae39-03d1-4ab2-9522-231ac79fe1cb","ts":259138,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"93022fca-08a0-4445-a0b9-aeb55893888a","ts":259321,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.61 spend=9 challenge=0 drop=551 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"b7fd5654-d6da-45f5-9341-b315c396e39c","ts":259525,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":259705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":8,"rssi_mean":-62.83232,"rssi_var":23.62621,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":33.33333,"dup_pct":0}
+
+{"id":"bee04b01-4d4e-4a05-bd01-f7712cf98b54","ts":259727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"8072bd1c-fbb9-4b35-9ca3-b543c97189dd","ts":259925,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"83ab0a6b-8868-42a1-9cd2-80082ce567f7","ts":260322,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"91f1eca7-d8ee-4546-b1c2-2edff57a2d43","ts":260525,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"5cf912fd-4b4a-4d84-9713-f9ec363301fd","ts":260921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8bdc8a63-cd3a-4e59-9f0d-ac539179c2bc","ts":261318,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"2b17f561-3f4c-412c-80d2-434b97b32e66","ts":261340,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"f6dd3db8-f05a-41b7-b9f9-f8ec0ae343d2","ts":261724,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"454f85a4-7a57-4de1-974d-7d1bb15c9405","ts":261921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG gw stats hs started=14 ok=5 failed=9 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+{"id":"87f63709-44ff-41e8-8de0-a108fc6c4277","ts":262320,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.61 spend=9 challenge=0 drop=566 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"b18ad70c-bc94-4cc1-9414-d60eec04dd8a","ts":262519,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c0e74e71-1dd2-43ee-9295-1282afedf1b3","ts":262927,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"eabbbc36-5668-4c68-b8b2-7d1e88522f84","ts":263121,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"b98225b0-35ab-46c5-b5a9-6aa335512c64","ts":263517,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"9bcf877c-35c8-46c4-bc89-2400b9500412","ts":263539,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"62e99028-543c-4c4a-aa6b-579372063e4d","ts":263920,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"d8decd6d-e2c4-4e15-a617-3d201c1b4f1a","ts":264122,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"8939c444-eb44-4a74-973d-fb79b1d5b155","ts":264323,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"a29bc022-634e-4804-8f74-55b64ab50012","ts":264522,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":264705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":5,"hs_fail":25,"replay_rej":0,"auth_fail":25,"stale":0,"frag_timeout":8,"rssi_mean":-62.70636,"rssi_var":21.64501,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":11.11111,"dup_pct":0}
+
+{"id":"b6901903-4227-462d-88f3-66f1f1107bb4","ts":264727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as handshake_flood","reasons":["handshake_flood"],"details":{"kind":"handshake_flood"}}
+
+{"id":"3c9d8237-ed7e-4331-a502-f8786fa63d76","ts":264923,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"c6409dfd-38d7-48e5-a94b-a6822a358305","ts":265122,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.53 spend=9 challenge=0 drop=581 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"f19faa20-d029-4752-8666-beb32e609a24","ts":265518,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+
+{"id":"bba5d03c-55a3-4c29-b48f-71ed14e80003","ts":265540,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"56704cde-d82a-447f-9271-5d6b9107b46b","ts":265921,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"66f20802-8ac6-4a2d-9c9e-c728b436609f","ts":266127,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"fa740b5c-8845-447a-9ac5-da6fbd14cb21","ts":266325,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"id":"5294a25a-6f5c-4688-9238-e64c67458ce9","ts":266918,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+LOG field1 pressure=102.63 spend=9 challenge=0 drop=588 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"d4267ffe-d5f5-46c9-9cff-dca887c85fdc","ts":268900,"layer":"field","type":"gate_decision","severity":"medium","score":0.095238,"node":"field-1","technique":null,"summary":"EnergyGate drop for gateway (defence: gate)","reasons":[],"details":{"action":"drop","sender":"gateway","budget_j":20,"budget_max_j":20}}
+
+{"ts":269705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":2.4,"hs_fail":12,"replay_rej":0,"auth_fail":12,"stale":0,"frag_timeout":6,"rssi_mean":-62.01255,"rssi_var":28.10421,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":50,"dup_pct":0}
+
+{"id":"68e9693b-a024-42f3-b5ad-0a4f2d7ddb0b","ts":269727,"layer":"field","type":"attack_detected","severity":"high","score":null,"node":"gateway","technique":null,"summary":"Detection window classified as impersonation","reasons":["impersonation"],"details":{"kind":"impersonation"}}
+
+LOG field1 pressure=102.64 spend=9 challenge=0 drop=589 busy_drop=3 hs_ok=6 hs_fail=1
+LOG hs fail reason=timeout epoch=54770 tries=1 challenged=0 total_ms=2572 next_in_ms=15000
+LOG gw stats hs started=15 ok=5 failed=10 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+LOG field1 pressure=102.72 spend=9 challenge=0 drop=589 busy_drop=3 hs_ok=6 hs_fail=1
+{"ts":274705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-40,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=102.73 spend=9 challenge=0 drop=589 busy_drop=3 hs_ok=6 hs_fail=1
+{"ts":279705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-39,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=102.71 spend=9 challenge=0 drop=589 busy_drop=3 hs_ok=6 hs_fail=1
+LOG gw stats hs started=15 ok=5 failed=10 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+LOG field1 pressure=102.76 spend=9 challenge=0 drop=589 busy_drop=3 hs_ok=6 hs_fail=1
+{"ts":284705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-39.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=102.84 spend=9 challenge=0 drop=589 busy_drop=3 hs_ok=6 hs_fail=1
+{"id":"4bcb6b6b-569d-461d-8bbd-626e76ee6386","ts":286605,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: gate)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":19.98,"budget_max_j":20}}
+
+LOG hs ok epoch=54771 tries=1 challenged=0 total_ms=552 to_response_ms=496 keygen_us=10898 sign_us=189853 verify_us=34032 decaps_us=12171
+{"id":"7723210f-df50-4f77-a130-8fa2e675f5e8","ts":286954,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+
+LOG field1 pressure=102.86 spend=10 challenge=0 drop=589 busy_drop=3 hs_ok=7 hs_fail=1
+{"ts":289705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-38.95454,"rssi_var":2.770769,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG gw stats hs started=16 ok=6 failed=10 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+LOG field1 pressure=102.94 spend=10 challenge=0 drop=589 busy_drop=3 hs_ok=7 hs_fail=1
+{"ts":294705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-37,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=103.04 spend=10 challenge=0 drop=589 busy_drop=3 hs_ok=7 hs_fail=1
+LOG field1 pressure=103.14 spend=10 challenge=0 drop=589 busy_drop=3 hs_ok=7 hs_fail=1
+{"ts":299705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-40,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=103.10 spend=10 challenge=0 drop=589 busy_drop=3 hs_ok=7 hs_fail=1
+LOG gw stats hs started=16 ok=6 failed=10 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+LOG field1 pressure=103.15 spend=10 challenge=0 drop=589 busy_drop=3 hs_ok=7 hs_fail=1
+{"ts":304705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-40,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=103.25 spend=10 challenge=0 drop=589 busy_drop=3 hs_ok=7 hs_fail=1
+{"ts":309705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-36,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=103.17 spend=10 challenge=0 drop=589 busy_drop=3 hs_ok=7 hs_fail=1
+LOG gw stats hs started=16 ok=6 failed=10 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=86552
+LOG field1 pressure=103.15 spend=10 challenge=0 drop=589 busy_drop=3 hs_ok=7 hs_fail=1
+{"ts":314705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-38,"rssi_var":4,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=103.15 spend=10 challenge=0 drop=589 busy_drop=3 hs_ok=7 hs_fail=1
+{"id":"c3699a2a-e590-40b5-8a40-ea3d9950d40c","ts":317005,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: gate)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":19.98,"budget_max_j":20}}
+
+LOG field1 pressure=103.15 spend=11 challenge=0 drop=589 busy_drop=3 hs_ok=7 hs_fail=1
+LOG hs fail reason=timeout epoch=54772 tries=1 challenged=0 total_ms=2551 next_in_ms=1000
+{"ts":319705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-38.85714,"rssi_var":2.693835,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+{"id":"8cb221bb-7845-4204-a6cf-353a99651ca1","ts":320562,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: gate)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":19.98,"budget_max_j":20}}
+
+LOG hs ok epoch=54773 tries=1 challenged=0 total_ms=354 to_response_ms=305 keygen_us=13366 sign_us=40580 verify_us=28279 decaps_us=11915
+{"id":"a3ac58de-dac9-4bf5-b71c-515a69942835","ts":320860,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+
+LOG gw stats hs started=18 ok=7 failed=11 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=81764
+LOG field1 pressure=103.23 spend=12 challenge=0 drop=589 busy_drop=3 hs_ok=8 hs_fail=1
+{"ts":324705,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":1,"rssi_mean":-38.42857,"rssi_var":2.625976,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+
+LOG field1 pressure=103.15 spend=12 challenge=0 drop=589 busy_drop=3 hs_ok=8 hs_fail=1
+LOG field1 pressure=103.06 spend=12 challenge=0 drop=589 busy_drop=3 hs_ok=8 hs_fail=1
