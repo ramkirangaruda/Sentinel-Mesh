@@ -147,3 +147,33 @@ Timeline: 0 s defence none, 60 s `DEFENSE gate`, 90 s `MODE FLOOD` (5/s), 210 s 
   median and tail, not a mean.
 - Caveats: one run per condition; no `none`-defence flood run at this distance in this session (the earlier
   adjacent `none` run: 0 of 7). Admitted-forged count is inferred from F's counters, not from a per-frame log.
+
+## 2026-10-15 00:54 and 00:59 — scripted runs: defence none + FLOOD, and gate v2 + INSIDER (boards side by side)
+
+Files: `runs/20261015_005420_none_flood_*` and `runs/20261015_005915_gate_insider_*`. Same timeline as above (flood 90-210 s,
+5/s). Radio on, USB power, NOT energy measurements. Gate model SIMULATED-trained. One run per condition. Caveats on the files:
+A's `attempts` counter is cumulative since A's boot (use differences: 606 forged HELLOs in the none run, 566 INSIDER
+HELLOs in the insider run); F's absolute counters carry over from earlier runs (use deltas); the first line of each F log
+holds a repeated partial-line blob from the port opening mid-line, and a few F lines are interleaved.
+
+**none + FLOOD** (F verifies every forged HELLO):
+- Legit handshakes: 9 of 9 ok, 0 timeouts, all `tries=1` (4 inside the flood). So at 5 forged HELLOs/s a victim with no
+  defence still connects. Flood does NOT deny service at this rate.
+- What it costs F (flood window, deltas of F's own counters): spend +584, hs_fail +562, busy_drop +27, challenge 0.
+  Each forged HELLO ran the ML-DSA verify (about 28 ms CPU each, plus reassembly and the radio). This is the
+  energy-exhaustion effect, to be measured in joules on the rig; versus gate v2: about 2 admitted of 601 and about 600
+  cheap challenges. The attack does its harm to the battery, not to connectivity.
+- **Conflict to resolve:** the earlier adjacent `none` run (bench_gateway_2026-10-14_flood_defence_none_partial.log, only the
+  gateway's partial scrollback) showed legit 0 of 7 with busy_drop +269 and hs_fail +45. That is NOT reproduced here
+  (9 of 9, busy_drop +27). Do not cite "0 of 7" in the paper. Possible causes: partial log, earlier build or F
+  state, attacker rate. Unresolved. If DoS-by-connectivity is to be claimed, test a higher rate (`RATE 20`) with a log of F.
+
+**gate v2 + INSIDER** (validly signed by the enrolled attacker key, sender id 3, no cookie echo):
+- Legit handshakes: 9 of 9 ok; the 4 inside the flood (epochs 40340-40343) each `tries=2 challenged=1`, 432-614 ms.
+- F during the flood: challenge 606 -> 1171 (+565), drop 0, spend +8: 4 legitimate gateway handshakes, admitted at score
+  p=0.10 because they returned the cookie (policy v2 rule 2), plus **5 insider HELLOs admitted in the first 1.5 s**
+  (90.3-91.5 s) at p=0.96, before the rolling 5 s feature window had registered the flood; from 91.7 s on every
+  insider HELLO scored p=0.10 and was challenged. A reports challenges_heard=538, cookie_echoes=0 (ECHO off).
+  So about 5 of 566 insider HELLOs (0.9%) cost a full verify; the rest cost a challenge. The cookie stops a non-echoing
+  insider; an ECHO-capable insider would defeat it (not tested). That onset window (the gate needs about 1.5 s) is a
+  finding: the learned score reacts to the window, not to the first frame.
