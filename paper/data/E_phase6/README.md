@@ -18,3 +18,20 @@ running its previous image state. Every handshake times out (`reason=timeout`, b
 Cause: F's replay guard compared epochs numerically; the rebooted gateway drew a random epoch lower than
 the one F had recorded, so F dropped every HELLO as a replay before the gate. Fixed by an exact-epoch
 ring (decision 15). A failure that was a bug, kept here as a record, not a result.
+
+## 2026-10-14 reruns (field node on the exact-epoch replay guard, commit cc2111f build)
+
+`bench_gateway_F_G_2026-10-14_9_handshakes_ok.log`: G (laptop USB, monitor), F (separate power). About 4.6 min.
+9 handshakes started, 9 ok, 0 failed; 1 initial + 8 scheduled re-handshakes at the 30 s period, each with a
+`rekey` event. No attacker, no energy rig, radio on, USB power: NOT a measurement.
+Gateway-side phase times over the 9: total 329-545 ms (median 439), keygen about 9 ms, verify about 27 ms,
+decaps about 11.8 ms, sign 38-250 ms (median 78 ms; high variance, report median AND tail).
+crypto-task stack free minimum 9960 B of 90112; rx_overflow=0; rssi_missing=0; RSSI about -20 dBm (boards adjacent).
+A separate run with F monitored on its own serial port (not saved: pasted in chat) showed F completing 3 of 3
+handshakes (epochs 48605-48607), hs_fail=0, replay_pre=0, ignored_frags=0, rx_overflow=0.
+
+`bench_gateway_2026-10-14_second_handshake_timeout.log`: UNEXPLAINED. Same builds, G rebooted. First handshake
+ok (377 ms), the second (at the 30 s period) and the retry timed out while F's gate said "spend" (F admitted the
+HELLO) and F's counters showed no failure. Not reproduced in the two runs above. Possible causes not yet
+excluded: lost RESPONSE frames at G, a power/reset condition on F. Watch for it in later runs (`hs fail
+reason=timeout` after a successful first handshake) and do not claim 100% handshake success from these logs.
