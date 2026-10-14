@@ -45,3 +45,19 @@ The counters are cumulative since F's boot and include the pre-flood handshakes,
 flood measurement. What they do show: with defence none, F admitted about 900 forged HELLOs into the
 crypto slot and refused about 690 more because the slot was busy, i.e. roughly the 5/s default rate for the
 few minutes A was attached. Lesson: for a charger-powered attacker use `env:attacker_flood` (boots flooding).
+
+`bench_gateway_2026-10-14_flood_defence_none_partial.log`: first real FLOOD run, defence `none`, attacker =
+`env:attacker_flood` (5 attempts/s default) on a charger, F power-cycled before the run (clean counters), G on USB.
+PARTIAL: this is the terminal scrollback (419 lines), not the monitor's log file, so the baseline and the flood
+start are missing. Visible window: gateway uptime 129-260 s; flood present until about 206 s (last forged-gateway
+HELLO event 205.3 s), A unplugged about then.
+What it shows (defence none, boards adjacent, radio on, NOT an energy measurement):
+- Legit handshakes during about 77 s of flood: 7 attempts, 7 timeouts, 0 ok (gw stats ok stuck at 4, failed 2 -> 9;
+  backoff 1 s -> 15 s). First success 211.7 s, about 6 s after the flood stopped; the next at 242 s (30 s period).
+- field-1 counters over the same window: spend +91 (admitted forged HELLOs, each a failed verify), busy_drop +269
+  (crypto slot busy), hs_fail +45. About 360 attempts in 77 s, i.e. about the 5/s the attacker sends; roughly 75% hit
+  busy_drop, 25% were admitted into reassembly + verification.
+- The (SIMULATED-trained) EnergyGate score was 0.002-0.35 for the forged HELLOs and 0.958 for the real gateway's.
+  With defence none the score is only logged, not acted on. Not a result until the model is retrained on recorded traces.
+- G heap fell from 93.2 kB to 86.5 kB during the flood (overheard-HELLO tracking); stack_free_min unchanged.
+Redo with the monitor's log file for a complete baseline / flood / recovery record.
