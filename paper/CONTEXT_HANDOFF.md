@@ -81,3 +81,31 @@ Still to observe on hardware: flood effect with defence `none`, ECHO behaviour, 
 - The repo's Stop hook falsely reports "unpushed commits and no remote branch" for this branch. Verify with `git ls-remote origin paper/phase6-handshake` against `git rev-parse HEAD`; if equal, ignore. `git push -u origin paper/phase6-handshake` would set the upstream and likely silence it.
 - Host syntax-check stubs for the Arduino code live only in the old session's scratchpad and are gone; rebuild if needed. Ram's own `pio run` builds succeeded for all three firmware targets on the first try.
 - Attachments from the old session are not in the repo except the two logs above.
+
+---
+# UPDATE 2026-10-15 (01:40 IST) — supersedes sections 5, 6 and the commit hash above
+
+Branch `paper/phase6-handshake`, pushed HEAD 4dbc640 or later. Read `paper/decisions.md` (decisions 15-17) and `paper/data/E_phase6/README.md` (every run, with caveats) first.
+
+## What changed since the note above
+- Replay guard fixed (exact-epoch ring of 8, decision 15) and verified on hardware: re-handshake every 30 s works.
+- Attacker boot-mode envs (`attacker_flood/insider/slowdrip`, decision 16). Now mostly unneeded: use the script below.
+- **Gate policy v2** is the default (decision 17): returned cookie admits whatever the score; low scores get a charged CHALLENGE (0.0005 J, PLACEHOLDER) instead of DROP. v1 is the ablation (`-DSENTINEL_GATE_V1`, env `field_node_bench_gatev1`). v1 under flood dropped the real gateway too (0 of 10).
+- **`paper/tools/run_flood_test.py`**: one command runs baseline -> `DEFENSE <x>` -> attack -> recovery with G, F, A all on the laptop (no typing, no moving boards). Usage: `python paper\tools\run_flood_test.py --g COM6 --f COM7 --a COM8 --defence gate --attack FLOOD` (close monitors first; A flashed with plain `attacker`). Logs go to `paper/data/E_phase6/runs/`. Claude can read them straight from Ram's folder through the device bridge (device_bash, folder mount) after he says "done"; no pasting needed. Claude CANNOT open COM ports or flash boards itself.
+
+## Bench results (all USB power, radio on, NOT energy; gate model SIMULATED-trained; one run per condition)
+- gate v2 + FLOOD, adjacent: 9/9 legit handshakes ok, 4 inside the flood each `tries=2 challenged=1` (394-527 ms); ~600 forged HELLOs challenged, ~2 admitted at onset, 0 dropped.
+- none + FLOOD, adjacent: 9/9 legit ok; F verified ~560 forged HELLOs (hs_fail +562). Flood at 5/s costs battery, not connectivity. The earlier "none: 0 of 7" is NOT reproduced; do not cite it. If DoS-by-connectivity is wanted, test a higher `RATE` with F's log captured.
+- gate v2 + INSIDER: 9/9 legit ok; ~5 of 566 insider HELLOs admitted in the first 1.5 s (score 0.96 before the 5 s window saw the flood), then all challenged; cookie stops a non-echoing insider; ECHO attacker NOT tested.
+- sign time with Wi-Fi on: 38-287 ms (report median and tail).
+- Unexplained: earlier intermittent timeouts (weak link at -61 dBm explained that run; not chased).
+
+## Hardware status
+Ram has: multimeter, 2x INA219 (headers NOT yet soldered; he solders them the morning of 2026-10-15), Ve-Pro 5 V 2 A regulated-looking barrel adaptor (label: centre positive, still to verify with the multimeter; do not connect a board until the no-load voltage reads 4.8-5.3 V), jumper wires, breadboard, 1 kohm and 22 / 10 ohm resistors. Still needed: a way to get 5 V from the barrel plug to F's VIN (DC barrel jack to screw-terminal adapter, or cut the cable). Boards: F (A4:F0:0F:77:A2:70, COM7 in the last runs), G (5C:01:3B:BE:A0:10, COM6), A (8C:94:DF:58:DA:1C, COM8), M (monitor, for the rig).
+
+## Next steps, in order
+1. Ram: solder INA219 headers, continuity check, multimeter check of the adaptor, barrel-to-wire solution.
+2. INA219 on the bench with M (`pio run -e monitor_ina219`), calibration vs multimeter (open, 22 ohm, 10 ohm; table in `paper/setup.md`).
+3. Wire F through the INA219 (flash `field_node_energy`), `benchmark_energy` (E2), handshake energy (C1).
+4. E5 grid with `run_flood_test.py` (defence x attack), now with energy; add `RATE` sweep and an ECHO attacker run.
+5. Retrain EnergyGate on recorded traces (ML stream owns `ml/`; copy traces), measure the real challenge cost to replace 0.0005 J, then paper writing (method + Phase 6 results can start now).
