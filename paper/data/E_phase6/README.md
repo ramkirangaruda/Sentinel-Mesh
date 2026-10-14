@@ -87,3 +87,17 @@ about 269 s (about 127 s); recovery after.
   F's own serial log at the same time to confirm.
 - G free heap trend: 93.2 kB at start, 86.5 kB during the flood, 81.8 kB at the end. Watch it (possible slow leak or
   fragmentation in the overheard-HELLO tracking) before any long slow-drip run.
+
+`bench_gateway_2026-10-14_cookie_mode_no_attack.log` (G monitor; first ~230 lines are serial-buffer junk): FIRST
+hardware run of the cookie/CHALLENGE path, no attacker. `DEFENSE none` for the first 45 s, `DEFENSE cookie` from
+about 47 s (G uptime). Radio on, boards adjacent, NOT an energy measurement.
+- The cookie path works end to end: 4 handshakes in cookie mode succeeded with `tries=2 challenged=1`
+  (epochs 13697, 13698, 13699, 13701), total 413-583 ms (about 50-100 ms more than an unchallenged one).
+  field-1 reported challenge=5, spend 8 by the end.
+- One cookie-mode attempt timed out even after the challenge (epoch 13700, tries=2, at about 160 s), and one
+  `none`-mode attempt timed out (epoch 13695 at about 33 s). Totals for the run: started 8, ok 6, failed 2.
+- Evidence for the lost-frame hypothesis (still NOT proven): G's window right after the 13695 timeout shows
+  `frag_timeout=1` (G expired a partly received RESPONSE set, i.e. some but not all of the 19 frames arrived),
+  and the 13700 failure coincides with a window where G's mean RSSI dropped to -58.6 dBm with variance 71.8
+  (a link dip). Both the earlier unexplained timeouts and this one happened at or after the first
+  re-handshake. Count attempts and failures per run and report the per-attempt success rate.
