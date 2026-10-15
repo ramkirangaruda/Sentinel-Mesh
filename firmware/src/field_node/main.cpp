@@ -17,7 +17,7 @@
 //    (common/crypto_task.*), one handshake at a time.
 //
 // Build variants:
-//   normal                  OLED + tamper sensors + status LED (the demo)
+//   normal                  LCD + tamper sensors + status LED (the demo)
 //   SENTINEL_MEASUREMENT_BUILD  none of those (they would be counted as crypto energy)
 //   SENTINEL_NO_BATTERY     battery_pct is a fixed 100 -- SIMULATED, there is no cell on the rig
 //   SENTINEL_ENERGY_MARKERS GPIO4 high around the gate decision and the handshake
@@ -37,10 +37,7 @@
 
 #ifndef SENTINEL_MEASUREMENT_BUILD
 #define SM_PERIPHERALS 1
-#include <Adafruit_MPU6050.h>
-#include <Adafruit_Sensor.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+#include <LiquidCrystal_I2C.h>
 #else
 #define SM_PERIPHERALS 0
 #endif
@@ -94,10 +91,33 @@ using namespace sentinel;
 // ---------------------------------------------------------------------
 
 #if SM_PERIPHERALS
-static Adafruit_MPU6050 g_mpu;
+// MPU6050 via a direct I2C driver (hardware fix from PR #10): the clone breakout in hand
+// fails Adafruit_MPU6050's WHO_AM_I identity check although the chip works.
+constexpr uint8_t MPU6050_I2C_ADDR = 0x68;
 static bool g_mpu_ok = false;
-static Adafruit_SSD1306 g_oled(board::OLED_WIDTH, board::OLED_HEIGHT, &Wire, -1);
-static bool g_oled_ok = false;
+static void mpu_wake() {
+    Wire.beginTransmission(MPU6050_I2C_ADDR);
+    Wire.write(0x6B);  // power management register
+    Wire.write(0);     // clear sleep bit
+    Wire.endTransmission(true);
+}
+static bool mpu_read_accel(float& ax, float& ay, float& az) {
+    Wire.beginTransmission(MPU6050_I2C_ADDR);
+    Wire.write(0x3B);  // first accelerometer data register
+    if (Wire.endTransmission(false) != 0) return false;
+    uint8_t n = Wire.requestFrom(static_cast<int>(MPU6050_I2C_ADDR), 6, 1);
+    if (n < 6) return false;
+    int16_t rawX = (Wire.read() << 8) | Wire.read();
+    int16_t rawY = (Wire.read() << 8) | Wire.read();
+    int16_t rawZ = (Wire.read() << 8) | Wire.read();
+    ax = rawX / 16384.0f * 9.81f;  // +-2 g range, 16384 LSB/g
+    ay = rawY / 16384.0f * 9.81f;
+    az = rawZ / 16384.0f * 9.81f;
+    return true;
+}
+// The "OLED" in the BOM is a 16x2 character LCD behind an I2C backpack (PR #10).
+static LiquidCrystal_I2C g_lcd(board::LCD_I2C_ADDR, board::LCD_COLS, board::LCD_ROWS);
+static bool g_lcd_ok = false;
 static StatusColor g_status = StatusColor::GREEN;
 static float g_accel_baseline = 9.8f;
 constexpr float ACCEL_TAMPER_DELTA = 2.0f; // m/s^2
@@ -189,11 +209,9 @@ static float read_battery_percent() {
 static bool check_tamper_ldr() { return analogRead(board::PIN_LDR) > board::LDR_TAMPER_THRESHOLD; }
 static bool check_tamper_motion() {
     if (!g_mpu_ok) return false;
-    sensors_event_t accel, gyro, temp;
-    g_mpu.getEvent(&accel, &gyro, &temp);
-    float mag = sqrtf(accel.acceleration.x * accel.acceleration.x +
-                      accel.acceleration.y * accel.acceleration.y +
-                      accel.acceleration.z * accel.acceleration.z);
+    float ax, ay, az;
+    if (!mpu_read_accel(ax, ay, az)) return false;
+    float mag = sqrtf(ax * ax + ay * ay + az * az);
     return fabsf(mag - g_accel_baseline) > ACCEL_TAMPER_DELTA;
 }
 static bool check_tamper_reed() { return digitalRead(board::PIN_REED_SWITCH) == HIGH; }
@@ -513,18 +531,20 @@ static void housekeeping(uint32_t now_ms) {
 
 #if SM_PERIPHERALS
 static void update_status_display(float battery_pct) {
-    if (!g_oled_ok) return;
-    g_oled.clearDisplay();
-    g_oled.setCursor(0, 0);
-    g_oled.setTextSize(1);
-    g_oled.setTextColor(SSD1306_WHITE);
+    if (!g_lcd_ok) return;
     const char* status_text = (g_status == StatusColor::FLASHING_RED) ? "TAMPER"
-                              : g_session.active ? "Secure" : "No session";
-    g_oled.printf("%s+%s\nBatt %d%% | %s\ngate:%s %d/%dJ\nhs ok %lu fail %lu\n", SM_PQC_KEM_NAME, SM_PQC_SIG_NAME,
-                  static_cast<int>(battery_pct), status_text, defense_mode_name(g_defense),
-                  static_cast<int>(g_energy.balance_j()), static_cast<int>(g_energy.capacity_j()),
-                  static_cast<unsigned long>(g_n_hs_ok), static_cast<unsigned long>(g_n_hs_fail));
-    g_oled.display();
+                              : g_session.active ? "Secure" : "NoSess";
+    char raw1[24], raw2[24];
+    char line1[board::LCD_COLS + 1], line2[board::LCD_COLS + 1];
+    snprintf(raw1, sizeof(raw1), "%s Bat%d%%", defense_mode_name(g_defense), static_cast<int>(battery_pct));
+    snprintf(line1, sizeof(line1), "%-16s", raw1);
+    snprintf(raw2, sizeof(raw2), "%s %lu/%lu", status_text, static_cast<unsigned long>(g_n_hs_ok),
+             static_cast<unsigned long>(g_n_hs_fail));
+    snprintf(line2, sizeof(line2), "%-16s", raw2);
+    g_lcd.setCursor(0, 0);
+    g_lcd.print(line1);
+    g_lcd.setCursor(0, 1);
+    g_lcd.print(line2);
 }
 #endif
 
@@ -551,15 +571,16 @@ void setup() {
     pinMode(board::PIN_BATTERY_ADC, INPUT);
     status_indicators_init();
     Wire.begin(board::I2C_SDA, board::I2C_SCL);
-    g_mpu_ok = g_mpu.begin();
+    Wire.beginTransmission(MPU6050_I2C_ADDR);
+    g_mpu_ok = (Wire.endTransmission() == 0);
     if (g_mpu_ok) {
-        sensors_event_t accel, gyro, temp;
-        g_mpu.getEvent(&accel, &gyro, &temp);
-        g_accel_baseline = sqrtf(accel.acceleration.x * accel.acceleration.x +
-                                 accel.acceleration.y * accel.acceleration.y +
-                                 accel.acceleration.z * accel.acceleration.z);
+        mpu_wake();
+        float ax, ay, az;
+        if (mpu_read_accel(ax, ay, az)) g_accel_baseline = sqrtf(ax * ax + ay * ay + az * az);
     }
-    g_oled_ok = g_oled.begin(SSD1306_SWITCHCAPVCC, board::OLED_I2C_ADDR);
+    g_lcd.init();
+    g_lcd.backlight();
+    g_lcd_ok = true;
 #endif
 
     g_cookie = CookieChallenge(esp_random());

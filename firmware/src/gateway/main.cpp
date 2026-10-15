@@ -20,7 +20,7 @@
 //  - Notice impersonation for free: this board is the only legitimate sender of
 //    frames carrying the gateway's id and never hears its own transmissions, so
 //    any such frame it receives is forged.
-//  - OLED / RGB LED / buzzer status (not in measurement builds).
+//  - LCD / RGB LED / buzzer status (not in measurement builds).
 //
 // EnergyGate itself runs on field-1, not here (see CLAUDE.md).
 
@@ -33,8 +33,7 @@
 
 #ifndef SENTINEL_MEASUREMENT_BUILD
 #define SM_PERIPHERALS 1
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+#include <LiquidCrystal_I2C.h>
 #else
 #define SM_PERIPHERALS 0
 #endif
@@ -89,8 +88,9 @@ constexpr int kContractLevel = 768;
 // ---------------------------------------------------------------------
 
 #if SM_PERIPHERALS
-static Adafruit_SSD1306 g_oled(board::OLED_WIDTH, board::OLED_HEIGHT, &Wire, -1);
-static bool g_oled_ok = false;
+// 16x2 character LCD behind an I2C backpack (hardware fix from PR #10; the BOM "OLED" was an LCD).
+static LiquidCrystal_I2C g_lcd(board::LCD_I2C_ADDR, board::LCD_COLS, board::LCD_ROWS);
+static bool g_lcd_ok = false;
 #endif
 static StatusColor g_status = StatusColor::GREEN;
 
@@ -657,18 +657,20 @@ static void on_frame(const mesh::Frame& fr) {
 
 #if SM_PERIPHERALS
 static void update_status_display() {
-    if (!g_oled_ok) return;
-    g_oled.clearDisplay();
-    g_oled.setCursor(0, 0);
-    g_oled.setTextSize(1);
-    g_oled.setTextColor(SSD1306_WHITE);
+    if (!g_lcd_ok) return;
     const char* status_text = (g_status == StatusColor::FLASHING_RED) ? "TAMPER"
-                              : (g_status == StatusColor::STEADY_RED) ? "ATTACK DETECTED"
+                              : (g_status == StatusColor::STEADY_RED) ? "ATTACK"
                               : (g_status == StatusColor::YELLOW) ? "Degraded" : "Secure";
-    g_oled.printf("gateway %s+%s\nlabel: %s\ndefence: %s\nhs %lu/%lu ok  %s\n%s\n", SM_PQC_KEM_NAME, SM_PQC_SIG_NAME,
-                  g_current_label, defense_mode_name(g_defense), (unsigned long)g_hs_ok,
-                  (unsigned long)g_hs_started, g_session.active ? "session" : "no session", status_text);
-    g_oled.display();
+    char raw1[24], raw2[24];
+    char line1[board::LCD_COLS + 1], line2[board::LCD_COLS + 1];
+    snprintf(raw1, sizeof(raw1), "GW %s", defense_mode_name(g_defense));
+    snprintf(line1, sizeof(line1), "%-16s", raw1);
+    snprintf(raw2, sizeof(raw2), "%s %lu/%lu", status_text, (unsigned long)g_hs_ok, (unsigned long)g_hs_started);
+    snprintf(line2, sizeof(line2), "%-16s", raw2);
+    g_lcd.setCursor(0, 0);
+    g_lcd.print(line1);
+    g_lcd.setCursor(0, 1);
+    g_lcd.print(line2);
 }
 #endif
 
@@ -686,8 +688,10 @@ void setup() {
 
 #if SM_PERIPHERALS
     Wire.begin(board::I2C_SDA, board::I2C_SCL);
-    g_oled_ok = g_oled.begin(SSD1306_SWITCHCAPVCC, board::OLED_I2C_ADDR);
-    if (g_oled_ok) update_status_display();
+    g_lcd.init();
+    g_lcd.backlight();
+    g_lcd_ok = true;
+    update_status_display();
 #endif
 
     g_window.reset();
