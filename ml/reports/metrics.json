@@ -49,7 +49,7 @@
         "legit_false_alarm": 0.0439
       },
       "Nigerian_Fraud": {
-        "malicious_recall": 0.992
+        "malicious_recall": 0.9923
       },
       "SpamAssasin": {
         "malicious_recall": 0.9427,
@@ -62,31 +62,21 @@
       "baseline": {
         "legit_false_alarm": 0.0121,
         "recall_clean": 0.9927,
-        "recall_padded": 0.158,
-        "recall_sandwich_3_3": 0.001,
-        "recall_interleaved_4": 0.22,
-        "recall_unseen_append_6": 0.0013,
-        "recall_unseen_prepend_6": 0.001,
-        "recall_unseen_interleaved_8": 0.1447
+        "recall_padded": 0.158
       },
       "adversarially_trained": {
-        "legit_false_alarm": 0.0188,
-        "recall_clean": 0.985,
-        "recall_padded": 0.886,
-        "recall_sandwich_3_3": 0.9157,
-        "recall_interleaved_4": 0.7967,
-        "recall_unseen_append_6": 0.913,
-        "recall_unseen_prepend_6": 0.8997,
-        "recall_unseen_interleaved_8": 0.7233
+        "legit_false_alarm": 0.0147,
+        "recall_clean": 0.9883,
+        "recall_padded": 0.7913
       }
     },
     "email_random_split_final": {
-      "threshold": 0.5113,
-      "acc": 0.9813,
-      "f1": 0.9809,
-      "auc": 0.9974,
-      "legit_false_alarm": 0.0181,
-      "malicious_recall": 0.9807
+      "threshold": 0.4429,
+      "acc": 0.9843,
+      "f1": 0.984,
+      "auc": 0.9987,
+      "legit_false_alarm": 0.0183,
+      "malicious_recall": 0.987
     }
   },
   "fileguard": {
