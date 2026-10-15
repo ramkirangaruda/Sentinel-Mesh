@@ -105,6 +105,13 @@ static double g_nrg_energy_mj = 0.0;  // integral of power over the interval
 static double g_nrg_seconds = 0.0;
 static float g_last_load_v = 0.0f;
 static float g_last_current_ma = 0.0f;
+#if defined(SENTINEL_SENSOR_INA219)
+// Raw per-second averages for bench calibration (LOG cal line). Kept separate from
+// the NRG path so an open or backwards input shows its offset instead of vanishing.
+static double g_cal_cur_sum_ma = 0.0;
+static double g_cal_bus_sum_v = 0.0;
+static uint32_t g_cal_n = 0;
+#endif
 
 // Reports a completed interval. CSV columns extend the src/benchmark shape
 // (algo,op,us,heap_used_bytes,stack_hwm_bytes,ok) with the two columns
@@ -146,6 +153,9 @@ static void sample_ina219(double dt_s) {
     g_nrg_seconds += dt_s;
     g_last_load_v = bus_v;
     g_last_current_ma = current_ma;
+    g_cal_cur_sum_ma += current_ma;
+    g_cal_bus_sum_v += bus_v;
+    g_cal_n++;
     if (g_marker_active) {
         g_interval_energy_uj += static_cast<double>(power_mw) * dt_s * 1000.0;
         if (current_ma > g_interval_peak_ma) g_interval_peak_ma = current_ma;
@@ -202,6 +212,19 @@ static void emit_nrg_line() {
     double mean_mw = g_nrg_energy_mj / g_nrg_seconds;
     g_nrg_energy_mj = 0.0;
     g_nrg_seconds = 0.0;
+#if defined(SENTINEL_SENSOR_INA219)
+    if (g_cal_n > 0) {
+        // One line per second with the raw averages, sign included: use this for the
+        // calibration table (open / 22 ohm / 10 ohm vs the multimeter). shunt_mv is a
+        // single instantaneous read (an extra I2C read per sample would slow the loop).
+        Serial.printf("LOG cal n=%lu shunt_mv=%.3f bus_v=%.3f current_ma=%.3f mean_mw=%.3f\n",
+                      static_cast<unsigned long>(g_cal_n), static_cast<double>(g_ina.getShuntVoltage_mV()),
+                      g_cal_bus_sum_v / g_cal_n, g_cal_cur_sum_ma / g_cal_n, mean_mw);
+    }
+    g_cal_cur_sum_ma = 0.0;
+    g_cal_bus_sum_v = 0.0;
+    g_cal_n = 0;
+#endif
     if (mean_mw < 0.0) {
         // Negative current usually means the shunt is wired backwards. The
         // schema rejects negative power, so say so instead of sending it.
