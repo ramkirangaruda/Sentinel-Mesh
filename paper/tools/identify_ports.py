@@ -30,6 +30,9 @@ def read_boot(port, secs=5.0):
 
 def guess(text):
     t = text.lower()
+    for key, name in (("attacker boot", "A  (attacker)"), ("gateway boot", "G  (gateway)"),
+                      ("field_node boot", "F  (field node)"), ("monitor boot", "M  (monitor)")):
+        if key in t: return name
     if "attacker" in t: return "A  (attacker)"
     if "gateway" in t or "gw stats" in t or "defence mode" in t and "relayed" in t: return "G  (gateway)"
     if "field" in t or "gate spend" in t or "session established" in t or "stats spend=" in t: return "F  (field node)"
