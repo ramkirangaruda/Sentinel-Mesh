@@ -1,0 +1,7 @@
+{
+  "name": "sentinel_pqc",
+  "version": "0.1.0",
+  "description": "SentinelMesh post-quantum 3-message handshake (ML-KEM + ML-DSA, PQClean) as pure byte-buffer functions. No Arduino/radio dependency: host-testable.",
+  "frameworks": "*",
+  "platforms": "*"
+}

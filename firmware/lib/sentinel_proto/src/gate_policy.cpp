@@ -77,7 +77,7 @@ GateAction decide_admission(DefenseMode mode, const GateInputs& in, EnergyBudget
     if (in.prob_real >= cfg.spend_threshold && budget.spend(cfg.handshake_cost_j, now_ms)) {
         return GateAction::SPEND;
     }
-    if (in.cookie_echoed && in.prob_real >= cfg.challenge_threshold &&
+    if (in.cookie_echoed && (cfg.challenge_low_scores || in.prob_real >= cfg.challenge_threshold) &&
         budget.spend(cfg.handshake_cost_j, now_ms)) {
         return GateAction::SPEND;
     }
@@ -85,6 +85,9 @@ GateAction decide_admission(DefenseMode mode, const GateInputs& in, EnergyBudget
         return GateAction::DROP;
     }
     if (in.prob_real >= cfg.challenge_threshold) {
+        return GateAction::CHALLENGE;
+    }
+    if (cfg.challenge_low_scores && budget.spend(cfg.challenge_cost_j, now_ms)) {
         return GateAction::CHALLENGE;
     }
     return GateAction::DROP;
