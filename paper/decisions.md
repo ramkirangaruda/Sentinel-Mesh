@@ -50,3 +50,10 @@ These are the choices made while writing the handshake firmware. Each one change
 1. **Heap.** The crypto task reserves its stack (90 112 B at level 3, 49 152 B at level 1) before Wi-Fi starts. If ML-DSA-65 plus Wi-Fi plus the buffers do not fit, the boot log says so (`crypto_task: cannot allocate` or `FAILED`). The real stack need is read off `stack_free_min` in the logs and the reservation lowered accordingly.
 2. **RSSI sniffer.** The promiscuous-mode trick has not been run on these boards. If `rssi_sniffer=OFF` or `rssi_missing` is large in the stats lines, RSSI features are the placeholder.
 3. **Signing time under Wi-Fi.** E1 timings were taken with the radio off. Signing time with Wi-Fi running (and the radio sharing the CPU) will differ; use these runs, not E1, for any handshake-level number.
+
+## Decision: integration of PRs #9, #10, #11 into master (2026-10-15)
+- #11 (paper/phase6-handshake): merged whole.
+- #9 (MailGuard revert): merged; one conflict in `ml/mailguard.py` resolved keeping master's score-only change and `verdict()` bands, dropping the padding helpers. ML owner (Chaitanya) should review. `ml/models/mailguard.joblib` restored to the pre-#5 blob.
+- #10 (hardware bring-up): only the hardware fixes were taken: 16x2 I2C LCD (`LiquidCrystal_I2C`, addr 0x27), direct-I2C MPU6050 (clone fails Adafruit WHO_AM_I), blue "secure" LED. Its HMAC handshake (`handshake.*`, `psk.h`) is superseded by the signed ML-KEM handshake and was NOT included; `.vscode` files not included.
+- NOT build-verified for ESP32 in the cloud sandbox (platform download blocked). Host tests: 305 native + PQC pass; host syntax checks of field_node/gateway pass with stubs. Someone must run `pio run` for every env, and confirm the LCD address (0x27 vs 0x3F) on the boards, before relying on master.
+- Two ML test files (`test_fileguard_redteam.py`, `test_fileguard_shap.py`) need `pefile`/`lightgbm` and were not run here; the other 15 pass.

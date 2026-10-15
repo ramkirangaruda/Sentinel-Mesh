@@ -266,3 +266,6 @@ firmware. All three boards stay on the laptop.
   have (resistor colour codes from photos are unreliable; the multimeter is the final word).
 - Save raw logs under `paper/data/`, add a note to `paper/data/E_phase6/README.md` (or a new experiment folder),
   commit, push, and say plainly in your reply what the result is and its caveats.
+
+## Update: PRs merged into master (2026-10-15)
+PRs #9, #10 (hardware fixes only), #11 are integrated into master; see `paper/decisions.md`. First thing: `git pull`, then `pio run` for every env (not verified in the cloud), check the LCD shows text (address 0x27, else 0x3F in `board_config.h`).
