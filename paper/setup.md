@@ -16,11 +16,16 @@
 - Resolved by INA219: clipping and ground lift. SHUNT_RESISTANCE_OHMS in board_config.h now defaults to 2.5 (was 0.1) and only matters for the ADS1115 rehearsal; set it to your multimeter reading.
 
 ## Calibration (fill after Phase 4)
-| Load | Multimeter | Sensor | Error % |
+Do NOT put 22 ohm or 10 ohm across 5 V (1.1 W and 2.5 W: they overheat). Use the ¼ W-safe loads below; compute the
+reference current as I = V/R from the multimeter (volts across the load, ohms with power off), not an ammeter.
+Zero offset measured 2026-10-15 with Vin+/Vin- open: -0.30 mA (shunt -0.03 mV, steady to +/-0.01 mA), 989 samples/s.
+
+| Load | Multimeter (V, R, I=V/R) | Sensor `current_ma` (minus offset) | Error % |
 |---|---|---|---|
-| open | | | |
-| 22 ohm | | | |
-| 10 ohm | | | |
+| open | n/a | -0.30 mA (offset) | |
+| 1 kohm (about 5 mA) | | | |
+| 3x 56 ohm in series (about 30 mA) | | | |
+| 3 strings of (56+47+39 ohm) in parallel (about 106 mA) | | | |
 
 ## Versions (fill in)
 - `pio --version`: ___ | espressif32 platform: ___ | Arduino-ESP32 core: ___

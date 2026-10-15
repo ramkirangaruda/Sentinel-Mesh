@@ -1,5 +1,7 @@
 # SentinelMesh research paper: handoff context (written 2026-10-12, late evening)
 
+> **Superseded by `paper/HANDOFF_3DAY.md` (2026-10-15). Read that one first.**
+
 Drop this file into the new project's context. It replaces the old conversation.
 
 ## 1. Who and what
