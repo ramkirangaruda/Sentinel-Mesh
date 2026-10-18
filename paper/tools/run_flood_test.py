@@ -55,7 +55,7 @@ class Logger(threading.Thread):
 def build_parser():
     ap = argparse.ArgumentParser()
     ap.add_argument("--g", required=True, help="gateway port, e.g. COM6")
-    ap.add_argument("--f", required=True, help="field-node port")
+    ap.add_argument("--f", default=None, help="field-node port; omit when F is on the energy rig without a data cable (G's log still carries F's counters)")
     ap.add_argument("--a", required=True, help="attacker port")
     ap.add_argument("--defence", default="gate", help="none|ratelimit|cookie|gate")
     ap.add_argument("--baud", type=int, default=115200)
@@ -81,7 +81,8 @@ def run(a):
     if a.tag: name += f"_{a.tag}"
     base = os.path.join(a.out, name)
     t0 = time.time()
-    ports = {"G": a.g, "F": a.f, "A": a.a}
+    ports = {"G": a.g, "A": a.a}
+    if a.f: ports["F"] = a.f
     if a.m: ports["M"] = a.m
     sers, logs = {}, []
     for k, p in ports.items():
