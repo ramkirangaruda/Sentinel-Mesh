@@ -15,6 +15,12 @@
 - LCD/LEDs/buzzer must be disconnected for every energy experiment (and firmware built with -DSENTINEL_MEASUREMENT_BUILD).
 - Resolved by INA219: clipping and ground lift. SHUNT_RESISTANCE_OHMS in board_config.h now defaults to 2.5 (was 0.1) and only matters for the ADS1115 rehearsal; set it to your multimeter reading.
 
+## Power supply for the rig
+- Ve-Pro AC/DC adapter, label "OUTPUT: DC 5Volt 2A", centre-positive symbol, not marked "regulated", Mfg Jun 26.
+  Plug is the small yellow-tipped barrel (likely 4.0 x 1.7 mm; a screw-terminal adapter must match that size).
+- No-load voltage measured 2026-10-18 (HAOYUE DT830D, V DC 20 V range, red in centre, black on sleeve):
+  **+5.16 V**, centre positive. Within the 4.8-5.3 V safe window.
+
 ## Calibration (fill after Phase 4)
 Do NOT put 22 ohm or 10 ohm across 5 V (1.1 W and 2.5 W: they overheat). Use the ¼ W-safe loads below; compute the
 reference current as I = V/R from the multimeter (volts across the load, ohms with power off), not an ammeter.
