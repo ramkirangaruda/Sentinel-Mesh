@@ -30,5 +30,9 @@ Zero offset measured 2026-10-15 with Vin+/Vin- open: -0.30 mA (shunt -0.03 mV, s
 ## Versions (fill in)
 - `pio --version`: ___ | espressif32 platform: ___ | Arduino-ESP32 core: ___
 - Python ___ | gcc ___
+- Build check 2026-10-18 (Chaitanya's laptop, all 17 ESP32 envs): `pio` 6.2.0 | espressif32 7.1.3 |
+  framework-arduinoespressif32 4.20017.260907 (sha dcc1105b) | Python 3.12.10 | gcc 14.2.0 (MSYS2, host tests).
+  `platformio.ini` does not pin the platform version, so the flashing laptop may resolve a different one: record
+  that laptop's versions here too before the energy runs (copy the `PLATFORM:` line from any `pio run`).
 - PQClean commit: 0586a824fc0d49df0b6b6e9179d8d15d06d0974f (vendored 2026-10-08)
 - Firmware commit used for each run: see `runlog.csv`
