@@ -211,7 +211,7 @@ see section 9, decisions).
 | **F** | **Field node**, the victim. Runs EnergyGate. This is the board we measure. | A4:F0:0F:77:A2:70 | `field_node_bench` now; `field_node_energy` for energy runs |
 | **G** | **Gateway**, the legitimate partner that does handshakes with F every few seconds | 5C:01:3B:BE:A0:10 | `gateway` |
 | **A** | **Attacker**, sends fake HELLOs at F | 8C:94:DF:58:DA:1C | `attacker` (starts OFF; the scripts switch its mode) |
-| **M** | **Monitor**, reads the INA219 and prints energy numbers | unknown | `monitor_ina219` |
+| **M** | **Monitor**, reads the INA219 and prints energy numbers | 30:76:F5:05:3E:A0 | `monitor_ina219` |
 
 **COM ports.** When a board is plugged into Windows by USB it gets a name like COM6. The number changes when you
 move a cable. Never trust an old number: run `identify_ports.py` (section 7) every session.

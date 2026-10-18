@@ -88,7 +88,7 @@ All ESP32-WROOM-32 devkits (micro-USB, CP2102). MACs let you identify them:
 | **F** | field node (EnergyGate, the victim) | A4:F0:0F:77:A2:70 | flashed `field_node_bench` |
 | **G** | gateway | 5C:01:3B:BE:A0:10 | flashed `gateway` |
 | **A** | attacker | 8C:94:DF:58:DA:1C | flashed plain `attacker` (starts OFF) |
-| **M** | monitor for the energy rig | (unknown) | flashed `monitor_ina219`; INA219 wired and found on I2C |
+| **M** | monitor for the energy rig | 30:76:F5:05:3E:A0 | flashed `monitor_ina219`; INA219 wired and found on I2C |
 
 **COM port numbers change when a cable moves.** They were G=COM6/F=COM7 earlier, then F=COM6, G=COM9 (later
 COM8), M=COM7, A=COM10. Never trust a remembered number: run `python paper\tools\identify_ports.py`, which
