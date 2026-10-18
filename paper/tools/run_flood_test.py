@@ -13,6 +13,13 @@ A must be flashed with the plain `attacker` env (starts OFF); this script
 sends `MODE FLOOD`, so the boot-mode envs are not needed.
 Output: paper/data/E_phase6/runs/<stamp>_<defence>_{G,F,A}.log plus a
 timeline file with the exact times each command was sent.
+
+Extra options for the E5 grid (see run_e5_grid.py, which calls this):
+  --rate HZ     sends `RATE <hz>` to A before the attack (flood-rate sweep)
+  --echo        sends `ECHO on` to A (cookie-echoing insider)
+  --m COMx      also logs the INA219 monitor M (NRG / monitor rows) when the
+                energy rig is built
+  --tag TEXT    appended to the file names (e.g. rep3)
 """
 import argparse, os, sys, threading, time
 from datetime import datetime
@@ -45,7 +52,7 @@ class Logger(threading.Thread):
             self.f.flush()
         self.f.close()
 
-def main():
+def build_parser():
     ap = argparse.ArgumentParser()
     ap.add_argument("--g", required=True, help="gateway port, e.g. COM6")
     ap.add_argument("--f", required=True, help="field-node port")
@@ -58,13 +65,24 @@ def main():
     ap.add_argument("--recovery", type=int, default=60)
     ap.add_argument("--attack", default="FLOOD", help="FLOOD|INSIDER|SLOW_DRIP|...")
     ap.add_argument("--out", default=os.path.join("paper", "data", "E_phase6", "runs"))
-    a = ap.parse_args()
+    ap.add_argument("--rate", type=int, default=None, help="attacker RATE in Hz")
+    ap.add_argument("--echo", action="store_true", help="send ECHO on to A")
+    ap.add_argument("--m", default=None, help="monitor (INA219) port; optional")
+    ap.add_argument("--tag", default="", help="suffix for the file names")
+    return ap
+
+def run(a):
 
     os.makedirs(a.out, exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    base = os.path.join(a.out, f"{stamp}_{a.defence}_{a.attack.lower()}")
+    name = f"{stamp}_{a.defence}_{a.attack.lower()}"
+    if a.rate: name += f"_r{a.rate}"
+    if a.echo: name += "_echo"
+    if a.tag: name += f"_{a.tag}"
+    base = os.path.join(a.out, name)
     t0 = time.time()
     ports = {"G": a.g, "F": a.f, "A": a.a}
+    if a.m: ports["M"] = a.m
     sers, logs = {}, []
     for k, p in ports.items():
         sers[k] = open_port(p, a.baud)
@@ -83,6 +101,8 @@ def main():
         wait(a.baseline, "baseline, defence none, no attack")
         send("G", f"DEFENSE {a.defence}")
         wait(a.settle, "defence settling, no attack")
+        send("A", "ECHO on" if a.echo else "ECHO off")
+        if a.rate: send("A", f"RATE {a.rate}")
         send("A", f"MODE {a.attack}")
         wait(a.flood, f"attack {a.attack}")
         send("A", "STATS")
@@ -99,6 +119,10 @@ def main():
     print("\nDone. Logs:")
     for k in ports: print(f"  {base}_{k}.log")
     print(f"  {base}_timeline.txt")
+    return base
+
+def main():
+    run(build_parser().parse_args())
 
 if __name__ == "__main__":
     sys.exit(main())
