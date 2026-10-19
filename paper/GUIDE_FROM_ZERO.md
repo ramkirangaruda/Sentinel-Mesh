@@ -340,17 +340,19 @@ harmless while nothing is connected. Press Ctrl+C to close the monitor.
 
 **Step 1.4. Measure the resistors (power off, Ω mode).** Touch the probes to the two legs of each resistor and
 write the value down. Build and measure these groups (on the breadboard):
-Take out 2 × 1 kΩ, 5 × 220 Ω and 5 × 270 Ω and measure each one. Every load is resistors placed **side by side
-(in parallel)**: all left legs in one breadboard row, all right legs in another row, so each resistor has the full
-5 V on its own.
+Take out 2 × 1 kΩ, 5 × 270 Ω, 5 × 330 Ω and 5 × 390 Ω (the kit's 220 Ω packet was missing) and measure each one.
+Every load is resistors placed **side by side (in parallel)**: each resistor is bent into a U and plugged across the
+breadboard's two long edge lines (one leg in the red + line, one in the blue − line), so each has the full 5 V on its
+own.
 - **L1, about 5 mA:** 1 × 1 kΩ.
-- **L2, about 23 mA:** 1 × 220 Ω.
-- **L3, about 70 mA:** 3 × 220 Ω side by side.
-- **L4, about 117 mA:** 5 × 220 Ω side by side.
-- **L5, about 213 mA:** 5 × 220 Ω and 5 × 270 Ω, all side by side.
-After building each load (power off), measure across the two rows to get its total resistance.
+- **L2, about 19 mA:** 1 × 270 Ω.
+- **L3, about 57 mA:** 3 × 270 Ω.
+- **L4, about 96 mA:** 5 × 270 Ω.
+- **L5, about 174 mA:** 5 × 270 Ω and 5 × 330 Ω.
+- **L6, about 240 mA:** 5 × 270, 5 × 330 and 5 × 390 Ω.
+After building each load (power off), measure across the two lines to get its total resistance.
 
-Each resistor stays at about 0.12 W or less (half its ¼ W rating): warm at most, never hot.
+Each resistor stays at about 0.10 W or less (under half its ¼ W rating): warm at most, never hot.
 
 **Step 1.5. Calibrate: compare the INA219 with the multimeter (one load at a time).**
 Wiring for each load (adaptor **unplugged** while wiring):
@@ -369,7 +371,7 @@ Then:
    ```
    It reads M for 20 seconds and prints a row like
    `| 1 kohm | 4.980 V, 998.00 ohm, 4.99 mA | 5.02 mA | +0.60 % |`.
-4. Unplug the adaptor, swap to the next load, repeat for loads L2 to L5. Also do one with **nothing** connected:
+4. Unplug the adaptor, swap to the next load, repeat for loads L2 to L6. Also do one with **nothing** connected:
    `--label open --volts 0 --ohms 0` (that measures the zero offset).
 5. Paste the rows into the table in `paper/setup.md` (the script also saves `paper/data/calibration.csv`).
 Success: errors within a few percent. If an error is above about 5%, stop and send Claude the output.
