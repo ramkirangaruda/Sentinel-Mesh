@@ -194,8 +194,8 @@ connected.
 **Jumper wires.** Male end = pin, female end = socket. Male-to-female goes from a breadboard to a board pin.
 
 **Resistors.** Colour bands give the value, but reading them from photos is unreliable. **Always measure with the
-multimeter (Ω mode).** Our stock (from photos, medium confidence): 39 Ω ×3, 47 Ω ×3, 56 Ω ×3, 1 kΩ ×1, 22 Ω, 10 Ω
-(do not use these two across 5 V), 100 kΩ, 270 kΩ.
+multimeter (Ω mode).** Our stock (2026-10-19): a ROBOLARK ¼ W 5 % carbon-film kit, 30 values × 5 each (10 Ω to
+1 MΩ). Rule: a single ¼ W resistor across 5 V must be **220 Ω or more**; never put 10-150 Ω alone across 5 V.
 
 **5 V 2 A barrel-plug adaptor (Ve-Pro).** Plugs into the wall; the round plug has a centre pin (should be +) and
 an outer sleeve (−). To use it we need either a **barrel-jack-to-screw-terminal adapter** (a small plug-in socket
@@ -340,13 +340,17 @@ harmless while nothing is connected. Press Ctrl+C to close the monitor.
 
 **Step 1.4. Measure the resistors (power off, Ω mode).** Touch the probes to the two legs of each resistor and
 write the value down. Build and measure these groups (on the breadboard):
-- **Load A, about 5 mA:** the 1 kΩ alone.
-- **Load B, about 30 mA:** three 56 Ω in **series** (in a chain) = about 168 Ω. Measure the whole chain end to end.
-- **Load C, about 106 mA:** three separate chains, each **56 + 47 + 39 Ω in series** (about 142 Ω each). Measure
-  each chain; they should be within a few ohms of each other. Then join the three chains **in parallel** (all
-  their left ends in one row, all their right ends in another row) and measure across them: about 47 Ω.
+Take out 2 × 1 kΩ, 5 × 220 Ω and 5 × 270 Ω and measure each one. Every load is resistors placed **side by side
+(in parallel)**: all left legs in one breadboard row, all right legs in another row, so each resistor has the full
+5 V on its own.
+- **L1, about 5 mA:** 1 × 1 kΩ.
+- **L2, about 23 mA:** 1 × 220 Ω.
+- **L3, about 70 mA:** 3 × 220 Ω side by side.
+- **L4, about 117 mA:** 5 × 220 Ω side by side.
+- **L5, about 213 mA:** 5 × 220 Ω and 5 × 270 Ω, all side by side.
+After building each load (power off), measure across the two rows to get its total resistance.
 
-Every resistor in these loads stays under 0.07 W, so none of them gets hot.
+Each resistor stays at about 0.12 W or less (half its ¼ W rating): warm at most, never hot.
 
 **Step 1.5. Calibrate: compare the INA219 with the multimeter (one load at a time).**
 Wiring for each load (adaptor **unplugged** while wiring):
@@ -365,7 +369,7 @@ Then:
    ```
    It reads M for 20 seconds and prints a row like
    `| 1 kohm | 4.980 V, 998.00 ohm, 4.99 mA | 5.02 mA | +0.60 % |`.
-4. Unplug the adaptor, swap to the next load, repeat for loads B and C. Also do one with **nothing** connected:
+4. Unplug the adaptor, swap to the next load, repeat for loads L2 to L5. Also do one with **nothing** connected:
    `--label open --volts 0 --ohms 0` (that measures the zero offset).
 5. Paste the rows into the table in `paper/setup.md` (the script also saves `paper/data/calibration.csv`).
 Success: errors within a few percent. If an error is above about 5%, stop and send Claude the output.
