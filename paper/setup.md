@@ -22,8 +22,8 @@
   **+5.16 V**, centre positive. Within the 4.8-5.3 V safe window.
 
 ## Calibration (fill after Phase 4)
-Do NOT put 22 ohm or 10 ohm across 5 V (1.1 W and 2.5 W: they overheat). Loads redesigned 2026-10-19 for the ROBOLARK ¼ W 5 % carbon-film kit (no 2 W parts available): every
-resistor sits alone across 5 V in parallel, so each is at most 5.16^2/270 = 0.10 W (under half its rating); the kit's 220 ohm packet was missing. Use the loads below; compute the
+Do NOT put 22 ohm or 10 ohm across 5 V (1.1 W and 2.5 W: they overheat). Loads redesigned 2026-10-21: only 1 kohm and 270 ohm ¼ W parts (15x 270, 5x 1k bought for this; kit returned): every
+resistor sits alone across 5 V in parallel, so each is at most 5.16^2/270 = 0.10 W (under half its rating). Use the loads below; compute the
 reference current as I = V/R from the multimeter (volts across the load, ohms with power off), not an ammeter.
 Zero offset measured 2026-10-15 with Vin+/Vin- open: -0.30 mA (shunt -0.03 mV, steady to +/-0.01 mA), 989 samples/s.
 
@@ -34,8 +34,8 @@ Zero offset measured 2026-10-15 with Vin+/Vin- open: -0.30 mA (shunt -0.03 mV, s
 | L2: 1x 270 ohm (about 19 mA) | | | |
 | L3: 3x 270 ohm in parallel (about 57 mA) | | | |
 | L4: 5x 270 ohm in parallel (about 96 mA) | | | |
-| L5: 5x 270 + 5x 330 ohm, all in parallel (about 174 mA) | | | |
-| L6: 5x 270 + 5x 330 + 5x 390 ohm, all in parallel (about 240 mA) | | | |
+| L5: 10x 270 ohm in parallel (about 191 mA) | | | |
+| L6: 13x 270 ohm in parallel (about 248 mA) | | | |
 
 ## Versions (fill in)
 - `pio --version`: ___ | espressif32 platform: ___ | Arduino-ESP32 core: ___

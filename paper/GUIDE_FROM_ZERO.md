@@ -194,8 +194,7 @@ connected.
 **Jumper wires.** Male end = pin, female end = socket. Male-to-female goes from a breadboard to a board pin.
 
 **Resistors.** Colour bands give the value, but reading them from photos is unreliable. **Always measure with the
-multimeter (Ω mode).** Our stock (2026-10-19): a ROBOLARK ¼ W 5 % carbon-film kit, 30 values × 5 each (10 Ω to
-1 MΩ). Rule: a single ¼ W resistor across 5 V must be **220 Ω or more**; never put 10-150 Ω alone across 5 V.
+multimeter (Ω mode).** Our stock (2026-10-21): 15 × 270 Ω and 5 × 1 kΩ, ¼ W. Rule: a single ¼ W resistor across 5 V must be **220 Ω or more**; never put 10-150 Ω alone across 5 V.
 
 **5 V 2 A barrel-plug adaptor (Ve-Pro).** Plugs into the wall; the round plug has a centre pin (should be +) and
 an outer sleeve (−). To use it we need either a **barrel-jack-to-screw-terminal adapter** (a small plug-in socket
@@ -340,7 +339,7 @@ harmless while nothing is connected. Press Ctrl+C to close the monitor.
 
 **Step 1.4. Measure the resistors (power off, Ω mode).** Touch the probes to the two legs of each resistor and
 write the value down. Build and measure these groups (on the breadboard):
-Take out 2 × 1 kΩ, 5 × 270 Ω, 5 × 330 Ω and 5 × 390 Ω (the kit's 220 Ω packet was missing) and measure each one.
+Use only two values: 1 kΩ and 270 Ω (¼ W; 15 × 270 Ω and 5 × 1 kΩ bought). Measure 2 × 1 kΩ and 13 × 270 Ω.
 Every load is resistors placed **side by side (in parallel)**: each resistor is bent into a U and plugged across the
 breadboard's two long edge lines (one leg in the red + line, one in the blue − line), so each has the full 5 V on its
 own.
@@ -348,8 +347,8 @@ own.
 - **L2, about 19 mA:** 1 × 270 Ω.
 - **L3, about 57 mA:** 3 × 270 Ω.
 - **L4, about 96 mA:** 5 × 270 Ω.
-- **L5, about 174 mA:** 5 × 270 Ω and 5 × 330 Ω.
-- **L6, about 240 mA:** 5 × 270, 5 × 330 and 5 × 390 Ω.
+- **L5, about 191 mA:** 10 × 270 Ω.
+- **L6, about 248 mA:** 13 × 270 Ω.
 After building each load (power off), measure across the two lines to get its total resistance.
 
 Each resistor stays at about 0.10 W or less (under half its ¼ W rating): warm at most, never hot.
