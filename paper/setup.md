@@ -25,6 +25,8 @@
 Do NOT put 22 ohm or 10 ohm across 5 V (1.1 W and 2.5 W: they overheat). Loads redesigned 2026-10-21: only 1 kohm and 270 ohm ¼ W parts (15x 270, 5x 1k bought for this; kit returned): every
 resistor sits alone across 5 V in parallel, so each is at most 5.16^2/270 = 0.10 W (under half its rating). Use the loads below; compute the
 reference current as I = V/R from the multimeter (volts across the load, ohms with power off), not an ammeter.
+Resistors measured 2026-10-21 (DT830D, Ω 2000 range, cold): 1 kohm metal film (blue) 988 and 989 ohm; 270 ohm carbon
+film (beige, larger temperature drift) 263-269 ohm across 13 parts. Each load's total R is measured as built.
 Zero offset measured 2026-10-15 with Vin+/Vin- open: -0.30 mA (shunt -0.03 mV, steady to +/-0.01 mA), 989 samples/s.
 
 | Load | Multimeter (V, R, I=V/R) | Sensor `current_ma` (minus offset) | Error % |
