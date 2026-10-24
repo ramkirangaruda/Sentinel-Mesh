@@ -44,6 +44,11 @@ def main():
         for c in cells:
             print("  rep %d  defence=%s  attack=%s  rate=%s" % c)
         return
+    if sys.platform == "win32":
+        # keep the laptop from idle-sleeping for this process only (ES_CONTINUOUS | ES_SYSTEM_REQUIRED);
+        # released automatically when the script exits; no power settings are changed
+        import ctypes
+        ctypes.windll.kernel32.SetThreadExecutionState(0x80000000 | 0x00000001)
     base_tag = a.tag
     for i, (rep, d, atk, rate) in enumerate(cells, 1):
         print(f"\n=== run {i}/{len(cells)}: rep {rep} defence={d} attack={atk} rate={rate}")
