@@ -2,7 +2,8 @@
 
 The remaining paper work is split so the two people never touch the same files and never wait on each other.
 **Person H** has the hardware (all four boards, INA219 rig, multimeter). **Person S** has no hardware and works on
-software, analysis and writing. Each person's Claude reads this file, `CLAUDE.md`, `paper/HANDOFF_3DAY.md`,
+software, analysis and writing. Each person's Claude reads this file, `paper/CONTEXT_2026-10-24.md` (what was done so far), `CLAUDE.md`,
+`paper/HANDOFF_3DAY.md`,
 `paper/GUIDE_FROM_ZERO.md` and `paper/setup.md` first.
 
 ## Git: how not to collide

@@ -269,3 +269,7 @@ firmware. All three boards stay on the laptop.
 
 ## Update: PRs merged into master (2026-10-15)
 PRs #9, #10 (hardware fixes only), #11 are integrated into master; see `paper/decisions.md`. First thing: `git pull`, then `pio run` for every env (not verified in the cloud), check the LCD shows text (address 0x27, else 0x3F in `board_config.h`).
+
+## Update: 2026-10-24 (Chaitanya)
+Work continued on branch `paper/e5-grid-tooling`: tooling, Day 0 bench check, rig safety checks and the INA219
+calibration are done. Read `paper/CONTEXT_2026-10-24.md` for what changed and `paper/WORK_SPLIT.md` for who does what next.
