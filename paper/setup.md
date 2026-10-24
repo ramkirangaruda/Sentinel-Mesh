@@ -29,15 +29,39 @@ Resistors measured 2026-10-21 (DT830D, Ω 2000 range, cold): 1 kohm metal film (
 film (beige, larger temperature drift) 263-269 ohm across 13 parts. Each load's total R is measured as built.
 Zero offset measured 2026-10-15 with Vin+/Vin- open: -0.30 mA (shunt -0.03 mV, steady to +/-0.01 mA), 989 samples/s.
 
-| Load | Multimeter (V, R, I=V/R) | Sensor `current_ma` (minus offset) | Error % |
-|---|---|---|---|
-| open | n/a | -0.30 mA (offset) | |
-| L1: 1x 1 kohm (about 5 mA) | | | |
-| L2: 1x 270 ohm (about 19 mA) | | | |
-| L3: 3x 270 ohm in parallel (about 57 mA) | | | |
-| L4: 5x 270 ohm in parallel (about 96 mA) | | | |
-| L5: 10x 270 ohm in parallel (about 191 mA) | | | |
-| L6: 13x 270 ohm in parallel (about 248 mA) | | | |
+**Session 2, 2026-10-24 (the calibration used for the paper).** New test leads (0.6 ohm, subtracted from every R);
+each load's R measured in place with the INA219 disconnected, V measured on a resistor's legs with the load running
+30 s; sensor = 20 s mean of M's `LOG cal current_ma`. Warm R equalled cold R at L5 (no heating drift).
+Raw: `paper/data/calibration.csv` (labels `S2 ...`) and `paper/data/calibration_raw_20261024_*.log`.
+Fit: `python paper/analysis/calibration_fit.py`.
+
+| Load | Multimeter V | Multimeter R (minus 0.6 lead) | Reference I = V/R | INA219 raw | INA219 bus V | Corrected | Residual |
+|---|---|---|---|---|---|---|---|
+| zero (5 V on, no load) | - | - | 0 | -0.203 mA | 5.232 | 0.217 mA | - |
+| L1: 1x 1 kohm | 5.15 | 987.4 | 5.216 mA | 5.160 mA | 5.223 | 5.390 mA | +3.33 % (+0.17 mA) |
+| L2: 1x 270 ohm | 5.12 | 265.4 | 19.292 mA | 19.744 mA | 5.203 | 19.457 mA | +0.85 % |
+| L3: 3x 270 ohm | 5.06 | 87.7 | 57.697 mA | 59.144 mA | 5.147 | 57.460 mA | -0.41 % |
+| L4: 5x 270 ohm | 5.00 | 52.7 | 94.877 mA | 97.398 mA | 5.092 | 94.358 mA | -0.55 % |
+| L5: 10x 270 ohm | 4.84 | 26.5 | 182.642 mA | 188.671 mA | 4.967 | 182.396 mA | -0.13 % |
+| L6: 13x 270 ohm | 4.74 | 20.4 | 232.353 mA | 240.926 mA | 4.889 | 232.799 mA | +0.19 % |
+
+**Result:** INA219 current = **1.0367 x reference - 0.428 mA** (least squares over the 7 points). Against the DT830D the
+INA219 reads **+3.67 %** high. After correcting with that line, every load from 57 to 232 mA (the ESP32's working
+range) agrees within **0.6 %**; below 20 mA the residual is about +0.17 mA (3 % at 5 mA), so treat sub-20 mA
+readings as +/-0.2 mA. Apply the correction in analysis (`(raw - (-0.428)) / 1.0367`); firmware and raw logs stay
+uncorrected.
+
+**Voltage:** the INA219 bus voltage reads 1.4 % above the DT830D at 5 mA, growing to 3.1 % at 232 mA. The growing
+part is a real drop of about 0.3 ohm in the VIN- jumper and breadboard contacts between the sensor and the load;
+the constant ~1.4 % is a disagreement between the two instruments.
+
+**Which instrument is right is not settled.** Both gaps point the same way (the DT830D reads lower), so part of the
++3.67 % may be the meter, not the sensor. Before quoting absolute joules (claim C1), check L1 and L6 once against a
+better meter (e.g. a calibrated bench multimeter in a college lab). Ratios (claim C2, victim J per attacker J) do not
+depend on this gain.
+
+Session 1 (2026-10-21) is a **trial run, excluded**: its black test lead was failing (it later broke), which inflated
+the low resistances; two rows also had the VIN- jumper unseated (sensor saw no current).
 
 ## Versions (fill in)
 - `pio --version`: ___ | espressif32 platform: ___ | Arduino-ESP32 core: ___
