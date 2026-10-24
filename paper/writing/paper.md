@@ -95,8 +95,9 @@ We evaluate three attacker behaviours (`paper/decisions.md`, Phase 6 #7):
   or hostile enrolled peer. Each admitted HELLO costs verification, encapsulation, a signature
   and a 19-frame RESPONSE.
 - **SLOW_DRIP:** INSIDER at about one HELLO per minute, below any fixed rate limit.
-- **Adaptive** (Section 8, task S5): knows EnergyGate's eight features and paces and shapes
-  its traffic to stay above the score threshold. [TODO S5.]
+- **ADAPTIVE / ADAPTIVE_SPOOF** (Section 8): knows EnergyGate's eight features. Keeps `hs_fail`
+  and `dup_pct` at 0 (valid signatures or fresh sequence numbers) and paces `hs_per_s` to stay
+  under the score threshold, backing off on a heard CHALLENGE (`firmware/src/attacker/attacker_pacer.h`).
 
 A sender with no enrolled key is dropped by an allow-list check before the gate is consulted,
 at negligible cost. EnergyGate matters for spoofed-identity and enrolled-but-hostile senders.
@@ -326,11 +327,30 @@ not results): with no defence a 5/s flood made F verify about 560 forged HELLOs 
 not connectivity; gate v2 challenged about 600 forged HELLOs, admitted about 2 at onset and
 completed 9 of 9 legitimate handshakes (`paper/data/E_phase6/README.md`).
 
-**Budget bound under an adaptive attacker.** [TODO S5: the analytic worst-case drain. Over a
-long attack, admitted handshakes cost at most *B* + *r*·*T* budget joules in time *T*, so the
-long-run rate of budgeted crypto spend cannot exceed *r* whatever the score says; plus the
-unbudgeted per-frame reception cost. Turn this into victim watts with the measured *c_h* and
-the per-frame cost from Section 7, and compare with the adaptive attacker's measured drain.]
+**Budget bound under an adaptive attacker.** We built an ADAPTIVE attacker
+(`firmware/src/attacker/main.cpp`, `attacker_pacer.h`) that knows EnergyGate's 8 features: it
+signs every HELLO with its own enrolled key (`hs_fail` stays 0) and sends a fresh sequence
+number each time (`dup_pct` stays 0), so of the three features it can move, only `hs_per_s` is
+left, and it paces that to stay just under the shipped tree's split (Section 5). ADAPTIVE_SPOOF
+is the same pacing with forged, unsigned HELLOs instead. Both back off multiplicatively on a
+heard CHALLENGE and probe back up additively (AIMD), tracked against field-1's own 5-bucket
+window so the pacer reflects what the gate will actually see, not a fixed guess.
+
+The bound itself does not depend on fooling the classifier correctly: `EnergyBudget`
+(`sentinel_proto/energy_budget.h`) never spends more than it holds and refills at a fixed rate
+*r*, so for *any* sequence of admitted SPENDs and CHALLENGEs over a window of length *T*,
+
+  total budgeted spend(*T*) ≤ *B* + *r*·*T*,  and so  average budgeted power ≤ *r* as *T* → ∞.
+
+This holds whatever the score says, including a classifier a future attacker fools outright. It
+does **not** bound the reception cost of frames field-1 processes before the gate decides; that
+part is bounded instead by the attacker's own pacer cap, not by the victim. `paper/analysis/drain_bound.py`
+computes both parts and their sum (derivation and formulas in its docstring; tested in
+`test_drain_bound.py`). With today's PLACEHOLDER budget (*B* = 20 J, *r* = 0.05 J/s) and an
+ESTIMATED per-attempt reception cost, the long-run worst case is about 50 mW budgeted plus
+about 1 mW unbudgeted. [TODO: rerun with H's measured *B*, *r*, *c_h*, *c_c* and S2's measured
+per-frame reception energy, and compare against the ADAPTIVE attacker's measured drain once
+E7 runs on the rig.]
 
 ## 9. EnergyGate on recorded traces
 

@@ -19,6 +19,12 @@
 //   REPLAY       Captures the first DATA frame from field-1 and re-broadcasts it.
 //   IMPERSONATE  HELLOs claiming to be field-1 (which only ever responds) with the
 //                attacker's own signature; the gateway flags them.
+//   ADAPTIVE     (E7) INSIDER that knows EnergyGate's features. Valid signatures (hs_fail stays 0), a
+//                fresh sequence number per HELLO (dup_pct stays 0), paced by attacker_pacer.h to stay
+//                under the trained tree's hs_per_s split; backs off on a CHALLENGE and probes back up.
+//                ECHO on additionally answers a CHALLENGE with the cookie.
+//   ADAPTIVE_SPOOF  As ADAPTIVE but forged HELLOs claiming the gateway's id (no key needed): each
+//                admitted one fails verification, so the pacer also caps attempts per window (hs_fail <= 1).
 //   WEAK_LINK    Sends harmless frames with deliberate gaps/jitter (not an attack).
 //   OFF          stop.
 //
@@ -44,6 +50,7 @@
 #include "common/msg_io.h"
 #include "common/crypto_task.h"
 #include "common/demo_keys.h"
+#include "attacker_pacer.h"
 
 using namespace sentinel;
 
@@ -55,7 +62,7 @@ using namespace sentinel;
 #  endif
 #endif
 
-enum class AttackMode { OFF, REPLAY, FLOOD, INSIDER, IMPERSONATE, WEAK_LINK, SLOW_DRIP };
+enum class AttackMode { OFF, REPLAY, FLOOD, INSIDER, IMPERSONATE, WEAK_LINK, SLOW_DRIP, ADAPTIVE, ADAPTIVE_SPOOF };
 // Boot-time mode: a board powered from a charger has no serial link to type MODE into, and the
 // mode is not stored across a power cycle. Build env:attacker_flood / _insider / _slowdrip to
 // start attacking at power-up. Plain env:attacker still boots OFF and is driven by MODE lines.
@@ -73,6 +80,8 @@ static const char* mode_name(AttackMode m) {
         case AttackMode::IMPERSONATE: return "IMPERSONATE";
         case AttackMode::WEAK_LINK: return "WEAK_LINK";
         case AttackMode::SLOW_DRIP: return "SLOW_DRIP";
+        case AttackMode::ADAPTIVE: return "ADAPTIVE";
+        case AttackMode::ADAPTIVE_SPOOF: return "ADAPTIVE_SPOOF";
     }
     return "?";
 }
@@ -84,6 +93,7 @@ static float g_rate_hz = 5.0f;             // attempts per second for the rate-d
 #endif
 constexpr uint32_t SLOW_DRIP_INTERVAL_MS = 60000;
 static bool g_echo_cookie = false;
+static AdaptivePacer g_pacer;                   // ADAPTIVE / ADAPTIVE_SPOOF pacing (attacker_pacer.h)
 
 static uint16_t g_epoch = 0xA11C;
 static uint32_t g_seq = 1;
@@ -145,6 +155,26 @@ static void tick_insider(uint32_t now, uint32_t interval_ms) {
     crypto_task_submit(job_make_signed_hello, nullptr);
 }
 
+// ADAPTIVE: a validly signed HELLO under the attacker's enrolled key, sent only when the pacer allows
+// (attacker_pacer.h: stays under the shipped tree's hs_per_s split, backs off on a heard CHALLENGE).
+static void tick_adaptive(uint32_t now) {
+    if (crypto_task_busy() || !g_pacer.may_send(now)) return;
+    g_pacer.on_sent(now);
+    g_last_tx_ms = now;
+    crypto_task_submit(job_make_signed_hello, nullptr);
+}
+
+// ADAPTIVE_SPOOF: forged HELLO claiming the gateway's id (no enrolled key needed), gated the same way;
+// the pacer's max_fail_in_window additionally bounds how many can be admitted-then-failing per window.
+static void tick_adaptive_spoof(uint32_t now) {
+    if (!g_pacer.may_send(now)) return;
+    g_pacer.on_sent(now);
+    g_last_tx_ms = now;
+    esp_fill_random(g_hello, sizeof(g_hello));
+    memset(g_hello, 0, pqc::COOKIE_BYTES);
+    send_hello_frames(static_cast<uint8_t>(NodeId::GATEWAY), g_hello, sizeof(g_hello), g_epoch++, g_seq++);
+}
+
 static void tick_replay(uint32_t now) {
     if (g_captured_len == 0) return;      // nothing captured yet: listen
     uint32_t interval = static_cast<uint32_t>(1000.0f / g_rate_hz);
@@ -195,9 +225,13 @@ static void on_frame(const mesh::Frame& fr) {
     }
 
     if (hdr.type == MsgType::CHALLENGE && hdr.sender == static_cast<uint8_t>(NodeId::FIELD_1) &&
-        (g_mode == AttackMode::INSIDER || g_mode == AttackMode::SLOW_DRIP) &&
+        (g_mode == AttackMode::INSIDER || g_mode == AttackMode::SLOW_DRIP ||
+         g_mode == AttackMode::ADAPTIVE || g_mode == AttackMode::ADAPTIVE_SPOOF) &&
         hdr.epoch == g_last_epoch && hdr.seq == g_last_seq) {
         g_challenges_heard++;
+        if (g_mode == AttackMode::ADAPTIVE || g_mode == AttackMode::ADAPTIVE_SPOOF) {
+            g_pacer.on_challenge(millis());   // back off: the score fell under the gate's spend threshold
+        }
         if (g_echo_cookie && g_hello_valid && !crypto_task_busy() && hdr.frag_n == 1 &&
             fr.len - HEADER_SIZE >= pqc::COOKIE_BYTES) {
             pqc::hello_set_cookie(g_hello, fr.data + HEADER_SIZE);
@@ -223,9 +257,12 @@ static void handle_command(const String& cmd) {
         else if (m == "IMPERSONATE") nm = AttackMode::IMPERSONATE;
         else if (m == "WEAK_LINK") nm = AttackMode::WEAK_LINK;
         else if (m == "SLOW_DRIP") nm = AttackMode::SLOW_DRIP;
+        else if (m == "ADAPTIVE") nm = AttackMode::ADAPTIVE;
+        else if (m == "ADAPTIVE_SPOOF") nm = AttackMode::ADAPTIVE_SPOOF;
         else { Serial.print("LOG unknown mode: "); Serial.println(m); return; }
         g_mode = nm;
         if (nm == AttackMode::REPLAY) g_captured_len = 0;
+        if (nm == AttackMode::ADAPTIVE || nm == AttackMode::ADAPTIVE_SPOOF) g_pacer.reset(millis());
         // SLOW_DRIP fires its first attempt immediately instead of after a minute.
         g_last_tx_ms = (nm == AttackMode::SLOW_DRIP) ? millis() - SLOW_DRIP_INTERVAL_MS : 0;
         Serial.printf("LOG mode set to MODE %s\n", mode_name(g_mode));
@@ -236,9 +273,11 @@ static void handle_command(const String& cmd) {
         g_echo_cookie = (cmd == "ECHO on");
         Serial.printf("LOG cookie echo %s\n", g_echo_cookie ? "on" : "off");
     } else if (cmd == "STATS") {
-        Serial.printf("LOG attacker stats mode=%s attempts=%lu frames=%lu challenges_heard=%lu cookie_echoes=%lu rate=%.2f\n",
+        Serial.printf("LOG attacker stats mode=%s attempts=%lu frames=%lu challenges_heard=%lu cookie_echoes=%lu "
+                      "rate=%.2f pacer_rate=%.3f pacer_challenges=%lu\n",
                       mode_name(g_mode), (unsigned long)g_sent_attempts, (unsigned long)g_sent_frames,
-                      (unsigned long)g_challenges_heard, (unsigned long)g_cookie_echoes, g_rate_hz);
+                      (unsigned long)g_challenges_heard, (unsigned long)g_cookie_echoes, g_rate_hz,
+                      g_pacer.rate_hz(), (unsigned long)g_pacer.challenges());
     }
     // Other lines (LABEL, DEFENSE, HS ...) belong to other boards: ignore.
 }
@@ -252,7 +291,9 @@ void setup() {
     randomSeed(esp_random());
     bool crypto_ok = crypto_task_start(PQC_TASK_STACK_BYTES, 0);   // before Wi-Fi fragments the heap
     bool mesh_ok = mesh::init();
-    Serial.printf("LOG attacker boot complete (%s+%s) crypto_task=%s mesh=%s. Commands: MODE FLOOD|INSIDER|SLOW_DRIP|REPLAY|IMPERSONATE|WEAK_LINK|OFF, RATE <hz>, ECHO on|off, STATS\n",
+    Serial.printf("LOG attacker boot complete (%s+%s) crypto_task=%s mesh=%s. Commands: "
+                  "MODE FLOOD|INSIDER|SLOW_DRIP|ADAPTIVE|ADAPTIVE_SPOOF|REPLAY|IMPERSONATE|WEAK_LINK|OFF, "
+                  "RATE <hz>, ECHO on|off, STATS\n",
                   SM_PQC_KEM_NAME, SM_PQC_SIG_NAME, crypto_ok ? "ok" : "FAILED", mesh_ok ? "ok" : "FAILED");
     if (g_mode == AttackMode::SLOW_DRIP) g_last_tx_ms = millis() - SLOW_DRIP_INTERVAL_MS;   // first attempt at once
     if (g_mode != AttackMode::OFF)
@@ -275,6 +316,8 @@ void loop() {
         case AttackMode::FLOOD: tick_flood(now); break;
         case AttackMode::INSIDER: tick_insider(now, static_cast<uint32_t>(1000.0f / g_rate_hz)); break;
         case AttackMode::SLOW_DRIP: tick_insider(now, SLOW_DRIP_INTERVAL_MS); break;
+        case AttackMode::ADAPTIVE: tick_adaptive(now); break;
+        case AttackMode::ADAPTIVE_SPOOF: tick_adaptive_spoof(now); break;
         case AttackMode::REPLAY: tick_replay(now); break;
         case AttackMode::IMPERSONATE: tick_impersonate(now); break;
         case AttackMode::WEAK_LINK: tick_weak_link(now); break;
