@@ -12,7 +12,8 @@ plan and time first, and --reps 1 for a smoke test. Runs are interleaved
 Not scripted (needs a reflash, so a human step): gate v1. Flash
 `field_node_bench_gatev1`, then run with --defences gate --tag v1.
 ECHO-INSIDER: --attacks INSIDER --echo (applies to every cell in that call, so
-run it as its own grid). Rate sweep: --attacks FLOOD --rates 5 20 50.
+run it as its own grid). Rate sweep: --attacks FLOOD INSIDER --rates 5 20 50
+(INSIDER's real rate is capped by the attacker's own signing time).
 Raw logs are never edited; a bad run stays and is marked excluded=y in
 paper/runlog.csv by hand.
 """
@@ -35,7 +36,7 @@ def main():
     cells = []
     for rep in range(1, a.reps + 1):
         for d, atk, rate in itertools.product(a.defences, a.attacks, a.rates):
-            if rate and atk != "FLOOD":
+            if rate and atk not in ("FLOOD", "INSIDER"):  # the attacker obeys RATE in these modes
                 continue
             cells.append((rep, d, atk, rate))
     per = a.baseline + a.settle + a.flood + a.recovery + a.pause + 5
