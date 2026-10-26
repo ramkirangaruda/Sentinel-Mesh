@@ -52,7 +52,10 @@ def main():
         ctypes.windll.kernel32.SetThreadExecutionState(0x80000000 | 0x00000001)
         # above-normal priority for this process only, so a busy CPU (e.g. a GPU job) cannot starve the
         # serial readers; Windows does not pass this on from a parent shell
-        ctypes.windll.kernel32.SetPriorityClass(ctypes.windll.kernel32.GetCurrentProcess(), 0x00008000)
+        k32 = ctypes.windll.kernel32
+        k32.GetCurrentProcess.restype = ctypes.c_void_p      # pseudo-handle -1: must not be truncated to 32 bits
+        k32.SetPriorityClass.argtypes = [ctypes.c_void_p, ctypes.c_uint32]
+        k32.SetPriorityClass(k32.GetCurrentProcess(), 0x00008000)
     base_tag = a.tag
     for i, (rep, d, atk, rate) in enumerate(cells, 1):
         print(f"\n=== run {i}/{len(cells)}: rep {rep} defence={d} attack={atk} rate={rate}")
