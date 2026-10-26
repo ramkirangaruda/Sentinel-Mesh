@@ -1,7 +1,10 @@
 // Host-side unit tests for src/attacker/attacker_pacer.h (paper task S5 / experiment E7) and, since
 // the pacer's whole point is to stay under a real EnergyGate decision, an end-to-end check against
 // the actual SlidingLink feature window and the SHIPPED (SIMULATED-trained) decision tree in
-// sentinel_proto/energygate_model.h. No ESP32 hardware or PlatformIO required.
+// sentinel_proto/energygate_model.h. Also src/attacker/forge_template.h (MODE FORGE,
+// paper/TASK_FORGE_ATTACKER.md): the caching/resend invariants only -- the real signing (via
+// pqc::initiator_make_hello against vendored PQClean) is exercised by tools/run_pqc_tests.sh, not
+// here, so these tests build without PQClean linked in. No ESP32 hardware or PlatformIO required.
 //
 // Run: see firmware/README.md and tools/run_native_tests.sh, or (one line):
 //   g++ -std=gnu++17 -Ilib/sentinel_proto/include -Isrc/attacker test/test_attacker/test_main.cpp
@@ -14,6 +17,7 @@
 #include <cassert>
 
 #include "attacker_pacer.h"
+#include "forge_template.h"
 #include "sentinel_proto/link_window.h"
 #include "sentinel_proto/gate_policy.h"
 #include "sentinel_proto/energy_budget.h"
@@ -210,6 +214,92 @@ static void test_adaptive_backs_off_when_forced_above_the_cap() {
     CHECK(pacer.rate_hz() < rate_at_start);        // and the AIMD loop reacted
 }
 
+// ---------------------------------------------------------------------------------
+// forge_template.h: MODE FORGE's caching/resend invariants (paper/TASK_FORGE_ATTACKER.md).
+// Stands in for the real signature with a fixed dummy byte pattern -- the real HELLO_LEN bytes
+// from pqc::initiator_make_hello are exercised by tools/run_pqc_tests.sh, not here. What this
+// checks is main.cpp's use of CachedTemplate: built once, resent unmutated, cleared on MODE OFF.
+// ---------------------------------------------------------------------------------
+
+static void test_forge_template_builds_once_and_stays_unmutated_across_sends() {
+    CachedTemplate<16> t;
+    CHECK(!t.ready());
+    uint8_t signed_once[16];
+    for (int i = 0; i < 16; i++) signed_once[i] = static_cast<uint8_t>(i + 1);   // stand-in signature bytes
+    CHECK(t.set(signed_once, 16));
+    CHECK(t.ready());
+
+    // "Resend" twice (as tick_forge() does -- it only reads data(), it never writes it) and check
+    // the cached bytes, in particular the signature sub-range, are byte-for-byte identical.
+    uint8_t snapshot1[16], snapshot2[16];
+    std::memcpy(snapshot1, t.data(), 16);
+    std::memcpy(snapshot2, t.data(), 16);
+    CHECK(std::memcmp(snapshot1, snapshot2, 16) == 0);
+    CHECK(std::memcmp(snapshot1, signed_once, 16) == 0);   // unchanged from what was signed
+
+    // A second set() (main.cpp guards this with ready() first, but the class itself must refuse
+    // too) must not clobber the cached template.
+    uint8_t different[16];
+    std::memset(different, 0xAA, 16);
+    CHECK(!t.set(different, 16));
+    CHECK(std::memcmp(t.data(), signed_once, 16) == 0);
+}
+
+static void test_forge_each_send_advances_epoch_and_seq() {
+    // Mirrors main.cpp's tick_forge(): the cached bytes never change; only (epoch, seq) do, each
+    // resend. A fresh (epoch, seq) per send is what lets the replay guard see "a new HELLO" even
+    // though the signature inside is the one signed once.
+    CachedTemplate<8> t;
+    uint8_t bytes[8] = {9, 9, 9, 9, 9, 9, 9, 9};
+    t.set(bytes, 8);
+
+    uint16_t epoch = 0xA11C;
+    uint32_t seq = 1;
+    uint16_t e1 = epoch++; uint32_t s1 = seq++;
+    CHECK(std::memcmp(t.data(), bytes, 8) == 0);
+    uint16_t e2 = epoch++; uint32_t s2 = seq++;
+    CHECK(std::memcmp(t.data(), bytes, 8) == 0);   // still unchanged after the "send"
+
+    CHECK(e1 != e2);
+    CHECK(s1 != s2);
+    CHECK(e2 == static_cast<uint16_t>(e1 + 1));
+    CHECK(s2 == s1 + 1);
+}
+
+static void test_forge_mode_off_clears_the_ready_flag() {
+    CachedTemplate<4> t;
+    uint8_t bytes[4] = {1, 2, 3, 4};
+    t.set(bytes, 4);
+    CHECK(t.ready());
+    t.clear();            // main.cpp calls this on MODE OFF (and on entering any other mode)
+    CHECK(!t.ready());
+    // After clear(), set() must accept a fresh template again (a later MODE FORGE re-signs).
+    uint8_t again[4] = {5, 6, 7, 8};
+    CHECK(t.set(again, 4));
+    CHECK(t.ready());
+    CHECK(std::memcmp(t.data(), again, 4) == 0);
+}
+
+static void test_forge_set_rejects_wrong_length() {
+    CachedTemplate<10> t;
+    uint8_t wrong[5] = {0};
+    CHECK(!t.set(wrong, 5));
+    CHECK(!t.ready());
+}
+
+static void test_forge_mutable_data_for_cookie_patch_does_not_disturb_the_rest() {
+    // hello_set_cookie() patches only the first COOKIE_BYTES (8) in place for ECHO; the rest of
+    // the cached template (standing in for KEM key + signature) must survive untouched.
+    CachedTemplate<24> t;
+    uint8_t bytes[24];
+    for (int i = 0; i < 24; i++) bytes[i] = static_cast<uint8_t>(100 + i);
+    t.set(bytes, 24);
+    uint8_t cookie[8] = {1, 2, 3, 4, 5, 6, 7, 8};
+    std::memcpy(t.mutable_data(), cookie, 8);
+    CHECK(std::memcmp(t.data(), cookie, 8) == 0);
+    CHECK(std::memcmp(t.data() + 8, bytes + 8, 16) == 0);   // everything after the cookie unchanged
+}
+
 int main() {
     RUN(test_pacer_respects_hard_cap_per_window);
     RUN(test_pacer_backs_off_on_challenge_and_recovers);
@@ -220,6 +310,12 @@ int main() {
 
     RUN(test_adaptive_default_config_mostly_spends_against_shipped_tree);
     RUN(test_adaptive_backs_off_when_forced_above_the_cap);
+
+    RUN(test_forge_template_builds_once_and_stays_unmutated_across_sends);
+    RUN(test_forge_each_send_advances_epoch_and_seq);
+    RUN(test_forge_mode_off_clears_the_ready_flag);
+    RUN(test_forge_set_rejects_wrong_length);
+    RUN(test_forge_mutable_data_for_cookie_patch_does_not_disturb_the_rest);
 
     std::printf("\n%d passed, %d failed\n", g_pass, g_fail);
     return g_fail == 0 ? 0 : 1;
