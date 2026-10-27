@@ -4,6 +4,9 @@ Merge `origin/paper/e5-grid-tooling` first: it has all the rig data, the E1 repe
 Everything below was checked against the raw data in `paper/data/` and `paper/CONTEXT_2026-10-24.md`.
 
 ## 1. Fixes to `paper/writing/paper.md` from the review of 76692eb
+**Status 2026-10-28: items 1-6 done in your 038f7e0, thanks.** Item 7 is still open (038f7e0 has the line too).
+Section 8 now says the bound is "derived, not demonstrated"; section 5a below makes it demonstrated, so update it.
+
 Firmware retry in `tick_forge()` is fine; Table 6 and the FORGE+ECHO table match the data exactly.
 
 1. **Handshake crypto sum is wrong (Sections 5, 7, 10).** "≈20.3 mJ" adds ML-DSA-65 keygen (3.19) instead of
