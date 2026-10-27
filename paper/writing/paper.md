@@ -88,9 +88,19 @@ handshakes; a real field node never sends a HELLO (`paper/decisions.md`, Phase 6
   the field node broadcasts;
 - knows the defence, its features, thresholds and budget parameters (Kerckhoffs).
 
-We evaluate three attacker behaviours (`paper/decisions.md`, Phase 6 #7):
-- **FLOOD:** forged HELLOs claiming the gateway's id with random signature bytes. If
-  admitted, each costs the victim reception of 20 frames plus one failing ML-DSA verification.
+We evaluate four attacker behaviours (`paper/decisions.md`, Phase 6 #7, extended by task S5):
+- **FLOOD:** forged HELLOs claiming the gateway's id with random signature bytes. ML-DSA
+  verification rejects a malformed signature during unpacking, *before* the costly step
+  (measured on the rig at about 1.7 ms; `paper/CONTEXT_2026-10-24.md` "Finding 2"), so an
+  admitted FLOOD HELLO costs the victim little beyond receiving its 20 frames — it is cheap to
+  reject, not cheap to admit and expensive to check.
+- **FORGE:** one *structurally valid* ML-DSA-65 signature, produced once by the attacker's own
+  enrolled key, then resent unchanged under the gateway's claimed id with a fresh (epoch, seq)
+  each time (`firmware/src/attacker/main.cpp`, `MODE FORGE`). Because the signature is correctly
+  encoded, it passes the cheap unpacking check FLOOD fails, so field-1 runs the *full*
+  verification (Table 2: 26.2 ms, 3.2 mJ above idle) and only fails at the last step, where the
+  key and transcript do not match. One signing operation on the attacker forces a full check on
+  every resend — this is the asymmetry claim C2 needs, and FLOOD alone does not demonstrate it.
 - **INSIDER:** HELLOs validly signed with an *enrolled* attacker key, modelling a compromised
   or hostile enrolled peer. Each admitted HELLO costs verification, encapsulation, a signature
   and a 19-frame RESPONSE.
@@ -184,11 +194,27 @@ HELLO attempts, not fragments, and RSSI comes from a promiscuous-mode sniffer ke
 MAC because the ESP-NOW receive callback carries none.
 
 **Joule budget.** A token bucket of capacity *B* joules refilling at *r* J/s. An admitted
-handshake is charged *c_h*, a challenge *c_c*. Current values (`firmware/src/field_node/main.cpp`,
-`sentinel_proto/gate_policy.h`) are all **PLACEHOLDERS** until the rig measures them:
-*B* = 20 J, *r* = 0.05 J/s, *c_h* = 0.02 J, *c_c* = 0.0005 J. [TODO S2: replace *c_h* and *c_c*
-with measured values and rerun.] When an admission is refused because the crypto task is busy,
-its charge is refunded.
+handshake is charged *c_h*, a challenge *c_c*. The firmware's values (`firmware/src/field_node/main.cpp`,
+`sentinel_proto/gate_policy.h`) are still **PLACEHOLDERS**: *B* = 20 J, *r* = 0.05 J/s,
+*c_h* = 0.02 J, *c_c* = 0.0005 J. The rig has now measured what they should be:
+
+- a real handshake's crypto alone (ML-KEM-768 keygen + encaps/decaps, ML-DSA-65 sign + verify,
+  Table 2) costs about 15 mJ; with radio and reception the per-handshake cost on the mesh ranges
+  9-65 mJ (ML-DSA signing time varies 80-560 ms; Section 7), so *c_h* = 0.02 J (20 mJ) is in that
+  range and roughly right, not the ~5x overcharge seen elsewhere.
+- a FORGE HELLO, which never completes a handshake but does run a full ML-DSA-65 verify before
+  failing, costs about 3.5-3.9 mJ (Section 8) — this is the cost *c_h* is actually charged
+  against when GATE admits a forged HELLO under CHALLENGE's rule 2, and the placeholder
+  overcharges that case by about 5x (it was sized for a full handshake, not a failed verify).
+- *c_c*, the cost of sending one CHALLENGE frame, is **below this rig's resolution**: every
+  gate-v2 cell whose attacker does not echo a cookie (so CHALLENGE dominates, not SPEND) reads
+  within ±2 mW of zero extra power (Section 8, Table 6), too small to separate from the INA219's
+  noise floor at 1 s resolution. We report it as "not measurably different from zero" rather
+  than a number.
+
+These measured values are not yet written back into the firmware (that is a team decision, not
+done for the paper); the PLACEHOLDERs above are what every run in this paper actually used. When
+an admission is refused because the crypto task is busy, its charge is refunded.
 
 **Decision rules, policy v2** (default; `gate_policy.h`). With score *p*, spend threshold
 0.7 and challenge threshold 0.4 (placeholders):
@@ -307,25 +333,118 @@ resistances and two readings had an unseated jumper.
 
 ## 7. Results: cost of the handshake (C1)
 
-[TODO S2. Table 4: energy per operation (ML-KEM keygen/encaps/decaps, ML-DSA sign/verify,
-AES-GCM per KB) at both levels, mean ± sd and 95 % CI over BENCH_REPEAT = 20 repetitions,
-idle baseline subtracted (idle = 10 s before the first marker). Table 5: energy per accepted
-handshake, per challenge and per dropped HELLO on the real mesh, including radio. Figure 1:
-current trace of one handshake with phases marked.]
+**Table 4. Energy per crypto operation**, radio off, measured on the rig (`paper/data/E2/`,
+2026-10-26: F running `benchmark_energy`, 240 MHz, PQClean clean C, powered only through the
+calibrated INA219; `BENCH_REPEAT` = 20, marker around every op, 20 ms gap). Idle with the radio
+off is 225 mW; "above idle" subtracts idle power × op duration. Mean over *n* = 20.
+
+| Operation | Time (ms) | Total mJ | Above idle mJ |
+|---|---|---|---|
+| ML-KEM-512 keygen / encaps / decaps | 5.9 / 6.1 / 7.4 | 1.94 / 2.06 / 2.52 | 0.62 / 0.68 / 0.85 |
+| ML-KEM-768 keygen / encaps / decaps | 8.6 / 9.7 / 11.5 | 2.91 / 3.27 / 3.93 | 0.98 / 1.10 / 1.34 |
+| ML-KEM-1024 keygen / encaps / decaps | 12.8 / 13.9 / 16.6 | 4.41 / 4.76 / 5.69 | 1.53 / 1.63 / 1.97 |
+| ML-DSA-44 keygen / sign / verify | 15.4 / 44 / 16.2 | 5.30 / 15.4 / 5.57 | 1.83 / 5.4 ± 1.3 / 1.93 |
+| ML-DSA-65 keygen / sign / verify | 26.0 / 86 / 26.2 | 9.05 / 30.0 / 9.14 | 3.19 / 10.6 ± 4.1 / 3.23 |
+| X25519 keygen / shared secret | 458 / 476 | 145 / 150 | 42.2 / 43.3 |
+| ECDSA-P256 keygen / sign / verify | 251 / 115 / 265 | 78 / 36 / 82 | 21.4 / 9.9 / 22.7 |
+
+Peak current during crypto is about 71 mA (radio off). ML-DSA-65 sign has the widest spread
+(±4.1 mJ, matching the 38-287 ms signing-time variance from rejection sampling). At level 3, one
+full handshake's crypto (ML-KEM-768 keygen + encaps/decaps, ML-DSA-65 sign + verify) is about
+3.19 + 1.34 + 1.97 + 10.6 + 3.23 ≈ **20.3 mJ above idle**, close to the budget's placeholder
+*c_h* = 20 mJ (Section 5). The classical baselines (X25519, ECDSA-P256) use mbed TLS generic C,
+not optimised implementations — do not read them as PQC beating classical.
+
+**Table 5. Handshake and forgery energy on the real mesh, radio on** (`paper/CONTEXT_2026-10-24.md`;
+F idles at about 598 mW with the radio always on, dominating any attack's extra draw — stating
+this duty-cycle assumption is required before any claim generalises to a sleeping node):
+
+| Event | Energy above idle | Source |
+|---|---|---|
+| One legitimate handshake | 9-65 mJ (80-560 ms; ML-DSA signing varies) | E_rig, n=1 per condition |
+| One admitted FORGE HELLO (full verify, fails at the end) | ≈3.45 mJ per marked op, ≈3.9 mJ from the window mean | E5 rig (Section 8) |
+| One admitted FLOOD HELLO (rejected during signature unpacking) | not measurably different from zero (Section 8) | E5 rig |
+
+[Figure 1: current trace of one handshake with phases marked — not yet made.]
 
 ## 8. Results: the attack and the defences (C2, C3)
 
-[TODO S3. Table 6: per defence × attack cell, victim joules in the attack window above
-baseline, joules per forged HELLO, legitimate handshake success per attempt (mean, 95 % CI,
-n ≥ 5), attacker joules (ESTIMATED from airtime until a second monitor exists) and the
-ratio. Figure 2: victim power over time for each defence under FLOOD. Rate sweep (5, 20, 50
-HELLO/s): where connectivity starts to fail. ECHO attacker against COOKIE and GATE.]
+**Table 6. E5 energy grid**, 120 s attack window at 5 HELLO/s (SLOW_DRIP ≈1/min) over the minute
+before, *n* = 5 reps per cell, 95 % CI (`paper/data/E5_rig/`, 2026-10-25/27, corrected to the
+1 s mean `power_mw`, not the aliased instantaneous `amps` sample — see the method note below).
+Legit success is the real gateway's handshakes ok/started during the attack window.
 
-Bench observations so far (USB power, one run each, SIMULATED-trained model; context only,
-not results): with no defence a 5/s flood made F verify about 560 forged HELLOs while all
-9 of 9 legitimate handshakes still succeeded, so at that rate the flood costs the battery,
-not connectivity; gate v2 challenged about 600 forged HELLOs, admitted about 2 at onset and
-completed 9 of 9 legitimate handshakes (`paper/data/E_phase6/README.md`).
+| Defence | Attack | Extra F power | Legit success |
+|---|---|---|---|
+| none | FLOOD | +1.8 ± 2.2 mW | 0.71 ± 0.23 |
+| none | **INSIDER** | **+91.2 ± 3.3 mW (+15.2 %)** | 0.21 ± 0.15 |
+| none | SLOW_DRIP | +0.2 ± 0.6 mW | 0.96 ± 0.11 |
+| none | **FORGE** | **+19.0 ± 1.4 mW (+3.2 %)** | 0.28 ± 0.24 |
+| none | **ADAPTIVE** | **+28.9 ± 2.3 mW** | 0.30 ± 0.30 |
+| none | ADAPTIVE_SPOOF | -0.4 ± 1.8 mW | 0.65 ± 0.64 |
+| ratelimit | FLOOD / INSIDER / SLOW_DRIP | -2.2 / -1.4 / +0.4 mW | **0.00** / 0.87 / 0.81 |
+| cookie | FLOOD / INSIDER / SLOW_DRIP | +1.8 / +1.4 / -0.1 mW | 0.79 / 0.77 / 1.00 |
+| cookie | FORGE / ADAPTIVE / ADAPTIVE_SPOOF | +0.8 / +1.2 / -1.4 mW | 0.24 / 0.53 / 0.52 |
+| gate v2 | FLOOD / INSIDER / SLOW_DRIP | +1.7 / +1.1 / +0.7 mW | 0.75 / 0.82 / 1.00 |
+| gate v2 | FORGE / ADAPTIVE_SPOOF | +1.4 / -0.4 mW | 0.23 / 0.47 |
+| gate v2 | **ADAPTIVE** | **+25.5 ± 3.0 mW** | 0.45 ± 0.33 |
+| gate v1 (ablation) | FLOOD / INSIDER | -2.6 / -3.0 mW | **0.04 / 0.02** |
+
+F idles at about 598 mW with the radio always on. Legit-success intervals are wide (a few
+handshakes per 120 s window); a longer attack window would tighten them.
+
+**Method note.** M's `NRG` line carries `power_mw` (a true 1 s mean) and `amps` (one
+instantaneous sample). An earlier pass used `amps`; at an attack paced to an exact 5 Hz against
+M's exact 1 Hz report, that sample aliases to the same phase of F's busy cycle every second (one
+early FORGE run read as low as ~0 mW, another +125 mW, from the same condition). All numbers
+above use the corrected `power_mw`; marked-op energies (`monitor,op_N`) were never affected.
+**`paper/analysis/energy.py` already reads `power_mw`, not `amps`, for exactly this reason**
+(see its docstring). Anyone extending the analysis should keep doing the same.
+
+**What this shows, honestly:**
+- **FORGE is the cheap-attacker/costly-victim attack** FLOOD is not: each admitted HELLO forces
+  a full ML-DSA-65 verify (Table 4) that only fails at the end, at ≈3.45-3.9 mJ per HELLO, while
+  the attacker signs once per run. FLOOD costs nothing measurable, confirming Section 3's claim
+  that random signatures are rejected cheaply.
+- **INSIDER remains the largest undefended drain** (+15.2 %) and starves the real gateway (21 %
+  success); every defence removes the drain, but RATELIMIT does it by locking out the real
+  gateway too (0 % under FLOOD) — a denial of a different kind.
+- **COOKIE and GATE v2 look alike here** because none of these attackers echoes a cookie yet;
+  FORGE+ECHO (below) is what separates them.
+- **GATE v1 (the ablation) locks out the real gateway** (2-4 % success) exactly as the design
+  decision for v2 predicted (`paper/decisions.md` #17): forged and real HELLOs look alike to the
+  window features, so dropping low scores outright drops both.
+- **Rate sweep** (*n* = 3, 5/20/50 HELLO/s): INSIDER's drain is flat (+94 to +96 mW) at every
+  rate without a defence — F's single crypto slot is already saturated at 5/s, so a faster
+  INSIDER is busy-dropped, not admitted more often; with the gate it drops to about +1.5 mW at
+  every rate. FLOOD's drain stays near zero at every rate, but legitimate success falls from
+  about 0.5 at 5/s to about 0.07 at 20 and 50/s, with or without the gate: a fast FLOOD denies
+  connectivity through airtime and reassembly contention, not energy — a distinct failure mode
+  from the one this paper's energy claim is about.
+- **30-minute SLOW_DRIP** (*n* = 2) shows no measurable extra power either way.
+
+**FORGE + ECHO** (`paper/CONTEXT_2026-10-24.md`, 2026-10-27, 10 runs, gate-v2 firmware): the
+attacker echoes the cookie FORGE's resent HELLO received back, patches it into the cached
+template, and reuses it.
+
+| Defence | Extra F power (n=5) | F disposition | Legit success |
+|---|---|---|---|
+| cookie | +15.1 ± 2.4 mW (+2.5 %) | ≈545 spent (full verify), ≈40 challenged | 0.14 ± 0.32 |
+| gate v2 | +16.0 ± 0.5 mW (+2.7 %) | ≈540 spent, ≈40 challenged | 0.13 ± 0.31 |
+| (none, FORGE without ECHO, reference) | +19.0 ± 1.4 mW | ≈590 spent | 0.28 |
+
+**The echoing forger defeats both COOKIE and GATE v2.** The attacker echoes only about 30
+cookies per run, but the cookie as built is *reusable*: it is not bound to a HELLO's nonce or
+(epoch, seq), so a single echoed cookie admits every later resend of the same cached template.
+Gate v2's rule 2 ("a returned cookie admits whatever the score") lets the same HELLOs through.
+This is a genuine weakness, not a result to be proud of, and we report it as one: binding the
+cookie to the HELLO it was issued for, or making it single-use, would close it; that fix was not
+made for this paper (it needs a firmware change and a rerun).
+
+An earlier INSIDER-ECHO block (10 runs) is **excluded** (`runlog.csv`, `excluded=y`): the
+attacker's cookie echo only fires when its crypto task is idle and the challenge matches its
+latest HELLO, and at 5/s INSIDER is always signing, so it heard thousands of CHALLENGEs but sent
+zero echoes. The bug is in the attacker, not the defence; it does not affect any other row.
 
 **Budget bound under an adaptive attacker.** We built an ADAPTIVE attacker
 (`firmware/src/attacker/main.cpp`, `attacker_pacer.h`) that knows EnergyGate's 8 features: it
@@ -348,9 +467,21 @@ part is bounded instead by the attacker's own pacer cap, not by the victim. `pap
 computes both parts and their sum (derivation and formulas in its docstring; tested in
 `test_drain_bound.py`). With today's PLACEHOLDER budget (*B* = 20 J, *r* = 0.05 J/s) and an
 ESTIMATED per-attempt reception cost, the long-run worst case is about 50 mW budgeted plus
-about 1 mW unbudgeted. [TODO: rerun with H's measured *B*, *r*, *c_h*, *c_c* and S2's measured
-per-frame reception energy, and compare against the ADAPTIVE attacker's measured drain once
-E7 runs on the rig.]
+about 1 mW unbudgeted — about 51 mW total.
+
+**The measured ADAPTIVE run (Table 6) is consistent with that bound.** Under GATE v2, ADAPTIVE
+measured **+25.5 ± 3.0 mW**, under the budget's ≈51 mW worst case; without a defence (budget not
+in play) it measured +28.9 ± 2.3 mW, close to GATE's figure because GATE v2 only cuts ADAPTIVE's
+drain modestly (28.9 → 25.5 mW) rather than removing it the way it removes INSIDER's. This is
+the honest version of claim C3: the *classifier* barely slows ADAPTIVE down, but the measured
+drain still sits inside the bound the *budget* guarantees regardless of the classifier — which
+is the property this section's derivation, not the tree, is responsible for. The FORGE+ECHO
+result above (Section 8) complicates this: because the cookie is reusable, an echoing FORGE
+attacker reaches the budget via GATE v2's rule 2 far faster than ADAPTIVE does (≈540 admits per
+120 s window vs. ADAPTIVE's much lower rate), and `paper/CONTEXT_2026-10-24.md` notes a 120 s
+window is too short to see the bucket actually empty at the placeholder's *B* = 20 J; a run of
+10+ minutes would be needed to see rule 3 (DROP once the budget is exhausted) engage and the
+bound bind in practice, not just in the arithmetic above.
 
 ## 9. EnergyGate on recorded traces
 
@@ -365,13 +496,23 @@ rule.]
 - **Model trained on SIMULATED traces** with slightly different feature definitions from the
   firmware; until it is retrained on recorded traces (Section 9) its behaviour on real traffic is
   not a result.
-- **Placeholder costs.** The joule budget, handshake cost and challenge cost are placeholders
-  until replaced by measured values.
+- **Placeholder costs, now measured but not applied.** The joule budget's capacity and refill
+  rate are still placeholders. The handshake cost placeholder (20 mJ) turns out close to the
+  measured full-handshake crypto cost (≈20.3 mJ, Table 4), but it overcharges a failed FORGE
+  verify (≈3.5-3.9 mJ) by about 5x; the challenge cost is below this rig's resolution. None of
+  this was written back into the firmware for this paper — every run here used the original
+  placeholders.
 - **Absolute energy depends on an unsettled reference.** The INA219 and the DT830D differ by
   3.67 % in gain and 1.4-3.1 % in voltage; ratios are unaffected.
 - **Unauthenticated control channel.** GATE_REPORT, CONTROL and CHALLENGE travel in plaintext
   on the same radio the attacker shares; this is a lab rig.
-- **The cookie is echoable** on a broadcast medium; only the budget bounds an echoing attacker.
+- **The cookie is not just echoable but reusable.** It is bound to neither the HELLO's nonce nor
+  its (epoch, seq), so a single echoed cookie admits every later resend of the same cached
+  template (Section 8, FORGE + ECHO): the attacker echoed about 30 cookies per 120 s run but
+  that admitted roughly 540 forged HELLOs. This is stronger than "an attacker can echo the
+  cookie" — it means the budget, not the cookie or the gate's rule 2, is the only thing bounding
+  an echoing attacker, and it does so (Section 8) but was not fully exercised in a 120 s window.
+  Binding the cookie to the HELLO it was issued for would close this; not done for this paper.
 - **Insider onset.** The score reacts to the 5 s window, so a few insider HELLOs are admitted
   before the window fills (about 5 of 566 in one bench run).
 - **Replay ring.** A captured signed HELLO whose epoch has aged out of the 8-entry ring can be

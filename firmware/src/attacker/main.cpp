@@ -189,7 +189,15 @@ static void job_make_forge_template(void*) {
 // FORGE: resend the cached, once-signed template under the GATEWAY's identity with a fresh
 // (epoch, seq) each time. No crypto work here -- that is the whole point (forge_template.h).
 static void tick_forge(uint32_t now) {
-    if (!g_forge.ready()) return;   // still signing on the crypto task, or it failed
+    if (!g_forge.ready()) {
+        // MODE FORGE's one crypto_task_submit() (handle_command) can be dropped if the crypto
+        // task was already busy with another job at that moment -- it is never queued, and
+        // nothing would otherwise retry it, leaving the template permanently unbuilt. Retry here
+        // every tick until it is accepted; job_make_forge_template() itself is a no-op once
+        // g_forge.ready() (set the moment a retry succeeds), so this never double-signs.
+        if (!crypto_task_busy()) crypto_task_submit(job_make_forge_template, nullptr);
+        return;
+    }
     uint32_t interval = static_cast<uint32_t>(1000.0f / g_rate_hz);
     if (now - g_last_tx_ms < interval) return;
     g_last_tx_ms = now;
