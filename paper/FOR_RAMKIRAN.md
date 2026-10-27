@@ -38,16 +38,38 @@ Each board has 5 sessions (10-08, 10-12, three on 10-27), n = 29-30 per op, 92 n
 - The "38-287 ms" signing range quoted near Table 4 should match these (or say where it comes from).
 
 ## 3. Decisions needed from you
-1. **Section 9 (S7) traces.** The E5 gateway logs contain 5 s feature windows, but every one is labelled `normal` and
-   they are the *gateway's* view; EnergyGate runs on field-1. Either (a) you label windows from each run's timeline
-   (attack on/off times are in `*_timeline.txt`) and accept the gateway-side features, or (b) Chaitanya records
-   field-1's own windows on the boards (no INA219 needed, ~1-2 h). Tell him which.
+1. **Section 9 (S7) traces: DECIDED, option (b), being recorded 2026-10-27 evening.** The E5 gateway logs were
+   all labelled `normal` and were the gateway's view, so Chaitanya is recording field-1's own features instead (see
+   section 5 below for files and format). No decision needed from you; just use the new data.
 2. **Cookie weakness.** Report-only (current text), or fix it (bind the cookie to the HELLO's nonce/(epoch, seq) or
    make it single-use) and rerun FORGE+ECHO? A rerun needs an INA219 again.
-3. **10-minute budget run** (item 1.3): worth borrowing an INA219 again for, or state "not tested" in Limitations?
+3. **10-minute budget run** (item 1.3): **being run 2026-10-27 evening** without an INA219 (3 x FORGE+ECHO vs gate
+   v2, 600 s attack). It shows whether the budget empties and admissions fall to the refill rate, from field-1's own
+   counters and budget readout; it gives no power numbers. Results in section 5 once done.
 4. **Measured costs back into the firmware?** c_h ≈ 15 mJ (handshake, field-1's side), ≈3.5-3.9 mJ (failed verify);
    every run in the paper used the placeholders, which is fine as long as the text says so (it does).
 
 ## 4. Still open on Chaitanya's side (for your planning)
 - DT830 multimeter vs a calibrated bench meter (Limitations: 3.67 % gain question; ratios unaffected).
 - Section 9 traces, if you choose 3.1(b).
+
+## 5. New results, 2026-10-27 evening (boards on USB, no INA219)
+**a. The joule budget binds** (`paper/data/E_budget/README.md`; answers item 1.3). 3 x FORGE+ECHO vs gate v2,
+600 s attack. The bucket empties (+537 s from full; reps 2-3 started part-filled at 8.6 J and emptied at +235/+260 s)
+and admissions then settle at **2.48-2.49 spends/s = r/c_h = 2.5/s**, the rest dropped by rule 3. So in Section 8
+replace "not tested / a 10-minute run would be needed" with this. Be precise: it caps what F *charges*; the real
+work it still lets through is ≈2.5 x 3.45 mJ ≈ **8.6 mW, ESTIMATED** (no power measured on this run), down from
++15-16 mW measured before the bucket empties.
+
+**b. Section 9 data is ready** (`paper/data/E9_traces/README.md`; `python paper/analysis/build_traces.py` ->
+`traces_field1.csv`). Field-1's own 8 features + the carried model's score, once a second, labelled from the run
+timelines: 6 attacks x 3 sessions + 3 FORGE_ECHO sessions, ~7,800 rows. Please:
+- split by `session` (never random); report AUC and TPR at 1 % FPR, next to the SIMULATED-trained model and a
+  hand-tuned threshold rule (the S7 plan);
+- baseline already visible: the SIMULATED-trained model flags FLOOD/INSIDER/FORGE/FORGE_ECHO 100 % with 0 false
+  alarms on normal rows, and misses SLOW_DRIP, ADAPTIVE and ADAPTIVE_SPOOF entirely (they stay under its rate cue).
+  That miss is the honest headline for "the classifier is evadable, the budget is the guarantee" (C3);
+- **watch the RSSI leak**: `rssi_mean`/`rssi_var` are 0 when no HELLO arrived, so "0" means missing. Report with and
+  without those features; `battery_pct` is a constant 100 (SIMULATED), drop it.
+- Firmware change behind it: `firmware/src/field_node/main.cpp` bench build prints `FEAT` rows (commit on
+  `paper/e5-grid-tooling`); energy builds are unchanged.

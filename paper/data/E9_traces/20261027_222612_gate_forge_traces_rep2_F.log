@@ -1,0 +1,773 @@
+[    0.25s] FEAT {"ts":5054131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-38.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[    1.27s] FEAT {"ts":5055131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-38.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[    2.29s] FEAT {"ts":5056131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-38.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[    3.31s] FEAT {"ts":5057131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-38.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[    4.33s] FEAT {"ts":5058131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[    5.36s] FEAT {"ts":5059131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[    6.18s] LOG stats spend=6631 challenge=3512 drop=1528 busy=1196 hs_ok=119 hs_fail=5990 unknown=0 replay_pre=0 ignored_frags=118249 rx_overflow=0 rssi_missing=0 heap=97820
+[    6.38s] FEAT {"ts":5060131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[    7.39s] FEAT {"ts":5061131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[    8.41s] FEAT {"ts":5062131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[    9.23s] FEAT {"ts":5063131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   10.25s] FEAT {"ts":5064131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   11.27s] FEAT {"ts":5065131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   12.29s] FEAT {"ts":5066131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   13.31s] FEAT {"ts":5067131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   14.34s] FEAT {"ts":5068131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   15.36s] FEAT {"ts":5069131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   16.17s] LOG stats spend=6631 challenge=3512 drop=1528 busy=1196 hs_ok=119 hs_fail=5990 unknown=0 replay_pre=0 ignored_frags=118249 rx_overflow=0 rssi_missing=0 heap=97820
+[   16.38s] FEAT {"ts":5070131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   17.39s] FEAT {"ts":5071131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   18.41s] FEAT {"ts":5072131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   19.43s] FEAT {"ts":5073131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   20.24s] FEAT {"ts":5074131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   21.26s] FEAT {"ts":5075131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   22.29s] FEAT {"ts":5076131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   23.30s] FEAT {"ts":5077131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   24.32s] FEAT {"ts":5078131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   25.34s] FEAT {"ts":5079131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   25.55s] LOG gate spend sender=2 p=0.96 mode=none budget=20.00/20J
+[   26.16s] LOG stats spend=6632 challenge=3512 drop=1528 busy=1196 hs_ok=119 hs_fail=5990 unknown=0 replay_pre=0 ignored_frags=118249 rx_overflow=0 rssi_missing=0 heap=92860
+[   26.37s] FEAT {"ts":5080131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.05,"rssi_var":2.050,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   27.40s] FEAT {"ts":5081131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.05,"rssi_var":2.050,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   28.42s] FEAT {"ts":5082131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.05,"rssi_var":2.050,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   29.03s] LOG gate spend sender=2 p=0.96 mode=none budget=20.00/20J
+[   29.24s] FEAT {"ts":5083131,"node":"field-1","hs_per_s":0.400,"hs_fail":0,"rssi_mean":-37.03,"rssi_var":2.236,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   30.26s] FEAT {"ts":5084131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.05,"rssi_var":2.348,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   31.28s] FEAT {"ts":5085131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.05,"rssi_var":2.348,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   32.30s] FEAT {"ts":5086131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.05,"rssi_var":2.348,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   33.32s] FEAT {"ts":5087131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-38.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   33.52s] LOG gate spend sender=2 p=0.96 mode=none budget=20.00/20J
+[   33.93s] LOG session established peer=2 epoch=11868 (ML-KEM-768+ML-DSA-65) phases_us verify=28795 encaps=10108 sign=54781 stack_free_min=9848
+[   34.34s] FEAT {"ts":5088131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.38,"rssi_var":2.045,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   35.37s] FEAT {"ts":5089131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.38,"rssi_var":2.045,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   36.19s] LOG stats spend=6634 challenge=3512 drop=1528 busy=1196 hs_ok=120 hs_fail=5990 unknown=0 replay_pre=0 ignored_frags=118249 rx_overflow=0 rssi_missing=0 heap=97820
+[   36.39s] FEAT {"ts":5090131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.38,"rssi_var":2.045,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   37.41s] FEAT {"ts":5091131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.38,"rssi_var":2.045,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   38.43s] FEAT {"ts":5092131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   39.25s] FEAT {"ts":5093131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   40.28s] FEAT {"ts":5094131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   41.30s] FEAT {"ts":5095131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   42.31s] FEAT {"ts":5096131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   43.34s] FEAT {"ts":5097131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   44.36s] FEAT {"ts":5098131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   45.38s] FEAT {"ts":5099131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   46.20s] LOG stats spend=6634 challenge=3512 drop=1528 busy=1196 hs_ok=120 hs_fail=5990 unknown=0 replay_pre=0 ignored_frags=118249 rx_overflow=0 rssi_missing=0 heap=97820
+[   46.40s] FEAT {"ts":5100131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   47.43s] FEAT {"ts":5101131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   48.24s] FEAT {"ts":5102131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   49.26s] FEAT {"ts":5103131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   50.29s] FEAT {"ts":5104131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   51.31s] FEAT {"ts":5105131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   52.33s] FEAT {"ts":5106131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   53.35s] FEAT {"ts":5107131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   54.37s] FEAT {"ts":5108131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   55.39s] FEAT {"ts":5109131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   56.20s] LOG stats spend=6634 challenge=3512 drop=1528 busy=1196 hs_ok=120 hs_fail=5990 unknown=0 replay_pre=0 ignored_frags=118249 rx_overflow=0 rssi_missing=0 heap=97820
+[   56.41s] FEAT {"ts":5110131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   57.43s] FEAT {"ts":5111131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   58.25s] FEAT {"ts":5112131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   59.26s] FEAT {"ts":5113131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[   60.08s] LOG defence mode set to gate
+[   60.28s] FEAT {"ts":5114131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-37.00,"rssi_var":1.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   61.29s] FEAT {"ts":5115131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-37.00,"rssi_var":1.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   62.31s] FEAT {"ts":5116131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-37.00,"rssi_var":1.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   63.32s] FEAT {"ts":5117131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-37.00,"rssi_var":1.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   63.94s] LOG gate spend sender=2 p=0.96 mode=gate budget=19.98/20J
+[   64.34s] FEAT {"ts":5118131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.25,"rssi_var":0.988,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":19.997}
+[   64.34s] LOG session established peer=2 epoch=11869 (ML-KEM-768+ML-DSA-65) phases_us verify=30594 encaps=11046 sign=144611 stack_free_min=9848
+[   65.35s] FEAT {"ts":5119131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.33,"rssi_var":1.079,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   66.17s] LOG stats spend=6635 challenge=3512 drop=1528 busy=1196 hs_ok=121 hs_fail=5990 unknown=0 replay_pre=0 ignored_frags=118249 rx_overflow=0 rssi_missing=0 heap=97820
+[   66.37s] FEAT {"ts":5120131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.33,"rssi_var":1.079,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   67.39s] FEAT {"ts":5121131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.33,"rssi_var":1.079,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   68.40s] FEAT {"ts":5122131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-39.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   69.42s] FEAT {"ts":5123131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   70.25s] FEAT {"ts":5124131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   71.27s] FEAT {"ts":5125131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   72.29s] FEAT {"ts":5126131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   73.30s] FEAT {"ts":5127131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   74.32s] FEAT {"ts":5128131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   75.34s] FEAT {"ts":5129131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   76.16s] LOG stats spend=6635 challenge=3512 drop=1528 busy=1196 hs_ok=121 hs_fail=5990 unknown=0 replay_pre=0 ignored_frags=118249 rx_overflow=0 rssi_missing=0 heap=97820
+[   76.36s] FEAT {"ts":5130131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   77.39s] FEAT {"ts":5131131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   78.40s] FEAT {"ts":5132131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   79.43s] FEAT {"ts":5133131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   80.24s] FEAT {"ts":5134131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   81.25s] FEAT {"ts":5135131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   82.27s] FEAT {"ts":5136131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   83.29s] FEAT {"ts":5137131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   84.32s] FEAT {"ts":5138131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   85.33s] FEAT {"ts":5139131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   86.16s] LOG stats spend=6635 challenge=3512 drop=1528 busy=1196 hs_ok=121 hs_fail=5990 unknown=0 replay_pre=0 ignored_frags=118249 rx_overflow=0 rssi_missing=0 heap=97820
+[   86.36s] FEAT {"ts":5140131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   87.39s] FEAT {"ts":5141131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   88.40s] FEAT {"ts":5142131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   89.43s] FEAT {"ts":5143131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[   90.24s] LOG gate spend sender=2 p=0.96 mode=gate budget=19.98/20J
+[   90.24s] FEAT {"ts":5144131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-34.79,"rssi_var":1.740,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":19.982}
+[   90.45s] LOG gate spend sender=2 p=0.96 mode=gate budget=19.97/20J
+[   90.65s] LOG gate spend sender=2 p=0.96 mode=gate budget=19.96/20J
+[   90.86s] LOG gate challenge sender=2 p=0.66 mode=gate budget=19.97/20J
+[   91.06s] LOG gate challenge sender=2 p=0.66 mode=gate budget=19.98/20J
+[   91.27s] LOG gate challenge sender=2 p=0.66 mode=gate budget=19.99/20J
+[   91.27s] FEAT {"ts":5145131,"node":"field-1","hs_per_s":1.200,"hs_fail":2,"rssi_mean":-34.86,"rssi_var":1.296,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":66.67,"battery_pct":100.0,"p":0.6591,"defence":"gate","budget_j":19.992}
+[   91.47s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   91.68s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   91.89s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   92.09s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   92.29s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   92.29s] FEAT {"ts":5146131,"node":"field-1","hs_per_s":2.200,"hs_fail":2,"rssi_mean":-34.70,"rssi_var":1.213,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":66.67,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[   92.50s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   92.70s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   93.11s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   93.31s] FEAT {"ts":5147131,"node":"field-1","hs_per_s":3.200,"hs_fail":2,"rssi_mean":-34.60,"rssi_var":1.085,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":66.67,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[   93.52s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   93.72s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   93.92s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   94.33s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   94.33s] FEAT {"ts":5148131,"node":"field-1","hs_per_s":4.200,"hs_fail":2,"rssi_mean":-34.54,"rssi_var":0.953,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":66.67,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[   94.53s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   94.94s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   95.14s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   95.35s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   95.35s] FEAT {"ts":5149131,"node":"field-1","hs_per_s":4.400,"hs_fail":0,"rssi_mean":-34.54,"rssi_var":0.959,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[   95.55s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   95.96s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   96.16s] LOG stats spend=6638 challenge=3540 drop=1528 busy=1196 hs_ok=121 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=118775 rx_overflow=0 rssi_missing=0 heap=97820
+[   96.36s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   96.36s] FEAT {"ts":5150131,"node":"field-1","hs_per_s":4.400,"hs_fail":0,"rssi_mean":-34.48,"rssi_var":0.837,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[   96.57s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   96.98s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   97.38s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   97.38s] FEAT {"ts":5151131,"node":"field-1","hs_per_s":4.400,"hs_fail":0,"rssi_mean":-34.53,"rssi_var":0.864,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[   97.58s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   97.79s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   97.99s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   98.19s] LOG gate spend sender=2 p=0.10 mode=gate budget=19.98/20J
+[   98.19s] LOG gate challenge sender=2 p=0.10 mode=gate budget=19.99/20J
+[   98.40s] FEAT {"ts":5152131,"node":"field-1","hs_per_s":4.800,"hs_fail":0,"rssi_mean":-34.84,"rssi_var":1.603,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":19.989}
+[   98.61s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   98.81s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   99.01s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   99.42s] FEAT {"ts":5153131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.85,"rssi_var":1.638,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[   99.42s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   99.62s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[   99.83s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  100.03s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  100.24s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  100.24s] FEAT {"ts":5154131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.92,"rssi_var":1.699,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  100.64s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  100.85s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  101.05s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  101.25s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  101.25s] FEAT {"ts":5155131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.94,"rssi_var":1.736,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  101.66s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  102.06s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  102.27s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  102.27s] FEAT {"ts":5156131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.72,"rssi_var":1.192,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  102.47s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  102.67s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  102.88s] LOG gate spend sender=2 p=0.10 mode=gate budget=19.98/20J
+[  102.88s] LOG gate challenge sender=2 p=0.10 mode=gate budget=19.98/20J
+[  103.08s] LOG gate challenge sender=2 p=0.10 mode=gate budget=19.99/20J
+[  103.29s] FEAT {"ts":5157131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.78,"rssi_var":1.686,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  103.49s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  103.70s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  103.90s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  104.11s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  104.31s] FEAT {"ts":5158131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.81,"rssi_var":1.716,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  104.52s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  104.72s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  105.13s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  105.33s] FEAT {"ts":5159131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.79,"rssi_var":1.716,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  105.53s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  105.73s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  106.14s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  106.14s] LOG stats spend=6640 challenge=3592 drop=1528 busy=1196 hs_ok=121 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=119752 rx_overflow=0 rssi_missing=0 heap=97820
+[  106.34s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  106.34s] FEAT {"ts":5160131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.67,"rssi_var":1.569,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  106.54s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  106.75s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  107.15s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  107.35s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  107.35s] FEAT {"ts":5161131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.51,"rssi_var":0.925,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  107.56s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  107.76s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  107.96s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  108.16s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  108.37s] FEAT {"ts":5162131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.50,"rssi_var":0.977,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  108.57s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  108.78s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  108.98s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  109.19s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  109.39s] FEAT {"ts":5163131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.47,"rssi_var":0.947,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  109.39s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  109.59s] LOG gate spend sender=2 p=0.10 mode=gate budget=19.98/20J
+[  109.59s] LOG gate challenge sender=2 p=0.10 mode=gate budget=19.99/20J
+[  110.00s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  110.00s] LOG session established peer=2 epoch=11873 (ML-KEM-768+ML-DSA-65) phases_us verify=39526 encaps=11617 sign=115908 stack_free_min=9848
+[  110.00s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  110.41s] FEAT {"ts":5164131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.78,"rssi_var":1.583,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  110.41s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  110.61s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  110.82s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  111.02s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  111.22s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  111.42s] FEAT {"ts":5165131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.78,"rssi_var":1.598,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  111.42s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  111.63s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  112.04s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  112.24s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  112.24s] FEAT {"ts":5166131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.79,"rssi_var":1.623,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  112.45s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  112.65s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  113.06s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  113.26s] FEAT {"ts":5167131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.78,"rssi_var":1.598,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  113.46s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  113.67s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  113.88s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  114.28s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  114.28s] FEAT {"ts":5168131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.50,"rssi_var":0.927,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  114.69s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  114.89s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  115.30s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  115.30s] FEAT {"ts":5169131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.47,"rssi_var":0.942,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  115.71s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  115.91s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  116.11s] LOG stats spend=6641 challenge=3643 drop=1528 busy=1196 hs_ok=122 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=120713 rx_overflow=0 rssi_missing=0 heap=97820
+[  116.32s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  116.32s] FEAT {"ts":5170131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.47,"rssi_var":0.958,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  116.52s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  116.72s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  117.13s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  117.34s] FEAT {"ts":5171131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.50,"rssi_var":0.969,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  117.75s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  118.16s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  118.37s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  118.37s] FEAT {"ts":5172131,"node":"field-1","hs_per_s":4.000,"hs_fail":0,"rssi_mean":-34.48,"rssi_var":1.036,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  118.78s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  118.98s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  119.19s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  119.39s] FEAT {"ts":5173131,"node":"field-1","hs_per_s":4.000,"hs_fail":0,"rssi_mean":-34.60,"rssi_var":1.309,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  119.59s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  119.79s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  120.00s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  120.41s] FEAT {"ts":5174131,"node":"field-1","hs_per_s":4.000,"hs_fail":0,"rssi_mean":-34.57,"rssi_var":1.519,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  120.41s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  120.61s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  121.02s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  121.23s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  121.43s] FEAT {"ts":5175131,"node":"field-1","hs_per_s":4.000,"hs_fail":0,"rssi_mean":-34.60,"rssi_var":1.498,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  121.64s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  121.84s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  122.04s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  122.25s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  122.25s] FEAT {"ts":5176131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.71,"rssi_var":1.568,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  122.65s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  122.86s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  123.27s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  123.27s] FEAT {"ts":5177131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.64,"rssi_var":1.347,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  123.47s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  123.87s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  124.08s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  124.28s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  124.28s] FEAT {"ts":5178131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.67,"rssi_var":1.059,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  124.69s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  125.09s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  125.30s] FEAT {"ts":5179131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.71,"rssi_var":1.195,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  125.50s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  125.71s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  125.91s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  126.11s] LOG stats spend=6641 challenge=3692 drop=1528 busy=1196 hs_ok=122 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=121659 rx_overflow=0 rssi_missing=0 heap=97820
+[  126.32s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  126.32s] FEAT {"ts":5180131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.61,"rssi_var":1.221,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  126.52s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  126.93s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  127.13s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  127.34s] FEAT {"ts":5181131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.53,"rssi_var":1.259,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  127.54s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  127.75s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  127.95s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  128.15s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  128.36s] FEAT {"ts":5182131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.44,"rssi_var":1.170,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  128.56s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  128.76s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  129.17s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  129.37s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  129.37s] FEAT {"ts":5183131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.37,"rssi_var":1.083,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  129.78s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  129.98s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  130.18s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  130.39s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  130.39s] FEAT {"ts":5184131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.39,"rssi_var":0.935,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  130.59s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  130.79s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  131.00s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  131.40s] FEAT {"ts":5185131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.40,"rssi_var":0.938,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  131.40s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  131.81s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  132.21s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  132.42s] FEAT {"ts":5186131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.50,"rssi_var":1.017,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  132.42s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  132.83s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  133.03s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  133.24s] FEAT {"ts":5187131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.56,"rssi_var":0.973,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  133.44s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  133.85s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  134.06s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  134.26s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  134.26s] FEAT {"ts":5188131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.62,"rssi_var":1.075,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  134.47s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  134.88s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  135.08s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  135.28s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  135.28s] FEAT {"ts":5189131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.72,"rssi_var":1.119,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  135.69s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  135.89s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  136.09s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  136.30s] LOG stats spend=6641 challenge=3742 drop=1528 busy=1196 hs_ok=122 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=122602 rx_overflow=0 rssi_missing=0 heap=97820
+[  136.30s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  136.30s] FEAT {"ts":5190131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.74,"rssi_var":1.136,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  136.71s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  136.91s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  137.11s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  137.32s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  137.32s] FEAT {"ts":5191131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.73,"rssi_var":1.140,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  137.73s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  137.93s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  138.13s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  138.34s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  138.34s] FEAT {"ts":5192131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.68,"rssi_var":1.081,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  138.75s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  138.95s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  139.15s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  139.36s] FEAT {"ts":5193131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.65,"rssi_var":1.004,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  139.56s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  139.76s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  139.97s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  140.17s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  140.37s] FEAT {"ts":5194131,"node":"field-1","hs_per_s":4.400,"hs_fail":0,"rssi_mean":-34.74,"rssi_var":1.690,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  140.58s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  140.78s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  140.78s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  141.19s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  141.39s] FEAT {"ts":5195131,"node":"field-1","hs_per_s":4.400,"hs_fail":0,"rssi_mean":-34.83,"rssi_var":1.797,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  141.39s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  141.80s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  142.00s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  142.20s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  142.41s] FEAT {"ts":5196131,"node":"field-1","hs_per_s":4.400,"hs_fail":0,"rssi_mean":-34.80,"rssi_var":1.733,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  142.62s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  142.82s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  143.23s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  143.43s] FEAT {"ts":5197131,"node":"field-1","hs_per_s":4.400,"hs_fail":0,"rssi_mean":-34.83,"rssi_var":1.810,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  143.63s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  143.63s] LOG gate spend sender=2 p=0.10 mode=gate budget=19.98/20J
+[  143.83s] LOG gate challenge sender=2 p=0.10 mode=gate budget=19.99/20J
+[  144.24s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  144.24s] FEAT {"ts":5198131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-35.00,"rssi_var":2.126,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  144.65s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  144.85s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  145.06s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  145.26s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  145.26s] FEAT {"ts":5199131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.97,"rssi_var":2.037,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  145.67s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  145.87s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  146.27s] LOG stats spend=6642 challenge=3794 drop=1528 busy=1196 hs_ok=122 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=123578 rx_overflow=0 rssi_missing=0 heap=92372
+[  146.27s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  146.27s] FEAT {"ts":5200131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-35.02,"rssi_var":2.073,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  146.48s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  146.68s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  146.89s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  147.09s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  147.30s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  147.30s] FEAT {"ts":5201131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-35.04,"rssi_var":2.129,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  147.50s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  147.71s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  147.91s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  148.32s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  148.32s] FEAT {"ts":5202131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.75,"rssi_var":1.179,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  148.52s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  148.52s] LOG gate spend sender=2 p=0.10 mode=gate budget=19.98/20J
+[  148.72s] LOG gate challenge sender=2 p=0.10 mode=gate budget=19.99/20J
+[  148.93s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  148.93s] LOG session established peer=2 epoch=11876 (ML-KEM-768+ML-DSA-65) phases_us verify=28811 encaps=13587 sign=70386 stack_free_min=9848
+[  149.13s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  149.33s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  149.33s] FEAT {"ts":5203131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.84,"rssi_var":1.540,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  149.54s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  149.74s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  150.15s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  150.35s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  150.35s] FEAT {"ts":5204131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.81,"rssi_var":1.607,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  150.76s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  151.18s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  151.38s] FEAT {"ts":5205131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.74,"rssi_var":1.443,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  151.58s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  151.79s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  151.99s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  152.40s] FEAT {"ts":5206131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.79,"rssi_var":1.425,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  152.40s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  152.60s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  153.01s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  153.21s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  153.41s] FEAT {"ts":5207131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.66,"rssi_var":1.049,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  153.61s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  154.02s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  154.22s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  154.43s] FEAT {"ts":5208131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.65,"rssi_var":0.980,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  154.63s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  154.83s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  155.04s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  155.24s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  155.24s] FEAT {"ts":5209131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.64,"rssi_var":1.002,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  155.44s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  155.85s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  156.05s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  156.25s] LOG stats spend=6643 challenge=3845 drop=1528 busy=1196 hs_ok=123 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=124539 rx_overflow=0 rssi_missing=0 heap=97820
+[  156.25s] FEAT {"ts":5210131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.60,"rssi_var":1.005,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  156.45s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  156.66s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  156.87s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  157.07s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  157.27s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  157.27s] FEAT {"ts":5211131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.59,"rssi_var":0.973,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  157.68s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  158.09s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  158.29s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  158.29s] FEAT {"ts":5212131,"node":"field-1","hs_per_s":3.800,"hs_fail":0,"rssi_mean":-34.59,"rssi_var":0.930,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  158.49s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  158.69s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  159.10s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  159.31s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  159.31s] FEAT {"ts":5213131,"node":"field-1","hs_per_s":3.800,"hs_fail":0,"rssi_mean":-34.57,"rssi_var":0.899,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  159.71s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  159.92s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  160.32s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  160.32s] FEAT {"ts":5214131,"node":"field-1","hs_per_s":3.800,"hs_fail":0,"rssi_mean":-34.54,"rssi_var":0.810,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  160.73s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  160.93s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  161.13s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  161.34s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  161.34s] FEAT {"ts":5215131,"node":"field-1","hs_per_s":3.800,"hs_fail":0,"rssi_mean":-34.54,"rssi_var":0.798,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  161.54s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  161.75s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  161.96s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  162.16s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  162.37s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  162.37s] FEAT {"ts":5216131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.53,"rssi_var":0.750,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  162.57s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  162.78s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  163.19s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  163.19s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  163.39s] FEAT {"ts":5217131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.58,"rssi_var":0.848,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  163.59s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  164.00s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  164.21s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  164.41s] FEAT {"ts":5218131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.63,"rssi_var":0.955,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  164.41s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  164.61s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  164.82s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  165.02s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  165.22s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  165.43s] FEAT {"ts":5219131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.63,"rssi_var":1.001,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  165.43s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  165.63s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  166.04s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  166.25s] LOG stats spend=6643 challenge=3893 drop=1528 busy=1196 hs_ok=123 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=125476 rx_overflow=0 rssi_missing=0 heap=97820
+[  166.25s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  166.25s] FEAT {"ts":5220131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.61,"rssi_var":1.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  166.66s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  166.87s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  167.07s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  167.27s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  167.27s] FEAT {"ts":5221131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.63,"rssi_var":1.028,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  167.48s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  167.68s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  167.88s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  168.09s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  168.29s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  168.29s] FEAT {"ts":5222131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.60,"rssi_var":0.952,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  168.49s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  168.70s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  168.90s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  169.10s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  169.31s] FEAT {"ts":5223131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.65,"rssi_var":0.960,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  169.51s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  169.92s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  170.12s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  170.32s] FEAT {"ts":5224131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.68,"rssi_var":0.983,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  170.53s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  170.93s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  171.14s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  171.34s] FEAT {"ts":5225131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.61,"rssi_var":0.900,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  171.55s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  171.75s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  171.95s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  172.36s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  172.36s] FEAT {"ts":5226131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.66,"rssi_var":1.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  172.56s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  172.97s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  173.18s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  173.38s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  173.38s] FEAT {"ts":5227131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.67,"rssi_var":1.036,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  173.38s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  173.59s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  173.79s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  174.19s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  174.40s] FEAT {"ts":5228131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.68,"rssi_var":1.063,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  174.40s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  174.81s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  175.01s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  175.21s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  175.45s] FEAT {"ts":5229131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.70,"rssi_var":1.061,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  175.65s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  176.06s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  176.27s] LOG stats spend=6643 challenge=3943 drop=1528 busy=1196 hs_ok=123 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=126420 rx_overflow=0 rssi_missing=0 heap=97820
+[  176.27s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  176.27s] FEAT {"ts":5230131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.63,"rssi_var":0.993,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  176.47s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  176.68s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  177.09s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  177.29s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  177.29s] FEAT {"ts":5231131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.58,"rssi_var":0.935,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  177.49s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  177.70s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  177.90s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  178.10s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  178.31s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  178.31s] FEAT {"ts":5232131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.57,"rssi_var":1.012,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  178.71s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  178.92s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  179.12s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  179.33s] FEAT {"ts":5233131,"node":"field-1","hs_per_s":4.400,"hs_fail":0,"rssi_mean":-34.53,"rssi_var":1.534,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  179.53s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  179.73s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  179.94s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  180.35s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  180.35s] FEAT {"ts":5234131,"node":"field-1","hs_per_s":4.400,"hs_fail":0,"rssi_mean":-34.54,"rssi_var":1.502,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  180.55s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  180.96s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  181.16s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  181.36s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  181.36s] FEAT {"ts":5235131,"node":"field-1","hs_per_s":4.400,"hs_fail":0,"rssi_mean":-34.47,"rssi_var":1.350,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  181.77s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  182.17s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  182.38s] FEAT {"ts":5236131,"node":"field-1","hs_per_s":4.400,"hs_fail":0,"rssi_mean":-34.49,"rssi_var":1.390,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  182.58s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  182.78s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  182.78s] LOG gate spend sender=2 p=0.10 mode=gate budget=19.98/20J
+[  182.78s] LOG gate challenge sender=2 p=0.10 mode=gate budget=19.99/20J
+[  182.99s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  183.19s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  183.40s] FEAT {"ts":5237131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.64,"rssi_var":1.761,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  183.40s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  183.80s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  184.01s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  184.21s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  184.41s] FEAT {"ts":5238131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.69,"rssi_var":1.779,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  184.41s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  184.61s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  185.02s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  185.23s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  185.43s] FEAT {"ts":5239131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.77,"rssi_var":1.897,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  185.43s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  185.84s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  186.25s] LOG stats spend=6644 challenge=3995 drop=1528 busy=1196 hs_ok=123 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=127394 rx_overflow=0 rssi_missing=0 heap=97820
+[  186.25s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  186.25s] FEAT {"ts":5240131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.73,"rssi_var":1.847,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  186.45s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  186.86s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  187.26s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  187.26s] FEAT {"ts":5241131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.61,"rssi_var":1.098,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  187.67s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  187.67s] LOG gate spend sender=2 p=0.10 mode=gate budget=19.98/20J
+[  187.87s] LOG gate challenge sender=2 p=0.10 mode=gate budget=19.99/20J
+[  188.08s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  188.28s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  188.28s] FEAT {"ts":5242131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.72,"rssi_var":1.600,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  188.49s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  188.89s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  189.30s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  189.30s] FEAT {"ts":5243131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.65,"rssi_var":1.455,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  189.51s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  189.92s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  190.12s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  190.32s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  190.32s] FEAT {"ts":5244131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.66,"rssi_var":1.480,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  190.73s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  190.93s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  191.14s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  191.34s] FEAT {"ts":5245131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.70,"rssi_var":1.483,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  191.55s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  191.95s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  192.36s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  192.36s] FEAT {"ts":5246131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.57,"rssi_var":0.958,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  192.77s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  192.97s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  193.18s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  193.38s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  193.38s] FEAT {"ts":5247131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.63,"rssi_var":1.100,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  193.59s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  193.79s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  194.20s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  194.40s] FEAT {"ts":5248131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.67,"rssi_var":1.136,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  194.40s] LOG gate spend sender=2 p=0.10 mode=gate budget=19.98/20J
+[  194.40s] LOG gate challenge sender=2 p=0.10 mode=gate budget=19.98/20J
+[  194.60s] LOG gate challenge sender=2 p=0.10 mode=gate budget=19.99/20J
+[  194.81s] LOG session established peer=2 epoch=11880 (ML-KEM-768+ML-DSA-65) phases_us verify=32812 encaps=10761 sign=56276 stack_free_min=9848
+[  195.01s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  195.22s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  195.43s] FEAT {"ts":5249131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.85,"rssi_var":1.477,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  195.43s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  195.84s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  196.04s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  196.24s] LOG stats spend=6646 challenge=4047 drop=1528 busy=1196 hs_ok=124 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=128380 rx_overflow=0 rssi_missing=0 heap=97820
+[  196.24s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  196.24s] FEAT {"ts":5250131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.86,"rssi_var":1.499,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  196.65s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  196.85s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  197.26s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  197.26s] FEAT {"ts":5251131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.77,"rssi_var":1.417,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  197.47s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  197.67s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  197.88s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  198.29s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  198.29s] FEAT {"ts":5252131,"node":"field-1","hs_per_s":4.600,"hs_fail":0,"rssi_mean":-34.74,"rssi_var":1.398,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  198.69s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  198.90s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  199.10s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  199.30s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  199.30s] FEAT {"ts":5253131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.55,"rssi_var":0.955,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  199.51s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  199.91s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  200.32s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  200.32s] FEAT {"ts":5254131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.48,"rssi_var":0.906,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  200.53s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  200.73s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  200.93s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  201.13s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  201.34s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  201.34s] FEAT {"ts":5255131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-34.70,"rssi_var":1.357,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  201.74s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  201.95s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  202.15s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  202.35s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  202.35s] FEAT {"ts":5256131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-35.00,"rssi_var":1.739,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  202.56s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  202.97s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  203.38s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  203.38s] FEAT {"ts":5257131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-35.25,"rssi_var":2.144,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  203.58s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  203.99s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  203.99s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  204.40s] FEAT {"ts":5258131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-35.53,"rssi_var":2.064,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  204.40s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  204.60s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  205.01s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  205.21s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  205.41s] FEAT {"ts":5259131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-35.52,"rssi_var":1.913,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  205.41s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  205.61s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  205.82s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  206.02s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  206.23s] LOG stats spend=6646 challenge=4097 drop=1528 busy=1196 hs_ok=124 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=129325 rx_overflow=0 rssi_missing=0 heap=97820
+[  206.23s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  206.44s] FEAT {"ts":5260131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-35.49,"rssi_var":1.886,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  206.44s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  206.64s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  206.85s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  207.26s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  207.26s] FEAT {"ts":5261131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-35.41,"rssi_var":1.500,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  207.46s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  207.87s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  208.07s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  208.28s] FEAT {"ts":5262131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-35.38,"rssi_var":1.491,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  208.48s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  208.89s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  209.30s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  209.30s] FEAT {"ts":5263131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-35.40,"rssi_var":1.478,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  209.50s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  209.71s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  210.12s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  210.32s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  210.32s] FEAT {"ts":5264131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-35.41,"rssi_var":1.488,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  210.53s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  210.73s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  210.94s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  211.14s] LOG gate challenge sender=2 p=0.10 mode=gate budget=20.00/20J
+[  211.34s] FEAT {"ts":5265131,"node":"field-1","hs_per_s":4.200,"hs_fail":0,"rssi_mean":-35.40,"rssi_var":1.594,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  212.36s] FEAT {"ts":5266131,"node":"field-1","hs_per_s":3.200,"hs_fail":0,"rssi_mean":-35.44,"rssi_var":1.665,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  213.37s] FEAT {"ts":5267131,"node":"field-1","hs_per_s":2.200,"hs_fail":0,"rssi_mean":-35.45,"rssi_var":1.765,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.0952,"defence":"gate","budget_j":20.000}
+[  214.39s] FEAT {"ts":5268131,"node":"field-1","hs_per_s":1.200,"hs_fail":0,"rssi_mean":-35.38,"rssi_var":1.664,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  215.41s] FEAT {"ts":5269131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-35.10,"rssi_var":1.190,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  216.22s] LOG stats spend=6646 challenge=4123 drop=1528 busy=1196 hs_ok=124 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=129817 rx_overflow=0 rssi_missing=0 heap=97820
+[  216.43s] FEAT {"ts":5270131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  217.24s] FEAT {"ts":5271131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  218.25s] FEAT {"ts":5272131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  219.28s] FEAT {"ts":5273131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  220.29s] FEAT {"ts":5274131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  221.31s] FEAT {"ts":5275131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  222.33s] FEAT {"ts":5276131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  223.34s] FEAT {"ts":5277131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  224.36s] FEAT {"ts":5278131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  224.97s] LOG gate spend sender=2 p=0.96 mode=gate budget=19.98/20J
+[  225.18s] LOG session established peer=2 epoch=11881 (ML-KEM-768+ML-DSA-65) phases_us verify=31562 encaps=11083 sign=72268 stack_free_min=9848
+[  225.38s] FEAT {"ts":5279131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.10,"rssi_var":1.515,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  226.19s] LOG stats spend=6647 challenge=4123 drop=1528 busy=1196 hs_ok=125 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=129817 rx_overflow=0 rssi_missing=0 heap=97820
+[  226.40s] FEAT {"ts":5280131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.10,"rssi_var":1.515,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  227.42s] FEAT {"ts":5281131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.10,"rssi_var":1.515,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  228.44s] FEAT {"ts":5282131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-37.10,"rssi_var":1.515,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  229.26s] FEAT {"ts":5283131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-36.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  230.27s] FEAT {"ts":5284131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  231.29s] FEAT {"ts":5285131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  232.32s] FEAT {"ts":5286131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  233.33s] FEAT {"ts":5287131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  234.36s] FEAT {"ts":5288131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  235.38s] FEAT {"ts":5289131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  236.20s] LOG stats spend=6647 challenge=4123 drop=1528 busy=1196 hs_ok=125 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=129817 rx_overflow=0 rssi_missing=0 heap=97820
+[  236.41s] FEAT {"ts":5290131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  237.43s] FEAT {"ts":5291131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  238.24s] FEAT {"ts":5292131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  239.26s] FEAT {"ts":5293131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  240.28s] FEAT {"ts":5294131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-35.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  241.30s] FEAT {"ts":5295131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-35.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  242.32s] FEAT {"ts":5296131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-35.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  243.34s] FEAT {"ts":5297131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-35.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  244.36s] FEAT {"ts":5298131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  245.38s] FEAT {"ts":5299131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  246.20s] LOG stats spend=6647 challenge=4123 drop=1528 busy=1196 hs_ok=125 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=129817 rx_overflow=0 rssi_missing=0 heap=97820
+[  246.40s] FEAT {"ts":5300131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  247.42s] FEAT {"ts":5301131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  248.44s] FEAT {"ts":5302131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  249.26s] FEAT {"ts":5303131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  250.28s] FEAT {"ts":5304131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  251.29s] FEAT {"ts":5305131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  252.31s] FEAT {"ts":5306131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  253.34s] FEAT {"ts":5307131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  254.35s] FEAT {"ts":5308131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  255.37s] LOG gate spend sender=2 p=0.96 mode=gate budget=19.98/20J
+[  255.37s] FEAT {"ts":5309131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-34.00,"rssi_var":0.286,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":0.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":19.981}
+[  255.58s] LOG session established peer=2 epoch=11882 (ML-KEM-768+ML-DSA-65) phases_us verify=27454 encaps=9933 sign=47260 stack_free_min=9848
+[  256.19s] LOG stats spend=6648 challenge=4123 drop=1528 busy=1196 hs_ok=126 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=129817 rx_overflow=0 rssi_missing=0 heap=97820
+[  256.39s] FEAT {"ts":5310131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-33.95,"rssi_var":0.902,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  257.41s] FEAT {"ts":5311131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-33.95,"rssi_var":0.902,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  258.42s] FEAT {"ts":5312131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-33.95,"rssi_var":0.902,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  259.24s] FEAT {"ts":5313131,"node":"field-1","hs_per_s":0.200,"hs_fail":0,"rssi_mean":-33.95,"rssi_var":0.902,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  260.26s] FEAT {"ts":5314131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  261.28s] FEAT {"ts":5315131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  262.30s] FEAT {"ts":5316131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  263.32s] FEAT {"ts":5317131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  264.33s] FEAT {"ts":5318131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  265.35s] FEAT {"ts":5319131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  266.17s] LOG stats spend=6648 challenge=4123 drop=1528 busy=1196 hs_ok=126 hs_fail=5992 unknown=0 replay_pre=0 ignored_frags=129817 rx_overflow=0 rssi_missing=0 heap=97820
+[  266.37s] FEAT {"ts":5320131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  267.38s] FEAT {"ts":5321131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  268.40s] FEAT {"ts":5322131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  269.43s] FEAT {"ts":5323131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":0.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  270.44s] FEAT {"ts":5324131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-34.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"gate","budget_j":20.000}
+[  271.25s] LOG defence mode set to none
+[  271.25s] FEAT {"ts":5325131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-34.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[  272.26s] FEAT {"ts":5326131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-34.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
+[  273.29s] FEAT {"ts":5327131,"node":"field-1","hs_per_s":0.000,"hs_fail":0,"rssi_mean":-34.00,"rssi_var":0.000,"loss_pct":0.00,"dup_pct":0.00,"frag_complete_pct":100.00,"battery_pct":100.0,"p":0.9584,"defence":"none","budget_j":20.000}
