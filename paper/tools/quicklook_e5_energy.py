@@ -24,6 +24,9 @@ for tl_path in sorted(glob.glob(os.path.join(runs_dir, f"*{tag}*_timeline.txt"))
     t_def = [t for t, k, l in ev if k == "G" and l.startswith("DEFENSE")][1]
     defence = [l.split()[1] for t, k, l in ev if k == "G" and l.startswith("DEFENSE")][1]
     t_on, attack = next((t, l.split()[1]) for t, k, l in ev if k == "A" and l.startswith("MODE") and l != "MODE OFF")
+    rate = next((l.split()[1] for t, k, l in ev if k == "A" and l.startswith("RATE")), "")
+    if rate: attack = f"{attack}@{rate}"
+    if any(l == "ECHO on" for t, k, l in ev): attack += "+ECHO"
     t_off = next(t for t, k, l in ev if k == "A" and l == "MODE OFF" and t > t_on)
     nrg = []
     for ln in open(base + "_M.log", encoding="utf-8", errors="replace"):
@@ -34,7 +37,10 @@ for tl_path in sorted(glob.glob(os.path.join(runs_dir, f"*{tag}*_timeline.txt"))
             d = json.loads(m[2])
         except Exception:
             continue
-        nrg.append((float(m[1]), d["volts"] * (d["amps"] * 1000 - OFF) / GAIN))
+        # power_mw is M's mean over the whole 1 s interval; amps is ONE instantaneous sample (live readout
+        # only) and aliases against a periodic attack, so it must not be used. Calibration applied to the mean:
+        # P_true = (P_raw - V * OFF) / GAIN with OFF = -0.428 mA.
+        nrg.append((float(m[1]), (d["power_mw"] - d["volts"] * OFF) / GAIN))
     b = [p for t, p in nrg if 5 <= t < t_def]
     a = [p for t, p in nrg if t_on + 5 <= t < t_off]
     if not b or not a:
@@ -43,10 +49,10 @@ for tl_path in sorted(glob.glob(os.path.join(runs_dir, f"*{tag}*_timeline.txt"))
     extra = statistics.mean(a) - statistics.mean(b)
     cells[(defence, attack)].append((statistics.mean(b), extra, extra * (t_off - t_on) / 1000))
 
-print(f"{'defence':<10}{'attack':<11}{'n':>3}{'idle mW':>9}{'extra mW (mean +- 95% CI)':>30}{'extra % ':>9}{'extra J / 2 min':>17}")
+print(f"{'defence':<10}{'attack':<16}{'n':>3}{'idle mW':>9}{'extra mW (mean +- 95% CI)':>30}{'extra % ':>9}{'extra J / window':>18}")
 for (d, atk), v in sorted(cells.items()):
     idle = statistics.mean(x[0] for x in v)
     ex = [x[1] for x in v]
     j = [x[2] for x in v]
-    print(f"{d:<10}{atk:<11}{len(v):>3}{idle:9.1f}{statistics.mean(ex):18.1f} +- {ci(ex):6.1f}"
+    print(f"{d:<10}{atk:<16}{len(v):>3}{idle:9.1f}{statistics.mean(ex):18.1f} +- {ci(ex):6.1f}"
           f"{100 * statistics.mean(ex) / idle:8.1f}%{statistics.mean(j):12.2f} +- {ci(j):.2f}")

@@ -1,0 +1,249 @@
+[    0.25s] LOG field1 pressure=98.19 spend=2112 challenge=5927 drop=0 busy_drop=54 hs_ok=258 hs_fail=794
+[    0.25s] LOG defence mode none relayed to field-1
+[    3.31s] LOG field1 pressure=98.09 spend=2112 challenge=5927 drop=0 busy_drop=54 hs_ok=258 hs_fail=794
+[    4.55s] {"ts":24736718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[    6.18s] LOG field1 pressure=98.09 spend=2112 challenge=5927 drop=0 busy_drop=54 hs_ok=258 hs_fail=794
+[    8.02s] LOG gw stats hs started=1356 ok=342 failed=1014 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[    9.25s] LOG field1 pressure=98.00 spend=2112 challenge=5927 drop=0 busy_drop=54 hs_ok=258 hs_fail=794
+[    9.45s] {"ts":24741718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   12.31s] LOG field1 pressure=97.92 spend=2112 challenge=5927 drop=0 busy_drop=54 hs_ok=258 hs_fail=794
+[   14.56s] {"ts":24746718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   15.18s] LOG field1 pressure=97.91 spend=2112 challenge=5927 drop=0 busy_drop=54 hs_ok=258 hs_fail=794
+[   18.04s] LOG gw stats hs started=1356 ok=342 failed=1014 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[   18.24s] LOG field1 pressure=97.90 spend=2112 challenge=5927 drop=0 busy_drop=54 hs_ok=258 hs_fail=794
+[   19.47s] {"ts":24751718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   21.31s] LOG field1 pressure=97.88 spend=2112 challenge=5927 drop=0 busy_drop=54 hs_ok=258 hs_fail=794
+[   22.74s] {"id":"bf53b453-0ec5-46d0-ba27-c775764e4399","ts":24754948,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: none)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[   24.17s] LOG field1 pressure=97.85 spend=2113 challenge=5927 drop=0 busy_drop=54 hs_ok=258 hs_fail=794
+[   24.58s] {"ts":24756718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58.19048,"rssi_var":0.15428,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   25.19s] LOG hs fail reason=timeout epoch=6360 tries=1 challenged=0 total_ms=2709 next_in_ms=1000
+[   26.41s] {"id":"7a7b4920-63e1-4830-b19b-94614d1d694e","ts":24758530,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: none)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[   26.62s] LOG hs ok epoch=6361 tries=1 challenged=0 total_ms=478 to_response_ms=432 keygen_us=9079 sign_us=71629 verify_us=27558 decaps_us=12183
+[   26.82s] {"id":"a6223c28-94c7-442d-b511-a531dca81bec","ts":24758926,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+[   27.23s] LOG field1 pressure=97.79 spend=2114 challenge=5927 drop=0 busy_drop=54 hs_ok=259 hs_fail=794
+[   28.05s] LOG gw stats hs started=1358 ok=343 failed=1015 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=82936
+[   29.48s] {"ts":24761718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":1,"rssi_mean":-58.23809,"rssi_var":0.181512,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   30.29s] LOG field1 pressure=97.77 spend=2114 challenge=5927 drop=0 busy_drop=54 hs_ok=259 hs_fail=794
+[   33.16s] LOG field1 pressure=97.87 spend=2114 challenge=5927 drop=0 busy_drop=54 hs_ok=259 hs_fail=794
+[   34.59s] {"ts":24766718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-57.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   36.22s] LOG field1 pressure=97.94 spend=2114 challenge=5927 drop=0 busy_drop=54 hs_ok=259 hs_fail=794
+[   38.06s] LOG gw stats hs started=1358 ok=343 failed=1015 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[   39.29s] LOG field1 pressure=97.96 spend=2114 challenge=5927 drop=0 busy_drop=54 hs_ok=259 hs_fail=794
+[   39.49s] {"ts":24771718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   42.34s] LOG field1 pressure=98.00 spend=2114 challenge=5927 drop=0 busy_drop=54 hs_ok=259 hs_fail=794
+[   44.59s] {"ts":24776718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   45.20s] LOG field1 pressure=98.07 spend=2114 challenge=5927 drop=0 busy_drop=54 hs_ok=259 hs_fail=794
+[   48.07s] LOG gw stats hs started=1358 ok=343 failed=1015 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[   48.27s] LOG field1 pressure=98.05 spend=2114 challenge=5927 drop=0 busy_drop=54 hs_ok=259 hs_fail=794
+[   49.49s] {"ts":24781718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   51.33s] LOG field1 pressure=98.11 spend=2114 challenge=5927 drop=0 busy_drop=54 hs_ok=259 hs_fail=794
+[   54.20s] LOG field1 pressure=98.13 spend=2114 challenge=5927 drop=0 busy_drop=54 hs_ok=259 hs_fail=794
+[   54.61s] {"ts":24786718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-57.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   56.85s] {"id":"0940841f-45f4-4b26-8eea-7eba7dbd9e4f","ts":24788973,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: none)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[   57.26s] LOG hs ok epoch=6362 tries=1 challenged=0 total_ms=498 to_response_ms=451 keygen_us=9306 sign_us=38191 verify_us=27796 decaps_us=11852
+[   57.26s] {"id":"6bf28ee5-133c-4913-8756-2bc7fe6bf25c","ts":24789424,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+[   57.26s] LOG field1 pressure=98.19 spend=2115 challenge=5927 drop=0 busy_drop=54 hs_ok=260 hs_fail=794
+[   58.08s] LOG gw stats hs started=1359 ok=344 failed=1015 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[   59.51s] {"ts":24791718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   60.32s] LOG field1 pressure=98.24 spend=2115 challenge=5927 drop=0 busy_drop=54 hs_ok=260 hs_fail=794
+[   60.32s] LOG defence mode cookie relayed to field-1
+[   63.18s] LOG field1 pressure=98.21 spend=2115 challenge=5927 drop=0 busy_drop=54 hs_ok=260 hs_fail=794
+[   64.61s] {"ts":24796718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   66.23s] LOG field1 pressure=98.18 spend=2115 challenge=5927 drop=0 busy_drop=54 hs_ok=260 hs_fail=794
+[   68.07s] LOG gw stats hs started=1359 ok=344 failed=1015 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[   69.29s] LOG field1 pressure=98.16 spend=2115 challenge=5927 drop=0 busy_drop=54 hs_ok=260 hs_fail=794
+[   69.49s] {"ts":24801718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   72.35s] LOG field1 pressure=98.06 spend=2115 challenge=5927 drop=0 busy_drop=54 hs_ok=260 hs_fail=794
+[   74.59s] {"ts":24806718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   75.20s] LOG field1 pressure=98.14 spend=2115 challenge=5927 drop=0 busy_drop=54 hs_ok=260 hs_fail=794
+[   78.05s] LOG gw stats hs started=1359 ok=344 failed=1015 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[   78.25s] LOG field1 pressure=98.18 spend=2115 challenge=5927 drop=0 busy_drop=54 hs_ok=260 hs_fail=794
+[   79.47s] {"ts":24811718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   81.31s] LOG field1 pressure=98.08 spend=2115 challenge=5927 drop=0 busy_drop=54 hs_ok=260 hs_fail=794
+[   84.16s] LOG field1 pressure=98.11 spend=2115 challenge=5927 drop=0 busy_drop=54 hs_ok=260 hs_fail=794
+[   84.57s] {"ts":24816718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   87.22s] LOG field1 pressure=98.12 spend=2115 challenge=5927 drop=0 busy_drop=54 hs_ok=260 hs_fail=794
+[   87.22s] {"id":"8115df4d-0884-4412-8db5-5827dab66de6","ts":24819477,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[   87.43s] {"id":"3d9fd546-e1b5-4dd9-85d8-158fd142f2a7","ts":24819605,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: cookie)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[   87.63s] LOG hs ok epoch=6363 tries=2 challenged=1 total_ms=436 to_response_ms=389 keygen_us=9111 sign_us=39621 verify_us=27155 decaps_us=12449
+[   87.63s] {"id":"e7541d63-d813-40f6-abdb-e1fde1697410","ts":24819860,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+[   88.04s] LOG gw stats hs started=1360 ok=345 failed=1015 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87848
+[   89.47s] {"ts":24821718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   90.19s] LOG field1 pressure=98.12 spend=2116 challenge=5928 drop=0 busy_drop=54 hs_ok=261 hs_fail=794
+[   90.19s] {"id":"8c6630d3-505d-4a51-b56c-1c3873680575","ts":24822470,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[   90.39s] {"id":"fd3c0db9-134f-4729-91cb-239cb3e61170","ts":24822492,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[   93.25s] LOG field1 pressure=98.17 spend=2116 challenge=5929 drop=0 busy_drop=54 hs_ok=261 hs_fail=794
+[   94.48s] {"ts":24826718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-42.66667,"rssi_var":48.80545,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   94.48s] {"id":"f4006ebd-b08f-47d6-af2f-ca674384d9dd","ts":24826740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[   95.26s] {"id":"f8e03750-7dd4-4f21-bac2-0b352f52d448","ts":24827531,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[   95.47s] {"id":"a331005a-4f47-4ead-bd2f-e8b0465c62dd","ts":24827553,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[   96.28s] LOG field1 pressure=98.07 spend=2116 challenge=5930 drop=0 busy_drop=54 hs_ok=261 hs_fail=794
+[   98.12s] LOG gw stats hs started=1360 ok=345 failed=1015 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[   99.34s] LOG field1 pressure=98.02 spend=2116 challenge=5930 drop=0 busy_drop=54 hs_ok=261 hs_fail=794
+[   99.54s] {"ts":24831718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-43.75,"rssi_var":42.6875,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[   99.54s] {"id":"21a029d0-6881-4327-b2a4-345cf7363dbb","ts":24831740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  102.20s] LOG field1 pressure=98.02 spend=2116 challenge=5930 drop=0 busy_drop=54 hs_ok=261 hs_fail=794
+[  103.26s] {"id":"883c1fcf-f9ed-49e6-8a40-65a970982cac","ts":24835532,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[  103.47s] {"id":"dbdc78b1-33b8-46a3-acd3-01b2b9bda486","ts":24835553,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  104.49s] {"ts":24836718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-42.56522,"rssi_var":38.68064,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  104.49s] {"id":"962cb9ea-470c-49fb-a00d-809c52f7a1ce","ts":24836740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  105.31s] LOG field1 pressure=97.97 spend=2116 challenge=5931 drop=0 busy_drop=54 hs_ok=261 hs_fail=794
+[  107.96s] LOG gw stats hs started=1360 ok=345 failed=1015 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  108.16s] LOG field1 pressure=98.01 spend=2116 challenge=5931 drop=0 busy_drop=54 hs_ok=261 hs_fail=794
+[  109.59s] {"ts":24841718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  111.22s] LOG field1 pressure=98.02 spend=2116 challenge=5931 drop=0 busy_drop=54 hs_ok=261 hs_fail=794
+[  113.33s] {"id":"57ce0c7e-6211-4c0b-9c23-1f2b0168d2d9","ts":24845600,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[  113.53s] {"id":"1c51ad50-b006-4c8f-b024-74d679f6d1aa","ts":24845621,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  114.36s] LOG field1 pressure=97.98 spend=2116 challenge=5932 drop=0 busy_drop=54 hs_ok=261 hs_fail=794
+[  114.56s] {"ts":24846718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-42.95833,"rssi_var":47.79004,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  114.56s] {"id":"a0415d35-b4bf-46a8-bd07-afd3977161d5","ts":24846740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  117.21s] LOG field1 pressure=97.95 spend=2116 challenge=5932 drop=0 busy_drop=54 hs_ok=261 hs_fail=794
+[  117.80s] {"id":"6990c999-5e64-4876-93d1-59c3becdfe7a","ts":24849977,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  118.01s] {"id":"12180cab-eba2-4737-bcd3-f823fb1825a9","ts":24850104,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: cookie)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  118.01s] LOG gw stats hs started=1361 ok=345 failed=1015 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=85924
+[  119.44s] {"ts":24851718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58.09524,"rssi_var":0.181448,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  120.26s] LOG field1 pressure=97.99 spend=2117 challenge=5933 drop=0 busy_drop=54 hs_ok=261 hs_fail=794
+[  120.26s] LOG hs fail reason=timeout epoch=6364 tries=2 challenged=1 total_ms=2684 next_in_ms=1000
+[  121.45s] {"id":"cf0a1ffc-3c2e-4dfd-90dd-a01b85818ba3","ts":24853630,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  121.65s] {"id":"f341181a-2217-4c6a-9ada-2ace3730b3bd","ts":24853754,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: cookie)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  121.86s] LOG hs ok epoch=6365 tries=2 challenged=1 total_ms=450 to_response_ms=403 keygen_us=9435 sign_us=70890 verify_us=27664 decaps_us=11817
+[  121.86s] {"id":"ac13b380-4500-4e51-a33a-6633952e7937","ts":24853995,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+[  123.29s] LOG field1 pressure=97.95 spend=2118 challenge=5934 drop=0 busy_drop=54 hs_ok=262 hs_fail=794
+[  123.39s] {"id":"73c904b9-9063-4675-9f8a-a1db5fdaad11","ts":24855667,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[  123.60s] {"id":"36ffdf8e-0538-4e39-b0cb-f927f1df6b07","ts":24855689,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  124.63s] {"ts":24856718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":1,"rssi_mean":-50.28261,"rssi_var":82.4202,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  124.63s] {"id":"be776595-85ba-40ba-9ab7-285250fb79fa","ts":24856740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  126.26s] LOG field1 pressure=97.96 spend=2118 challenge=5935 drop=0 busy_drop=54 hs_ok=262 hs_fail=794
+[  128.09s] LOG gw stats hs started=1362 ok=346 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  129.32s] LOG field1 pressure=98.06 spend=2118 challenge=5935 drop=0 busy_drop=54 hs_ok=262 hs_fail=794
+[  129.52s] {"ts":24861718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  132.17s] LOG field1 pressure=98.02 spend=2118 challenge=5935 drop=0 busy_drop=54 hs_ok=262 hs_fail=794
+[  133.46s] {"id":"56cbffce-097d-4de1-a412-a3e56fb0a2cb","ts":24865738,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[  133.66s] {"id":"60a197bc-c79c-4fcd-bb59-e85ac20dd437","ts":24865760,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  134.48s] {"ts":24866718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-42.52174,"rssi_var":37.81467,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  134.48s] {"id":"6245dbc1-4265-419c-bbcb-4fadedb14f27","ts":24866740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  135.30s] LOG field1 pressure=98.12 spend=2118 challenge=5936 drop=0 busy_drop=54 hs_ok=262 hs_fail=794
+[  137.96s] LOG gw stats hs started=1362 ok=346 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  138.17s] LOG field1 pressure=98.18 spend=2118 challenge=5936 drop=0 busy_drop=54 hs_ok=262 hs_fail=794
+[  139.59s] {"ts":24871718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  141.23s] LOG field1 pressure=98.28 spend=2118 challenge=5936 drop=0 busy_drop=54 hs_ok=262 hs_fail=794
+[  143.53s] {"id":"8643b043-6982-4586-9c46-4b14cee2964e","ts":24875805,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[  143.74s] {"id":"67f72a89-d219-422d-8b61-f138a869dce5","ts":24875826,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  144.15s] LOG field1 pressure=98.25 spend=2118 challenge=5937 drop=0 busy_drop=54 hs_ok=262 hs_fail=794
+[  144.56s] {"ts":24876718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-43.125,"rssi_var":46.10938,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  144.56s] {"id":"5d4c75c3-ef4f-4c0c-a3ba-f9bfd678736a","ts":24876740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  147.22s] LOG field1 pressure=98.16 spend=2118 challenge=5937 drop=0 busy_drop=54 hs_ok=262 hs_fail=794
+[  148.04s] LOG gw stats hs started=1362 ok=346 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  149.47s] {"ts":24881718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  150.29s] LOG field1 pressure=98.25 spend=2118 challenge=5937 drop=0 busy_drop=54 hs_ok=262 hs_fail=794
+[  151.92s] {"id":"5e5a7b78-a5b8-4fd3-8120-da57a9136554","ts":24884069,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  152.12s] {"id":"1741b0a9-d54f-43c3-91db-81a30e71674a","ts":24884220,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: cookie)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  152.12s] LOG hs ok epoch=6366 tries=2 challenged=1 total_ms=429 to_response_ms=383 keygen_us=9013 sign_us=62938 verify_us=27465 decaps_us=11981
+[  152.32s] {"id":"25c10f69-3dd0-41a9-ab59-e7dc041db533","ts":24884425,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+[  153.35s] LOG field1 pressure=98.26 spend=2119 challenge=5938 drop=0 busy_drop=54 hs_ok=263 hs_fail=794
+[  153.60s] {"id":"7f2d37e6-5825-43f8-9586-26f639057f55","ts":24885872,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[  153.80s] {"id":"d8665693-66e5-4992-8732-9e75d844791a","ts":24885894,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  154.62s] {"ts":24886718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-50.56522,"rssi_var":77.5937,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  154.62s] {"id":"ac65160d-8d9a-4990-a6a0-522bffe81364","ts":24886740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  156.26s] LOG field1 pressure=98.20 spend=2119 challenge=5939 drop=0 busy_drop=54 hs_ok=263 hs_fail=794
+[  158.10s] LOG gw stats hs started=1363 ok=347 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  159.33s] LOG field1 pressure=98.12 spend=2119 challenge=5939 drop=0 busy_drop=54 hs_ok=263 hs_fail=794
+[  159.53s] {"ts":24891718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  162.18s] LOG field1 pressure=98.21 spend=2119 challenge=5939 drop=0 busy_drop=54 hs_ok=263 hs_fail=794
+[  163.66s] {"id":"d77edb78-3291-4d31-915d-5ea90777c300","ts":24895939,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[  163.87s] {"id":"c3d53c1a-65f6-4000-a755-2e91ba6f435b","ts":24895960,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  164.51s] {"ts":24896718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-42.47826,"rssi_var":38.51047,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  164.51s] {"id":"7aa1604c-3737-49a3-8642-8b27089c3748","ts":24896740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  165.15s] LOG field1 pressure=98.27 spend=2119 challenge=5940 drop=0 busy_drop=54 hs_ok=263 hs_fail=794
+[  168.01s] LOG gw stats hs started=1363 ok=347 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  168.21s] LOG field1 pressure=98.36 spend=2119 challenge=5940 drop=0 busy_drop=54 hs_ok=263 hs_fail=794
+[  169.43s] {"ts":24901718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  171.28s] LOG field1 pressure=98.37 spend=2119 challenge=5940 drop=0 busy_drop=54 hs_ok=263 hs_fail=794
+[  173.72s] {"id":"b7c460a4-02e4-4c10-a45f-ce77660a8012","ts":24905998,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[  173.93s] {"id":"c6da67c6-f7be-4c57-8f32-a30fa406f7c5","ts":24906019,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  174.33s] LOG field1 pressure=98.43 spend=2119 challenge=5941 drop=0 busy_drop=54 hs_ok=263 hs_fail=794
+[  174.54s] {"ts":24906718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-43.41667,"rssi_var":46.32628,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  174.54s] {"id":"3c6ed7be-7264-4d62-aba4-36dbbdc71747","ts":24906740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  177.19s] LOG field1 pressure=98.42 spend=2119 challenge=5941 drop=0 busy_drop=54 hs_ok=263 hs_fail=794
+[  178.00s] LOG gw stats hs started=1363 ok=347 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  179.43s] {"ts":24911718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  180.25s] LOG field1 pressure=98.37 spend=2119 challenge=5941 drop=0 busy_drop=54 hs_ok=263 hs_fail=794
+[  182.29s] {"id":"183d7ec6-a570-4433-aa7e-275a8607e757","ts":24914492,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  182.49s] {"id":"9e363cd6-aee2-4ddd-a170-805230f64ebd","ts":24914621,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: cookie)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  182.69s] LOG hs ok epoch=6367 tries=2 challenged=1 total_ms=457 to_response_ms=409 keygen_us=9320 sign_us=52207 verify_us=27538 decaps_us=11634
+[  182.69s] {"id":"4fe04610-8cb8-426b-a9e4-a65d260923b6","ts":24914882,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+[  183.31s] LOG field1 pressure=98.34 spend=2120 challenge=5942 drop=0 busy_drop=54 hs_ok=264 hs_fail=794
+[  183.78s] {"id":"9121bef4-0be0-409e-8a9f-2218be6431c6","ts":24916061,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[  184.00s] {"id":"15242f03-a8e1-45d5-8910-960e6a0319e2","ts":24916082,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  184.61s] {"ts":24916718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-50.30435,"rssi_var":79.42909,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  184.61s] {"id":"34a41747-7323-48f4-875b-6a22ac9d3f00","ts":24916740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  186.25s] LOG field1 pressure=98.31 spend=2120 challenge=5943 drop=0 busy_drop=54 hs_ok=264 hs_fail=794
+[  188.09s] LOG gw stats hs started=1364 ok=348 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  189.32s] LOG field1 pressure=98.26 spend=2120 challenge=5943 drop=0 busy_drop=54 hs_ok=264 hs_fail=794
+[  189.52s] {"ts":24921718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  192.18s] LOG field1 pressure=98.24 spend=2120 challenge=5943 drop=0 busy_drop=54 hs_ok=264 hs_fail=794
+[  193.85s] {"id":"b7a40262-0851-4a98-ab27-3088cde162f1","ts":24926129,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[  194.06s] {"id":"4077d555-11e2-4b6d-8a4e-987e0d6d6a12","ts":24926150,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  194.46s] {"ts":24926718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-43.04348,"rssi_var":35.34579,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  194.46s] {"id":"f0faff64-e322-421e-bf0a-fd3ea7e615a8","ts":24926740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  195.28s] LOG field1 pressure=98.16 spend=2120 challenge=5944 drop=0 busy_drop=54 hs_ok=264 hs_fail=794
+[  198.14s] LOG gw stats hs started=1364 ok=348 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  198.34s] LOG field1 pressure=98.15 spend=2120 challenge=5944 drop=0 busy_drop=54 hs_ok=264 hs_fail=794
+[  199.57s] {"ts":24931718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  201.20s] LOG field1 pressure=98.13 spend=2120 challenge=5944 drop=0 busy_drop=54 hs_ok=264 hs_fail=794
+[  203.92s] {"id":"6dd8d316-8b95-4167-876e-d6e5f285be55","ts":24936193,"layer":"field","type":"handshake_rejected","severity":"high","score":null,"node":"attacker","technique":"T0830","summary":"HELLO forged with the gateway's identity","reasons":["sender id is ours but we did not send it"],"details":{}}
+[  204.13s] {"id":"64a50a04-ab1d-4b23-8c9a-a6b485903583","ts":24936214,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  204.33s] LOG field1 pressure=98.05 spend=2120 challenge=5945 drop=0 busy_drop=54 hs_ok=264 hs_fail=794
+[  204.54s] {"ts":24936718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0.2,"hs_fail":1,"replay_rej":0,"auth_fail":1,"stale":0,"frag_timeout":0,"rssi_mean":-43.33333,"rssi_var":47.139,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  204.54s] {"id":"1c7437d4-2915-447a-b708-65d60f6e113e","ts":24936740,"layer":"field","type":"link_degraded","severity":"low","score":null,"node":"field-1","technique":null,"summary":"Link quality degraded this window","reasons":[],"details":{}}
+[  207.18s] LOG field1 pressure=98.07 spend=2120 challenge=5945 drop=0 busy_drop=54 hs_ok=264 hs_fail=794
+[  208.00s] LOG gw stats hs started=1364 ok=348 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  209.43s] {"ts":24941718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  210.24s] LOG field1 pressure=98.08 spend=2120 challenge=5945 drop=0 busy_drop=54 hs_ok=264 hs_fail=794
+[  212.86s] {"id":"84559195-13c1-421e-8b6f-acd90e752f1a","ts":24945033,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  213.07s] {"id":"fcecfc83-a364-43ec-8c5d-64a1e05cc01d","ts":24945162,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: cookie)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  213.27s] LOG hs ok epoch=6368 tries=2 challenged=1 total_ms=519 to_response_ms=472 keygen_us=9504 sign_us=134985 verify_us=27965 decaps_us=11901
+[  213.27s] {"id":"fb66be82-ea33-4fa4-8bd8-07390e4399db","ts":24945401,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+[  213.27s] LOG field1 pressure=98.01 spend=2121 challenge=5946 drop=0 busy_drop=54 hs_ok=265 hs_fail=794
+[  214.50s] {"ts":24946718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58.08333,"rssi_var":0.15987,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  216.33s] LOG field1 pressure=97.93 spend=2121 challenge=5946 drop=0 busy_drop=54 hs_ok=265 hs_fail=794
+[  217.97s] LOG gw stats hs started=1365 ok=349 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  219.19s] LOG field1 pressure=97.92 spend=2121 challenge=5946 drop=0 busy_drop=54 hs_ok=265 hs_fail=794
+[  219.60s] {"ts":24951718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  222.26s] LOG field1 pressure=97.91 spend=2121 challenge=5946 drop=0 busy_drop=54 hs_ok=265 hs_fail=794
+[  224.51s] {"ts":24956718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  225.32s] LOG field1 pressure=97.99 spend=2121 challenge=5946 drop=0 busy_drop=54 hs_ok=265 hs_fail=794
+[  227.98s] LOG gw stats hs started=1365 ok=349 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  228.18s] LOG field1 pressure=97.91 spend=2121 challenge=5946 drop=0 busy_drop=54 hs_ok=265 hs_fail=794
+[  229.62s] {"ts":24961718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  234.32s] LOG field1 pressure=97.95 spend=2121 challenge=5946 drop=0 busy_drop=54 hs_ok=265 hs_fail=794
+[  234.52s] {"ts":24966718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  237.18s] LOG field1 pressure=97.94 spend=2121 challenge=5946 drop=0 busy_drop=54 hs_ok=265 hs_fail=794
+[  238.00s] LOG gw stats hs started=1365 ok=349 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  239.43s] {"ts":24971718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  240.25s] LOG field1 pressure=97.84 spend=2121 challenge=5946 drop=0 busy_drop=54 hs_ok=265 hs_fail=794
+[  243.29s] {"id":"eacfcd63-57f1-46ed-afe4-4c78856200f5","ts":24975469,"layer":"field","type":"gate_decision","severity":"low","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate challenge for gateway (defence: cookie)","reasons":[],"details":{"action":"challenge","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  243.29s] LOG field1 pressure=97.82 spend=2121 challenge=5947 drop=0 busy_drop=54 hs_ok=265 hs_fail=794
+[  243.50s] {"id":"a64166a3-c311-437f-a848-82cf14943d9a","ts":24975601,"layer":"field","type":"gate_decision","severity":"info","score":0.958389,"node":"field-1","technique":null,"summary":"EnergyGate spend for gateway (defence: cookie)","reasons":[],"details":{"action":"spend","sender":"gateway","budget_j":20,"budget_max_j":20}}
+[  243.70s] LOG hs ok epoch=6369 tries=2 challenged=1 total_ms=424 to_response_ms=378 keygen_us=9019 sign_us=49531 verify_us=27418 decaps_us=12456
+[  243.70s] {"id":"95ea2dd0-1472-43da-8653-b352e13f5ed3","ts":24975825,"layer":"field","type":"rekey","severity":"info","score":null,"node":"field-1","technique":null,"summary":"New post-quantum session established","reasons":[],"details":{"level":768,"reason":"scheduled"}}
+[  244.52s] {"ts":24976718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58.04167,"rssi_var":0.20645,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  246.16s] LOG field1 pressure=97.84 spend=2122 challenge=5947 drop=0 busy_drop=54 hs_ok=266 hs_fail=794
+[  248.00s] LOG gw stats hs started=1366 ok=350 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  249.22s] LOG field1 pressure=97.83 spend=2122 challenge=5947 drop=0 busy_drop=54 hs_ok=266 hs_fail=794
+[  249.43s] {"ts":24981718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-57.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  252.28s] LOG field1 pressure=97.75 spend=2122 challenge=5947 drop=0 busy_drop=54 hs_ok=266 hs_fail=794
+[  254.54s] {"ts":24986718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-59,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  255.35s] LOG field1 pressure=97.67 spend=2122 challenge=5947 drop=0 busy_drop=54 hs_ok=266 hs_fail=794
+[  258.00s] LOG gw stats hs started=1366 ok=350 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  258.21s] LOG field1 pressure=97.69 spend=2122 challenge=5947 drop=0 busy_drop=54 hs_ok=266 hs_fail=794
+[  259.44s] {"ts":24991718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-57.5,"rssi_var":0.25,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  261.27s] LOG field1 pressure=97.68 spend=2122 challenge=5947 drop=0 busy_drop=54 hs_ok=266 hs_fail=794
+[  264.34s] LOG field1 pressure=97.75 spend=2122 challenge=5947 drop=0 busy_drop=54 hs_ok=266 hs_fail=794
+[  264.54s] {"ts":24996718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  267.20s] LOG field1 pressure=97.68 spend=2122 challenge=5947 drop=0 busy_drop=54 hs_ok=266 hs_fail=794
+[  268.02s] LOG gw stats hs started=1366 ok=350 failed=1016 session=1 stack_free_min=9960 rx_overflow=0 rssi_missing=0 heap=87784
+[  269.45s] {"ts":25001718,"node":"gateway","label":"normal","window_ms":5000,"hs_per_s":0,"hs_fail":0,"replay_rej":0,"auth_fail":0,"stale":0,"frag_timeout":0,"rssi_mean":-58,"rssi_var":0,"loss_pct":0,"jitter_ms":0,"frag_complete_pct":100,"dup_pct":0}
+[  270.27s] LOG field1 pressure=97.64 spend=2122 challenge=5947 drop=0 busy_drop=54 hs_ok=266 hs_fail=794
+[  271.29s] LOG defence mode none relayed to field-1
+[  273.32s] LOG field1 pressure=97.71 spend=2122 challenge=5947 drop=0 busy_drop=54 hs_ok=266 hs_fail=794
