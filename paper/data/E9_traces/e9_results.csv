@@ -1,0 +1,5 @@
+model,auc,tpr_at_1pct_fpr,fpr_at_0_5,det_SLOW_DRIP,det_ADAPTIVE,det_ADAPTIVE_SPOOF,det_FORGE_ECHO
+carried (SIMULATED),0.8756,0.7512,0.0,0.0,0.0,0.0,1.0
+rate rule,0.9046,0.8092,0.0,0.0,0.819,0.0573,1.0
+"tree, all 7",0.935,0.8809,0.0136,0.0489,0.9339,0.7393,1.0
+"tree, no RSSI",0.9499,0.9025,0.0084,0.0661,0.9741,0.8596,1.0
