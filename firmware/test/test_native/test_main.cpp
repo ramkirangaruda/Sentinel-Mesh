@@ -376,8 +376,8 @@ static void test_field_model_weak_link() {
 static void test_cookie_generate_is_deterministic() {
     CookieChallenge c(12345);
     uint8_t a[COOKIE_LEN], b[COOKIE_LEN];
-    c.generate(1, 100, a);
-    c.generate(1, 100, b);
+    c.generate(1, 0xA11C, 1, 100, a);
+    c.generate(1, 0xA11C, 1, 100, b);
     CHECK(std::memcmp(a, b, COOKIE_LEN) == 0);
 }
 
@@ -385,54 +385,98 @@ static void test_cookie_verify_accepts_freshly_generated() {
     CookieChallenge c(0xABCDEF01);
     uint32_t now = 10000;
     uint8_t cookie[COOKIE_LEN];
-    c.generate(3, CookieChallenge::time_window_for(now), cookie);
-    CHECK(c.verify(3, now, cookie));
+    c.generate(3, 0xA11C, 7, CookieChallenge::time_window_for(now), cookie);
+    CHECK(c.verify(3, 0xA11C, 7, now, cookie));
 }
 
 static void test_cookie_verify_rejects_wrong_sender() {
     CookieChallenge c(42);
     uint32_t now = 5000;
     uint8_t cookie[COOKIE_LEN];
-    c.generate(1, CookieChallenge::time_window_for(now), cookie);
-    CHECK(!c.verify(2, now, cookie)); // same window, different claimed sender
+    c.generate(1, 0xA11C, 1, CookieChallenge::time_window_for(now), cookie);
+    CHECK(!c.verify(2, 0xA11C, 1, now, cookie)); // same window/epoch/seq, different claimed sender
 }
 
 static void test_cookie_verify_rejects_garbage() {
     CookieChallenge c(999);
     uint8_t garbage[COOKIE_LEN] = {1, 2, 3, 4, 5, 6, 7, 8};
-    CHECK(!c.verify(1, 1000, garbage));
+    CHECK(!c.verify(1, 0xA11C, 1, 1000, garbage));
 }
 
 static void test_cookie_verify_accepts_previous_window() {
     CookieChallenge c(7);
     uint32_t issue_time = 4 * COOKIE_WINDOW_MS + 100; // well inside window 4
     uint8_t cookie[COOKIE_LEN];
-    c.generate(9, CookieChallenge::time_window_for(issue_time), cookie);
+    c.generate(9, 0xA11C, 1, CookieChallenge::time_window_for(issue_time), cookie);
 
     // Verified slightly later, now in window 5 -- still accepted (tolerance
     // for a request arriving just after the boundary).
     uint32_t verify_time = 5 * COOKIE_WINDOW_MS + 50;
     CHECK(CookieChallenge::time_window_for(verify_time) == CookieChallenge::time_window_for(issue_time) + 1);
-    CHECK(c.verify(9, verify_time, cookie));
+    CHECK(c.verify(9, 0xA11C, 1, verify_time, cookie));
 }
 
 static void test_cookie_verify_rejects_too_old_window() {
     CookieChallenge c(7);
     uint8_t cookie[COOKIE_LEN];
-    c.generate(9, 0, cookie); // window 0
+    c.generate(9, 0xA11C, 1, 0, cookie); // window 0
 
     // Two windows later: outside the current-or-previous tolerance.
     uint32_t verify_time = 2 * COOKIE_WINDOW_MS + 50;
-    CHECK(!c.verify(9, verify_time, cookie));
+    CHECK(!c.verify(9, 0xA11C, 1, verify_time, cookie));
 }
 
 static void test_cookie_different_secrets_disagree() {
     CookieChallenge c1(111);
     CookieChallenge c2(222);
     uint8_t a[COOKIE_LEN], b[COOKIE_LEN];
-    c1.generate(1, 5, a);
-    c2.generate(1, 5, b);
+    c1.generate(1, 0xA11C, 1, 5, a);
+    c2.generate(1, 0xA11C, 1, 5, b);
     CHECK(std::memcmp(a, b, COOKIE_LEN) != 0);
+}
+
+// --- regression tests for the FORGE + ECHO reuse bug (paper, 2026-10-27) -------------------
+// The old cookie depended only on (sender, time_window): any HELLO from that sender inside the
+// same ~2-4 s window carried a valid cookie, including one with a freshly incremented
+// (epoch, seq) the cookie was never issued for. Binding to (epoch, seq) must close exactly that.
+
+static void test_cookie_reuse_across_different_seq_is_rejected() {
+    CookieChallenge c(0xC0FFEE);
+    uint32_t now = 9000;
+    uint8_t cookie[COOKIE_LEN];
+    // Cookie issued for (sender=2, epoch=0xA11C, seq=1) -- as if a CHALLENGE answered that exact HELLO.
+    c.generate(2, 0xA11C, 1, CookieChallenge::time_window_for(now), cookie);
+    CHECK(c.verify(2, 0xA11C, 1, now, cookie));            // the HELLO it was issued for: still verifies
+    CHECK(!c.verify(2, 0xA11C, 2, now, cookie));           // same sender/window, seq bumped by one: rejected
+    CHECK(!c.verify(2, 0xA11D, 1, now, cookie));           // same sender/window, epoch bumped: rejected
+}
+
+static void test_cookie_reuse_across_many_forged_seqs_all_rejected() {
+    // Simulates FORGE's pattern: one echoed cookie, then many resends each incrementing
+    // (epoch, seq) while reusing that one cookie unchanged. Every resend but the original must fail.
+    CookieChallenge c(0xBADC0DE);
+    uint32_t now = 20000;
+    uint16_t epoch = 0x5A5A;
+    uint32_t base_seq = 100;
+    uint8_t cookie[COOKIE_LEN];
+    c.generate(5, epoch, base_seq, CookieChallenge::time_window_for(now), cookie);
+    CHECK(c.verify(5, epoch, base_seq, now, cookie));
+    for (uint32_t seq = base_seq + 1; seq < base_seq + 50; seq++) {
+        CHECK(!c.verify(5, epoch, seq, now, cookie));
+    }
+}
+
+static void test_cookie_legitimate_retry_same_epoch_seq_still_verifies() {
+    // The legitimate initiator's retry (decisions.md #5): same signed HELLO, same header
+    // (epoch, seq), cookie field filled in -- must still verify after the fix.
+    CookieChallenge c(31337);
+    uint32_t challenge_time = 3000;
+    uint16_t epoch = 0x1234;
+    uint32_t seq = 42;
+    uint8_t cookie[COOKIE_LEN];
+    c.generate(2, epoch, seq, CookieChallenge::time_window_for(challenge_time), cookie);
+    uint32_t retry_time = challenge_time + 50;   // a few ms later, same window
+    CHECK(c.verify(2, epoch, seq, retry_time, cookie));
 }
 
 // ---------------------------------------------------------------------
@@ -854,6 +898,9 @@ int main() {
     RUN(test_cookie_verify_accepts_previous_window);
     RUN(test_cookie_verify_rejects_too_old_window);
     RUN(test_cookie_different_secrets_disagree);
+    RUN(test_cookie_reuse_across_different_seq_is_rejected);
+    RUN(test_cookie_reuse_across_many_forged_seqs_all_rejected);
+    RUN(test_cookie_legitimate_retry_same_epoch_seq_still_verifies);
 
     RUN(test_energy_budget_starts_full_by_default);
     RUN(test_energy_budget_starts_at_given_initial);

@@ -1,0 +1,281 @@
+{
+  "rows": 6968,
+  "sessions": [
+    "1",
+    "2",
+    "3",
+    "budget_1",
+    "budget_2",
+    "budget_3"
+  ],
+  "label_counts": {
+    "normal": 3090,
+    "FORGE_ECHO": 1788,
+    "ADAPTIVE_SPOOF": 349,
+    "FLOOD": 349,
+    "SLOW_DRIP": 348,
+    "INSIDER": 348,
+    "ADAPTIVE": 348,
+    "FORGE": 348
+  },
+  "simulated_trained_shipped": {
+    "model": "SIMULATED-trained (shipped)",
+    "n": 6968,
+    "auc": 0.8756,
+    "tpr_at_1pct_fpr": 0.7536,
+    "per_label": {
+      "ADAPTIVE": {
+        "n": 348,
+        "mean_attack_score": 0.0416,
+        "flagged_frac": 0.0
+      },
+      "ADAPTIVE_SPOOF": {
+        "n": 349,
+        "mean_attack_score": 0.1102,
+        "flagged_frac": 0.0
+      },
+      "FLOOD": {
+        "n": 349,
+        "mean_attack_score": 0.9048,
+        "flagged_frac": 1.0
+      },
+      "FORGE": {
+        "n": 348,
+        "mean_attack_score": 0.9048,
+        "flagged_frac": 1.0
+      },
+      "FORGE_ECHO": {
+        "n": 1788,
+        "mean_attack_score": 0.9975,
+        "flagged_frac": 1.0
+      },
+      "INSIDER": {
+        "n": 348,
+        "mean_attack_score": 0.9048,
+        "flagged_frac": 1.0
+      },
+      "SLOW_DRIP": {
+        "n": 348,
+        "mean_attack_score": 0.0416,
+        "flagged_frac": 0.0
+      },
+      "normal": {
+        "n": 3090,
+        "mean_attack_score": 0.0416,
+        "flagged_frac": 0.0
+      }
+    }
+  },
+  "hand_tuned_rule": {
+    "model": "hand-tuned rule (energygate.cpp fallback)",
+    "n": 6968,
+    "auc": 0.7941,
+    "tpr_at_1pct_fpr": 0.4011,
+    "per_label": {
+      "ADAPTIVE": {
+        "n": 348,
+        "mean_attack_score": 0.0431,
+        "flagged_frac": 0.0086
+      },
+      "ADAPTIVE_SPOOF": {
+        "n": 349,
+        "mean_attack_score": 0.2792,
+        "flagged_frac": 0.0
+      },
+      "FLOOD": {
+        "n": 349,
+        "mean_attack_score": 0.0211,
+        "flagged_frac": 0.0
+      },
+      "FORGE": {
+        "n": 348,
+        "mean_attack_score": 0.0414,
+        "flagged_frac": 0.0
+      },
+      "FORGE_ECHO": {
+        "n": 1788,
+        "mean_attack_score": 0.3143,
+        "flagged_frac": 0.0
+      },
+      "INSIDER": {
+        "n": 348,
+        "mean_attack_score": 0.0258,
+        "flagged_frac": 0.0
+      },
+      "SLOW_DRIP": {
+        "n": 348,
+        "mean_attack_score": 0.0316,
+        "flagged_frac": 0.0
+      },
+      "normal": {
+        "n": 3090,
+        "mean_attack_score": 0.007,
+        "flagged_frac": 0.0003
+      }
+    }
+  },
+  "retrained_with_rssi": {
+    "model": "retrained, leave-one-session-out (with_rssi)",
+    "n": 6968,
+    "auc": 0.936,
+    "tpr_at_1pct_fpr": 0.8775,
+    "per_session": {
+      "1": {
+        "n": 1578,
+        "auc": 0.9178
+      },
+      "2": {
+        "n": 1581,
+        "auc": 0.9169
+      },
+      "3": {
+        "n": 1579,
+        "auc": 0.8391
+      },
+      "budget_1": {
+        "n": 743,
+        "auc": 1.0
+      },
+      "budget_2": {
+        "n": 743,
+        "auc": 1.0
+      },
+      "budget_3": {
+        "n": 744,
+        "auc": 1.0
+      }
+    },
+    "features": [
+      "hs_per_s",
+      "hs_fail",
+      "rssi_mean",
+      "rssi_var",
+      "loss_pct",
+      "dup_pct",
+      "frag_complete_pct"
+    ],
+    "per_label": {
+      "ADAPTIVE": {
+        "n": 348,
+        "mean_attack_score": 0.9313,
+        "flagged_frac": 0.9368
+      },
+      "ADAPTIVE_SPOOF": {
+        "n": 349,
+        "mean_attack_score": 0.7423,
+        "flagged_frac": 0.7393
+      },
+      "FLOOD": {
+        "n": 349,
+        "mean_attack_score": 1.0,
+        "flagged_frac": 1.0
+      },
+      "FORGE": {
+        "n": 348,
+        "mean_attack_score": 1.0,
+        "flagged_frac": 1.0
+      },
+      "FORGE_ECHO": {
+        "n": 1788,
+        "mean_attack_score": 1.0,
+        "flagged_frac": 1.0
+      },
+      "INSIDER": {
+        "n": 348,
+        "mean_attack_score": 1.0,
+        "flagged_frac": 1.0
+      },
+      "SLOW_DRIP": {
+        "n": 348,
+        "mean_attack_score": 0.1375,
+        "flagged_frac": 0.0718
+      },
+      "normal": {
+        "n": 3090,
+        "mean_attack_score": 0.1095,
+        "flagged_frac": 0.0201
+      }
+    }
+  },
+  "retrained_without_rssi": {
+    "model": "retrained, leave-one-session-out (without_rssi)",
+    "n": 6968,
+    "auc": 0.9499,
+    "tpr_at_1pct_fpr": 0.9025,
+    "per_session": {
+      "1": {
+        "n": 1578,
+        "auc": 0.9185
+      },
+      "2": {
+        "n": 1581,
+        "auc": 0.914
+      },
+      "3": {
+        "n": 1579,
+        "auc": 0.9173
+      },
+      "budget_1": {
+        "n": 743,
+        "auc": 1.0
+      },
+      "budget_2": {
+        "n": 743,
+        "auc": 1.0
+      },
+      "budget_3": {
+        "n": 744,
+        "auc": 1.0
+      }
+    },
+    "features": [
+      "hs_per_s",
+      "hs_fail",
+      "loss_pct",
+      "dup_pct",
+      "frag_complete_pct"
+    ],
+    "per_label": {
+      "ADAPTIVE": {
+        "n": 348,
+        "mean_attack_score": 0.9753,
+        "flagged_frac": 0.9799
+      },
+      "ADAPTIVE_SPOOF": {
+        "n": 349,
+        "mean_attack_score": 0.8659,
+        "flagged_frac": 0.8596
+      },
+      "FLOOD": {
+        "n": 349,
+        "mean_attack_score": 1.0,
+        "flagged_frac": 1.0
+      },
+      "FORGE": {
+        "n": 348,
+        "mean_attack_score": 1.0,
+        "flagged_frac": 1.0
+      },
+      "FORGE_ECHO": {
+        "n": 1788,
+        "mean_attack_score": 1.0,
+        "flagged_frac": 1.0
+      },
+      "INSIDER": {
+        "n": 348,
+        "mean_attack_score": 1.0,
+        "flagged_frac": 1.0
+      },
+      "SLOW_DRIP": {
+        "n": 348,
+        "mean_attack_score": 0.1398,
+        "flagged_frac": 0.0661
+      },
+      "normal": {
+        "n": 3090,
+        "mean_attack_score": 0.1088,
+        "flagged_frac": 0.0091
+      }
+    }
+  }
+}
