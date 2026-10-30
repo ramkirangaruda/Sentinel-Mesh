@@ -76,3 +76,44 @@ timelines: 6 attacks x 3 sessions + 3 FORGE_ECHO sessions, ~7,800 rows. Please:
   without those features; `battery_pct` is a constant 100 (SIMULATED), drop it.
 - Firmware change behind it: `firmware/src/field_node/main.cpp` bench build prints `FEAT` rows (commit on
   `paper/e5-grid-tooling`); energy builds are unchanged.
+
+## 6. Review of be0b2da and 3647f2e (2026-10-30)
+**Checked and fine:** Table 2 matches E1; the budget paragraph matches `E_budget`; `train_energygate_real.py` reruns to
+the committed metrics exactly; 359/359 native tests pass.
+
+**Blocker: the cookie fix locks the real gateway out. Do not flash 3647f2e for a rerun yet.**
+- `transmit_hello()` in `firmware/src/gateway/main.cpp` takes a fresh seq on every send, including the cookie retry. The
+  cookie is now bound to the challenged seq, so the retry fails, gets a new challenge, and repeats. `decisions.md` #5
+  says the same signed HELLO is resent; it does not say the same header. Section 10's "resends the same header
+  unmodified" is therefore wrong for the code as built.
+- Expected on the rig (from the code and a host replay of the cookie class; not yet run on boards): under COOKIE the
+  gateway never completes a handshake, even with no attack; under GATE v2 it fails whenever its score is low. Each retry
+  also resets `g_att.deadline_ms`, so it may never time out. The new cookie tests pass because they test the class, not
+  the gateway.
+- The attacker has the same flaw: its echo also takes `g_epoch++, g_seq++` (`firmware/src/attacker/main.cpp`), so a rerun
+  as it stands would show the attack "stopped" only because this attacker echoes wrongly. A real one echoes under the
+  challenged (epoch, seq) and gets admitted, for one round trip (it can trigger the challenge with fragment 0 alone).
+  So "closing FORGE+ECHO's reuse" is right about reuse, but the attack is made dearer, not closed. Say that in Sections
+  8 and 10.
+- Needed before the rerun: the gateway keeps its (epoch, seq) on a cookie retry; the attacker gets a same-seq echo.
+  Rerun all three: no attack, old echo, same-seq echo. Report legit success as well as power.
+
+**Section 9, last paragraph:** the bucket does not stand between SLOW_DRIP and exhaustion. 1 HELLO/min charges
+0.02 J / 60 s ≈ 0.33 mW against a 50 mW refill, so it never binds. SLOW_DRIP is harmless because its drain is tiny
+(+0.2 mW, Table 6), not because of the budget. Keep "the score can't see it", drop the budget claim.
+
+**Smaller fixes**
+- Section 6.1 calls 394.8 ms the "true worst case": rejection sampling has no fixed maximum, so say "largest observed".
+  Sections 5 and 7 also quote 80-560 ms, which is whole-handshake time, as signing time.
+- Section 8: "bound (1)-(2)" has no numbered equations; "Section 5's FORGE+ECHO arithmetic" is not in Section 5; the
+  +15-16 mW comes from the FORGE+ECHO table, not Table 6.
+- Section 10's "Model trained on SIMULATED traces ... until it is retrained" is out of date: the retrain is done, but
+  the firmware still carries the old model. Say that.
+- Item 1.7: all three new commits still have `Co-Authored-By`.
+
+**Still open from earlier:** attacker energy and the C2 ratio; Figures 1 and 2.
+
+**Two drafts are diverging.** `paper/ieee/paper.tex` (on `paper/e5-grid-tooling`, not in your branch) has the abstract,
+related work, conclusion and references, which are still empty in `paper.md`, but not your Section 9 baseline or the
+cookie fix. Title and authors differ too. Pick one file as the source. Also pick one TPR method: 0.754 (interpolated,
+yours) against 0.751 (`e9_retrain.py`) for the carried model.
