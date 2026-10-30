@@ -452,13 +452,16 @@ template, and reuses it.
 | gate v2 | +16.0 ± 0.5 mW (+2.7 %) | ≈540 spent, ≈40 challenged | 0.13 ± 0.31 |
 | (none, FORGE without ECHO, reference) | +19.0 ± 1.4 mW | ≈590 spent | 0.28 |
 
-**The echoing forger defeats both COOKIE and GATE v2.** The attacker echoes only about 30
-cookies per run, but the cookie as built is *reusable*: it is not bound to a HELLO's nonce or
-(epoch, seq), so a single echoed cookie admits every later resend of the same cached template.
-Gate v2's rule 2 ("a returned cookie admits whatever the score") lets the same HELLOs through.
-This is a genuine weakness, not a result to be proud of, and we report it as one: binding the
-cookie to the HELLO it was issued for, or making it single-use, would close it; that fix was not
-made for this paper (it needs a firmware change and a rerun).
+**The echoing forger defeated both COOKIE and GATE v2 as the cookie was built at the time of
+this run.** The attacker echoed only about 30 cookies per run, but the cookie as built then was
+*reusable*: it was not bound to a HELLO's nonce or (epoch, seq), so a single echoed cookie
+admitted every later resend of the same cached template. Gate v2's rule 2 ("a returned cookie
+admits whatever the score") let the same HELLOs through. This is a genuine weakness, not a
+result to be proud of, and we report it as one. It has since been fixed — the cookie now binds
+to (sender, epoch, seq, time window) (`firmware/lib/sentinel_proto/cookie.{h,cpp}`), so a
+resend with a different (epoch, seq) needs its own CHALLENGE round trip — but **this table is
+not yet rerun against the fix**; it still reports what the *old*, reusable cookie produced
+(Section 10 notes the fix and the pending rerun).
 
 An earlier INSIDER-ECHO block (10 runs) is **excluded** (`runlog.csv`, `excluded=y`): the
 attacker's cookie echo only fires when its crypto task is idle and the challenge matches its
@@ -614,13 +617,18 @@ unchanged); doing so, and rerunning Section 8's grid against it, is future work.
   3.67 % in gain and 1.4-3.1 % in voltage; ratios are unaffected.
 - **Unauthenticated control channel.** GATE_REPORT, CONTROL and CHALLENGE travel in plaintext
   on the same radio the attacker shares; this is a lab rig.
-- **The cookie is not just echoable but reusable.** It is bound to neither the HELLO's nonce nor
-  its (epoch, seq), so a single echoed cookie admits every later resend of the same cached
-  template (Section 8, FORGE + ECHO): the attacker echoed about 30 cookies per 120 s run but
-  that admitted roughly 540 forged HELLOs. This is stronger than "an attacker can echo the
-  cookie" — it means the budget, not the cookie or the gate's rule 2, is the only thing bounding
-  an echoing attacker, and it does so (Section 8) but was not fully exercised in a 120 s window.
-  Binding the cookie to the HELLO it was issued for would close this; not done for this paper.
+- **The cookie was not just echoable but reusable — fixed, rerun pending.** It used to be bound
+  to neither the HELLO's nonce nor its (epoch, seq), so a single echoed cookie admitted every
+  later resend of the same cached template (Section 8, FORGE + ECHO): the attacker echoed about
+  30 cookies per 120 s run but that admitted roughly 540 forged HELLOs. `firmware/lib/sentinel_proto/cookie.{h,cpp}`
+  now binds the cookie to (sender, epoch, seq, time window), so it answers only the exact HELLO
+  it was issued for; a legitimate retry (which resends the same header unmodified, per
+  `paper/decisions.md` #5) still verifies, but an attacker that mutates (epoch, seq) on every
+  resend — as FORGE and ADAPTIVE both do — now needs one fresh CHALLENGE round trip per admitted
+  HELLO, not per window. Host-tested (`firmware/test/test_native`, cookie reuse and legitimate-
+  retry regression cases); `pio run -e field_node -e gateway -e attacker` build clean.
+  **FORGE + ECHO has not been rerun against this fix on the rig** — the result quoted above is
+  still what the *old* cookie produced; the rerun needs the INA219 again (team decision, 2026-10-27).
 - **Insider onset.** The score reacts to the 5 s window, so a few insider HELLOs are admitted
   before the window fills (about 5 of 566 in one bench run).
 - **Replay ring.** A captured signed HELLO whose epoch has aged out of the 8-entry ring can be

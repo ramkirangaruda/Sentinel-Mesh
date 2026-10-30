@@ -391,7 +391,8 @@ static void on_hello_frag0(const PacketHeader& hdr, const uint8_t* payload, size
     build_gate_features(f, now_ms);
     GateInputs in;
     in.prob_real = energygate_score(f);
-    in.cookie_echoed = (payload_len >= pqc::COOKIE_BYTES) && g_cookie.verify(hdr.sender, now_ms, payload);
+    in.cookie_echoed = (payload_len >= pqc::COOKIE_BYTES) &&
+                       g_cookie.verify(hdr.sender, hdr.epoch, hdr.seq, now_ms, payload);
     uint32_t last = g_last_attempt_ms[hdr.sender];
     in.ms_since_last_attempt = (last == 0) ? NEVER_SEEN : (now_ms - last);
     g_last_attempt_ms[hdr.sender] = now_ms ? now_ms : 1;
@@ -418,7 +419,7 @@ static void on_hello_frag0(const PacketHeader& hdr, const uint8_t* payload, size
     } else if (action == GateAction::CHALLENGE) {
         g_n_challenge++;
         uint8_t cookie[COOKIE_LEN];
-        g_cookie.generate(hdr.sender, CookieChallenge::time_window_for(now_ms), cookie);
+        g_cookie.generate(hdr.sender, hdr.epoch, hdr.seq, CookieChallenge::time_window_for(now_ms), cookie);
         send_plain(MsgType::CHALLENGE, hdr.epoch, hdr.seq, cookie, sizeof(cookie));
     } else {
         g_n_drop++;
