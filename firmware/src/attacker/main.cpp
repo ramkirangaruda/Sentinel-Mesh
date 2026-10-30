@@ -39,7 +39,7 @@
 //   OFF          stop.
 //
 // Other lines: `RATE <per second>` (FLOOD / INSIDER / REPLAY / IMPERSONATE),
-// `ECHO on|off` (answer a CHALLENGE by echoing its cookie -- ESP-NOW is a shared
+// `ECHO on|same|off` (answer a CHALLENGE by echoing its cookie; `same` resends under the challenged (epoch, seq) -- ESP-NOW is a shared
 // broadcast medium, so an attacker in range can always hear the cookie; default
 // off = a naive attacker), `STATS`.
 //
@@ -105,6 +105,7 @@ static float g_rate_hz = 5.0f;             // attempts per second for the rate-d
 #endif
 constexpr uint32_t SLOW_DRIP_INTERVAL_MS = 60000;
 static bool g_echo_cookie = false;
+static bool g_echo_same_seq = false;            // ECHO same: resend under the challenged (epoch, seq), which a bound cookie accepts
 static AdaptivePacer g_pacer;                   // ADAPTIVE / ADAPTIVE_SPOOF pacing (attacker_pacer.h)
 static CachedTemplate<pqc::HELLO_LEN> g_forge;  // FORGE's one-signed, many-resent HELLO (forge_template.h)
 
@@ -287,11 +288,12 @@ static void on_frame(const mesh::Frame& fr) {
                 // into the already-cached template does not invalidate the one real signature.
                 pqc::hello_set_cookie(g_forge.mutable_data(), fr.data + HEADER_SIZE);
                 send_hello_frames(static_cast<uint8_t>(NodeId::GATEWAY), g_forge.data(), g_forge.size(),
-                                 g_epoch++, g_seq++);
+                                 g_echo_same_seq ? hdr.epoch : g_epoch++, g_echo_same_seq ? hdr.seq : g_seq++);
                 g_cookie_echoes++;
             } else if (g_hello_valid && !crypto_task_busy()) {
                 pqc::hello_set_cookie(g_hello, fr.data + HEADER_SIZE);
-                send_hello_frames(static_cast<uint8_t>(NodeId::ATTACKER), g_hello, sizeof(g_hello), g_epoch++, g_seq++);
+                send_hello_frames(static_cast<uint8_t>(NodeId::ATTACKER), g_hello, sizeof(g_hello),
+                                 g_echo_same_seq ? hdr.epoch : g_epoch++, g_echo_same_seq ? hdr.seq : g_seq++);
                 g_cookie_echoes++;
             }
         }
@@ -332,9 +334,10 @@ static void handle_command(const String& cmd) {
     } else if (cmd.startsWith("RATE ")) {
         float r = cmd.substring(5).toFloat();
         if (r > 0.0f && r <= 200.0f) { g_rate_hz = r; Serial.printf("LOG rate %.2f /s\n", g_rate_hz); }
-    } else if (cmd == "ECHO on" || cmd == "ECHO off") {
-        g_echo_cookie = (cmd == "ECHO on");
-        Serial.printf("LOG cookie echo %s\n", g_echo_cookie ? "on" : "off");
+    } else if (cmd == "ECHO on" || cmd == "ECHO same" || cmd == "ECHO off") {
+        g_echo_cookie = (cmd != "ECHO off");
+        g_echo_same_seq = (cmd == "ECHO same");
+        Serial.printf("LOG cookie echo %s\n", g_echo_same_seq ? "same" : (g_echo_cookie ? "on" : "off"));
     } else if (cmd == "STATS") {
         Serial.printf("LOG attacker stats mode=%s attempts=%lu frames=%lu challenges_heard=%lu cookie_echoes=%lu "
                       "rate=%.2f pacer_rate=%.3f pacer_challenges=%lu forge_ready=%s\n",
@@ -356,7 +359,7 @@ void setup() {
     bool mesh_ok = mesh::init();
     Serial.printf("LOG attacker boot complete (%s+%s) crypto_task=%s mesh=%s. Commands: "
                   "MODE FLOOD|FORGE|INSIDER|SLOW_DRIP|ADAPTIVE|ADAPTIVE_SPOOF|REPLAY|IMPERSONATE|WEAK_LINK|OFF, "
-                  "RATE <hz>, ECHO on|off, STATS\n",
+                  "RATE <hz>, ECHO on|same|off, STATS\n",
                   SM_PQC_KEM_NAME, SM_PQC_SIG_NAME, crypto_ok ? "ok" : "FAILED", mesh_ok ? "ok" : "FAILED");
     if (g_mode == AttackMode::SLOW_DRIP) g_last_tx_ms = millis() - SLOW_DRIP_INTERVAL_MS;   // first attempt at once
     if (g_mode != AttackMode::OFF)

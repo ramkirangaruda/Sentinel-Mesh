@@ -307,9 +307,9 @@ static void schedule_next(uint32_t now_ms, bool success) {
     }
 }
 
-// Sends the current g_hello_tx under a fresh seq (the cookie, if any, is already in it).
+// Sends the current g_hello_tx under the attempt's (epoch, seq); the cookie, if any, is already in it.
+// A cookie retry must keep that header: the cookie is bound to the (epoch, seq) it was challenged on (cookie.h).
 static bool transmit_hello() {
-    g_att.seq = g_seq_ctr++;
     PacketHeader h;
     h.type = MsgType::HELLO;
     h.sender = static_cast<uint8_t>(NodeId::GATEWAY);
@@ -344,6 +344,7 @@ static void job_make_and_send_hello(void*) {
         return;
     }
     g_att.deadline_ms = millis() + HS_TIMEOUT_MS;
+    g_att.seq = g_seq_ctr++;
     g_hs_state = HsState::WAIT_RESPONSE;   // before transmitting: a CHALLENGE can arrive mid-send
     g_att.tries = 1;
     transmit_hello();

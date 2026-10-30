@@ -17,6 +17,7 @@ timeline file with the exact times each command was sent.
 Extra options for the E5 grid (see run_e5_grid.py, which calls this):
   --rate HZ     sends `RATE <hz>` to A before the attack (flood-rate sweep)
   --echo        sends `ECHO on` to A (cookie-echoing insider)
+  --echo-same   sends `ECHO same` to A (echoes under the challenged epoch/seq)
   --m COMx      also logs the INA219 monitor M (NRG / monitor rows) when the
                 energy rig is built
   --tag TEXT    appended to the file names (e.g. rep3)
@@ -67,6 +68,7 @@ def build_parser():
     ap.add_argument("--out", default=os.path.join("paper", "data", "E_phase6", "runs"))
     ap.add_argument("--rate", type=int, default=None, help="attacker RATE in Hz")
     ap.add_argument("--echo", action="store_true", help="send ECHO on to A")
+    ap.add_argument("--echo-same", action="store_true", help="send ECHO same to A (echo under the challenged epoch/seq)")
     ap.add_argument("--m", default=None, help="monitor (INA219) port; optional")
     ap.add_argument("--tag", default="", help="suffix for the file names")
     return ap
@@ -78,6 +80,7 @@ def run(a):
     name = f"{stamp}_{a.defence}_{a.attack.lower()}"
     if a.rate: name += f"_r{a.rate}"
     if a.echo: name += "_echo"
+    if a.echo_same: name += "_echosame"
     if a.tag: name += f"_{a.tag}"
     base = os.path.join(a.out, name)
     t0 = time.time()
@@ -102,7 +105,7 @@ def run(a):
         wait(a.baseline, "baseline, defence none, no attack")
         send("G", f"DEFENSE {a.defence}")
         wait(a.settle, "defence settling, no attack")
-        send("A", "ECHO on" if a.echo else "ECHO off")
+        send("A", "ECHO same" if a.echo_same else "ECHO on" if a.echo else "ECHO off")
         if a.rate: send("A", f"RATE {a.rate}")
         send("A", f"MODE {a.attack}")
         wait(a.flood, f"attack {a.attack}")

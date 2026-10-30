@@ -27,6 +27,7 @@ for tl_path in sorted(glob.glob(os.path.join(runs_dir, f"*{tag}*_timeline.txt"))
     rate = next((l.split()[1] for t, k, l in ev if k == "A" and l.startswith("RATE")), "")
     if rate: attack = f"{attack}@{rate}"
     if any(l == "ECHO on" for t, k, l in ev): attack += "+ECHO"
+    if any(l == "ECHO same" for t, k, l in ev): attack += "+ECHO_SAME"
     t_off = next(t for t, k, l in ev if k == "A" and l == "MODE OFF" and t > t_on)
     nrg = []
     for ln in open(base + "_M.log", encoding="utf-8", errors="replace"):

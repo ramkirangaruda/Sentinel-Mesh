@@ -117,3 +117,9 @@ the committed metrics exactly; 359/359 native tests pass.
 related work, conclusion and references, which are still empty in `paper.md`, but not your Section 9 baseline or the
 cookie fix. Title and authors differ too. Pick one file as the source. Also pick one TPR method: 0.754 (interpolated,
 yours) against 0.751 (`e9_retrain.py`) for the carried model.
+
+**Update, 2026-10-30: blocker fixed in firmware, not yet run on boards.** Your branch is merged into
+`paper/e5-grid-tooling`. The gateway keeps its (epoch, seq) on a cookie retry; the attacker has `ECHO same` (the old
+`ECHO on` stays, to reproduce the earlier runs); `paper/tools/session_cookie_rerun.sh` runs the rerun on the INA219 rig,
+writing to `paper/data/E_cookie_fix/`. Merge this branch before touching the firmware. Section 10's "resends the same
+header" is now true once these are flashed. Sections 8 and 10 still need the rerun numbers.
