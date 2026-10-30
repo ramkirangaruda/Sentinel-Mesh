@@ -256,25 +256,30 @@ victim), G (gateway), A (attacker), M (monitor). Toolchain: PlatformIO 6.2.0, es
 with `-DSENTINEL_MEASUREMENT_BUILD`; there is no battery (`-DSENTINEL_NO_BATTERY` fixes
 `battery_pct` at 100, SIMULATED).
 
-**Table 2. Primitive timings, radio off** (E1; median of four boards' medians, ms;
-`paper/data/E1/summary_pooled.csv`). Classical rows use mbed TLS generic C, not optimised
-Curve25519 code, so they are not a fair PQC-versus-classical comparison.
+**Table 2. Primitive timings, radio off, final** (E1; `paper/data/E1/summary_pooled.csv`;
+4 boards, 5 independent sessions each, *n* = 29-30 per board per op, 0 failures). Deterministic
+ops are the median of the four boards' medians and agree across boards to within 0.6 % and
+with the single-session pilot to 0.1 ms. ML-DSA signing is rejection-sampled, so per-board
+medians still move between sessions; its rows report the pooled distribution across all four
+boards (*n* = 116) instead of a single median. Classical rows use mbed TLS generic C, not
+optimised Curve25519 code, so they are not a fair PQC-versus-classical comparison.
 
 | Algorithm | keygen | encaps / sign | decaps / verify |
 |---|---|---|---|
 | ML-KEM-512 | 5.93 | 6.05 | 7.35 |
-| ML-KEM-768 | 8.59 | 9.88 | 11.60 |
-| ML-KEM-1024 | 13.14 | 14.37 | 16.46 |
-| ML-DSA-44 | 15.36 | 57.67 (boards 46.2-65.0) | 15.97 |
-| ML-DSA-65 | 26.00 | 63.24 (boards 37.1-76.2) | 26.25 |
-| X25519 | 397.45 | 403.76 (shared secret) | - |
-| ECDSA-P256 | 191.16 | 89.04 | 202.56 |
+| ML-KEM-768 | 8.60 | 9.88 | 11.61 |
+| ML-KEM-1024 | 13.15 | 14.38 | 16.46 |
+| ML-DSA-44 | 15.40 | 48.8 median (p10 24.1, p90 92.4, max 166.6) | 15.96 |
+| ML-DSA-65 | 26.00 | 63.4 median (p10 37.1, p90 152.7, max 394.8) | 26.25 |
+| X25519 | 397.30 | 404.59 (shared secret) | - |
+| ECDSA-P256 | 191.15 | 89.07 | 202.43 |
 
-Signing time varies because ML-DSA signing is rejection-sampled; we report its median and
-tail. With Wi-Fi running, level-3 signing on the bench took 38-250 ms (median 78) and a whole
-handshake 329-545 ms (median 439, 9 of 9 successful; USB-powered bench runs, not energy
-measurements, `paper/data/E_phase6/README.md`). [TODO: E1 needs at least five runs per board
-before Table 2 is final.]
+With Wi-Fi running, level-3 signing on the bench took 38-250 ms (median 78) in one earlier
+scripted run and 38-287 ms across several runs (`paper/data/E_phase6/README.md`); both are
+narrower than E1's radio-off tail (max 394.8 ms, *n* = 116) because they are smaller samples —
+report E1's wider, better-sampled tail as the primitive's true worst case, and the bench figures
+only as what a specific scripted run saw. A whole handshake on the bench took 329-545 ms
+(median 439, 9 of 9 successful; USB-powered, not an energy measurement).
 
 ### 6.2 Energy rig
 
@@ -491,28 +496,103 @@ computes both parts and their sum (derivation and formulas in its docstring; tes
 ESTIMATED per-attempt reception cost, the long-run worst case is about 50 mW budgeted plus
 about 1 mW unbudgeted — about 51 mW total.
 
-**The bound has not actually been tested on the rig, and we should not claim it has been.**
-Under GATE v2, ADAPTIVE measured +25.5 ± 3.0 mW; without a defence it measured +28.9 ± 2.3 mW.
-Both numbers happen to sit under the ≈51 mW worst case, but that is not evidence the bound did
-anything: the bucket starts full (*B* = 20 J) and, at the placeholder's charges, no 120 s run in
-this paper spent anywhere close to emptying it (Section 5's FORGE+ECHO arithmetic: ≈540 spends
-× 0.02 J ≈ 10.8 J, against 20 J + 6 J of refill — well under capacity). The bound (1)-(2) is a
-property of the bucket mechanics for *any* run long enough to matter; nothing here was. Worse,
-the bound only ever caps what is *charged*, not what the handshake actually costs: a real
-handshake on the mesh measured up to 65 mJ (Table 5) against a 20 mJ charge, so even a bucket
-that does run dry would still undercount the victim's real drain by that gap. Both of these are
-reasons to say the budget-bounded claim C3 is derived and consistent with what little data
-exists, not demonstrated: a run of 10+ minutes at the placeholder's refill rate, with *c_h* set
-to what a handshake (or a FORGE verify) actually costs, is the test this section still needs —
-the FORGE+ECHO result (Section 8) is the closest attempt so far (≈540 admits per 120 s window
-via GATE v2's rule 2), and even that did not run long enough to see rule 3 (DROP once exhausted)
-engage.
+**The bound now has a direct test, and it binds.** A 120 s window is too short at the
+placeholder's capacity (Section 5's FORGE+ECHO arithmetic: ≈540 spends × 0.02 J ≈ 10.8 J against
+20 J + 6 J of refill — well under capacity), so we ran it longer: 3 × 600 s FORGE+ECHO at 5/s
+against GATE v2, boards on USB with no INA219 (`paper/data/E_budget/`, 2026-10-27 evening; this
+measures the budget's own counters, not power, so it tests rule 3 directly rather than inferring
+it from watts). The budget ran dry in every run — rep 1 from a full 20 J bucket at +537 s, close
+to the ≈500 s a full bucket predicts at this attack's net drain; reps 2-3 started part-filled at
+8.6 J (170 s between attacks in that session only refilled 8.5 J of a 400 s-to-fill bucket) and
+emptied at +235 s and +260 s. After emptying, admissions in all three runs settled at
+**2.48-2.49 spends/s**, matching *r*/*c_h* = 0.05/0.02 = **2.5/s** almost exactly; everything
+else was DROPped by rule 3. This is the bound (1)-(2) holding in practice, not just in the
+arithmetic: whatever the attacker does once the bucket is empty, the admission rate the budget
+allows is fixed by *r*/*c_h*, independent of the score.
+
+The cap is still only on what field-1 *charges*, not what an admission actually costs: a FORGE
+admit really costs ≈3.45 mJ (Table 5), so the forced work surviving past the bucket's empty
+point is ≈2.5 × 3.45 mJ ≈ **8.6 mW, ESTIMATED** (no INA219 on this run) — down from the
++15-16 mW measured (Section 8, Table 6) while the bucket still had charge. That is the honest
+form of claim C3: the budget does bound the admission *rate* once exhausted, demonstrated here;
+it does not bound the energy per admission, which is still whatever *c_h* undercharges (Section 5).
+
+Against ADAPTIVE, the comparison is weaker evidence than this direct test: under GATE v2 it
+measured +25.5 ± 3.0 mW and undefended +28.9 ± 2.3 mW (Table 6), both under the ≈51 mW
+drain-bound estimate from `paper/analysis/drain_bound.py` (derivation and formulas in its
+docstring; tested in `test_drain_bound.py`), but ADAPTIVE's own 120 s runs never came close to
+emptying the bucket either, so those two numbers show the bound was not yet *violated*, not that
+it was *exercised* — the FORGE+ECHO run above is the one that actually drove the budget to its
+floor and is the stronger result.
 
 ## 9. EnergyGate on recorded traces
 
-[TODO S7. Retrain on traces recorded from these boards, split by recording session (never
-random), AUC and TPR at 1 % FPR next to the SIMULATED-trained model and a hand-tuned threshold
-rule.]
+**Data.** Field-1's own 8 features plus the SIMULATED-trained model's live score, printed once a
+second by the bench firmware (`FEAT` rows) under GATE v2, labelled from each run's timeline:
+6 attacks (FLOOD, INSIDER, SLOW_DRIP, FORGE, ADAPTIVE, ADAPTIVE_SPOOF) × 3 sessions, plus 3
+FORGE+ECHO sessions from the budget run (Section 8) — 6 sessions, 6,968 rows after dropping the
+few boundary rows neither class describes cleanly (`paper/data/E9_traces/`, 2026-10-27 evening;
+boards on USB, no INA219 — this retrain uses no power data). `battery_pct` is dropped: it is a
+constant 100 here (no battery on this rig, SIMULATED). `rssi_mean`/`rssi_var` read 0 when no
+HELLO arrived in the window, which is missing data, not a real 0 dBm, so we report both with and
+without those two features. `ml/train_energygate_real.py` does the retraining and the comparison
+below; it is a new, separate script from `train_energygate.py` (which still trains the shipped
+model from console-style traces) because this reads field-1's own FEAT rows, a different source.
+
+**Table 7. AUC and TPR at 1 % FPR**, evaluated by leave-one-**session**-out (never a random
+split — rows one second apart over a 5 s window overlap). The retrained rows pool every
+held-out session's predictions into one ROC curve; the shipped and hand-tuned rows are each one
+fixed scorer with no retraining, evaluated on every row the same way.
+
+| Model | AUC | TPR @ 1 % FPR |
+|---|---|---|
+| SIMULATED-trained (shipped today) | 0.876 | 0.754 |
+| Hand-tuned rule (`energygate.cpp`'s non-trained fallback, ported unchanged) | 0.794 | 0.401 |
+| Retrained on real traces, with RSSI | 0.936 | 0.878 |
+| **Retrained on real traces, without RSSI** | **0.950** | **0.903** |
+
+Dropping RSSI *improves* both metrics slightly, so the suspected leak (any RSSI sample at all
+correlating with "a HELLO arrived," which correlates with an attack in these particular
+sessions) is not inflating the with-RSSI numbers above the without-RSSI ones here; if anything
+the two RSSI features add noise on this rig. We still report both, since a different session
+mix could tip that the other way, and recommend training without RSSI until a trace set has
+attacks that genuinely look different in signal strength.
+
+**Retraining helps a lot against the one attacker that targeted this exact tree, and not at all
+against the one attacker that was never going to be caught by these features.** Per-label
+flagged fraction (threshold 0.5, retrained-without-RSSI model):
+
+| Label | SIMULATED-trained (shipped) | Retrained |
+|---|---|---|
+| FLOOD / INSIDER / FORGE / FORGE_ECHO | 1.00 (all four) | 1.00 (all four) |
+| **ADAPTIVE** | **0.00** | **0.98** |
+| ADAPTIVE_SPOOF | 0.00 | 0.86 |
+| SLOW_DRIP | 0.00 | 0.07 |
+| normal (false positives) | 0.00 | 0.01 |
+
+ADAPTIVE and ADAPTIVE_SPOOF (`firmware/src/attacker/attacker_pacer.h`) were built to pace
+`hs_per_s` just under the *shipped* SIMULATED-trained tree's split (Section 8), so it is
+unsurprising that model misses them entirely. Retraining on traces that actually contain
+ADAPTIVE closes most of that gap — catching 98 % of it — because the tree can now draw a split
+the pacer's target model never had reason to defend against. This is the ordinary arms race: a
+classifier retrained against a known attacker catches that attacker. **SLOW_DRIP is different:**
+it evades both models almost completely (7 % caught, even retrained), because at about one
+HELLO/minute it genuinely does not raise `hs_per_s` or any of the other 7 features inside the
+5 s window these features are computed over — there is no split a tree over these features
+*could* draw that would catch it without flagging ordinary low-rate traffic too. **This is the
+honest version of claim C3:** EnergyGate's score, however well trained, is not what stands
+between SLOW_DRIP and an exhausted budget — the token bucket is, and Section 8's 10-minute
+FORGE+ECHO run is where that bucket is shown actually binding, independent of any classifier's
+accuracy.
+
+**Limitations specific to this retrain:** one rig, one room, one fixed distance between boards
+— a held-out *session* is not a held-out *environment*, and these numbers should not be read as
+generalising to a different physical deployment. Under GATE v2 throughout, attacker traffic is
+shaped by what the gate allows through (e.g. INSIDER's `hs_fail` stays 0 because it is
+challenged, not admitted, so verification never runs and never fails), so these features
+describe traffic *as filtered by* the defence being evaluated, not raw attacker behaviour. The
+retrained model is not exported to firmware for this paper (`ml/export/energygate.h` is
+unchanged); doing so, and rerunning Section 8's grid against it, is future work.
 
 ## 10. Limitations
 
@@ -522,13 +602,14 @@ rule.]
   firmware; until it is retrained on recorded traces (Section 9) its behaviour on real traffic is
   not a result.
 - **Placeholder costs, now measured but not applied.** The joule budget's capacity and refill
-  rate are still placeholders, and never emptied in any 120 s run in this paper (Section 8). The
-  handshake cost placeholder (20 mJ) overcharges field-1's own measured share of a handshake
-  (≈14.9 mJ, Table 4) by about 1.3x, and overcharges a failed FORGE verify (≈3.5-3.9 mJ) by
-  about 5x; the challenge cost is below this rig's resolution as a positive measurement (bounded
-  above at ≈0.4 mJ, Section 5). None of this was written back into the firmware for this paper —
-  every run here used the original placeholders, and the budget-bounded claim C3 is derived, not
-  demonstrated on the rig (Section 8).
+  rate are still placeholders; a 10-minute FORGE+ECHO run does drive the bucket dry and show the
+  admission rate settle at *r*/*c_h* (Section 8), but that is a demonstration of the mechanism,
+  not evidence the placeholder values are the right ones. The handshake cost placeholder
+  (20 mJ) overcharges field-1's own measured share of a handshake (≈14.9 mJ, Table 4) by about
+  1.3x, and overcharges a failed FORGE verify (≈3.5-3.9 mJ) by about 5x; the challenge cost is
+  below this rig's resolution as a positive measurement (bounded above at ≈0.4 mJ, Section 5).
+  None of this was written back into the firmware for this paper — every run here used the
+  original placeholders.
 - **Absolute energy depends on an unsettled reference.** The INA219 and the DT830D differ by
   3.67 % in gain and 1.4-3.1 % in voltage; ratios are unaffected.
 - **Unauthenticated control channel.** GATE_REPORT, CONTROL and CHALLENGE travel in plaintext
