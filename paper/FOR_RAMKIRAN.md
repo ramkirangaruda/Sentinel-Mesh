@@ -118,8 +118,24 @@ related work, conclusion and references, which are still empty in `paper.md`, bu
 cookie fix. Title and authors differ too. Pick one file as the source. Also pick one TPR method: 0.754 (interpolated,
 yours) against 0.751 (`e9_retrain.py`) for the carried model.
 
-**Update, 2026-10-30: blocker fixed in firmware, not yet run on boards.** Your branch is merged into
-`paper/e5-grid-tooling`. The gateway keeps its (epoch, seq) on a cookie retry; the attacker has `ECHO same` (the old
-`ECHO on` stays, to reproduce the earlier runs); `paper/tools/session_cookie_rerun.sh` runs the rerun on the INA219 rig,
-writing to `paper/data/E_cookie_fix/`. Merge this branch before touching the firmware. Section 10's "resends the same
-header" is now true once these are flashed. Sections 8 and 10 still need the rerun numbers.
+**Update, 2026-10-30: blocker fixed in firmware.** Your branch is merged into `paper/e5-grid-tooling`. The gateway keeps
+its (epoch, seq) on a cookie retry; the attacker has `ECHO same` (the old `ECHO on` stays, to reproduce the earlier runs).
+Merge this branch before touching the firmware. Section 10's "resends the same header" is now true.
+
+## 7. Cookie rerun results, 2026-10-31 (INA219 rig, firmware 7afdea4)
+All from `paper/data/E_cookie_fix/README.md`; rebuild with `python paper/analysis/cookie_fix_summary.py`. Use these in
+Sections 8 and 10, and in the `paper/ieee/paper.tex` text that says the fix is pending.
+- **No attack:** the real gateway succeeds 25/28, so the fix does not lock it out.
+- **Old echo (fresh seq):** stopped. -1.2 mW under both defences, within noise, against +15-16 mW on the reusable cookie.
+- **Same-seq echo:** still admitted, 3.77/s against about 4.5/s before, for about 560 echoes per 120 s instead of about 30.
+  +7.0 ± 3.2 mW (cookie), +7.1 ± 5.6 mW (gate v2), n = 5 each. **So write "makes the attack dearer", not "closes it".**
+- **The budget's power effect is now measured (use in Section 8):** 900 s same-seq, n = 3. Bucket empties at +633/+412/+415 s;
+  admissions hold at 2.42/s (bound 2.5/s); extra power falls from +12.2 ± 4.3 to **+5.5 ± 2.4 mW**. Replace the 8.6 mW
+  ESTIMATED. Same caveat as before: it caps what F charges.
+- **Availability, which the paper must say:** the real gateway gets 8-17 % success under every attack here (25/28 with no
+  attack), including the attack the cookie stops, and emptying the bucket does not change it. The defences protect energy,
+  not availability. The cause is not established yet.
+- **Noise:** runs vary by several mW, so give the ranges in the README. The +7 and +12.2 figures come from different window
+  lengths at similar spend rates.
+- **Controls are still to come** (running overnight 2026-10-31): no defence, FORGE without echo, 15 min no attack, 15 min under
+  cookie. They should tell us what causes the availability loss and how large the drift is. Leave that sentence open until then.

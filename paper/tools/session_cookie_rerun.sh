@@ -18,5 +18,13 @@ case "${1:-}" in
           $GRID --attacks FORGE --echo-same --reps 5 --tag sameseq ;;
   budget) $PY paper/tools/run_e5_grid.py $P --defences gate --attacks FORGE --echo-same --flood 900 --pause 260 \
               --reps 3 --out $OUT --tag budget15 ;;
-  *) echo "usage: $0 smoke|grid|budget"; exit 2 ;;
+  # controls (about 3 h): same firmware and rig as grid. No defence for reference; FORGE without echo, to separate the
+  # echo's effect on the gateway; 15 min with no attack, for power drift; 15 min under cookie, which has no budget.
+  controls) $PY paper/tools/run_e5_grid.py $P --defences none --attacks OFF --reps 3 --out $OUT --tag refnone
+          $PY paper/tools/run_e5_grid.py $P --defences none --attacks FORGE --reps 5 --out $OUT --tag refnone
+          $GRID --attacks FORGE --reps 3 --tag noecho
+          $PY paper/tools/run_e5_grid.py $P --defences gate --attacks OFF --flood 900 --reps 3 --out $OUT --tag control15
+          $PY paper/tools/run_e5_grid.py $P --defences cookie --attacks FORGE --echo-same --flood 900 \
+              --reps 3 --out $OUT --tag long15 ;;
+  *) echo "usage: $0 smoke|grid|budget|controls"; exit 2 ;;
 esac
