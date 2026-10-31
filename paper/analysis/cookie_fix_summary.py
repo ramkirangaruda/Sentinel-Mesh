@@ -23,7 +23,7 @@ F1 = re.compile(r"LOG field1 .*?spend=(\d+) challenge=(\d+) drop=(\d+) busy_drop
 GW = re.compile(r"LOG gw stats hs started=(\d+) ok=(\d+) failed=(\d+)")
 NRG = re.compile(r'NRG \{.*?"power_mw":(-?[\d.]+),"volts":(-?[\d.]+)')
 RSSI = re.compile(r'"node":"gateway".*?"rssi_mean":(-?[\d.]+)')
-ECHO = re.compile(r"LOG attacker stats .*?cookie_echoes=(\d+)")
+ECHO = re.compile(r"LOG attacker stats .*?frames=(\d+) .*?cookie_echoes=(\d+)")
 F1_KEYS = ["spend", "challenge", "drop", "busy", "f_ok", "f_fail"]
 
 
@@ -53,6 +53,15 @@ def delta(series, t0, t1):
     if a is None or b is None:
         return None
     return [y - x for x, y in zip(a, b)]
+
+
+def wilson(k, n, z=1.96):
+    """95 % interval for a proportion; handshakes are treated as independent, which is approximate."""
+    if not n:
+        return float("nan"), float("nan")
+    p, d = k / n, 1 + z * z / n
+    mid, half = (p + z * z / (2 * n)) / d, z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d
+    return max(0.0, mid - half), min(1.0, mid + half)
 
 
 def mean_p(nrg, t0, t1):
@@ -85,11 +94,11 @@ def run_summary(tl_path):
         m = NRG.search(s)
         if m:
             nrg.append((t, correct_power_mw(float(m[1]), float(m[2]))))
-    echoes = None
+    echoes = frames = None
     for t, s in lines(base + "_A.log"):
         m = ECHO.search(s)
         if m:
-            echoes = int(m[1])
+            frames, echoes = int(m[1]), int(m[2])
     idle, n_idle = mean_p(nrg, 5, t_def)
     during, n_during = mean_p(nrg, t_on + 5, t_off)
     rec, _ = mean_p(nrg, t_off + 5, defs[2][0] if len(defs) > 2 else t_off + 60)
@@ -100,7 +109,10 @@ def run_summary(tl_path):
          "idle_mw": idle, "attack_mw": during, "recovery_mw": rec, "extra_mw": during - idle,
          "drift_mw": rec - idle, "started": g[0], "ok": g[1], "failed": g[2],
          "rssi": statistics.mean(v for t, v in rssi if t_on <= t < t_off) if any(t_on <= t < t_off for t, v in rssi)
-         else float("nan"), "echo_cum": echoes, "nrg_rows": len(nrg)}
+         else float("nan"), "echo_cum": echoes, "frames_cum": frames, "nrg_rows": len(nrg),
+         "recovery_ok": (delta(gw, t_off + 10, defs[2][0]) or [None, None])[1]}
+    if length > 300:
+        r["bins"] = [mean_p(nrg, t_on + b, t_on + b + 150)[0] - idle for b in range(5, 755, 150)]
     r.update(dict(zip(F1_KEYS, d)))
     # first relayed drop: the budget has emptied by then (cookie has no budget, and gate has none before this)
     empty = next((t for t, v in f1 if t >= t_on and at(f1, t_on) and v[2] > at(f1, t_on)[2]), None)
@@ -128,10 +140,11 @@ def main():
     runs = [run_summary(p) for p in sorted(glob.glob(os.path.join(runs_dir, "*_timeline.txt")))
             if os.path.exists(p[: -len("_timeline.txt")] + "_M.log")
             and sum(1 for l in open(p) if "-> G: DEFENSE" in l) == 3]
-    prev = None
+    prev = prev_f = None
     for r in runs:      # A's echo counter is cumulative, so a run counts only if the run before it has a reading too
         r["echoes"] = r["echo_cum"] - prev if r["echo_cum"] is not None and prev is not None else None
-        prev = r["echo_cum"]
+        r["frames_s"] = (r["frames_cum"] - prev_f) / r["attack_s"] if r["frames_cum"] is not None and prev_f is not None else None
+        prev, prev_f = r["echo_cum"], r["frames_cum"]
     print(f"{'run':<52}{'idle':>7}{'extra':>7}{'drift':>7}{'rssi':>6}{'spend':>6}{'chal':>6}{'drop':>6}{'busy':>6}"
           f"{'echo':>6}  gw ok/started")
     for r in runs:
@@ -155,6 +168,21 @@ def main():
               f"{statistics.mean(x['drift_mw'] for x in v):10.1f}{avg('spend') / sec:9.2f}{avg('challenge') / sec:8.2f}"
               f"{avg('drop') / sec:8.2f}{(statistics.mean(ec) if ec else float('nan')):9.0f}{f'{ok}/{st}':>15}"
               f"{100 * ok / st if st else float('nan'):6.0f}%")
+    print(f"\n{'real gateway by attacker load':<34}{'frames/s':>9}{'ok/started':>12}{'rate':>6}  95 % interval")
+    for name, tags in [("no attack", ("noattack", "control15", "refnone")), ("FORGE, no echo", ("noecho",)),
+                       ("FORGE, no echo, no defence", ("refnone",)), ("same-seq echo, 120 s", ("sameseq",)),
+                       ("same-seq echo, 900 s, gate", ("budget15",)), ("same-seq echo, 900 s, cookie", ("long15",)),
+                       ("old echo", ("oldecho",))]:
+        v = [x for k, c in cells.items() if k[2] in tags and (k[1] == "OFF") == (name == "no attack") for x in c]
+        fr = [x["frames_s"] for x in v if x["frames_s"] is not None]
+        ok, st = sum(x["ok"] or 0 for x in v), sum(x["started"] or 0 for x in v)
+        lo, hi = wilson(ok, st)
+        print(f"{name:<34}{(statistics.mean(fr) if fr else float('nan')):9.0f}{f'{ok}/{st}':>12}{100 * ok / st:5.0f}%"
+              f"  {100 * lo:.0f}-{100 * hi:.0f} %")
+    print("\nExtra power per 150 s of a long attack (mW):")
+    for r in runs:
+        if "bins" in r and r["attack"] != "OFF":
+            print(f"{r['run'][:51]:<52}" + " ".join(f"{b:6.1f}" for b in r["bins"]) + f"   gw ok in recovery {r['recovery_ok']}")
     longs = [r for r in runs if "t_empty_s" in r and r.get("after_mw") is not None]
     if longs:
         print("\nLong runs, split at the first relayed drop:")
@@ -163,9 +191,9 @@ def main():
                   f"  spend/s {r['spend_s_before']:.2f} -> {r['spend_s_after']:.2f}  drop/s {r['drop_s_after']:.2f}"
                   f"  gw {r['ok_before']}/{r['started_before']} -> {r['ok_after']}/{r['started_after']}")
     if out:
-        keys = sorted({k for r in runs for k in r})
+        keys = sorted({k for r in runs for k in r} - {"bins"})
         with open(out, "w", newline="") as f:
-            w = csv.DictWriter(f, fieldnames=keys)
+            w = csv.DictWriter(f, fieldnames=keys, extrasaction="ignore")
             w.writeheader()
             w.writerows(runs)
 
