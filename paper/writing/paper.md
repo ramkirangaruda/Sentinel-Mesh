@@ -204,12 +204,15 @@ handshake is charged *c_h*, a challenge *c_c*. The firmware's values (`firmware/
   So *c_h* = 0.02 J (20 mJ) overcharges field-1's own share by about 1.3x, not the "roughly
   right" we first reported — a smaller gap than the FORGE case below, but still an overcharge,
   not a match. With radio and reception the per-handshake cost measured on the mesh ranges
-  9-65 mJ (ML-DSA signing time varies 80-560 ms; Section 7), so the placeholder sits inside that
+  9-65 mJ (the whole handshake took 80-560 ms; Section 7), so the placeholder sits inside that
   range without being its mean.
 - a FORGE HELLO, which never completes a handshake but does run a full ML-DSA-65 verify before
-  failing, costs about 3.5-3.9 mJ (Section 8) — this is the cost *c_h* is actually charged
-  against when GATE admits a forged HELLO under CHALLENGE's rule 2, and the placeholder
-  overcharges that case by about 5x (it was sized for a full handshake, not a failed verify).
+  failing, costs about 3-3.9 mJ: the marked-op estimate from the original rig run was
+  3.45-3.9 mJ (Section 8), and the cookie-fix rerun's own FORGE-without-echo reference
+  (`paper/data/E_cookie_fix/`: +14.7 ± 0.9 mW at 4.97 verifies/s) agrees at about 3 mJ per
+  verify. This is the cost *c_h* is actually charged against when GATE admits a forged HELLO
+  under CHALLENGE's rule 2, and the placeholder overcharges that case by about 7x (20 mJ
+  against ≈3 mJ; it was sized for a full handshake, not a failed verify).
 - *c_c*, the cost of sending one CHALLENGE frame, is **below this rig's resolution** as a
   positive measurement, but we can bound it: every gate-v2 cell whose attacker does not echo a
   cookie (so CHALLENGE dominates, not SPEND) reads within about ±2 mW of zero extra power over
@@ -221,6 +224,19 @@ handshake is charged *c_h*, a challenge *c_c*. The firmware's values (`firmware/
 These measured values are not yet written back into the firmware (that is a team decision, not
 done for the paper); the PLACEHOLDERs above are what every run in this paper actually used. When
 an admission is refused because the crypto task is busy, its charge is refunded.
+
+**The cap only binds in Section 8 because *c_h* is the placeholder, not an honest cost — and
+that needs saying plainly, not discovering by rerun.** The budget's sustainable admission rate
+is *r*/*c_h*. At the shipped placeholder, that is 0.05 J/s / 0.02 J = 2.5 admits/s, below the
+≈4.7-5/s a FORGE attacker sustains, so the bucket drains (Section 8). At the honest cost
+measured above (≈3 mJ per forced verify), the same arithmetic gives 0.05/0.003 ≈ **16.7
+admits/s** — comfortably above a 5/s attacker's own rate, so on average it would never empty
+the bucket at all: this follows directly from the budget's mechanics (Section 5's inequality)
+and the already-measured attacker rate and refill rate, and needs no new experiment to show.
+**We are not claiming the bound binds against this attacker in general — only that it binds
+*here*, because the placeholder happens to overcharge by about 7x.** Setting *c_h* honestly
+and *r* from an actual target battery life (not quoted here; it is a team decision, not a
+measurement) is future work, and would change which attack rates the budget actually stops.
 
 **Decision rules, policy v2** (default; `gate_policy.h`). With score *p*, spend threshold
 0.7 and challenge threshold 0.4 (placeholders):
@@ -276,9 +292,11 @@ optimised Curve25519 code, so they are not a fair PQC-versus-classical compariso
 
 With Wi-Fi running, level-3 signing on the bench took 38-250 ms (median 78) in one earlier
 scripted run and 38-287 ms across several runs (`paper/data/E_phase6/README.md`); both are
-narrower than E1's radio-off tail (max 394.8 ms, *n* = 116) because they are smaller samples —
-report E1's wider, better-sampled tail as the primitive's true worst case, and the bench figures
-only as what a specific scripted run saw. A whole handshake on the bench took 329-545 ms
+narrower than E1's radio-off tail (max 394.8 ms, *n* = 116) because they are smaller samples;
+rejection sampling has no fixed maximum, so 394.8 ms is the largest value *observed* over E1's
+116 signatures, not a proven worst case — report it as E1's wider, better-sampled tail, and the
+bench figures only as what a specific scripted run saw. A whole handshake on the bench took
+329-545 ms
 (median 439, 9 of 9 successful; USB-powered, not an energy measurement).
 
 ### 6.2 Energy rig
@@ -378,8 +396,8 @@ this duty-cycle assumption is required before any claim generalises to a sleepin
 
 | Event | Energy above idle | Source |
 |---|---|---|
-| One legitimate handshake | 9-65 mJ (80-560 ms; ML-DSA signing varies) | E_rig, n=1 per condition |
-| One admitted FORGE HELLO (full verify, fails at the end) | ≈3.45 mJ per marked op, ≈3.9 mJ from the window mean | E5 rig (Section 8) |
+| One legitimate handshake | 9-65 mJ (80-560 ms end to end; ML-DSA signing within it varies most) | E_rig, n=1 per condition |
+| One admitted FORGE HELLO (full verify, fails at the end) | ≈3.45 mJ per marked op (original rig run), ≈3 mJ from a dedicated no-echo reference rerun | E5 rig (Section 8); E_cookie_fix |
 | One admitted FLOOD HELLO (rejected during signature unpacking) | not measurably different from zero (Section 8) | E5 rig |
 
 [Figure 1: current trace of one handshake with phases marked — not yet made.]
@@ -442,26 +460,65 @@ above use the corrected `power_mw`; marked-op energies (`monitor,op_N`) were nev
   from the one this paper's energy claim is about.
 - **30-minute SLOW_DRIP** (*n* = 2) shows no measurable extra power either way.
 
-**FORGE + ECHO** (`paper/CONTEXT_2026-10-24.md`, 2026-10-27, 10 runs, gate-v2 firmware): the
-attacker echoes the cookie FORGE's resent HELLO received back, patches it into the cached
-template, and reuses it.
+**FORGE + ECHO, original run** (`paper/CONTEXT_2026-10-24.md`, 2026-10-27, 10 runs, gate-v2
+firmware 76692eb): the attacker echoed the cookie FORGE's resent HELLO received back, patched it
+into the cached template, and reused it unchanged — +15.1 ± 2.4 mW under COOKIE, +16.0 ± 0.5 mW
+under GATE v2 (both *n* = 5), legit success ≈0.13-0.14. The cookie as built then was *reusable*:
+it was not bound to a HELLO's nonce or (epoch, seq), so one echoed cookie admitted every later
+resend of the same cached template regardless of its (epoch, seq), and GATE v2's rule 2 ("a
+returned cookie admits whatever the score") let the same HELLOs through on top of that. This was
+a genuine weakness, and we reported it as one rather than a result to be proud of.
 
-| Defence | Extra F power (n=5) | F disposition | Legit success |
-|---|---|---|---|
-| cookie | +15.1 ± 2.4 mW (+2.5 %) | ≈545 spent (full verify), ≈40 challenged | 0.14 ± 0.32 |
-| gate v2 | +16.0 ± 0.5 mW (+2.7 %) | ≈540 spent, ≈40 challenged | 0.13 ± 0.31 |
-| (none, FORGE without ECHO, reference) | +19.0 ± 1.4 mW | ≈590 spent | 0.28 |
+**The cookie has since been bound to (sender, epoch, seq, time window)**
+(`firmware/lib/sentinel_proto/cookie.{h,cpp}`), closing the *reuse*: a resend with a different
+(epoch, seq) now needs its own CHALLENGE round trip. The first version of this fix broke the
+*real* gateway — its own cookie retry also sent a fresh (epoch, seq), so a bound cookie never
+verified for it either, locking it out under COOKIE and whenever GATE's score was low — caught
+in review before any rig time was spent on it, and fixed by having the gateway keep the
+challenged (epoch, seq) on a retry (`firmware/src/gateway/main.cpp`), matching what
+`paper/decisions.md` #5 already specified for a legitimate initiator.
 
-**The echoing forger defeated both COOKIE and GATE v2 as the cookie was built at the time of
-this run.** The attacker echoed only about 30 cookies per run, but the cookie as built then was
-*reusable*: it was not bound to a HELLO's nonce or (epoch, seq), so a single echoed cookie
-admitted every later resend of the same cached template. Gate v2's rule 2 ("a returned cookie
-admits whatever the score") let the same HELLOs through. This is a genuine weakness, not a
-result to be proud of, and we report it as one. It has since been fixed — the cookie now binds
-to (sender, epoch, seq, time window) (`firmware/lib/sentinel_proto/cookie.{h,cpp}`), so a
-resend with a different (epoch, seq) needs its own CHALLENGE round trip — but **this table is
-not yet rerun against the fix**; it still reports what the *old*, reusable cookie produced
-(Section 10 notes the fix and the pending rerun).
+**Table 6b. Cookie-fix rerun** (`paper/data/E_cookie_fix/`, 2026-10-30/31, INA219 rig, firmware
+`7afdea4`, 53 runs; 900 s windows used throughout except where marked, since early 120 s runs
+fall in a noisier stretch of the session — see that README's Limits). The attacker now has
+`ECHO same`, which answers a CHALLENGE under the *same* (epoch, seq) it was issued for — the
+behaviour a real echoing attacker needs, and the one `ECHO on`'s old fresh-seq echo never was.
+
+| Defence | Attacker | Window | Extra F power | Admits/s | Real gateway |
+|---|---|---|---|---|---|
+| none | none (control) | 900 s | +0.2 ± 0.4 mW | – | 128/132 overall, no attack |
+| none | FORGE, no echo | 120 s | +14.7 ± 0.9 mW | 4.97 | 17/35 |
+| cookie | FORGE, no echo / old (fresh-seq) echo | 120 s | within ≈1 mW of idle | ≈0.05 | 11/19, 6/47 |
+| gate v2 | FORGE, no echo / old (fresh-seq) echo | 120 s | within ≈1 mW of idle | ≈0.07 | 11/26, 4/51 |
+| cookie | `ECHO same` | 900 s | **+13.0 ± 1.0 mW** | 4.71 | 41/198 (21 %) |
+| gate v2 | `ECHO same` | 900 s | **+12.2 ± 4.3 mW before the bucket empties → +5.5 ± 2.4 mW after** | 4.50 → 2.42 | 13/172 (8 %) |
+
+**The fixed cookie makes `ECHO same` dearer for the attacker, it does not close the attack —
+say exactly that, not "fixed".** A non-echoing or old fresh-seq-echo attacker is now stopped
+(within about 1 mW of idle, against the undefended reference of about +14.7 mW); a same-seq
+echo still drains +13.0 mW under COOKIE, about 12 % below the undefended figure. The fix moved
+the attacker's cost from about 30 cheap echoes per run (the old, reusable cookie) to one echo
+per admitted HELLO — roughly 4.6-4.7 echoes/s, about double the frames on the air — but COOKIE
+itself has no energy budget, so that extra cost does not translate into less drain at the victim.
+
+**Under GATE v2, the joule budget is what actually limits a same-seq echo, and this is now a
+direct, measured result, not an estimate.** Three 900 s `ECHO same` runs against GATE v2 each
+ran the bucket dry (+633 s, +412 s, +415 s from varying starting balances) and admissions then
+settled at 2.42 admits/s, matching the *r*/*c_h* = 2.5/s bound; extra power fell from
+**+12.2 ± 4.3 mW before the bucket emptied to +5.5 ± 2.4 mW after** — this measured figure
+**replaces** the 8.6 mW ESTIMATE from the earlier counters-only budget run (below), while COOKIE
+(no budget) stays flat at +13.0 mW for as long as the attack runs. The first several minutes of
+any GATE v2 run show no benefit over COOKIE at all; the gap only opens once the bucket empties.
+
+**Availability is a separate finding this rerun surfaces, and the paper needs to say it
+plainly: these defences protect energy, not availability.** The real gateway's success rate
+tracks the attacker's *frame rate*, not whether field-1 is verifying anything: 49 % success at
+100 forged frames/s whether field-1 checks every forged HELLO (no defence) or none at all
+(COOKIE/GATE with no echo), and 8-21 % once the attacker echoes (more frames per admitted
+attempt). The mechanism is consistent with frame loss or airtime contention — a handshake needs
+all 39 HELLO+RESPONSE frames to arrive — but no frame-level loss was measured directly, so this
+is an observation, not a measured cause. Neither COOKIE nor GATE v2 restores availability in
+these runs; both recover within the last minute once the attack stops.
 
 An earlier INSIDER-ECHO block (10 runs) is **excluded** (`runlog.csv`, `excluded=y`): the
 attacker's cookie echo only fires when its crypto task is idle and the challenge matches its
@@ -499,34 +556,40 @@ computes both parts and their sum (derivation and formulas in its docstring; tes
 ESTIMATED per-attempt reception cost, the long-run worst case is about 50 mW budgeted plus
 about 1 mW unbudgeted — about 51 mW total.
 
-**The bound now has a direct test, and it binds.** A 120 s window is too short at the
-placeholder's capacity (Section 5's FORGE+ECHO arithmetic: ≈540 spends × 0.02 J ≈ 10.8 J against
-20 J + 6 J of refill — well under capacity), so we ran it longer: 3 × 600 s FORGE+ECHO at 5/s
-against GATE v2, boards on USB with no INA219 (`paper/data/E_budget/`, 2026-10-27 evening; this
-measures the budget's own counters, not power, so it tests rule 3 directly rather than inferring
-it from watts). The budget ran dry in every run — rep 1 from a full 20 J bucket at +537 s, close
-to the ≈500 s a full bucket predicts at this attack's net drain; reps 2-3 started part-filled at
-8.6 J (170 s between attacks in that session only refilled 8.5 J of a 400 s-to-fill bucket) and
-emptied at +235 s and +260 s. After emptying, admissions in all three runs settled at
-**2.48-2.49 spends/s**, matching *r*/*c_h* = 0.05/0.02 = **2.5/s** almost exactly; everything
-else was DROPped by rule 3. This is the bound (1)-(2) holding in practice, not just in the
-arithmetic: whatever the attacker does once the bucket is empty, the admission rate the budget
-allows is fixed by *r*/*c_h*, independent of the score.
+**The bound has two direct tests now, not one, and the second is the one to cite.** A 120 s
+window is too short at the placeholder's capacity (the original FORGE+ECHO run above: ≈540
+spends × 0.02 J ≈ 10.8 J against 20 J + 6 J of refill — well under capacity), so we ran it
+longer. The first attempt, 3 × 600 s FORGE+ECHO at 5/s against GATE v2 on the *old, reusable*
+cookie (boards on USB, no INA219, `paper/data/E_budget/`, 2026-10-27 evening), measured the
+budget's own counters rather than power, so it tests the admission-rate mechanism directly
+rather than inferring it from watts. The budget ran dry in every run — rep 1 from a full 20 J
+bucket at +537 s, close to the ≈500 s a full bucket predicts at this attack's net drain;
+reps 2-3 started part-filled at 8.6 J (170 s between attacks in that session only refilled 8.5 J
+of a 400 s-to-fill bucket) and emptied at +235 s and +260 s. After emptying, admissions in all
+three runs settled at **2.48-2.49 spends/s**, matching *r*/*c_h* = 0.05/0.02 = **2.5/s** almost
+exactly; everything else was DROPped by rule 3 — the inequality above holding in practice, not
+just in the arithmetic, whatever the attacker does once the bucket is empty.
 
-The cap is still only on what field-1 *charges*, not what an admission actually costs: a FORGE
-admit really costs ≈3.45 mJ (Table 5), so the forced work surviving past the bucket's empty
-point is ≈2.5 × 3.45 mJ ≈ **8.6 mW, ESTIMATED** (no INA219 on this run) — down from the
-+15-16 mW measured (Section 8, Table 6) while the bucket still had charge. That is the honest
-form of claim C3: the budget does bound the admission *rate* once exhausted, demonstrated here;
-it does not bound the energy per admission, which is still whatever *c_h* undercharges (Section 5).
+**The second test, after the cookie fix, replaces that run's energy estimate with a real
+measurement.** The `ECHO same` rerun in Section 8 (Table 6b) repeats this exact mechanism on the
+*bound* cookie and the *fixed* gateway, this time on the INA219: three 900 s runs, bucket empty
+by +412 to +633 s, admissions settling at 2.42 spends/s (again close to the 2.5/s bound), and
+measured extra power falling from +12.2 ± 4.3 mW before the bucket empties to
+**+5.5 ± 2.4 mW, measured,** after — **this is the number to quote, not the ≈8.6 mW the first
+run could only estimate** (it had charged ≈3.45 mJ per admit from Table 5 against no power
+reading at all). That is the honest form of claim C3: the budget does bound the admission
+*rate* once exhausted, demonstrated twice now; it does not bound the energy per admission,
+which is still whatever *c_h* undercharges (Section 5) — and Section 5 also now shows that this
+bound would not have engaged against this attacker at all had *c_h* been set honestly, since an
+honest *c_h* raises the sustainable rate above the attacker's own.
 
-Against ADAPTIVE, the comparison is weaker evidence than this direct test: under GATE v2 it
+Against ADAPTIVE, the comparison is weaker evidence than either direct test: under GATE v2 it
 measured +25.5 ± 3.0 mW and undefended +28.9 ± 2.3 mW (Table 6), both under the ≈51 mW
 drain-bound estimate from `paper/analysis/drain_bound.py` (derivation and formulas in its
 docstring; tested in `test_drain_bound.py`), but ADAPTIVE's own 120 s runs never came close to
 emptying the bucket either, so those two numbers show the bound was not yet *violated*, not that
-it was *exercised* — the FORGE+ECHO run above is the one that actually drove the budget to its
-floor and is the stronger result.
+it was *exercised* — the FORGE + `ECHO same` runs above are what actually drove the budget to
+its floor and are the stronger results.
 
 ## 9. EnergyGate on recorded traces
 
@@ -583,10 +646,16 @@ it evades both models almost completely (7 % caught, even retrained), because at
 HELLO/minute it genuinely does not raise `hs_per_s` or any of the other 7 features inside the
 5 s window these features are computed over — there is no split a tree over these features
 *could* draw that would catch it without flagging ordinary low-rate traffic too. **This is the
-honest version of claim C3:** EnergyGate's score, however well trained, is not what stands
-between SLOW_DRIP and an exhausted budget — the token bucket is, and Section 8's 10-minute
-FORGE+ECHO run is where that bucket is shown actually binding, independent of any classifier's
-accuracy.
+honest version of claim C3, stated carefully:** EnergyGate's score, however well trained, cannot
+see SLOW_DRIP. The budget is not what saves field-1 from it either — at one admitted HELLO per
+minute, SLOW_DRIP charges only *c_h*/60 s ≈ 0.02 J / 60 s ≈ 0.33 mW against a 50 mW refill rate,
+nowhere near enough to ever threaten the bucket (Section 8's budget tests both needed a 5 HELLO/s
+attacker to drain it at all). SLOW_DRIP is harmless here simply because its own drain is tiny
+(+0.2 mW, Table 6), not because any defence is doing something about it. The honest claim is
+narrower than "the budget is the guarantee": the budget is the guarantee against the *fast*
+attackers that can actually threaten it (Section 8); against a slow one that the score also
+cannot see, nothing in this system is doing anything — it survives only because it costs so
+little to let through.
 
 **Limitations specific to this retrain:** one rig, one room, one fixed distance between boards
 — a held-out *session* is not a held-out *environment*, and these numbers should not be read as
@@ -601,34 +670,52 @@ unchanged); doing so, and rerunning Section 8's grid against it, is future work.
 
 - **No battery.** The victim runs from a 5 V adaptor through the sensor; `battery_pct` is fixed
   at 100 (SIMULATED) and battery-life figures are derived from joules, not measured run-down.
-- **Model trained on SIMULATED traces** with slightly different feature definitions from the
-  firmware; until it is retrained on recorded traces (Section 9) its behaviour on real traffic is
-  not a result.
-- **Placeholder costs, now measured but not applied.** The joule budget's capacity and refill
-  rate are still placeholders; a 10-minute FORGE+ECHO run does drive the bucket dry and show the
-  admission rate settle at *r*/*c_h* (Section 8), but that is a demonstration of the mechanism,
-  not evidence the placeholder values are the right ones. The handshake cost placeholder
-  (20 mJ) overcharges field-1's own measured share of a handshake (≈14.9 mJ, Table 4) by about
-  1.3x, and overcharges a failed FORGE verify (≈3.5-3.9 mJ) by about 5x; the challenge cost is
-  below this rig's resolution as a positive measurement (bounded above at ≈0.4 mJ, Section 5).
-  None of this was written back into the firmware for this paper — every run here used the
-  original placeholders.
+- **The shipped firmware still carries the SIMULATED-trained model.** It was trained on
+  simulated traces with slightly different feature definitions from the firmware, and Section 9
+  has since retrained on real recorded traces and reported how that compares — but that retrained
+  tree is not exported to `firmware/lib/sentinel_proto/energygate_model.h`, so every power and
+  availability result in this paper (Section 8) still ran against the original SIMULATED-trained
+  model. Deploying the retrained model and rerunning Section 8 against it is future work.
+- **Placeholder costs, now measured but not applied — and shown to change which attacks the
+  budget stops.** The joule budget's capacity and refill rate are still placeholders. The
+  handshake cost placeholder (20 mJ) overcharges field-1's own measured share of a handshake
+  (≈14.9 mJ, Table 4) by about 1.3x, and overcharges a failed FORGE verify (≈3 mJ, Section 8)
+  by about 7x; the challenge cost is below this rig's resolution as a positive measurement
+  (bounded above at ≈0.4 mJ, Section 5). This is not a minor rounding issue: Section 5 shows
+  that at the honest ≈3 mJ cost the budget's sustainable rate (*r*/*c_h* ≈ 16.7 admits/s) would
+  sit *above* the 5 HELLO/s FORGE attack's own rate, so the bound demonstrated in Section 8 binds
+  *only because of the placeholder* — an honestly-costed budget would not have emptied against
+  this particular attacker at all. None of this was written back into the firmware for this
+  paper — every run here used the original placeholders.
 - **Absolute energy depends on an unsettled reference.** The INA219 and the DT830D differ by
   3.67 % in gain and 1.4-3.1 % in voltage; ratios are unaffected.
 - **Unauthenticated control channel.** GATE_REPORT, CONTROL and CHALLENGE travel in plaintext
   on the same radio the attacker shares; this is a lab rig.
-- **The cookie was not just echoable but reusable — fixed, rerun pending.** It used to be bound
-  to neither the HELLO's nonce nor its (epoch, seq), so a single echoed cookie admitted every
-  later resend of the same cached template (Section 8, FORGE + ECHO): the attacker echoed about
-  30 cookies per 120 s run but that admitted roughly 540 forged HELLOs. `firmware/lib/sentinel_proto/cookie.{h,cpp}`
-  now binds the cookie to (sender, epoch, seq, time window), so it answers only the exact HELLO
-  it was issued for; a legitimate retry (which resends the same header unmodified, per
-  `paper/decisions.md` #5) still verifies, but an attacker that mutates (epoch, seq) on every
-  resend — as FORGE and ADAPTIVE both do — now needs one fresh CHALLENGE round trip per admitted
-  HELLO, not per window. Host-tested (`firmware/test/test_native`, cookie reuse and legitimate-
-  retry regression cases); `pio run -e field_node -e gateway -e attacker` build clean.
-  **FORGE + ECHO has not been rerun against this fix on the rig** — the result quoted above is
-  still what the *old* cookie produced; the rerun needs the INA219 again (team decision, 2026-10-27).
+- **The cookie was not just echoable but reusable — fixed, and the fix rerun.** It used to be
+  bound to neither the HELLO's nonce nor its (epoch, seq), so a single echoed cookie admitted
+  every later resend of the same cached template (Section 8): the attacker echoed about 30
+  cookies per 120 s run but that admitted roughly 540 forged HELLOs. `firmware/lib/sentinel_proto/cookie.{h,cpp}`
+  now binds the cookie to (sender, epoch, seq, time window); a legitimate retry resends the
+  exact header it was challenged on (`firmware/src/gateway/main.cpp`, matching
+  `paper/decisions.md` #5) and still verifies, but an attacker that mutates (epoch, seq) on
+  every resend now needs one fresh CHALLENGE round trip per admitted HELLO, not per window.
+  **The first version of this fix broke the real gateway** — its own cookie retry also used a
+  fresh (epoch, seq), so it was locked out too; this was caught in review and fixed before any
+  rig time was spent on it. The rig rerun (Section 8, `paper/data/E_cookie_fix/`, 53 runs)
+  confirms the real gateway is not locked out (128/132 with no attack) and that the fix **makes
+  a same-seq echo dearer for the attacker, it does not close the attack**: COOKIE alone still
+  drains +13.0 mW against a +14.7 mW undefended reference (about 12 % less, and with no budget
+  to fall back on); GATE v2 does better once its budget empties (+5.5 mW), for the reasons
+  above. The rerun also surfaced a result outside this bullet's scope: the real gateway's
+  success rate tracks the attacker's frame rate, not its own crypto load — see Section 8's
+  availability finding.
+- **Our defences protect energy, not availability, and the paper should not blur that.** The
+  cookie-fix rerun (Section 8) found the real gateway's success rate tracks the attacker's
+  frame rate — 49 % at 100 forged frames/s whether field-1 verifies every one of them or none,
+  dropping further once the attacker echoes — not whether field-1 is spending crypto cycles.
+  Every defence in this paper is scored on energy and on legitimate success together (Table 6),
+  but none of them was designed to, or shown to, restore availability under load; that would be
+  a different mechanism (frame-level admission or airtime shaping) than anything evaluated here.
 - **Insider onset.** The score reacts to the 5 s window, so a few insider HELLOs are admitted
   before the window fills (about 5 of 566 in one bench run).
 - **Replay ring.** A captured signed HELLO whose epoch has aged out of the 8-entry ring can be
