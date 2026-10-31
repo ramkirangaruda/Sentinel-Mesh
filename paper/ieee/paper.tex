@@ -343,6 +343,15 @@ gate holds it near $+1.5$\,mW at every rate. A fast FLOOD costs no energy but dr
 to $\approx$0.07 through airtime and reassembly contention---a different denial than the energy one. (vi)~A 30-min
 SLOW\_DRIP shows no measurable extra power.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig_defence_flood.pdf}
+\caption{Field-1's corrected power under FLOOD, one rig run per defence (paper/data/E5\_rig, rep~1,
+25~Oct). The four traces sit on top of one another within noise, which is itself the finding: FLOOD
+costs no measurable energy under any defence (Table~\ref{tab:e5}).}
+\label{fig:defence}
+\end{figure}
+
 \textbf{FORGE + ECHO (original run, unbound cookie) drew $+15.1\pm2.4$\,mW under COOKIE and $+16.0\pm0.5$\,mW
 under gate~v2} ($n=5$), $\approx$540 forged HELLOs spent per run, legit success $\approx$0.13. The cookie as built
 then was \emph{reusable}: bound to neither the HELLO's nonce nor its (epoch, seq), so $\approx$30 echoes admitted
@@ -460,8 +469,13 @@ never sleeps.
 \item \textbf{Placeholder budget, shown to matter}: every run used $c_h=20$\,mJ, $\approx7\times$ a forged verify's
 real $\approx$3\,mJ cost; at the honest cost the bound's sustainable rate ($\approx$16.7\,s$^{-1}$) exceeds this
 attacker's own ($\approx$5\,s$^{-1}$), so it would not have bound at all. Measured costs are not yet written back.
-\item \textbf{Attacker energy} is not measured (no second monitor), so the victim-to-attacker energy ratio of C2 is
-still outstanding; we report victim power only.
+\item \textbf{Attacker energy and claim C2's ratio need a second monitor we do not have.} We report victim power
+only; the victim-to-attacker energy ratio C2 actually claims is future work, not an ESTIMATED stand-in, since any
+airtime-based estimate would hide real variance a second INA219 would catch. This is hardware we do not have
+access to while writing, not a measurement we chose to skip.
+\item \textbf{A current trace of one handshake with its phases marked (Figure~\ref{fig:defence}'s intended
+companion) is future work for the same reason}: it needs oscilloscope-rate sampling on the rig, which was not
+captured during the runs this paper draws on.
 \item \textbf{Cookie reuse, fixed and rerun}: the original cookie bound to neither the HELLO's nonce nor its
 (epoch, seq); the fix (Section~\ref{sec:attack}) makes a real echo dearer, not free, and a first version of it
 locked out the legitimate gateway until the gateway's own retry was corrected to match.

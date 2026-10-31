@@ -6,6 +6,15 @@ rule. Separate from `train_energygate.py` (which trains the shipped model from
 `paper/data/E9_traces/traces_field1.csv`, field-1's OWN feature vector (FEAT rows the bench
 firmware now prints, not the console's Trace events), recorded under gate v2 on real hardware.
 
+NOT the canonical script for the numbers the paper quotes -- that is
+`paper/analysis/e9_retrain.py` (also what `paper/ieee/paper.tex` cites). The two agree on AUC but
+not on TPR at 1% FPR: this script's `tpr_at_fpr` linearly interpolates between the two nearest ROC
+points, which can describe an operating point no actual threshold achieves; `e9_retrain.py`
+instead reports the best TPR among thresholds that do not exceed 1% FPR, which is the more
+conservative, paper-quoted figure (0.751 for the shipped model here vs 0.754 there). Kept for its
+extra per-session AUC breakdown and its direct port of firmware's non-trained fallback rule
+(`hand_tuned_rule_score`, distinct from e9_retrain.py's simpler `hs_per_s > 0.5` "rate rule").
+
   python ml/train_energygate_real.py [--csv paper/data/E9_traces/traces_field1.csv]
                                       [--out ml/reports/energygate_real_metrics.json]
 

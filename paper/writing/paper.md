@@ -1,5 +1,15 @@
 <!--
 SentinelMesh paper draft (task S6, paper/WORK_SPLIT.md). Owner: person S.
+
+CANONICAL SOURCE: paper/ieee/paper.tex (2026-10-31 decision). Two drafts had been developing in
+parallel -- this file (detailed working notes, every number traced to its source) and the IEEE
+submission draft, which already had the abstract, related work, conclusion and references this
+file was still missing. paper.tex is now the one that gets submitted; its title and author list
+(below) are authoritative. This file stays as supplementary detail -- the working-notes version
+of every result, kept in sync with paper.tex's findings but not reformatted to match its compact
+IEEE prose. When the two disagree on a number, paper.tex is right; fix this file to match, not
+the other way round.
+
 Markdown for now; convert to the venue's LaTeX template with pandoc once a venue is chosen.
 Every number here cites the repo file it comes from. Markers:
   [TODO S2] / [TODO S3] / [TODO S5] / [TODO S7]  filled from that task's tables
@@ -7,19 +17,40 @@ Every number here cites the repo file it comes from. Markers:
   SIMULATED / ESTIMATED / PLACEHOLDER            stay in the text until real data replaces them
 -->
 
-# The Battery, Not the Message: Measuring and Bounding Energy-Exhaustion Attacks on Post-Quantum Handshakes in a Microcontroller Mesh
+# EnergyGate: Defending Battery-Powered IoT Nodes Against Post-Quantum Handshake Exhaustion Attacks
 
-*Working title. Authors: Navika Kapoor, Chaitanya Patil, Adithya Binoj Nair, Ramkiran (team "One Last Run").*
+*Title and author list as of `paper/ieee/paper.tex` (canonical). Authors: Ramkiran Garuda,
+Chaitanya Patil, Adithya Binoj Nair (VIT SCOPE). This file's working title above
+("The Battery, Not the Message...") and its earlier four-author byline are superseded.*
 
 ## Abstract
 
-[TODO after S2/S3. About 200 words, in this order: the problem (a forged post-quantum HELLO
-costs a battery-powered node a signature verification, and more if admitted); what we
-measured (per-operation and per-handshake energy on an ESP32 with the radio on, through a
-calibrated INA219 rig); the attack (victim joules per attacker joule for flood, insider and
-slow-drip attackers); the defence (EnergyGate: a first-fragment score and a joule budget
-deciding spend, challenge or drop before any public-key work); the headline numbers with
-their 95 % CIs; the bound that still holds when the classifier is fooled; the artifact.]
+*(Ported from `paper/ieee/paper.tex`, the canonical source — fix there first, then copy here.)*
+
+A battery-powered field device that accepts post-quantum handshakes pays for every request it
+is asked to check, whether or not the request is genuine. We measure that cost on commodity
+ESP32 microcontrollers running ML-KEM (FIPS 203) and ML-DSA (FIPS 204) over a broadcast ESP-NOW
+mesh, through a calibrated high-side INA219 rig. At NIST level 3 the responder's share of one
+handshake costs ≈14.9 mJ above idle; a forged HELLO carrying a structurally valid signature
+forces a full ML-DSA-65 verification (≈3 mJ) before it fails. Over 120 s attacks (*n* = 5, 95 %
+CI), an undefended insider raises the victim's power by +91.2 ± 3.3 mW and cuts legitimate
+handshake success to 0.21; a single-signature forger adds +19.0 ± 1.4 mW. We present
+*EnergyGate*, which decides at the first fragment of a HELLO — before reassembly and before any
+public-key work — whether to spend, challenge or drop, using an eight-feature link score and a
+joule token bucket. It removes the insider drain (+1.1 mW) without locking out the real gateway,
+but an attacker that echoes the broadcast cookie under the *same* (epoch, seq) it was challenged
+on still drains the victim (+13.0 mW under a cookie that binds to that exact header, down from an
+unbound cookie's +16.0 mW — the fix makes the echo dearer for the attacker, not free). The joule
+budget is what actually limits this: in 900 s echo attacks under our gate it empties and
+admissions settle near the refill bound *r*/*c_h* = 2.5 s⁻¹, measured extra power falling from
++12.2 ± 4.3 to +5.5 ± 2.4 mW once it does — but only because our placeholder charge overcosts a
+forged verify by ≈7×; at an honest cost the same bound would sit above this attacker's own rate
+and never bind. A slow, one-per-minute attacker evades the score entirely and never drains the
+budget either — its own cost is simply too small to matter. Our defences also protect energy, not
+availability: the real gateway's success rate tracks the attacker's frame rate (49 % at 100
+frames/s) whether or not the victim is spending any crypto cycles at all. Retrained on recorded
+traces and evaluated by session, the gate's tree reaches AUC 0.95 and catches most adaptive
+traffic the shipped model misses, though the shipped firmware still carries the original model.
 
 ## 1. Introduction
 
@@ -601,47 +632,52 @@ few boundary rows neither class describes cleanly (`paper/data/E9_traces/`, 2026
 boards on USB, no INA219 — this retrain uses no power data). `battery_pct` is dropped: it is a
 constant 100 here (no battery on this rig, SIMULATED). `rssi_mean`/`rssi_var` read 0 when no
 HELLO arrived in the window, which is missing data, not a real 0 dBm, so we report both with and
-without those two features. `ml/train_energygate_real.py` does the retraining and the comparison
-below; it is a new, separate script from `train_energygate.py` (which still trains the shipped
-model from console-style traces) because this reads field-1's own FEAT rows, a different source.
+without those two features. `paper/analysis/e9_retrain.py` does the retraining and the
+comparison below; it is the canonical script for this section's numbers (also what
+`paper/ieee/paper.tex` quotes), reading field-1's own FEAT rows, not the console-style traces
+`ml/train_energygate.py` still trains the shipped model from.
+
+*A note on method, so a reader comparing scripts is not confused:* an earlier pass through this
+data (`ml/train_energygate_real.py`, kept for its extra per-session breakdown and its direct
+port of the firmware's own non-trained fallback rule) computed TPR at 1 % FPR by linearly
+interpolating between the two nearest ROC points, which can imply an operating point no actual
+threshold achieves. `e9_retrain.py` instead reports the best TPR among thresholds that do not
+*exceed* 1 % FPR — more conservative, and the number we use throughout this paper (0.751 for
+the shipped model, not 0.754).
 
 **Table 7. AUC and TPR at 1 % FPR**, evaluated by leave-one-**session**-out (never a random
 split — rows one second apart over a 5 s window overlap). The retrained rows pool every
-held-out session's predictions into one ROC curve; the shipped and hand-tuned rows are each one
-fixed scorer with no retraining, evaluated on every row the same way.
+held-out session's predictions into one ROC curve; the shipped and rate-rule rows are each one
+fixed scorer with no retraining, evaluated on every row the same way. Per-label detection rates
+are at score threshold 0.5.
 
-| Model | AUC | TPR @ 1 % FPR |
-|---|---|---|
-| SIMULATED-trained (shipped today) | 0.876 | 0.754 |
-| Hand-tuned rule (`energygate.cpp`'s non-trained fallback, ported unchanged) | 0.794 | 0.401 |
-| Retrained on real traces, with RSSI | 0.936 | 0.878 |
-| **Retrained on real traces, without RSSI** | **0.950** | **0.903** |
+| Model | AUC | TPR @ 1 % FPR | SLOW_DRIP | ADAPTIVE | ADAPTIVE_SPOOF | FORGE_ECHO |
+|---|---|---|---|---|---|---|
+| SIMULATED-trained (shipped today) | 0.876 | 0.751 | 0.00 | 0.00 | 0.00 | 1.00 |
+| Rate rule (`hs_per_s` > 0.5) | 0.905 | 0.809 | 0.00 | 0.82 | 0.06 | 1.00 |
+| Retrained on real traces, with RSSI | 0.935 | 0.881 | 0.05 | 0.93 | 0.74 | 1.00 |
+| **Retrained on real traces, without RSSI** | **0.950** | **0.903** | 0.07 | 0.97 | 0.86 | 1.00 |
 
-Dropping RSSI *improves* both metrics slightly, so the suspected leak (any RSSI sample at all
-correlating with "a HELLO arrived," which correlates with an attack in these particular
+Dropping RSSI *improves* both AUC and TPR slightly, so the suspected leak (any RSSI sample at
+all correlating with "a HELLO arrived," which correlates with an attack in these particular
 sessions) is not inflating the with-RSSI numbers above the without-RSSI ones here; if anything
 the two RSSI features add noise on this rig. We still report both, since a different session
 mix could tip that the other way, and recommend training without RSSI until a trace set has
-attacks that genuinely look different in signal strength.
+attacks that genuinely look different in signal strength. The simple rate rule — a single
+threshold on `hs_per_s`, the one feature the shipped tree's own split already leaned on — beats
+the shipped model outright and catches most of ADAPTIVE (0.82) that the shipped model missed
+entirely (0.00), but it still misses ADAPTIVE_SPOOF (0.06) and SLOW_DRIP (0.00): pacing is
+enough to beat a rule that only looks at rate, but not a tree that can also use the other six
+features, which is why the retrained tree does better still (0.86 and 0.07 respectively).
 
 **Retraining helps a lot against the one attacker that targeted this exact tree, and not at all
-against the one attacker that was never going to be caught by these features.** Per-label
-flagged fraction (threshold 0.5, retrained-without-RSSI model):
-
-| Label | SIMULATED-trained (shipped) | Retrained |
-|---|---|---|
-| FLOOD / INSIDER / FORGE / FORGE_ECHO | 1.00 (all four) | 1.00 (all four) |
-| **ADAPTIVE** | **0.00** | **0.98** |
-| ADAPTIVE_SPOOF | 0.00 | 0.86 |
-| SLOW_DRIP | 0.00 | 0.07 |
-| normal (false positives) | 0.00 | 0.01 |
-
-ADAPTIVE and ADAPTIVE_SPOOF (`firmware/src/attacker/attacker_pacer.h`) were built to pace
-`hs_per_s` just under the *shipped* SIMULATED-trained tree's split (Section 8), so it is
-unsurprising that model misses them entirely. Retraining on traces that actually contain
-ADAPTIVE closes most of that gap — catching 98 % of it — because the tree can now draw a split
-the pacer's target model never had reason to defend against. This is the ordinary arms race: a
-classifier retrained against a known attacker catches that attacker. **SLOW_DRIP is different:**
+against the one attacker that was never going to be caught by these features.** ADAPTIVE and
+ADAPTIVE_SPOOF (`firmware/src/attacker/attacker_pacer.h`) were built to pace `hs_per_s` just
+under the *shipped* SIMULATED-trained tree's split (Section 8), so it is unsurprising that
+model misses them entirely. Retraining on traces that actually contain ADAPTIVE closes most of
+that gap — catching 97 % of it — because the tree can now draw a split the pacer's target model
+never had reason to defend against. This is the ordinary arms race: a classifier retrained
+against a known attacker catches that attacker. **SLOW_DRIP is different:**
 it evades both models almost completely (7 % caught, even retrained), because at about one
 HELLO/minute it genuinely does not raise `hs_per_s` or any of the other 7 features inside the
 5 s window these features are computed over — there is no split a tree over these features
@@ -738,12 +774,52 @@ unchanged); doing so, and rerunning Section 8's grid against it, is future work.
 
 ## 11. Related work
 
-[S4: from paper/writing/related_work.md. Position against Gillot et al. 2026, the ESP32-C6
-PLOS ONE 2026 paper, Lee et al. 2026 (arXiv) and Hristozov et al.]
+*(Ported from `paper/ieee/paper.tex`, the canonical source; its reference list has the full
+citations. The systematic literature pass this condenses is `paper/writing/related_work.md`.)*
+
+**ML-KEM and ML-DSA.** ML-KEM is a module-lattice KEM and ML-DSA a module-lattice signature with
+rejection-sampled signing, so its signing time is variable [FIPS 203; FIPS 204]. We use
+PQClean's portable C implementations.
+
+**ESP-NOW** is Espressif's connectionless vendor-frame protocol, at most 250 bytes per frame in
+v1. We broadcast, so there is no link-layer retransmission and every station in range hears
+every frame.
+
+**PQC cost on small devices.** Gillot et al. measure ML-KEM/ML-DSA/SLH-DSA energy on Raspberry
+Pi and laptop platforms and TLS 1.3 PQC handshakes on Pico W, ESP32 and Pi Zero; Karcz et al.
+time the NIST schemes on an ESP32-C6. All characterise the cost the device *wants* to pay. None
+measures the cost an adversary chooses when to impose.
+
+**Handshake exhaustion.** Lee et al. show PQC-TLS prolongs high server CPU load under handshake
+exhaustion by up to 88× and degrades learned IDSs — server CPU, not battery. Hummen et al.
+protect constrained peers' public-key work with puzzles; client puzzles and cookies for key
+exchange are well studied. On a broadcast medium a stateless cookie only stops blind spoofers
+— our own FORGE + ECHO result (Section 8) is a direct demonstration of that limit, and of what
+still bounds an attacker once the cookie is beaten.
+
+**Battery exhaustion.** Stajano and Anderson named "sleep deprivation torture"; Pirretti et al.
+analyse sleep-deprivation attacks in sensor networks. Those defences sit at the MAC/clustering
+layer. From a first, non-systematic search (`paper/writing/related_work.md`) we found no prior
+measurement of the battery cost of abusive post-quantum handshake requests on a microcontroller
+and no defence that bounds it with a joule budget independent of a classifier; we do not claim
+this is exhaustive.
 
 ## 12. Conclusion
 
-[After results.]
+*(Ported from `paper/ieee/paper.tex`, the canonical source.)*
+
+On a battery-powered post-quantum responder the battery, not the message, is the attack
+surface: an enrolled insider raises the victim's power by 15 % and a single forged signature,
+resent, forces a full ML-DSA verify every time. A first-fragment gate removes most of the
+damage cheaply, but a learned score is evadable, and binding the broadcast cookie to the exact
+HELLO it answers makes a real echo dearer rather than free. The joule budget is the part that
+does not depend on being right about the attacker or the cookie: on the rig it pinned
+admissions to *r*/*c_h* and cut a same-seq echo's drain from +12.2 to +5.5 mW once it ran dry —
+but only because our placeholder cost overcharges a forged verify by ≈7×; at an honest cost the
+same attacker would never have drained it. Our defences also protect energy, not availability:
+the gateway's success tracked the attacker's frame rate regardless of which defence ran. Next
+steps are an honestly-costed budget (with *r* set from a target battery life), deploying the
+retrained gate, a second monitor for attacker energy, and a duty-cycled victim.
 
 ## Artifact
 
