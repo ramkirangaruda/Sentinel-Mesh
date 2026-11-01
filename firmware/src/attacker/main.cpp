@@ -166,6 +166,12 @@ static void job_make_signed_hello(void*) {
 static void tick_insider(uint32_t now, uint32_t interval_ms) {
     if (now - g_last_tx_ms < interval_ms || crypto_task_busy()) return;
     g_last_tx_ms = now;
+    // An echoing insider resends one signed HELLO instead of signing each time, so its crypto task is
+    // idle when a CHALLENGE arrives. Signing at 5/s kept it busy, and on_frame() never echoed.
+    if (g_mode == AttackMode::INSIDER && g_echo_cookie && g_hello_valid) {
+        send_hello_frames(static_cast<uint8_t>(NodeId::ATTACKER), g_hello, sizeof(g_hello), g_epoch++, g_seq++);
+        return;
+    }
     crypto_task_submit(job_make_signed_hello, nullptr);
 }
 
@@ -321,6 +327,7 @@ static void handle_command(const String& cmd) {
         else if (m == "FORGE") nm = AttackMode::FORGE;
         else { Serial.print("LOG unknown mode: "); Serial.println(m); return; }
         g_mode = nm;
+        g_hello_valid = false;   // FLOOD and others overwrite g_hello, so sign afresh on entering a mode
         if (nm == AttackMode::REPLAY) g_captured_len = 0;
         if (nm == AttackMode::ADAPTIVE || nm == AttackMode::ADAPTIVE_SPOOF) g_pacer.reset(millis());
         // Entering FORGE (from any other mode, including re-entering FORGE) always starts from a

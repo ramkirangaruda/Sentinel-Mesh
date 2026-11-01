@@ -10,6 +10,7 @@ set -u
 PY=~/sentinel-venv/Scripts/python
 P="--g ${G:-COM11} --a ${A:-COM4} --m ${M:-COM7}"
 OUT=paper/data/E_cookie_fix
+case "${1:-}" in insider*) OUT=paper/data/E_insider_echo ;; esac
 GRID="$PY paper/tools/run_e5_grid.py $P --defences cookie gate --out $OUT"
 case "${1:-}" in
   smoke)  $GRID --attacks OFF --reps 1 --baseline 20 --settle 10 --flood 180 --recovery 5 --tag smoke ;;
@@ -26,5 +27,15 @@ case "${1:-}" in
           $PY paper/tools/run_e5_grid.py $P --defences gate --attacks OFF --flood 900 --reps 3 --out $OUT --tag control15
           $PY paper/tools/run_e5_grid.py $P --defences cookie --attacks FORGE --echo-same --flood 900 \
               --reps 3 --out $OUT --tag long15 ;;
-  *) echo "usage: $0 smoke|grid|budget|controls"; exit 2 ;;
+  # Needs A flashed with the cached-HELLO insider; F and G stay at 7afdea4. Check cookie_echoes > 0 in the smoke's A log.
+  insider-smoke) $GRID --attacks INSIDER --echo-same --reps 1 --baseline 20 --settle 10 --flood 120 --recovery 5 \
+              --tag insiderecho_smoke ;;
+  # insider (about 4.7 h): an insider that echoes, which every earlier run failed to test.
+  # At about 2.6 admits/s (crypto slot full) it charges 53 mW against a 50 mW refill, so 600 s shows the drain, not an empty
+  # bucket. Then plain INSIDER on this firmware, and cookie against gate on the FORGE echo, interleaved this time.
+  insider) $PY paper/tools/run_e5_grid.py $P --defences none cookie gate --attacks INSIDER --echo-same --flood 600 \
+              --reps 3 --out $OUT --tag insiderecho
+          $GRID --attacks INSIDER --reps 3 --tag insiderplain
+          $GRID --attacks FORGE --echo-same --flood 900 --pause 260 --reps 3 --tag paired15 ;;
+  *) echo "usage: $0 smoke|grid|budget|controls|insider-smoke|insider"; exit 2 ;;
 esac
