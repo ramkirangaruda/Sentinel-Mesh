@@ -143,3 +143,45 @@ Sections 8 and 10, and in the `paper/ieee/paper.tex` text that says the fix is p
 **Decision needed, c_h and r:** the cap binds here only because c_h = 20 mJ is about 7x a real forced verify (about 3 mJ). With an
 honest 3 mJ and r = 50 mW the cap is 16.7 admits/s, and a 5/s attacker never empties the bucket. Either say the placeholders are what
 make it bind, or set r from a target battery life and rerun. Also fix item 3.4's "failed verify 3.5-3.9 mJ" if you quote this figure.
+
+## 8. Review of cb87a32 and 6bbd8ab (2026-11-01)
+**Checked and fine:** the rerun numbers match `E_cookie_fix`, `e9_retrain.py` reproduces Table e9 exactly, Figure 2 uses corrected
+`power_mw`, and `paper.tex` builds to 6 pages with no errors or undefined references. `paper.pdf` is still the 10-29 one: rebuild it
+after these fixes (pdflatex is on Chaitanya's laptop if you need it).
+
+**Wrong, fix in `paper.tex`:**
+1. **Abstract:** "+13.0 mW under a cookie ... down from an unbound cookie's +16.0". +16.0 was gate v2; the cookie figure is +15.1.
+   It also compares across days, so say that or drop the comparison.
+2. **Table `tab:cookiefix`:** the +0.2 ± 0.4 control was **gate v2**, not "none". Its caption "(except control)" is wrong too, as the
+   control was also on the INA219. The table is 88 pt too wide and runs into the next column.
+3. **Echo rate:** "≈4.7 s⁻¹" is the admit rate. Echoes were 4.6/s.
+4. **"both recover within the attack's last minute once it stops":** should say the gateway reconnected within a minute after the attack stopped.
+5. **Figure/table mismatch:** the 900 s paragraph cites `fig:budget` and `tab:budget`, which show the older 600 s USB runs on the reusable
+   cookie. Add the 900 s per-rep table from `E_cookie_fix/README.md`, and cite those two only for the 600 s sentence.
+6. **"the budget is the guarantee" (end of the traces section) and "does not depend on being right" (Conclusion):** these contradict your
+   own, correct placeholder paragraph. The cap on charges always holds; the cut in real drain shown here depends on c_h overcharging.
+   Reword both, and add the same caveat to C3 in the Introduction.
+
+**Needs a sentence, numbers disagree across sessions:**
+7. FORGE, no defence: **+19.0** (Table e5, abstract) against **+14.7** (rerun). Forced verify: **3.45-3.5 mJ** (marked) against **≈3 mJ**
+   (mean power / rate). The 7x overcharge uses 3 mJ; it is 5.8x with 3.45. Say these are two sessions and two methods.
+8. Legit success, FORGE: **0.23-0.28** (Table e5) against **42-58 %** (rerun), and idle 598 mW against 578 mW corrected. The boards were
+   placed differently, and the 3 % idle shift is unexplained. Say absolute values do not carry across sessions, and compare within a session.
+9. **Table e5 was on earlier firmware.** Field-1's only functional change since is the cookie binding, so non-echo energy results stand
+   (no-echo FORGE was rerun and agrees), but state the firmware for each table. Likewise the Section 9 traces predate the bound cookie and
+   contain no same-seq echo; add that to Limitations.
+
+**Unsupported claim:**
+10. **"It removes the insider drain (+1.1 mW)" holds only for a non-echoing insider.** The threat model says "+ECHO: any of the above", yet
+    all 10 INSIDER+ECHO runs are excluded because no echo was ever sent, and FORGE now shows a same-seq echo gets admitted. Qualify the abstract
+    and findings now. A rerun is proposed; results would go here.
+
+**Smaller:**
+11. **Multimeter:** the calibrated-meter check will not happen. Delete `[TODO H: ...]` in `paper.md` and the "Still open" line in section 4 above. In
+    Setup, say the reference is a hobby DT830D, not a calibrated meter, and add the bus-voltage systematic (INA219 reads 1.4-3.1 % above the
+    DT830D), which `paper.tex` omits.
+12. **Figure 1:** "needs oscilloscope-rate sampling" overstates it. M samples at about 989/s, plenty for a 400 ms handshake; it was just not logged sample by sample.
+13. **Limitations:** "the ratio C2 actually claims" does not match C2 as written in the Introduction, which claims no ratio. Align them.
+14. **Citations:** matching keys does not show the papers exist or say what we claim. A quick search confirmed `leetls`' title, ID and 88x finding but
+    not its authors, and found `gillot2` only through press coverage. It did not find `karcz` or `gillot1`; that is not proof they are absent. Open all four.
+15. `paper.tex`'s header comment still says it is built from `paper.md`, reversing the canonical decision. Both new commits keep `Co-Authored-By`.
