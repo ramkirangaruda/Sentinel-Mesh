@@ -101,7 +101,9 @@ def run_summary(tl_path):
             frames, echoes = int(m[1]), int(m[2])
     idle, n_idle = mean_p(nrg, 5, t_def)
     during, n_during = mean_p(nrg, t_on + 5, t_off)
-    rec, _ = mean_p(nrg, t_off + 5, defs[2][0] if len(defs) > 2 else t_off + 60)
+    rec, n_rec = mean_p(nrg, t_off + 5, defs[2][0] if len(defs) > 2 else t_off + 60)
+    if n_rec < 30:      # F lost power during recovery, so there is no drift to report
+        rec = float("nan")
     length = t_off - t_on
     d = delta(f1, t_on, t_off + 3) or [None] * 6
     g = delta(gw, t_on, t_off + 10) or [None] * 3
@@ -153,7 +155,7 @@ def main():
               f"{str(r['echoes']):>6}  {r['ok']}/{r['started']}")
     cells = defaultdict(list)
     for r in runs:
-        if "smoke" not in r["run"]:
+        if "smoke" not in r["run"] and not math.isnan(r["extra_mw"]):      # NaN: F had no power in the window
             tag = re.search(r"_(noattack|oldecho|sameseq|budget15|refnone|noecho|control15|long15|insiderecho|insiderplain|paired15)_", r["run"])
             cells[(r["defence"], r["attack"], tag[1] if tag else "?")].append(r)
     print(f"\n{'defence':<8}{'attack':<7}{'tag':<11}{'n':>2}{'extra mW':>16}{'drift mW':>10}{'spend/s':>9}{'chal/s':>8}"
@@ -165,7 +167,7 @@ def main():
         ok, st = sum(x["ok"] or 0 for x in v), sum(x["started"] or 0 for x in v)
         ec = [x["echoes"] for x in v if x["echoes"] is not None]
         print(f"{k[0]:<8}{k[1]:<7}{k[2]:<11}{len(v):>2}{statistics.mean(ex):8.1f} +-{ci95(ex):5.1f}"
-              f"{statistics.mean(x['drift_mw'] for x in v):10.1f}{avg('spend') / sec:9.2f}{avg('challenge') / sec:8.2f}"
+              f"{statistics.mean(x['drift_mw'] for x in v if not math.isnan(x['drift_mw'])):10.1f}{avg('spend') / sec:9.2f}{avg('challenge') / sec:8.2f}"
               f"{avg('drop') / sec:8.2f}{(statistics.mean(ec) if ec else float('nan')):9.0f}{f'{ok}/{st}':>15}"
               f"{100 * ok / st if st else float('nan'):6.0f}%")
     print(f"\n{'real gateway by attacker load':<34}{'frames/s':>9}{'ok/started':>12}{'rate':>6}  95 % interval")

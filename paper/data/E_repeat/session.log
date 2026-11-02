@@ -1,0 +1,19 @@
+=== 16:37:06 start: --defences none --attacks FORGE --reps 5 --tag refnone
+=== 16:43:23 start: --defences none --attacks FORGE --reps 5 --tag refnone
+=== run 1/5: rep 1 defence=none attack=FORGE rate=None
+=== run 2/5: rep 2 defence=none attack=FORGE rate=None
+=== run 3/5: rep 3 defence=none attack=FORGE rate=None
+=== run 4/5: rep 4 defence=none attack=FORGE rate=None
+=== run 5/5: rep 5 defence=none attack=FORGE rate=None
+=== 17:07:52 end (exit 0)
+=== 17:07:52 start: --defences cookie --attacks FORGE --echo-same --flood 900 --pause 260 --reps 3 --tag long15
+=== run 1/3: rep 1 defence=cookie attack=FORGE rate=None
+=== run 2/3: rep 2 defence=cookie attack=FORGE rate=None
+=== run 3/3: rep 3 defence=cookie attack=FORGE rate=None
+=== 18:13:33 end (exit 0)
+=== 18:13:33 ALL DONE
+=== 18:14:42 redo of 3 lost no-defence runs
+=== run 1/3: rep 1 defence=none attack=FORGE rate=None
+=== run 2/3: rep 2 defence=none attack=FORGE rate=None
+=== run 3/3: rep 3 defence=none attack=FORGE rate=None
+=== 18:29:23 ALL DONE

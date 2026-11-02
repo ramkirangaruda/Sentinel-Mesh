@@ -50,7 +50,7 @@ Mean ± 95 % CI (Student t).
   power before and after emptying also rose (+12.2 → about +18.3 and +5.5 → about +9.3 mW). Idle moved from about 579 to 572 mW and
   RSSI from about -19 to -16. Chaitanya reports the boards were not moved, and RSSI also drifted by itself on 10-31 (-31 to -19 over
   a night), so RSSI is not evidence of movement. The cause is not established. Compare within this set, and do not mix these figures
-  with `E_cookie_fix`.
+  with `E_cookie_fix`. A repeat on 11-02 gave +9.7 ± 3.1 mW for the cookie cell: see `paper/data/E_repeat/README.md`.
 - The undefended INSIDER here (+73.2 mW, cached HELLO, 600 s) is not the same condition as the paper's +91.2 mW (fresh signature,
   120 s, earlier session).
 - n = 3 per cell. Some cookie runs climb during the attack (46 → 64 mW in rep 1), which is why its interval is wide.

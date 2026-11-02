@@ -203,8 +203,21 @@ Every earlier INSIDER+ECHO run was excluded because the attacker's echoes never 
 2. **"The budget is the guarantee":** it is not, against this attacker. No drops in 3 runs, and `budget_j` never fell below 19.26 of 20 J. The crypto slot holds admits to about 2.26/s, which charges 45 mW against a 50 mW refill, so the 2.5/s cap is never reached. Real cost is about 30 mJ per admit against the 20 mJ charged. This also settles section 8's budget contradiction: the budget bounds only attackers fast enough to reach the cap, and it binds on FORGE only because c_h overcharges a forged verify.
 3. **Contributions and Conclusion:** state plainly that EnergyGate does not stop an authenticated insider who echoes. That needs a different control (per-peer limits or revoking the key), which this paper does not build or test. Do not imply it does.
 4. **Cookie vs gate, 900 s, now paired in one session:** cookie +19.7 ± 0.9 mW; gate about +18 mW until the bucket empties (+438 to +466 s), then about +9 mW. Gateway 23/185 vs 31/189. Use these in place of the 3.5 h apart comparison, or at least alongside it.
-5. **Do not mix sessions.** The same cookie cell gave +13.0 ± 1.0 mW on 10-31 and +19.7 ± 0.9 mW now, with the same F firmware. Idle and RSSI moved too, but the boards were not moved, and the cause is not established. The abstract's +13.0 is affected, so treat it as provisional. Add this to Limitations and compare only within a session. Likewise +73.2 here is not the paper's +91.2 (fresh signature, 120 s, earlier session).
+5. **Do not mix sessions.** The same cookie cell gave +13.0 ± 1.0 mW on 10-31 and +19.7 ± 0.9 mW now, with the same F firmware. Idle and RSSI moved too, but the boards were not moved, and the cause is not established. The abstract's +13.0 is affected; section 10 has the repeat. Add this to Limitations and compare only within a session. Likewise +73.2 here is not the paper's +91.2 (fresh signature, 120 s, earlier session).
 
 **Your call, c_h:** charging the measured 30 mJ would cap admits at about 1.6/s (about 50 mW) and empty the bucket in about 1,000 s under this insider. That is ESTIMATED and has no firmware test behind it. Report it only as future work unless we rerun it.
 
 The multimeter item is closed: see section 8 item 11, and the line in section 4 is removed.
+
+## 10. Repeat of the numbers that moved, 2026-11-02 (`paper/data/E_repeat/README.md`)
+Same F and G firmware, boards not moved.
+
+| Cell | 10-31 | 11-02 night | 11-02 day |
+|---|---|---|---|
+| none, FORGE, 120 s | +14.7 ± 0.9 | not run | +14.1 ± 2.2 |
+| cookie, FORGE echo, 900 s | +13.0 ± 1.0 | +19.7 ± 0.9 | +9.7 ± 3.1 |
+
+1. **The forger number is solid:** +14.7 and +14.1 agree. Use +14.7 ± 0.9 (or either with its session) and drop +19.0, which predates the bound cookie.
+2. **Replace the abstract's "+13.0 mW under a cookie" with the range:** a same-seq echo under a cookie drains about +10 to +20 mW across three sessions at about 4.6 admits/s. Do not quote one value, and do not say the cookie makes this cheaper or dearer than no defence: the sign changes by session (+9.7 vs +14.1 mW in the same day).
+3. **Add to Limitations:** echo power varied by about 2x across sessions, with F and G firmware unchanged and the boards not moved. It rises with RSSI (r = 0.89, 14 runs), but RSSI was not controlled and most of that is between sessions, so report it as a correlation with no known mechanism.
+4. **Section 9's insider results and paired comparison stand,** as within-session results. Their conclusions do not rest on a single absolute mW: +69 mW is far from +1.1 in any session, and gate's drop after emptying is within one session.
