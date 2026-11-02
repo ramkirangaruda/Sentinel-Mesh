@@ -53,7 +53,6 @@ Each board has 5 sessions (10-08, 10-12, three on 10-27), n = 29-30 per op, 92 n
    every run in the paper used the placeholders, which is fine as long as the text says so (it does).
 
 ## 4. Still open on Chaitanya's side (for your planning)
-- DT830 multimeter vs a calibrated bench meter (Limitations: 3.67 % gain question; ratios unaffected).
 - Section 9 traces, if you choose 3.1(b).
 
 ## 5. New results, 2026-10-27 evening (boards on USB, no INA219)
@@ -185,3 +184,27 @@ after these fixes (pdflatex is on Chaitanya's laptop if you need it).
 14. **Citations:** matching keys does not show the papers exist or say what we claim. A quick search confirmed `leetls`' title, ID and 88x finding but
     not its authors, and found `gillot2` only through press coverage. It did not find `karcz` or `gillot1`; that is not proof they are absent. Open all four.
 15. `paper.tex`'s header comment still says it is built from `paper.md`, reversing the canonical decision. Both new commits keep `Co-Authored-By`.
+
+## 9. Insider echo results, 2026-11-01/02 (INA219 rig, 21 runs + 2 excluded smokes)
+Full tables: `paper/data/E_insider_echo/README.md`. F and G at 7afdea4, A at 389d74f. **This changes the abstract's main claim, so read it first.**
+
+Every earlier INSIDER+ECHO run was excluded because the attacker's echoes never fired, so the threat model listed a case nobody had tested. Now they fire (about 2,700 per 600 s run):
+
+| Defence | Attack | Window | n | Extra F power | Admits/s | Drops |
+|---|---|---|---|---|---|---|
+| none | insider | 600 s | 3 | +73.2 ± 4.1 mW | 2.38 | 0 |
+| cookie | insider + echo | 600 s | 3 | +58.5 ± 13.7 mW | 2.03 | 0 |
+| gate v2 | insider + echo | 600 s | 3 | +69.0 ± 9.4 mW | 2.26 | 0 |
+| cookie | insider, no echo | 120 s | 3 | +2.8 ± 1.0 mW | 0.04 | 0 |
+| gate v2 | insider, no echo | 120 s | 3 | +2.4 ± 1.5 mW | 0.08 | 0 |
+
+**What has to change in `paper.tex`:**
+1. **Abstract, "It removes the insider drain (+1.1 mW)":** true only for an insider that does not echo. An insider that echoes gets through gate v2 at about the undefended drain, and the intervals overlap. A key-holding insider can read a broadcast cookie, so the echoing case is the one the threat model should expect. Also update +1.1 to the current firmware's +2.4 ± 1.5 (with cookie alone at +2.8 ± 1.0, so the gate adds nothing over the cookie here).
+2. **"The budget is the guarantee":** it is not, against this attacker. No drops in 3 runs, and `budget_j` never fell below 19.26 of 20 J. The crypto slot holds admits to about 2.26/s, which charges 45 mW against a 50 mW refill, so the 2.5/s cap is never reached. Real cost is about 30 mJ per admit against the 20 mJ charged. This also settles section 8's budget contradiction: the budget bounds only attackers fast enough to reach the cap, and it binds on FORGE only because c_h overcharges a forged verify.
+3. **Contributions and Conclusion:** state plainly that EnergyGate does not stop an authenticated insider who echoes. That needs a different control (per-peer limits or revoking the key), which this paper does not build or test. Do not imply it does.
+4. **Cookie vs gate, 900 s, now paired in one session:** cookie +19.7 ± 0.9 mW; gate about +18 mW until the bucket empties (+438 to +466 s), then about +9 mW. Gateway 23/185 vs 31/189. Use these in place of the 3.5 h apart comparison, or at least alongside it.
+5. **Do not mix sessions.** The same cookie cell gave +13.0 ± 1.0 mW on 10-31 and +19.7 ± 0.9 mW now, with the same F firmware. Idle and RSSI moved too, so placement may have changed; the cause is not established. Add this to Limitations and compare only within a session. Likewise +73.2 here is not the paper's +91.2 (fresh signature, 120 s, earlier session).
+
+**Your call, c_h:** charging the measured 30 mJ would cap admits at about 1.6/s (about 50 mW) and empty the bucket in about 1,000 s under this insider. That is ESTIMATED and has no firmware test behind it. Report it only as future work unless we rerun it.
+
+The multimeter item is closed: see section 8 item 11, and the line in section 4 is removed.

@@ -112,7 +112,7 @@ def run_summary(tl_path):
          else float("nan"), "echo_cum": echoes, "frames_cum": frames, "nrg_rows": len(nrg),
          "recovery_ok": (delta(gw, t_off + 10, defs[2][0]) or [None, None])[1]}
     if length > 300:
-        r["bins"] = [mean_p(nrg, t_on + b, t_on + b + 150)[0] - idle for b in range(5, 755, 150)]
+        r["bins"] = [mean_p(nrg, t_on + b, t_on + b + 150)[0] - idle for b in range(5, min(755, int(length)), 150)]
     r.update(dict(zip(F1_KEYS, d)))
     # first relayed drop: the budget has emptied by then (cookie has no budget, and gate has none before this)
     empty = next((t for t, v in f1 if t >= t_on and at(f1, t_on) and v[2] > at(f1, t_on)[2]), None)
@@ -172,10 +172,13 @@ def main():
     for name, tags in [("no attack", ("noattack", "control15", "refnone")), ("FORGE, no echo", ("noecho",)),
                        ("FORGE, no echo, no defence", ("refnone",)), ("same-seq echo, 120 s", ("sameseq",)),
                        ("same-seq echo, 900 s, gate", ("budget15",)), ("same-seq echo, 900 s, cookie", ("long15",)),
-                       ("old echo", ("oldecho",))]:
+                       ("old echo", ("oldecho",)), ("insider, echoing, 600 s", ("insiderecho",)),
+                       ("insider, plain", ("insiderplain",)), ("same-seq echo, 900 s, paired", ("paired15",))]:
         v = [x for k, c in cells.items() if k[2] in tags and (k[1] == "OFF") == (name == "no attack") for x in c]
         fr = [x["frames_s"] for x in v if x["frames_s"] is not None]
         ok, st = sum(x["ok"] or 0 for x in v), sum(x["started"] or 0 for x in v)
+        if not st:
+            continue
         lo, hi = wilson(ok, st)
         print(f"{name:<34}{(statistics.mean(fr) if fr else float('nan')):9.0f}{f'{ok}/{st}':>12}{100 * ok / st:5.0f}%"
               f"  {100 * lo:.0f}-{100 * hi:.0f} %")

@@ -1,0 +1,30 @@
+=== 23:21:53 waiting for smoke, pid 1783
+=== 23:26:19 smoke cookie_echoes max: 1106
+=== 23:26:19 start: --defences none cookie gate --attacks INSIDER --echo-same --flood 600 --reps 3 --tag insiderecho
+=== run 1/9: rep 1 defence=none attack=INSIDER rate=None
+=== run 2/9: rep 1 defence=cookie attack=INSIDER rate=None
+=== run 3/9: rep 1 defence=gate attack=INSIDER rate=None
+=== run 4/9: rep 2 defence=none attack=INSIDER rate=None
+=== run 5/9: rep 2 defence=cookie attack=INSIDER rate=None
+=== run 6/9: rep 2 defence=gate attack=INSIDER rate=None
+=== run 7/9: rep 3 defence=none attack=INSIDER rate=None
+=== run 8/9: rep 3 defence=cookie attack=INSIDER rate=None
+=== run 9/9: rep 3 defence=gate attack=INSIDER rate=None
+=== 01:22:22 end (exit 0)
+=== 01:22:22 start: --defences cookie gate --attacks INSIDER --reps 3 --tag insiderplain
+=== run 1/6: rep 1 defence=cookie attack=INSIDER rate=None
+=== run 2/6: rep 1 defence=gate attack=INSIDER rate=None
+=== run 3/6: rep 2 defence=cookie attack=INSIDER rate=None
+=== run 4/6: rep 2 defence=gate attack=INSIDER rate=None
+=== run 5/6: rep 3 defence=cookie attack=INSIDER rate=None
+=== run 6/6: rep 3 defence=gate attack=INSIDER rate=None
+=== 01:51:44 end (exit 0)
+=== 01:51:44 start: --defences cookie gate --attacks FORGE --echo-same --flood 900 --pause 260 --reps 3 --tag paired15
+=== run 1/6: rep 1 defence=cookie attack=FORGE rate=None
+=== run 2/6: rep 1 defence=gate attack=FORGE rate=None
+=== run 3/6: rep 2 defence=cookie attack=FORGE rate=None
+=== run 4/6: rep 2 defence=gate attack=FORGE rate=None
+=== run 5/6: rep 3 defence=cookie attack=FORGE rate=None
+=== run 6/6: rep 3 defence=gate attack=FORGE rate=None
+=== 04:03:05 end (exit 0)
+=== 04:03:05 ALL DONE
