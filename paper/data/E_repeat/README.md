@@ -34,4 +34,4 @@ boards were not moved. This repeats that cell and the no-defence FORGE reference
 - `164817` lost power after its attack window, so its attack figure stands and its drift is not reported.
 - `170752` started 40 s after power returned, with baseline 580.5 mW (others 580.1 and 581.2), so it is kept. Bus voltage after the
   outage held at about 4.9 V, slightly above the 4.85-4.88 V before.
-- The 5 no-defence runs are therefore 2 before the outage and 3 after it. No outage in the last 10 runs by bus voltage.
+- The 5 no-defence runs are therefore 2 before the outage and 3 after it. Bus voltage shows no outage in the last 6 runs.
