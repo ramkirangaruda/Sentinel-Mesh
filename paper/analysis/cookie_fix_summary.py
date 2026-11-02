@@ -156,7 +156,7 @@ def main():
     cells = defaultdict(list)
     for r in runs:
         if "smoke" not in r["run"] and not math.isnan(r["extra_mw"]):      # NaN: F had no power in the window
-            tag = re.search(r"_(noattack|oldecho|sameseq|budget15|refnone|noecho|control15|long15|insiderecho|insiderplain|paired15)_", r["run"])
+            tag = re.search(r"_(noattack|oldecho|sameseq|budget15|refnone|noecho|control15|long15|insiderecho|insiderplain|paired15|rssinear|rssimid|rssi20cm|rssifar)_", r["run"])
             cells[(r["defence"], r["attack"], tag[1] if tag else "?")].append(r)
     print(f"\n{'defence':<8}{'attack':<7}{'tag':<11}{'n':>2}{'extra mW':>16}{'drift mW':>10}{'spend/s':>9}{'chal/s':>8}"
           f"{'drop/s':>8}{'echo/run':>9}{'gw ok/started':>15}{'rate':>7}")

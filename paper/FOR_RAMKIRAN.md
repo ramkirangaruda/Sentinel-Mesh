@@ -219,5 +219,22 @@ Same F and G firmware, boards not moved.
 
 1. **The forger number is solid:** +14.7 and +14.1 agree. Use +14.7 ± 0.9 (or either with its session) and drop +19.0, which predates the bound cookie.
 2. **Replace the abstract's "+13.0 mW under a cookie" with the range:** a same-seq echo under a cookie drains about +10 to +20 mW across three sessions at about 4.6 admits/s. Do not quote one value, and do not say the cookie makes this cheaper or dearer than no defence: it was below the forger's figure on 10-31 and in today's session (+9.7 vs +14.1 mW), and +19.7 is above every forger figure we have, though no forger run was made that night.
-3. **Add to Limitations:** echo power varied by about 2x across sessions, with F and G firmware unchanged and the boards not moved. It rises with RSSI (r = 0.89, 14 runs), but RSSI was not controlled and most of that is between sessions, so report it as a correlation with no known mechanism.
+3. **Add to Limitations:** echo power varied by about 2x across sessions, with F and G firmware unchanged and the boards not moved. **Do not say it rises with RSSI:** the controlled test in section 11 did not support that. Use the wording in section 11.
 4. **Section 9's insider results and paired comparison stand,** as within-session results. Their conclusions do not rest on a single absolute mW: +69 mW is far from +1.1 in any session, and gate's drop after emptying is within one session.
+
+## 11. Controlled signal test, 2026-11-02 evening (`paper/data/E_rssi/README.md`)
+Cookie, FORGE echo, 300 s, 9 runs. Only A moved, by hand: close, 20 cm and 40 cm, 3 runs each. This replaces the RSSI statement in section 10.
+
+| A at | RSSI at G | Extra power | At fixed 4.85 V | Spend/s | Real gateway |
+|---|---|---|---|---|---|
+| close | -35 | +14.7 ± 22.3 mW | +13.2 ± 10.4 mW | 4.55 | 11/60, 18 % |
+| 20 cm | -42 | +9.4 ± 1.2 mW | +9.5 ± 2.4 mW | 3.83 | 10/59, 17 % |
+| 40 cm | -51 | +11.3 ± 26.4 mW | +15.1 ± 8.4 mW | 4.36 | 25/51, 49 % |
+
+1. **Moving A did not make power follow signal:** r = -0.25 between RSSI and extra power, -0.60 at fixed voltage, n = 9. The earlier r = 0.89 is mostly three session clusters. The strongest signal here was -24, so the -16 night's condition was not reproduced and is not ruled out.
+2. **F draws a nearly fixed current (117.4-120.0 mA) while its supply moved over 4.75-4.93 V,** so its power follows the supply. A shift during a run reads as extra power: run 7 reads -0.2 mW because the bus fell 0.095 V, though current rose 2.37 mA. Over these 9 runs, using extra current at a fixed voltage halves the spread (SD 7.3 to 3.7 mW).
+3. **That does not explain the gap between sessions.** The 900 s runs had almost no shift and still read +14.0, +20.5 and +10.9 mW at fixed voltage. Say this plainly in Limitations: "Extra power under the echo varied about 2x across sessions with firmware and placement unchanged. A controlled test ruled out signal strength as a simple cause over -24 to -53 dBm. Supply voltage shifts explain some within-session spread but not the between-session gap, whose cause is unknown."
+4. **Report supply voltage in the method.** The adaptor rig's bus is not fixed, and bus shift should be checked for any single number. Long-window means with a small shift, including the +10 to +20 mW range and +14.7 mW forger figure, are not changed by this.
+5. **Insider figures sag:** in section 9's echoing insider runs the bus fell about 0.05 V under load, so measured +73 and +69 mW would be roughly 6-10 mW higher at a fixed voltage (ESTIMATED from those runs, not a rerun). Keep the measured figures. The conclusions do not change.
+6. **New, usable result:** the real gateway got through 49 % of the time with A at 40 cm against 17-18 % nearer, while F still spent at 4.36/s. So an attacker further from the gateway still drains F but hurts the gateway less. n = 3 per spot, and A to F signal was not measured.
+7. **Caveats to carry:** spots were placed by hand and the close spot read -24 to -44 dBm. The 20 cm runs all came late, so time may confound them. "At fixed 4.85 V" is a derived comparison figure, not a measurement.

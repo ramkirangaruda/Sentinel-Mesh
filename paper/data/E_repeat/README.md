@@ -23,7 +23,8 @@ boards were not moved. This repeats that cell and the no-defence FORGE reference
    safe to quote. Any value compared with it must come from the same session.
 3. **Power rises with RSSI on the echo.** r = 0.89 over all 14 cookie echo runs in the three sessions, against r = 0.23 over 10
    no-defence runs. The gateway does worse as RSSI rises. This is an observed correlation with RSSI not controlled, and most of it
-   comes from differences between sessions, so it is not a shown cause. We have no measured mechanism.
+   comes from differences between sessions, so it is not a shown cause. We have no measured mechanism. **Update:** a controlled test
+   moving only A did not support this (r = -0.25, n = 9): see `paper/data/E_rssi/README.md`.
 4. RSSI moved without the boards being moved (it also drifted from -31 to -19 during 10-30/31). What moved it is not known.
 
 ## Excluded runs
