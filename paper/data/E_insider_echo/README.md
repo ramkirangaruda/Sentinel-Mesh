@@ -46,9 +46,11 @@ Mean ± 95 % CI (Student t).
 
 ## Caveats
 - **Absolute mW did not repeat between sessions.** Cookie on the FORGE echo was +13.0 ± 1.0 mW on 10-31 and is +19.7 ± 0.9 mW here,
-  with the same F firmware and about the same spend rate. Gate's power before and after emptying also rose (+12.2 → about +18.3 and
-  +5.5 → about +9.3 mW). Idle moved from about 579 to 572 mW and RSSI from about -19 to -16, so placement may have changed when the
-  boards were reconnected; the cause is not established. Compare within this set, and do not mix these figures with `E_cookie_fix`.
+  with the same F and G firmware and about the same spend rate, so extra power per admit went from about 2.7 to about 4.2 mJ. Gate's
+  power before and after emptying also rose (+12.2 → about +18.3 and +5.5 → about +9.3 mW). Idle moved from about 579 to 572 mW and
+  RSSI from about -19 to -16. Chaitanya reports the boards were not moved, and RSSI also drifted by itself on 10-31 (-31 to -19 over
+  a night), so RSSI is not evidence of movement. The cause is not established. Compare within this set, and do not mix these figures
+  with `E_cookie_fix`.
 - The undefended INSIDER here (+73.2 mW, cached HELLO, 600 s) is not the same condition as the paper's +91.2 mW (fresh signature,
   120 s, earlier session).
 - n = 3 per cell. Some cookie runs climb during the attack (46 → 64 mW in rep 1), which is why its interval is wide.
