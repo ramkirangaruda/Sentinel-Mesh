@@ -79,6 +79,45 @@ def test_bridge_pushes_all_control_lines_once_then_only_changes(monkeypatch):
     assert sent == ["DEFENSE gate\n"]
 
 
+def test_bridge_counts_contract_rejections(monkeypatch):
+    http = FakeHTTP()
+    http.post = lambda url, json=None, timeout=None: FakeResponse(422, {"errors": ["x"], "detail": "y"})
+    monkeypatch.setattr(serial_bridge, "HTTP", http)
+    stats = serial_bridge.Stats()
+    for line in ['EVT {"id":"a"}', 'TRC {"ts":1}', 'NRG {"power_mw":84}']:
+        serial_bridge.handle_line(line, "http://127.0.0.1:8000", stats, verbose=True)
+    assert (stats.evt, stats.trc, stats.nrg, stats.rejected) == (1, 1, 1, 3)
+
+
+def test_bridge_survives_an_unreachable_console(monkeypatch):
+    import requests
+
+    def boom(*a, **k):
+        raise requests.ConnectionError("down")
+
+    http = FakeHTTP()
+    http.post = http.get = boom
+    monkeypatch.setattr(serial_bridge, "HTTP", http)
+    stats = serial_bridge.Stats()
+    serial_bridge.handle_line('EVT {"id":"a"}', "http://127.0.0.1:8000", stats, verbose=True)
+    sent = []
+    serial_bridge.poll_control("http://x", {}, sent.append)
+    assert stats.evt == 1 and sent == []
+
+
+def test_replay_routes_every_line_and_strips_the_gap_prefix(monkeypatch):
+    http = FakeHTTP()
+    monkeypatch.setattr(serial_bridge, "HTTP", http)
+    monkeypatch.setattr(serial_bridge.time, "sleep", lambda s: None)
+    args = type("A", (), {"console": "http://127.0.0.1:8000", "verbose": False,
+                          "speed": 1.0, "label_poll": 0.0})()
+    stats = serial_bridge.Stats()
+    serial_bridge.run_stream(['+0 EVT {"id":"a"}\n', '+500 TRC {"ts":1}\n', "+x LOG hi\n"],
+                             args, stats, paced=True)
+    assert [p for p, _ in http.posts] == ["/events", "/traces"]
+    assert (stats.evt, stats.trc) == (1, 1)
+
+
 # -- stand-ins honour the contract ---------------------------------------------
 
 def test_every_mock_story_event_validates():
