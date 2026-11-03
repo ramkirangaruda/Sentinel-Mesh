@@ -57,6 +57,16 @@ def post(console_url: str, path: str, payload: dict, timeout: float = 5.0):
         return None
 
 
+def _json(r) -> dict:
+    """A response body as a dict; {} if it is not a JSON object (e.g. a 500's
+    plain-text page). One odd reply must not kill the bridge mid-demo."""
+    try:
+        body = r.json()
+    except ValueError:
+        return {}
+    return body if isinstance(body, dict) else {}
+
+
 def handle_line(line: str, console_url: str, stats: Stats, verbose: bool) -> None:
     line = line.strip()
     if not line:
@@ -81,6 +91,10 @@ def handle_line(line: str, console_url: str, stats: Stats, verbose: bool) -> Non
         stats.bad += 1
         print(f"  ! {kind} line is not JSON ({exc}); dropped", file=sys.stderr)
         return
+    if not isinstance(payload, dict):
+        stats.bad += 1
+        print(f"  ! {kind} line is not a JSON object; dropped", file=sys.stderr)
+        return
 
     if kind == "EVT":
         stats.evt += 1
@@ -88,7 +102,7 @@ def handle_line(line: str, console_url: str, stats: Stats, verbose: bool) -> Non
         if r is not None and r.status_code == 422:
             stats.rejected += 1
             print(f"  ! gateway EVT rejected by the contract schema: "
-                  f"{r.json().get('errors')}", file=sys.stderr)
+                  f"{_json(r).get('errors')}", file=sys.stderr)
         elif verbose and r is not None:
             print(f"  EVT {payload.get('type')} -> {r.status_code}")
     elif kind == "NRG":
@@ -96,7 +110,7 @@ def handle_line(line: str, console_url: str, stats: Stats, verbose: bool) -> Non
         r = post(console_url, "/energy", payload)
         if r is not None and r.status_code == 422:
             stats.rejected += 1
-            print(f"  ! NRG sample rejected: {r.json().get('detail')}", file=sys.stderr)
+            print(f"  ! NRG sample rejected: {_json(r).get('detail')}", file=sys.stderr)
         elif verbose and r is not None and stats.nrg % 10 == 1:   # 1 Hz: don't flood the log
             print(f"  NRG {payload.get('power_mw')} mW -> {r.status_code}")
     else:
@@ -104,9 +118,9 @@ def handle_line(line: str, console_url: str, stats: Stats, verbose: bool) -> Non
         r = post(console_url, "/traces", payload)
         if r is not None and r.status_code == 422:
             stats.rejected += 1
-            print(f"  ! gateway TRC rejected: {r.json().get('errors')}", file=sys.stderr)
+            print(f"  ! gateway TRC rejected: {_json(r).get('errors')}", file=sys.stderr)
         elif verbose and r is not None:
-            body = r.json() if r.content else {}
+            body = _json(r) if r.content else {}
             print(f"  TRC stored={body.get('stored')} label={body.get('label')}")
 
 
@@ -122,12 +136,14 @@ def poll_control(console_url: str, state: dict, write) -> None:
         c = HTTP.get(f"{console_url}/control", timeout=2).json()
     except (requests.RequestException, ValueError):
         return
+    if not isinstance(c, dict):
+        return
     for version_key, line_key in CONTROL_LINES:
         version = c.get(version_key)
-        if version is None or version == state.get(version_key):
+        line = c.get(line_key)
+        if version is None or version == state.get(version_key) or not isinstance(line, str):
             continue
         state[version_key] = version
-        line = c[line_key]
         if write is not None:
             write(line + "\n")
         print(f"  -> {line}")

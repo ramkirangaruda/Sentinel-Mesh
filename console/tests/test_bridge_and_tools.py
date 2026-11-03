@@ -105,6 +105,42 @@ def test_bridge_survives_an_unreachable_console(monkeypatch):
     assert stats.evt == 1 and sent == []
 
 
+def test_bridge_drops_json_that_is_not_an_object(monkeypatch):
+    # line noise like "EVT 42" used to crash a verbose bridge (payload.get on an int)
+    http = FakeHTTP()
+    monkeypatch.setattr(serial_bridge, "HTTP", http)
+    stats = serial_bridge.Stats()
+    for line in ["EVT 42", "NRG [1,2]", 'TRC "x"', "EVT null"]:
+        serial_bridge.handle_line(line, "http://127.0.0.1:8000", stats, verbose=True)
+    assert http.posts == [] and stats.bad == 4 and stats.evt == 0
+
+
+def test_bridge_survives_a_non_json_response(monkeypatch):
+    class HTMLResponse(FakeResponse):
+        def json(self):
+            raise ValueError("not JSON")
+
+    http = FakeHTTP()
+    http.post = lambda url, json=None, timeout=None: HTMLResponse(500)
+    monkeypatch.setattr(serial_bridge, "HTTP", http)
+    stats = serial_bridge.Stats()
+    for status in (500, 422):
+        http.post = lambda url, json=None, timeout=None, s=status: HTMLResponse(s)
+        for line in ['EVT {"id":"a"}', 'TRC {"ts":1}', 'NRG {"power_mw":84}']:
+            serial_bridge.handle_line(line, "http://127.0.0.1:8000", stats, verbose=True)
+    assert (stats.evt, stats.trc, stats.nrg, stats.rejected) == (2, 2, 2, 3)
+
+
+def test_bridge_ignores_a_control_reply_of_the_wrong_shape(monkeypatch):
+    http = FakeHTTP()
+    monkeypatch.setattr(serial_bridge, "HTTP", http)
+    sent = []
+    for reply in ([1, 2], {"label_version": 3}, "x"):
+        http.get = lambda url, timeout=None, r=reply: FakeResponse(200, r)
+        serial_bridge.poll_control("http://x", {}, sent.append)
+    assert sent == []
+
+
 def test_replay_routes_every_line_and_strips_the_gap_prefix(monkeypatch):
     http = FakeHTTP()
     monkeypatch.setattr(serial_bridge, "HTTP", http)
