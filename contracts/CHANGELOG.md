@@ -5,6 +5,19 @@ streams.** Entries are newest first.
 
 ---
 
+## 2026-11-03 — CONTRACT.md host: `127.0.0.1`, not `localhost` (doc fix, no shape change)
+
+**All streams: nothing to change in code.** `CONTRACT.md`'s "Ports / transport"
+said `http://localhost:8000` / `:8001`, contradicting the repo-wide rule in
+`CLAUDE.md` and `console/README.md` (`localhost` stalls ~2 s per request on the
+team's Windows laptop). The ports and services are unchanged; only the host
+spelling in the contract now matches the rule. No schema, event, trace, energy
+or serial-line shape changed. Found during the contracts/firmware review
+(`docs/review-contracts-firmware.md`), which lists the other contract gaps
+without changing them.
+
+---
+
 ## 2026-09-19 — MailGuard: clean / suspicious / malicious, and no reasons
 
 **Console (Claude 2), ML (Claude 1), firmware (Claude 3): read this.** One new

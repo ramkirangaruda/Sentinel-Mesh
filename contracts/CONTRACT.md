@@ -1,8 +1,10 @@
 # SentinelMesh integration contract v1 + v2-energy delta + v4 serial/control (owner: Console/Claude 2. Announce any change to all three.)
 
 ## Ports / transport
-- Console API: http://localhost:8000
-- ML scoring service: http://localhost:8001
+- Console API: http://127.0.0.1:8000
+- ML scoring service: http://127.0.0.1:8001
+  (Use `127.0.0.1`, not `localhost`: on the team's Windows laptop `localhost`
+  tries IPv6 first and stalls ~2 s per request. Same port, same service.)
 - Gateway ESP32 -> console: USB serial, 115200 baud, one message per line
 
 ## Event: every layer emits exactly this JSON
