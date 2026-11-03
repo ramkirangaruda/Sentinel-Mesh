@@ -166,3 +166,14 @@ def test_explain_returns_nothing_for_text_with_no_known_features():
     sms_guard = channels._sms_guard()
     vec, model = channels._load_model(channels._channels["sms"])
     assert sms_guard.explain(vec, model, "☃☃") == []
+
+
+def test_oversized_text_is_refused_before_scoring(monkeypatch):
+    # 2 MB of text took ~5 s on the event loop, blocking every other request
+    monkeypatch.setattr(channels, "_load_model", lambda ch: pytest.fail("scored oversized text"))
+    r = classify(text="free " * 400_000)
+    assert r.status_code == 413
+
+
+def test_text_at_the_limit_is_still_scored():
+    assert classify(text="a" * channels.MAX_TEXT_CHARS).status_code == 200

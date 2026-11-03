@@ -34,6 +34,12 @@ router = APIRouter()
 
 # id -> manifest dict (mutated in place on toggle, then written back to disk)
 _channels: dict[str, dict] = {}
+# Longest text /classify will score. An SMS is 160 chars and a long
+# concatenated one a few thousand; the char 3-5-gram vectorizer runs
+# synchronously on the event loop, and 2 MB of text measured ~5 s there,
+# stalling every other request (bridge posts included) meanwhile.
+MAX_TEXT_CHARS = 5000
+
 # id -> (vectorizer, model), loaded lazily on first /classify call and cached
 _models: dict[str, tuple] = {}
 
@@ -152,6 +158,8 @@ async def classify(request: Request):
         raise HTTPException(400, "'channel' must be a non-empty string")
     if not isinstance(text, str) or not text.strip():
         raise HTTPException(400, "'text' must be a non-empty string")
+    if len(text) > MAX_TEXT_CHARS:
+        raise HTTPException(413, f"'text' is longer than {MAX_TEXT_CHARS} characters")
 
     channel = _get_or_404(channel_id)
 
