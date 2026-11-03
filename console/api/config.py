@@ -30,6 +30,14 @@ INCIDENT_WINDOW_MS = int(os.environ.get("SENTINEL_INCIDENT_WINDOW_MS", 10 * 60 *
 # Where the ML stream's charts and metrics live, for the Evidence page (read-only).
 ML_REPORTS_DIR = os.environ.get("SENTINEL_ML_REPORTS", os.path.join(REPO_DIR, "ml", "reports"))
 
+# Host names the API answers to (api/main.py, same_origin_only). Anything else
+# is refused, which stops DNS rebinding: a web page whose domain re-resolves to
+# 127.0.0.1 still sends its own name as Host. Comma-separated; add the laptop's
+# LAN name/IP here if the console is ever served beyond 127.0.0.1.
+ALLOWED_HOSTS = {h.strip().lower() for h in
+                 os.environ.get("SENTINEL_ALLOWED_HOSTS", "127.0.0.1,localhost,::1").split(",")
+                 if h.strip()}
+
 # -- v4 energy -------------------------------------------------------------
 
 # Cell capacity used to turn measured draw into "projected days". One 18650 at

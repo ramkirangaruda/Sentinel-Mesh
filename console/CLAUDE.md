@@ -14,7 +14,7 @@ Owns `console/` and `contracts/`. Reads `ml/` and `firmware/` to check
 integration; never edits them — problems there go to the human. Any contract
 change gets a `CHANGELOG.md` entry and an announcement to all three streams.
 
-## Deliverables — status (92 tests)
+## Deliverables — status (141 tests; the 7 SPA-route tests skip until web/dist is built)
 
 v3:
 1. `api/` — FastAPI :8000, SQLite, `POST/GET /events`, `GET /incidents`, every
@@ -97,6 +97,12 @@ experiment table and legit-client numbers (firmware posts them to
   ≤2, ≥⅓ chart apart) or they smear.
 - Scripted Python edits via heredoc can turn `"\n"` into a real newline → syntax
   error. Use the Edit tool for escapes; parse-check after scripted edits.
+- **The API refuses cross-origin writes and unknown Host headers**
+  (`same_origin_only` in `api/main.py`): POST/PUT/PATCH/DELETE carrying a
+  foreign `Origin` get 403, any Host not in `SENTINEL_ALLOWED_HOSTS` (default
+  `127.0.0.1,localhost,::1`) gets 421. The bridge and Streamlit send no Origin,
+  the Vite proxy keeps Origin and Host equal. Serving beyond 127.0.0.1 means
+  adding that host to the env var. Tests add `testserver` in `tests/conftest.py`.
 - A stale uvicorn from an earlier session can hold :8000 and serve old code —
   check `netstat -ano | grep :8000` and the process's command line first.
 

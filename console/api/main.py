@@ -29,6 +29,7 @@ import os
 import re
 import time
 from typing import Any, Optional
+from urllib.parse import urlsplit
 
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import FileResponse, JSONResponse
@@ -39,6 +40,31 @@ from . import attack, channels, config, correlation, db, energy, frontend, v4, v
 app = FastAPI(title="SentinelMesh console", version="2.0")
 
 _conn = db.connect()
+
+_UNSAFE_METHODS = {"POST", "PUT", "PATCH", "DELETE"}
+
+
+@app.middleware("http")
+async def same_origin_only(request: Request, call_next):
+    """Refuse requests a browser was tricked into sending.
+
+    Every handler parses its body with request.json() whatever the
+    Content-Type, so without this any web page the operator has open could
+    POST a text/plain body to 127.0.0.1:8000 -- no CORS preflight -- and turn
+    the defence off, start an attack, inject events into the incident view,
+    toggle channels or wipe the database. Browsers always send Origin on such
+    a request; the bridge, the Streamlit UI (server side) and curl send none.
+    The Host check stops DNS rebinding, where Origin and Host would agree.
+    """
+    host = request.headers.get("host", "")
+    hostname = (urlsplit(f"//{host}").hostname or "") if host else ""
+    if hostname not in config.ALLOWED_HOSTS:
+        return JSONResponse(status_code=421, content={"detail": f"host not allowed: {host!r}"})
+    origin = request.headers.get("origin")
+    if request.method in _UNSAFE_METHODS and origin is not None:
+        if urlsplit(origin).netloc.lower() != host.lower():
+            return JSONResponse(status_code=403, content={"detail": "cross-origin request refused"})
+    return await call_next(request)
 
 # nodes whose events prove the gateway relayed them (field/tamper EVTs only
 # ever come off the gateway's serial port)

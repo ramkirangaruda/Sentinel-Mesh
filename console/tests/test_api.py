@@ -286,3 +286,39 @@ def test_unknown_api_path_is_a_404_not_the_app_shell():
 def test_client_side_routes_still_get_the_app_shell():
     r = client.get("/dashboard")
     assert r.status_code == 200 and "<!doctype html>" in r.text.lower()
+
+
+# -- cross-origin / DNS-rebinding guard -----------------------------------------
+
+def test_cross_origin_text_plain_post_cannot_change_state():
+    # a page on any site could send this without a CORS preflight
+    before = client.get("/control").json()["mode"]
+    r = client.post("/mode", content='{"mode":"gate"}',
+                    headers={"Content-Type": "text/plain", "Origin": "http://evil.example"})
+    assert r.status_code == 403
+    assert client.get("/control").json()["mode"] == before
+    assert client.post("/events", content=__import__("json").dumps(event()),
+                       headers={"Origin": "null"}).status_code == 403
+    assert client.get("/events").json()["count"] == 0
+
+
+def test_same_origin_and_originless_posts_still_work():
+    assert client.post("/events", json=event(), headers={"Origin": "http://testserver"}).status_code == 201
+    assert client.post("/events", json=event()).status_code == 201   # the bridge sends no Origin
+
+
+def test_cross_origin_get_is_not_blocked_by_the_origin_check():
+    assert client.get("/health", headers={"Origin": "http://evil.example"}).status_code == 200
+
+
+@pytest.mark.parametrize("host", ["evil.example", "evil.example:8000", "127.0.0.1.evil.example"])
+def test_unknown_host_header_is_refused(host):
+    # DNS rebinding: the attacker's name resolves to 127.0.0.1 but stays in Host
+    assert client.get("/events", headers={"Host": host}).status_code == 421
+
+
+@pytest.mark.parametrize("host", ["127.0.0.1:8000", "localhost:8000", "[::1]:8000"])
+def test_loopback_hosts_are_served(host):
+    r = client.post("/mode", json={"mode": "none"},
+                    headers={"Host": host, "Origin": f"http://{host}"})
+    assert r.status_code == 200
