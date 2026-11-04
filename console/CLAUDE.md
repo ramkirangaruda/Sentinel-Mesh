@@ -14,7 +14,7 @@ Owns `console/` and `contracts/`. Reads `ml/` and `firmware/` to check
 integration; never edits them — problems there go to the human. Any contract
 change gets a `CHANGELOG.md` entry and an announcement to all three streams.
 
-## Deliverables — status (141 tests; the 7 SPA-route tests skip until web/dist is built)
+## Deliverables — status (166 tests; the 7 SPA-route tests skip until web/dist is built)
 
 v3:
 1. `api/` — FastAPI :8000, SQLite, `POST/GET /events`, `GET /incidents`, every
