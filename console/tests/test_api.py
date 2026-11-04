@@ -230,6 +230,32 @@ def test_malformed_trace_is_rejected_not_written():
     assert client.get("/recording").json()["dropped"] == 1
 
 
+def _nodes_seen():
+    from api import db, main
+    return db.get_nodes_seen(main._conn)
+
+
+@pytest.mark.parametrize("recording", [False, True])
+def test_invalid_trace_does_not_mark_nodes_alive(recording):
+    client.post("/reset")
+    if recording:
+        client.post("/recording/start", json={"session": "liveness", "label": "normal"})
+    bad = trace(rssi_mean=-40.0, battery_pct=12.0)
+    del bad["loss_pct"]
+    r = client.post("/traces", json=bad)
+    assert r.status_code == 422 and any("loss_pct" in e for e in r.json()["errors"])
+    assert _nodes_seen() == {}
+
+
+def test_valid_trace_marks_nodes_alive_even_when_not_recording():
+    client.post("/reset")
+    r = client.post("/traces", json=trace(rssi_mean=-61.0, battery_pct=77.0))
+    assert r.status_code == 202 and r.json()["stored"] is False
+    seen = _nodes_seen()
+    assert set(seen) == {"gateway", "field-1"}
+    assert seen["field-1"]["rssi"] == -61.0 and seen["field-1"]["battery_pct"] == 77.0
+
+
 def test_label_version_bumps_so_the_bridge_notices():
     before = client.get("/recording").json()["label_version"]
     client.post("/recording/label", json={"label": "flood"})

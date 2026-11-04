@@ -283,26 +283,32 @@ async def post_trace(request: Request):
     the ML stream's features.
     """
     body = await _json_body(request)
-    # Any TRC line proves the gateway is alive and says how well it hears
-    # field-1, whether or not we are recording -- /status wants both.
-    now = energy.now_ms()
-    db.touch_node(_conn, "gateway", now)
-    if isinstance(body.get("rssi_mean"), (int, float)):
-        db.touch_node(_conn, "field-1", now, rssi=body["rssi_mean"],
-                      battery_pct=body.get("battery_pct") if isinstance(body.get("battery_pct"), (int, float)) else None)
-
     rec = db.get_recording(_conn)
-    if not rec["active"]:
-        return {"stored": False, "reason": "not recording"}
 
+    # Validate first: a row that fails the schema is not evidence of anything,
+    # so it must not mark nodes alive or overwrite field-1's RSSI/battery on
+    # /status. Refused with 422 whether or not we are recording, so the bridge
+    # counts it as a contract error either way; only a recording counts it as
+    # a dropped row.
     row, errors = validation.validate_trace(body)
     if errors:
-        db.count_trace_row(_conn, stored=False)
+        if rec["active"]:
+            db.count_trace_row(_conn, stored=False)
         return JSONResponse(
             status_code=422,
             content={"stored": False, "detail": "trace does not match contracts/trace.schema.json",
                      "errors": errors},
         )
+
+    # Any valid TRC line proves the gateway is alive and says how well it
+    # hears field-1, whether or not we are recording -- /status wants both.
+    now = energy.now_ms()
+    db.touch_node(_conn, "gateway", now)
+    db.touch_node(_conn, "field-1", now, rssi=row["rssi_mean"],
+                  battery_pct=row.get("battery_pct") if isinstance(row.get("battery_pct"), (int, float)) else None)
+
+    if not rec["active"]:
+        return {"stored": False, "reason": "not recording"}
 
     # The console owns ground truth: the operator chose the label in the UI, so
     # it is stamped here. A disagreeing gateway label is kept for debugging.
