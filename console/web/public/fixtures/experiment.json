@@ -11,7 +11,8 @@
    "projected_days": 41.0,
    "legit_connect_pct": 100.0,
    "legit_extra_delay_ms": 0,
-   "status": "done"
+   "status": "done",
+   "source": "simulated"
   },
   {
    "condition": "undefended",
@@ -20,7 +21,8 @@
    "projected_days": 1.2,
    "legit_connect_pct": 61.0,
    "legit_extra_delay_ms": 2400,
-   "status": "done"
+   "status": "done",
+   "source": "simulated"
   },
   {
    "condition": "ratelimit",
@@ -29,7 +31,8 @@
    "projected_days": 26.0,
    "legit_connect_pct": 92.0,
    "legit_extra_delay_ms": 300,
-   "status": "done"
+   "status": "done",
+   "source": "simulated"
   },
   {
    "condition": "cookie",
@@ -38,7 +41,8 @@
    "projected_days": 32.0,
    "legit_connect_pct": 97.0,
    "legit_extra_delay_ms": 120,
-   "status": "running"
+   "status": "running",
+   "source": "simulated"
   },
   {
    "condition": "gate",
@@ -47,7 +51,8 @@
    "projected_days": null,
    "legit_connect_pct": null,
    "legit_extra_delay_ms": null,
-   "status": "pending"
+   "status": "pending",
+   "source": null
   }
  ],
  "note": "FIXTURE NUMBERS \u2014 placeholders until the rig measures the real ones."

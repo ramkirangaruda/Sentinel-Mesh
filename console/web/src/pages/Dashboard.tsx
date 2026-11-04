@@ -71,8 +71,10 @@ export default function Dashboard() {
 
         {FIXTURES && <div className="banner">FIXTURE MODE &mdash; showing console/frontend-kit/fixtures, not live data. Controls do nothing.</div>}
         {down && !FIXTURES && <div className="banner bad">Console API unreachable &mdash; {status.error}</div>}
-        {simulated && !FIXTURES && (
-          <div className="banner warn">SIMULATED ENERGY DATA from tools/mock_rig.py</div>
+        {simulated && (
+          <div className="banner warn">
+            SIMULATED ENERGY DATA {FIXTURES ? <>&mdash; invented fixture numbers, not measured</> : "from tools/mock_rig.py"}
+          </div>
         )}
 
         {live && <><StatusBar s={status.data} /><Controls s={status.data} onChange={refreshAll} /></>}

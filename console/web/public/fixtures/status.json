@@ -7,7 +7,7 @@
  "baseline_mw": 84.0,
  "projected_days": 1.2,
  "projected_days_idle": 41.0,
- "mode": "none",
+ "mode": "gate",
  "attack_profile": "loud",
  "budget_j": 12.6,
  "budget_max_j": 40.0,
@@ -26,5 +26,6 @@
    "battery_pct": null,
    "last_seen_ms": 120
   }
- ]
+ ],
+ "simulated": true
 }
