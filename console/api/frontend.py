@@ -106,10 +106,39 @@ async def scan_email(request: Request):
     return _store_all(_ml("/score/email", json={"text": text}))
 
 
+def _too_large(limit: int) -> HTTPException:
+    return HTTPException(413, f"upload is larger than the {limit // (1024 * 1024)} MB limit "
+                              f"(SENTINEL_MAX_UPLOAD_BYTES={limit})")
+
+
+async def _read_capped(request: Request, limit: int) -> None:
+    """Read the body, refusing it with 413 as soon as it passes `limit` bytes.
+
+    Content-Length is checked first so an honest client is refused before
+    anything is read; the streamed count catches chunked bodies and lying
+    headers. Starlette's request.form() would otherwise spool any size to
+    disk, and the upload is then read into memory and re-sent to ML. The
+    multipart framing counts toward the limit (a few hundred bytes).
+    """
+    declared = request.headers.get("content-length")
+    if declared is not None and declared.isdigit() and int(declared) > limit:
+        raise _too_large(limit)
+    chunks, total = [], 0
+    async for chunk in request.stream():
+        total += len(chunk)
+        if total > limit:
+            raise _too_large(limit)
+        chunks.append(chunk)
+    # request.form() re-reads from the cached body (Starlette's stream()
+    # replays _body when it is set), so the parse below sees exactly this.
+    request._body = b"".join(chunks)
+
+
 @router.post("/scan/file")
 async def scan_file(request: Request):
     """Benign files only -- the safety rule. Malicious demo samples are feature
     rows sent straight to the ML service, never uploaded files."""
+    await _read_capped(request, config.MAX_UPLOAD_BYTES)
     form = await request.form()
     upload = form.get("file")
     if upload is None or not hasattr(upload, "read"):

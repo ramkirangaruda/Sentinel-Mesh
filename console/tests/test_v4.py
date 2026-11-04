@@ -275,6 +275,50 @@ def test_api_scan_rejects_an_ml_event_that_breaks_the_contract(monkeypatch):
     assert client.post("/api/scan/email", json={"text": "hi"}).status_code == 502
 
 
+def _fake_file_ml(monkeypatch):
+    calls = []
+
+    def fake(path, **kw):
+        calls.append(kw["files"]["file"])
+        return ev("file_clean", "info", layer="file", node=None, score=0.03)
+    monkeypatch.setattr(frontend, "_ml", fake)
+    return calls
+
+
+def test_scan_file_over_the_size_cap_is_413_and_never_reaches_ml(monkeypatch):
+    calls = _fake_file_ml(monkeypatch)
+    monkeypatch.setattr(config, "MAX_UPLOAD_BYTES", 1024)
+    r = client.post("/api/scan/file", files={"file": ("big.exe", b"\0" * 4096)})
+    assert r.status_code == 413 and "limit" in r.json()["detail"]
+    assert calls == []
+
+
+def test_scan_file_cap_also_holds_without_content_length(monkeypatch):
+    calls = _fake_file_ml(monkeypatch)
+    monkeypatch.setattr(config, "MAX_UPLOAD_BYTES", 1024)
+    boundary = "xyz"
+    body = (f"--{boundary}\r\nContent-Disposition: form-data; name=\"file\"; filename=\"big.exe\"\r\n"
+            f"Content-Type: application/octet-stream\r\n\r\n").encode() + b"\0" * 4096 + \
+           f"\r\n--{boundary}--\r\n".encode()
+
+    def chunked():                       # a generator body is sent chunked, no Content-Length
+        for i in range(0, len(body), 512):
+            yield body[i:i + 512]
+    r = client.post("/api/scan/file", content=chunked(),
+                    headers={"content-type": f"multipart/form-data; boundary={boundary}"})
+    assert r.status_code == 413
+    assert calls == []
+
+
+def test_scan_file_under_the_cap_is_proxied_intact(monkeypatch):
+    calls = _fake_file_ml(monkeypatch)
+    monkeypatch.setattr(config, "MAX_UPLOAD_BYTES", 64 * 1024)
+    data = bytes(range(256)) * 16
+    r = client.post("/api/scan/file", files={"file": ("ok.exe", data)})
+    assert r.status_code == 200
+    assert calls == [("ok.exe", data)]
+
+
 def test_reset_keeps_finished_experiment_rows_but_drops_a_running_one():
     """Reset happens right before the pitch; the table was recorded before it."""
     _finish_run_with_samples("undefended", "loud", mw=500.0)

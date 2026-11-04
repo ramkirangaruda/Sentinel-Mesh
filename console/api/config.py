@@ -24,6 +24,12 @@ TRACE_DIR = os.environ.get("SENTINEL_TRACE_DIR", os.path.join(CONSOLE_DIR, "data
 CONSOLE_URL = os.environ.get("SENTINEL_CONSOLE_URL", "http://127.0.0.1:8000")
 ML_URL = os.environ.get("SENTINEL_ML_URL", "http://127.0.0.1:8001")
 
+# Largest upload POST /api/scan/file accepts before proxying it to the ML
+# service. The body is buffered in memory (and again by the ML service), so
+# without a cap one request could fill the laptop's RAM. 20 MB covers the
+# benign PE/.eml files the demo scans; bigger is refused with 413.
+MAX_UPLOAD_BYTES = int(os.environ.get("SENTINEL_MAX_UPLOAD_BYTES", 20 * 1024 * 1024))
+
 # Correlation window: events more than this far apart start a new incident.
 INCIDENT_WINDOW_MS = int(os.environ.get("SENTINEL_INCIDENT_WINDOW_MS", 10 * 60 * 1000))
 
