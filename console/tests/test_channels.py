@@ -177,3 +177,44 @@ def test_oversized_text_is_refused_before_scoring(monkeypatch):
 
 def test_text_at_the_limit_is_still_scored():
     assert classify(text="a" * channels.MAX_TEXT_CHARS).status_code == 200
+
+
+def _point_sms_at(monkeypatch, model_path, vec_path):
+    monkeypatch.delitem(channels._models, "sms", raising=False)
+    monkeypatch.setitem(channels._channels["sms"], "model_path", model_path)
+    monkeypatch.setitem(channels._channels["sms"], "vectorizer_path", vec_path)
+    import joblib
+    monkeypatch.setattr(joblib, "load", lambda p: pytest.fail(f"unpickled {p}"))
+
+
+@pytest.mark.parametrize("where", ["absolute", "dotdot"])
+def test_model_path_outside_the_model_dirs_is_refused(tmp_path_factory, monkeypatch, where):
+    # joblib.load runs code: a manifest must not be able to name any pickle on disk
+    outside = tmp_path_factory.mktemp("outside")
+    for name in ("model.joblib", "vec.joblib"):
+        (outside / name).write_bytes(b"not loaded")
+    if where == "absolute":
+        model, vec = str(outside / "model.joblib"), str(outside / "vec.joblib")
+    else:
+        model = os.path.relpath(outside / "model.joblib", config.REPO_DIR)
+        vec = os.path.relpath(outside / "vec.joblib", config.REPO_DIR)
+        assert model.startswith("..")
+    _point_sms_at(monkeypatch, model, vec)
+    r = classify()
+    assert r.status_code == 503
+    assert "outside the model directories" in r.json()["detail"]
+
+
+def test_vectorizer_path_is_confined_too(tmp_path_factory, monkeypatch):
+    outside = tmp_path_factory.mktemp("outside")
+    (outside / "vec.joblib").write_bytes(b"not loaded")
+    _point_sms_at(monkeypatch, "channels/sms/model.joblib", str(outside / "vec.joblib"))
+    r = classify()
+    assert r.status_code == 503 and "vectorizer_path" in r.json()["detail"]
+
+
+def test_committed_manifests_point_inside_the_model_dirs():
+    for ch in channels._channels.values():
+        for key in ("model_path", "vectorizer_path"):
+            if ch.get(key):
+                channels._model_file(ch, key)   # raises if outside

@@ -100,13 +100,35 @@ def toggle_channel(channel_id: str):
 
 # -- POST /classify -------------------------------------------------------------
 
+def _model_file(channel: dict, key: str) -> str:
+    """Resolve a manifest path (repo-relative) and confine it to config.MODEL_DIRS.
+
+    joblib.load unpickles, i.e. runs code, so a manifest naming /tmp/x.joblib
+    or ../../elsewhere must be refused before anything is opened."""
+    rel = channel.get(key)
+    if not isinstance(rel, str) or not rel:
+        raise HTTPException(503, f"{channel['id']}: manifest has no {key}")
+    path = os.path.realpath(os.path.join(config.REPO_DIR, rel))
+    for root in config.MODEL_DIRS:
+        root = os.path.realpath(root)
+        try:
+            if os.path.commonpath([path, root]) == root:
+                return path
+        except ValueError:  # different drive on Windows
+            continue
+    allowed = ", ".join(os.path.relpath(r, config.REPO_DIR).replace(os.sep, "/") + "/"
+                        for r in config.MODEL_DIRS)
+    raise HTTPException(503, f"{channel['id']}: manifest {key} {rel!r} is outside the model "
+                             f"directories ({allowed}); refusing to load it")
+
+
 def _load_model(channel: dict):
     channel_id = channel["id"]
     if channel_id in _models:
         return _models[channel_id]
 
-    model_path = os.path.join(config.REPO_DIR, channel["model_path"])
-    vec_path = os.path.join(config.REPO_DIR, channel["vectorizer_path"])
+    model_path = _model_file(channel, "model_path")
+    vec_path = _model_file(channel, "vectorizer_path")
     if not (os.path.isfile(model_path) and os.path.isfile(vec_path)):
         raise HTTPException(503, f"{channel_id}: model files not found -- run "
                                  f"channels/{channel_id}/train.py first")

@@ -73,3 +73,8 @@ ENERGY_SCHEMA_PATH = os.path.join(CONTRACTS_DIR, "energy.schema.json")
 # or reference one that already lives there (MailGuard, FileGuard) without
 # console/ needing to contain model code itself.
 CHANNELS_DIR = os.environ.get("SENTINEL_CHANNELS_DIR", os.path.join(REPO_DIR, "channels"))
+
+# The only folders a channel manifest's model_path / vectorizer_path may point
+# into. joblib.load unpickles, which runs code, so a manifest.json that names
+# a file anywhere else (absolute, or ../ out of the repo) is refused, not loaded.
+MODEL_DIRS = [os.path.join(REPO_DIR, "channels"), os.path.join(REPO_DIR, "ml", "models")]
