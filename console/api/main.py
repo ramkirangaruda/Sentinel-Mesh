@@ -115,6 +115,19 @@ def _session_filename(session: str) -> str:
     return safe or "session"
 
 
+def _shown_path(path: str, env_var: str) -> str:
+    """A path as the API may show it: repo-relative (``console/data/traces``)
+    when inside the repo, else only the env var that set it. Absolute paths
+    reveal the operator's user name and folder layout to any page that can
+    read the API, and nothing in the UI needs them."""
+    real, repo = os.path.realpath(path), os.path.realpath(config.REPO_DIR)
+    try:
+        inside = os.path.commonpath([real, repo]) == repo
+    except ValueError:  # different drive on Windows
+        inside = False
+    return os.path.relpath(real, repo).replace(os.sep, "/") if inside else f"${env_var}"
+
+
 @app.get("/health")
 def health():
     rec = db.get_recording(_conn)
@@ -124,8 +137,8 @@ def health():
         "events": n,
         "recording": rec["active"],
         "session": rec["session"],
-        "db": config.DB_PATH,
-        "trace_dir": config.TRACE_DIR,
+        "db": _shown_path(config.DB_PATH, "SENTINEL_DB"),
+        "trace_dir": _shown_path(config.TRACE_DIR, "SENTINEL_TRACE_DIR"),
     }
 
 
@@ -255,8 +268,8 @@ def list_traces():
                     except json.JSONDecodeError:
                         label = "<unparseable>"
                     labels[label] = labels.get(label, 0) + 1
-            out.append({"session": name[:-6], "file": path, "rows": rows, "labels": labels})
-    return {"trace_dir": config.TRACE_DIR, "sessions": out}
+            out.append({"session": name[:-6], "file": name, "rows": rows, "labels": labels})
+    return {"trace_dir": _shown_path(config.TRACE_DIR, "SENTINEL_TRACE_DIR"), "sessions": out}
 
 
 @app.post("/traces", status_code=202)
@@ -306,7 +319,7 @@ async def post_trace(request: Request):
         f.write(json.dumps(row) + "\n")
     db.count_trace_row(_conn, stored=True, mismatched=mismatched)
     return {"stored": True, "session": rec["session"], "label": rec["label"],
-            "file": path, "gw_label_mismatch": mismatched}
+            "file": os.path.basename(path), "gw_label_mismatch": mismatched}
 
 
 async def _json_body(request: Request) -> dict[str, Any]:

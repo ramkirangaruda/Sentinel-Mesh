@@ -252,6 +252,32 @@ def test_health_reports_event_count():
     assert client.get("/health").json()["events"] == 1
 
 
+def _no_absolute_paths(obj):
+    if isinstance(obj, dict):
+        return all(_no_absolute_paths(v) for v in obj.values())
+    if isinstance(obj, list):
+        return all(_no_absolute_paths(v) for v in obj)
+    return not (isinstance(obj, str) and (os.path.isabs(obj) or _tmp in obj))
+
+
+def test_health_and_traces_never_return_absolute_paths():
+    # the test DB and trace dir live in a temp dir outside the repo
+    client.post("/recording/start", json={"session": "paths", "label": "normal"})
+    posted = client.post("/traces", json=trace()).json()
+    assert posted["file"] == "paths.jsonl"
+    health, traces = client.get("/health").json(), client.get("/traces").json()
+    assert _no_absolute_paths(health) and _no_absolute_paths(traces), (health, traces)
+    assert health["db"] == "$SENTINEL_DB" and traces["trace_dir"] == "$SENTINEL_TRACE_DIR"
+    assert {"session": "paths", "file": "paths.jsonl", "rows": 1, "labels": {"normal": 1}} \
+        in traces["sessions"]
+
+
+def test_paths_inside_the_repo_are_shown_repo_relative(monkeypatch):
+    from api import config
+    monkeypatch.setattr(config, "DB_PATH", os.path.join(config.CONSOLE_DIR, "data", "console.db"))
+    assert client.get("/health").json()["db"] == "console/data/console.db"
+
+
 # -- the built frontend's catch-all route -------------------------------------
 
 from api import config as _config  # noqa: E402
