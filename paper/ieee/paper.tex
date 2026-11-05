@@ -19,26 +19,44 @@
 
 \title{EnergyGate: Defending Battery-Powered IoT Nodes Against Post-Quantum Handshake Exhaustion Attacks}
 
+% Double-blind venues: build paper_anon.tex, which sets \anon to 1 and inputs this file.
+\providecommand{\anon}{0}
+\ifnum\anon=1
+\author{\IEEEauthorblockN{Anonymous Authors}\IEEEauthorblockA{\textit{Under double-blind review}}}
+\else
+% Four blocks in one row: affiliation and email are split over short lines so each block fits a quarter of the page.
 \author{\IEEEauthorblockN{Ramkiran Garuda}
-\IEEEauthorblockA{\textit{School of Computer Science and}\\
-\textit{Engineering}\\
-\textit{Vellore Institute of Technology}\\
+\IEEEauthorblockA{\textit{School of Computer}\\
+\textit{Science and Engineering}\\
+\textit{Vellore Institute of}\\
+\textit{Technology}\\
 Vellore, India\\
-garuda.ramkiran2024@vitstudent.ac.in}
+garuda.ramkiran2024@\\vitstudent.ac.in}
 \and
 \IEEEauthorblockN{Chaitanya Patil}
-\IEEEauthorblockA{\textit{School of Computer Science and}\\
-\textit{Engineering}\\
-\textit{Vellore Institute of Technology}\\
+\IEEEauthorblockA{\textit{School of Computer}\\
+\textit{Science and Engineering}\\
+\textit{Vellore Institute of}\\
+\textit{Technology}\\
 Vellore, India\\
-chaitanya.patil2024@vitstudent.ac.in}
+chaitanya.patil2024@\\vitstudent.ac.in}
 \and
 \IEEEauthorblockN{Adithya Binoj Nair}
-\IEEEauthorblockA{\textit{School of Computer Science and}\\
-\textit{Engineering}\\
-\textit{Vellore Institute of Technology}\\
+\IEEEauthorblockA{\textit{School of Computer}\\
+\textit{Science and Engineering}\\
+\textit{Vellore Institute of}\\
+\textit{Technology}\\
 Vellore, India\\
-adithya.nair2024@vitstudent.ac.in}}
+adithya.binojnair2024@\\vitstudent.ac.in}
+\and
+\IEEEauthorblockN{Satish C. J.}
+\IEEEauthorblockA{\textit{School of Computer}\\
+\textit{Science and Engineering}\\
+\textit{Vellore Institute of}\\
+\textit{Technology}\\
+Vellore, India\\
+satish.cj@vit.ac.in}}
+\fi
 
 \maketitle
 
@@ -61,7 +79,8 @@ under the gate against $+73.2\pm4.1$\,mW undefended (600\,s, $n=3$). The joule b
 placeholder charge overcosts a forged verify $\approx$6--7$\times$, and it never bound against the insider, whose
 admissions stayed below its cap. The defences protect energy, not availability: the real gateway's success tracks
 the attacker's radio load. Retrained on recorded traces and evaluated by session, the gate's tree reaches AUC 0.95
-and catches most adaptive traffic the shipped model misses, though the firmware still carries the original model.
+and catches most adaptive traffic the original model misses; it is now deployed in the firmware, though its power
+effect on the rig is not yet measured.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -109,20 +128,35 @@ implementations~\cite{pqclean}.
 We broadcast, so there is no link-layer retransmission and every station in range hears every frame.
 
 \textbf{PQC cost on small devices.} Gillot \emph{et al.} measure ML-KEM/ML-DSA/SLH-DSA energy on Raspberry Pi and
-laptop platforms~\cite{gillot1} and TLS~1.3 PQC handshakes on Pico~W, ESP32 and Pi Zero~\cite{gillot2}. Both
-characterise the cost the device \emph{wants} to
-pay. None measures the cost an adversary chooses when to impose.
+laptop platforms~\cite{gillot1} and TLS~1.3 PQC handshakes on Pico~W, ESP32 and Pi Zero~\cite{gillot2}; Karcz
+\emph{et al.} time the NIST schemes on an ESP32-C6~\cite{karcz}; Segatz and Al~Hafiz speed up Kyber on the
+ESP32~\cite{segatz}, and Ben~Ahmed \emph{et al.} benchmark post-quantum signatures on ESP32 and Raspberry
+Pi~\cite{benahmed}. All characterise the cost the device \emph{wants} to pay. None measures the cost an adversary
+chooses when to impose.
 
 \textbf{Handshake exhaustion.} Lee \emph{et al.} show PQC-TLS prolongs high server CPU load under handshake
-exhaustion by up to 88$\times$ and degrades learned IDSs~\cite{leetls}---server CPU, not battery. Hummen \emph{et al.}
-protect constrained peers' public-key work with puzzles~\cite{hummen}; client puzzles and cookies for key exchange
-are well studied~\cite{stebila,rfc8019}. On a broadcast medium a stateless cookie only stops blind spoofers.
+exhaustion by up to 88$\times$ and degrades learned IDSs~\cite{leetls}, and Sammo \emph{et al.} make a TLS server
+pay for an expensive post-quantum signature by algorithm substitution~\cite{sammo}---server CPU in both, not
+battery. Darzi and Yavuz combine post-quantum security with counter-DoS for spectrum access~\cite{darzi}. Hummen
+\emph{et al.} protect constrained peers' public-key work with puzzles~\cite{hummen}, Tiloca \emph{et al.} harden the
+DTLS handshake against DoS~\cite{tiloca}, and client puzzles and cookies for key exchange are well
+studied~\cite{aura,stebila,rfc8019}. On a broadcast medium a stateless cookie only stops blind spoofers.
 
-\textbf{Battery exhaustion.} Stajano and Anderson named ``sleep deprivation torture''~\cite{stajano};
-Pirretti \emph{et al.} analyse sleep-deprivation attacks in sensor networks~\cite{pirretti}. Those defences sit at
-the MAC/clustering layer. From a first, non-systematic search (\texttt{paper/writing/related\_work.md}) we found no
-prior measurement of the battery cost of abusive post-quantum handshake requests on a microcontroller and no defence
-that bounds it with a joule budget independent of a classifier; we do not claim this is exhaustive.
+\textbf{Battery exhaustion.} Stajano and Anderson named ``sleep deprivation torture''~\cite{stajano}. Martin
+\emph{et al.} describe \emph{service request} attacks, in which the victim spends energy just deciding whether to
+honour a request~\cite{martin}---the attack we measure, here with a post-quantum verify as the decision. Denial of
+sleep has been studied at the MAC layer~\cite{raymond}, at the clustering layer~\cite{pirretti} and in battery
+models~\cite{kuaban}. Closest to us, Krentz \emph{et al.} evaluate a symmetric 802.15.4 session-key scheme against
+injected key-establishment requests~\cite{krentz}, and Hristozov \emph{et al.} throttle costly RESTful IoT requests,
+including from compromised requesters, through a trusted backend~\cite{hristozov}. Neither involves post-quantum
+signatures or a joule budget on the node.
+
+\textbf{Search.} We searched OpenAlex, arXiv and Crossref on 6~Nov 2026 with 24 fixed queries over eight topics
+(PQC cost on microcontrollers, PQC handshake DoS, battery exhaustion, puzzles and cookies, learned admission, ESP-NOW,
+energy budgets, join procedures) and screened the 1\,542 unique hits by title (queries, raw results and screening in
+the artifact; DBLP refused automated queries). We found no prior measurement of the battery cost of abusive
+post-quantum handshake requests on a microcontroller and no defence that bounds it with a joule budget independent
+of a classifier. Screening was by one author and by title, so this is not a full systematic review.
 
 %=====================================================================
 \section{Threat Model}
@@ -194,7 +228,8 @@ measured, not assumed away.
 \textbf{Score.} A depth-4 decision tree, exported to C, maps eight link features over a rolling 5\,s window to the
 probability that the sender is genuine: \texttt{hs\_per\_s}, \texttt{hs\_fail}, \texttt{rssi\_mean},
 \texttt{rssi\_var}, \texttt{loss\_pct}, \texttt{dup\_pct}, \texttt{frag\_complete\_pct}, \texttt{battery\_pct}.
-The shipped model was trained on \simu{} traces.
+The model used in every power run was trained on \simu{} traces; a tree retrained on recorded traces has since
+replaced it (Section~\ref{sec:traces}).
 
 \textbf{Joule budget.} A token bucket of capacity $B$ refilling at $r$\,J/s; an admitted handshake is charged $c_h$,
 a challenge $c_c$. Every run used the \ph{} values $B=20$\,J, $r=0.05$\,J/s, $c_h=0.02$\,J, $c_c=0.5$\,mJ. Measured
@@ -535,6 +570,32 @@ held-out environment, and they were recorded before the cookie was bound, with n
 is C3's: the classifier is evadable. The budget's cap on charges holds regardless, but whether it limits real drain
 depends on $c_h$ (Section~\ref{sec:attack}).
 
+\textbf{Deployed.} The no-RSSI tree, refitted on all six sessions, now replaces the \simu{} model in field-1's
+firmware (\texttt{ml/export\_energygate\_real.py}). Its exported C scores all 6\,968 trace rows within
+$5\times10^{-7}$ of scikit-learn, with every row on the same side of both policy thresholds. Table~\ref{tab:deploy}
+gives what gate~v2's thresholds would do with each model's score, left out by session for the retrained tree: almost
+every ADAPTIVE window moves from spend to challenge, while normal windows are still spent 99\,\% of the time (a
+challenged real gateway can still answer the cookie). These are decisions replayed on recorded features, not power
+measured on the rig with the new firmware, which we have not yet run. ADAPTIVE was also tuned against the old tree;
+an attacker who knows the new one may find another way under it.
+
+\begin{table}[t]
+\caption{Share of one-second windows the gate~v2 policy would spend on ($p\ge0.7$), by score. Retrained tree:
+leave-one-session-out. Replayed from recorded features, not measured on the rig. ``Rest'' is FLOOD, INSIDER, FORGE
+and FORGE+ECHO}
+\label{tab:deploy}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccccc}
+\toprule
+Score & normal & ADAPT. & A.SP. & DRIP & Rest\\
+\midrule
+carried (\simu) & 1.00 & 1.00 & 0.77 & 1.00 & 0.00\\
+retrained, deployed & 0.99 & 0.01 & 0.14 & 0.93 & 0.00\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 %=====================================================================
 \section{Limitations}\label{sec:lim}
 \begin{itemize}
@@ -561,8 +622,9 @@ $\approx$989\,s$^{-1}$, enough for a 400\,ms handshake, but did not log sample b
 corrected to keep its (epoch, seq).
 \item \textbf{Firmware differs by table}: Table~\ref{tab:e5} predates the bound cookie; Section~\ref{sec:traces}'s
 traces predate it and contain no same-seq echo.
-\item \textbf{Shipped model is still \simu{}-trained}: Section~\ref{sec:traces}'s retrain is not exported to firmware,
-so every power result here used the original model.
+\item \textbf{Power results use the \simu{}-trained model}: the retrained tree is now in the firmware, but every
+power measurement here predates it, and its effect is shown only by replaying recorded features
+(Table~\ref{tab:deploy}).
 \item \textbf{Absolute energy} rests on an unresolved 3.67\,\% instrument gain difference against a hobby meter;
 ratios are unaffected.
 \item \textbf{Unauthenticated control channel}, demo keys compiled into images, no formal verification, no level~5,
@@ -580,7 +642,7 @@ than free. The joule budget always caps what the node charges; it cut real drain
 the true cost, roughly halving a same-seq echo's drain once it ran dry, and it never bound against an enrolled
 insider who echoes, which nothing here stops. Our defences also protect energy, not availability: the gateway's
 success tracked the attacker's radio load regardless of which defence ran. Next steps are an honestly-costed budget
-(with $r$ set from a target battery life), a per-peer control for insiders, deploying the retrained gate, a second
+(with $r$ set from a target battery life), a per-peer control for insiders, measuring the now-deployed retrained gate on the rig, a second
 monitor for attacker energy, and a duty-cycled victim.
 
 \section*{Artifact}
@@ -592,28 +654,56 @@ monitor for attacker energy, and a duty-cycled victim.
 \begin{thebibliography}{99}
 \bibitem{fips203} NIST, ``Module-Lattice-Based Key-Encapsulation Mechanism Standard,'' FIPS 203, Aug. 2024.
 \bibitem{fips204} NIST, ``Module-Lattice-Based Digital Signature Standard,'' FIPS 204, Aug. 2024.
+\bibitem{ukraine2016} R. M. Lee, M. J. Assante, and T. Conway, ``Analysis of the cyber attack on the Ukrainian power
+grid,'' SANS ICS / E-ISAC, Mar. 2016.
 \bibitem{pqclean} M. J. Kannwischer \emph{et al.}, ``Improving software quality in cryptography standardization
 projects,'' in \emph{Proc. IEEE EuroS\&P Workshops}, 2022. (PQClean.)
 \bibitem{espnow} Espressif Systems, ``ESP-NOW,'' ESP-IDF Programming Guide.
-\bibitem{ukraine2016} R. M. Lee, M. J. Assante, and T. Conway, ``Analysis of the cyber attack on the Ukrainian power
-grid,'' SANS ICS / E-ISAC, Mar. 2016.
 \bibitem{gillot1} O. Gillot, W. J. Buchanan, and M. G. Tehrani, ``Energy consumption of post-quantum cryptography on
 constrained and general-purpose architectures,'' \emph{Cryptography}, vol. 10, no. 4, art. 55, 2026,
 doi:10.3390/cryptography10040055.
 \bibitem{gillot2} O. Gillot, W. J. Buchanan, and C. Turino, ``Testing TLS 1.3 PQC on constrained devices and
 microcontrollers,'' in \emph{Proc. QSIoT Workshop (IoT 2026)}, 2026, arXiv:2610.27766.
+\bibitem{karcz} D. P. Karcz, M. Niemiec, M. A. Kourtis, and T. K\"oppl, ``Exploring hardware implementation feasibility of post-quantum
+cryptography in embedded systems: Evaluation of NIST-standardized ML-KEM, ML-DSA and SLH-DSA on ESP32-C6,''
+\emph{PLOS ONE}, vol. 21, no. 8, 2026, doi:10.1371/journal.pone.0355179.
+\bibitem{segatz} F. Segatz and M. I. Al Hafiz, ``Efficient implementation of CRYSTALS-KYBER key encapsulation
+mechanism on ESP32,'' arXiv:2503.10207, 2025.
+\bibitem{benahmed} F. Ben Ahmed, C. Labrecque, and A. Meddeb, ``Benchmarking of post-quantum digital signature schemes
+on ESP32 and Raspberry Pi platforms,'' in \emph{Proc. IEEE CCECE}, 2026, pp. 361--366.
 \bibitem{leetls} L.-F. Lee, Y.-Y. Chang, C.-M. Yu, and K.-H. Yeh, ``On the security implications of PQC in TLS:
 handshake exhaustion and IDS degradation,'' arXiv:2607.12504, 2026.
+\bibitem{sammo} N. S. Sammo, S. A. Lura, R. Nowrozy, and S. Bevinakoppa, ``Cryptographic DoS amplification in hybrid
+post-quantum deployments: adversarial algorithm substitution and its countermeasures,'' \emph{Electronics}, vol. 15,
+no. 15, art. 3250, 2026.
+\bibitem{darzi} S. Darzi and A. A. Yavuz, ``Privacy-preserving and post-quantum counter denial of service framework
+for wireless networks,'' in \emph{Proc. IEEE MILCOM}, 2024, pp. 1076--1081.
 \bibitem{hummen} R. Hummen, H. Wirtz, J. H. Ziegeldorf, J. Hiller, and K. Wehrle, ``Tailoring end-to-end IP security
 protocols to the Internet of Things,'' in \emph{Proc. IEEE ICNP}, 2013.
+\bibitem{tiloca} M. Tiloca, C. Gehrmann, and L. Seitz, ``On improving resistance to denial of service and key
+provisioning scalability of the DTLS handshake,'' \emph{Int. J. Inf. Secur.}, vol. 16, pp. 173--193, 2017.
+\bibitem{aura} T. Aura, P. Nikander, and J. Leiwo, ``DOS-resistant authentication with client puzzles,'' in
+\emph{Security Protocols Workshop}, LNCS, 2001, pp. 170--177.
 \bibitem{stebila} D. Stebila, L. Kuppusamy, J. Rangasamy, C. Boyd, and J. Gonzalez Nieto, ``Stronger difficulty
 notions for client puzzles and denial-of-service-resistant protocols,'' in \emph{CT-RSA}, 2011.
 \bibitem{rfc8019} Y. Nir and V. Smyslov, ``Protecting Internet Key Exchange Protocol Version 2 (IKEv2) implementations
 from distributed denial-of-service attacks,'' RFC 8019, 2016.
 \bibitem{stajano} F. Stajano and R. Anderson, ``The resurrecting duckling: security issues for ad-hoc wireless
 networks,'' in \emph{Security Protocols Workshop}, 1999.
+\bibitem{martin} T. L. Martin, M. S. Hsiao, D. S. Ha, and J. Krishnaswami, ``Denial-of-service attacks on
+battery-powered mobile computers,'' in \emph{Proc. IEEE PerCom}, 2004, pp. 309--318.
+\bibitem{raymond} D. Raymond, R. C. Marchany, M. I. Brownfield, and S. F. Midkiff, ``Effects of denial-of-sleep
+attacks on wireless sensor network MAC protocols,'' \emph{IEEE Trans. Veh. Technol.}, vol. 58, no. 1, pp. 367--380,
+2009.
 \bibitem{pirretti} M. Pirretti \emph{et al.}, ``The sleep deprivation attack in sensor networks: analysis and methods
 of defense,'' \emph{Int. J. Distrib. Sensor Netw.}, vol. 2, no. 3, pp. 267--287, 2006.
+\bibitem{kuaban} G. S. Kuaban, E. Gelenbe, T. Czach\'orski, P. Czekalski, and J. K. Tangka, ``Modelling of the energy
+depletion process and battery depletion attacks for battery-powered Internet of Things (IoT) devices,''
+\emph{Sensors}, vol. 23, no. 13, art. 6183, 2023.
+\bibitem{krentz} K.-F. Krentz, C. Meinel, and H. Graupner, ``Denial-of-sleep-resilient session key establishment for
+IEEE 802.15.4 security: from adaptive to responsive,'' in \emph{Proc. EWSN}, 2018, pp. 25--36.
+\bibitem{hristozov} S. Hristozov, M. Huber, and G. Sigl, ``Protecting RESTful IoT devices from battery exhaustion DoS
+attacks,'' in \emph{Proc. IEEE HOST}, 2020, pp. 316--327.
 \end{thebibliography}
 
 \end{document}

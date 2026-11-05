@@ -256,3 +256,16 @@ new PDF; nothing is left for you to write unless you disagree with a choice belo
   `leetls` (arXiv:2607.12504; authors Lin-Fa Lee, Yi-Yu Chang, Chia-Mu Yu, Kuo-Hui Yeh) are confirmed and now have full author names. **`karcz` could not
   be found** on PLOS ONE or anywhere else we could search, so it and its sentence are removed. Add it back only with a DOI.
 - The header comment now names `paper.tex` as canonical (8.15). The `[TODO H]` meter line in `paper.md` is gone (8.11).
+
+## 13. Two of the review's weak spots fixed without hardware, 2026-11-06
+From your review's list. No board was needed for either.
+- **Retrained tree deployed.** `ml/export_energygate_real.py` refits the paper's "tree, no RSSI" on all six trace sessions and writes
+  `firmware/lib/sentinel_proto/include/sentinel_proto/energygate_model.h`. The SIMULATED model stays in `ml/export/energygate_synthetic.h`.
+  - **Checked:** the C scores all 6,968 rows within 5e-7 of scikit-learn, every row on the same side of both thresholds, and LOSO AUC
+    is 0.950 as in Table IX. Host tests pass (359/359, 37/37), and `field_node_energy` and `field_node_bench` build.
+  - **New Table X:** policy decisions replayed from the recorded features. ADAPTIVE windows spent drop from 100 % to 1 %, normal stays at 99 %.
+  - **Not measured:** power on the rig with this firmware. The paper says so in the abstract and Limitations.
+- **Related work** is now a logged search of OpenAlex, arXiv and Crossref: 24 queries, 1,542 titles screened. Details are in
+  `paper/writing/related_work.md` section 7. It adds 11 citations, including Hristozov et al. (HOST 2020), your missing anchor.
+  Karcz et al. is back, since it does exist (PLOS ONE, doi 10.1371/journal.pone.0355179).
+- **Still open, needs the rig:** an honest c_h with r set from a target battery life, and one overnight run to measure it and the new tree.

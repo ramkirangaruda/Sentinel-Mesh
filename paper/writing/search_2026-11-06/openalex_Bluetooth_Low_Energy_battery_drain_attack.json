@@ -1,0 +1,672 @@
+{
+ "database": "openalex",
+ "query": "Bluetooth Low Energy battery drain attack",
+ "date": "2026-11-06",
+ "total": 1562,
+ "hits": [
+  {
+   "title": "Denial of Sleep attacks in Bluetooth Low Energy wireless sensor networks",
+   "authors": [
+    "Jason Uher",
+    "Ryan G Mennecke",
+    "Bassam S. Farroha"
+   ],
+   "year": 2016,
+   "venue": "IEEE Military Communications Conference (MILCOM)",
+   "doi": "https://doi.org/10.1109/milcom.2016.7795499",
+   "url": "https://openalex.org/W2562173206",
+   "cited_by": 28
+  },
+  {
+   "title": "Security and Privacy Threats for Bluetooth Low Energy in IoT and Wearable Devices: A Comprehensive Survey",
+   "authors": [
+    "Arup Barua",
+    "Md Abdullah Al Alamin",
+    "Md. Shohrab Hossain",
+    "Ekram Hossain"
+   ],
+   "year": 2022,
+   "venue": "IEEE Open Journal of the Communications Society",
+   "doi": "https://doi.org/10.1109/ojcoms.2022.3149732",
+   "url": "https://openalex.org/W4210895381",
+   "cited_by": 159
+  },
+  {
+   "title": "Bluetooth Low Energy Mesh Networks: Survey of Communication and Security Protocols",
+   "authors": [
+    "Muhammad Rizwan Ghori",
+    "Tat‐Chee Wan",
+    "Gian Chand Sodhy"
+   ],
+   "year": 2020,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s20123590",
+   "url": "https://openalex.org/W3037495960",
+   "cited_by": 87
+  },
+  {
+   "title": "Battery draining attacks against edge computing nodes in IoT networks",
+   "authors": [
+    "Ryan Smith",
+    "Daniel Palin",
+    "Philokypros P. Ioulianou",
+    "Vassilios G. Vassilakis",
+    "Siamak Fayyaz Shahandashti"
+   ],
+   "year": 2020,
+   "venue": "Cyber-Physical Systems",
+   "doi": "https://doi.org/10.1080/23335777.2020.1716268",
+   "url": "https://openalex.org/W3001890850",
+   "cited_by": 41
+  },
+  {
+   "title": "Bluetooth Low Energy Mesh: Applications, Considerations and Current State-of-the-Art",
+   "authors": [
+    "Iynkaran Natgunanathan",
+    "Niroshinie Fernando",
+    "Seng W. Loke",
+    "Charitha Weerasuriya"
+   ],
+   "year": 2023,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s23041826",
+   "url": "https://openalex.org/W4319442567",
+   "cited_by": 62
+  },
+  {
+   "title": "Analysing and modelling battery drain of 3G terminals due to port scan attacks",
+   "authors": [
+    "Mar Pascual Trigos"
+   ],
+   "year": 2010,
+   "venue": "LA Referencia (Red Federada de Repositorios Institucionales de Publicaciones Científicas)",
+   "doi": null,
+   "url": "https://openalex.org/W52362402",
+   "cited_by": 1
+  },
+  {
+   "title": "Battery Draining Attack and Defense against Power Saving Wireless LAN Devices",
+   "authors": [
+    "Il-Gu Lee",
+    "Kyungmin Go",
+    "Jung Hoon Lee"
+   ],
+   "year": 2020,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s20072043",
+   "url": "https://openalex.org/W3014096382",
+   "cited_by": 18
+  },
+  {
+   "title": "Energy Depletion Attacks in Low Power Wireless Networks",
+   "authors": [
+    "Van-Linh Nguyen",
+    "Po‐Ching Lin",
+    "Ren‐Hung Hwang"
+   ],
+   "year": 2019,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2019.2911424",
+   "url": "https://openalex.org/W2941918278",
+   "cited_by": 75
+  },
+  {
+   "title": "Tracking Anonymized Bluetooth Devices",
+   "authors": [
+    "Johannes K Becker",
+    "David Li",
+    "David Starobinski A"
+   ],
+   "year": 2019,
+   "venue": "Proceedings on Privacy Enhancing Technologies",
+   "doi": "https://doi.org/10.2478/popets-2019-0036",
+   "url": "https://openalex.org/W2963660578",
+   "cited_by": 101
+  },
+  {
+   "title": "Guide to bluetooth security",
+   "authors": [
+    "John Padgette",
+    "John Bahr",
+    "Mayank Batra",
+    "Marcel Holtmann",
+    "Rhonda Smithbey",
+    "Lily Chen",
+    "Karen A. Scarfone"
+   ],
+   "year": 2017,
+   "venue": null,
+   "doi": "https://doi.org/10.6028/nist.sp.800-121r2",
+   "url": "https://openalex.org/W4230904691",
+   "cited_by": 88
+  },
+  {
+   "title": "Energy Attacks on Mobile Devices",
+   "authors": [
+    "Ashish Kundu",
+    "Zhiqiang Lin",
+    "Joshua Hammond"
+   ],
+   "year": 2020,
+   "venue": "IEEE International Conference on Trust, Privacy and Security in Intelligent Systems and Applications (TPS-ISA)",
+   "doi": "https://doi.org/10.1109/tps-isa50397.2020.00024",
+   "url": "https://openalex.org/W2606769852",
+   "cited_by": 6
+  },
+  {
+   "title": "Evolution of Bluetooth Technology: BLE in the IoT Ecosystem",
+   "authors": [
+    "Grigorios Koulouras",
+    "Stylianos Katsoulis",
+    "Fotios Zantalis"
+   ],
+   "year": 2025,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s25040996",
+   "url": "https://openalex.org/W4407252837",
+   "cited_by": 68
+  },
+  {
+   "title": "THE BLE CLOAKER: SECURING IMPLANTABLE MEDICAL DEVICE COMMUNICATION OVER BLUETOOTH LOW ENERGY LINKS",
+   "authors": [
+    "Taylor Anthony Nesheim"
+   ],
+   "year": 2015,
+   "venue": null,
+   "doi": "https://doi.org/10.15368/theses.2015.140",
+   "url": "https://openalex.org/W2188934731",
+   "cited_by": 2
+  },
+  {
+   "title": "Depletion-of-Battery Attack: Specificity, Modelling and Analysis",
+   "authors": [
+    "Шахов Владимир Владимирович",
+    "Insoo Koo"
+   ],
+   "year": 2018,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s18061849",
+   "url": "https://openalex.org/W2805885073",
+   "cited_by": 46
+  },
+  {
+   "title": "MULTI-LAYER ATTACK DETECTION MODEL FOR BLUETOOTH-CONNECTED DEVICES IN SMART HEALTHCARE SYSTEM",
+   "authors": [
+    "MOHAMMED ZUBAIR"
+   ],
+   "year": 2023,
+   "venue": "Qatar University QSpace (Qatar University)",
+   "doi": null,
+   "url": "https://openalex.org/W7123386718",
+   "cited_by": 0
+  },
+  {
+   "title": "Detecting relay attacks against Bluetooth communications on Android",
+   "authors": [
+    "Jeremy Symon"
+   ],
+   "year": 2018,
+   "venue": "Research Commons (University of Waikato)",
+   "doi": null,
+   "url": "https://openalex.org/W2898690508",
+   "cited_by": 1
+  },
+  {
+   "title": "Guide to Bluetooth Security",
+   "authors": [
+    "John Padgette",
+    "John Bahr",
+    "Mayank Batra",
+    "Marcel Holtmann",
+    "Rhonda Smithbey",
+    "Lily Chen",
+    "Karen A. Scarfone"
+   ],
+   "year": 2022,
+   "venue": null,
+   "doi": "https://doi.org/10.6028/nist.sp.800-121r2-upd1",
+   "url": "https://openalex.org/W4205807163",
+   "cited_by": 17
+  },
+  {
+   "title": "Secure Bluetooth Communication in Smart Healthcare Systems: A Novel Community Dataset and Intrusion Detection System",
+   "authors": [
+    "Mohammed Zubair",
+    "Ali Ghubaish",
+    "Devrim Ünal",
+    "Abdulla Khalid Al-Ali",
+    "Thomas Reimann",
+    "Guillaume Alinier",
+    "Mohammad Ali A. Hammoudeh",
+    "Junaid Qadir"
+   ],
+   "year": 2022,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s22218280",
+   "url": "https://openalex.org/W4307868829",
+   "cited_by": 73
+  },
+  {
+   "title": "25 Years of Bluetooth Technology",
+   "authors": [
+    "Sherali Zeadally",
+    "Farhan Ahmed Siddiqui",
+    "Zubair Ahmed Baig"
+   ],
+   "year": 2019,
+   "venue": "Future Internet",
+   "doi": "https://doi.org/10.3390/fi11090194",
+   "url": "https://openalex.org/W2973109789",
+   "cited_by": 76
+  },
+  {
+   "title": "An Intrusion Detection System for Battery Exhaustion Attacks on Mobile Computers",
+   "authors": [
+    "Daniel C. Nash"
+   ],
+   "year": 2005,
+   "venue": "VTechWorks (Virginia Tech)",
+   "doi": null,
+   "url": "https://openalex.org/W79237751",
+   "cited_by": 7
+  },
+  {
+   "title": "Guide to bluetooth security",
+   "authors": [
+    "Karen A. Scarfone",
+    "John Padgette"
+   ],
+   "year": 2008,
+   "venue": null,
+   "doi": "https://doi.org/10.6028/nist.sp.800-121",
+   "url": "https://openalex.org/W4251639789",
+   "cited_by": 50
+  },
+  {
+   "title": "Secure Triggering Frame-Based Dynamic Power Saving Mechanism against Battery Draining Attack in Wi-Fi-Enabled Sensor Networks",
+   "authors": [
+    "So-Yeon Kim",
+    "So‐Hyun Park",
+    "Jung Hoon Lee",
+    "Il-Gu Lee"
+   ],
+   "year": 2024,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s24165131",
+   "url": "https://openalex.org/W4401419210",
+   "cited_by": 6
+  },
+  {
+   "title": "Implementing Bluetooth LE in a Tracking Device",
+   "authors": [
+    "Jaakko Oinas"
+   ],
+   "year": 2015,
+   "venue": "Theseus (Ammattikorkeakoulujen)",
+   "doi": null,
+   "url": "https://openalex.org/W2136778659",
+   "cited_by": 0
+  },
+  {
+   "title": "Real-Time Attack Detection and Prevention in Bluetooth Communication: Evaluating Encryption Strategies",
+   "authors": [
+    "Aparna S.",
+    "Rinitha R.",
+    "Indira S.",
+    "Pravallika S."
+   ],
+   "year": 2026,
+   "venue": "International Journal of Drug Delivery Technology",
+   "doi": "https://doi.org/10.25258/ijddt.16.47s.73",
+   "url": "https://openalex.org/W7163740074",
+   "cited_by": 0
+  },
+  {
+   "title": "Protecting RESTful IoT Devices from Battery Exhaustion DoS Attacks",
+   "authors": [
+    "Stefan Hristozov",
+    "Manuel Huber",
+    "Georg Sigl"
+   ],
+   "year": 2020,
+   "venue": "IEEE International Symposium on Hardware Oriented Security and Trust (HOST)",
+   "doi": "https://doi.org/10.1109/host45689.2020.9300290",
+   "url": "https://openalex.org/W2990594280",
+   "cited_by": 18
+  },
+  {
+   "title": "Blouetooth Low Energy: A Survey",
+   "authors": [
+    "Shamsaa Hilal"
+   ],
+   "year": 2017,
+   "venue": "International Journal of Computer Applications",
+   "doi": "https://doi.org/10.5120/ijca2017913248",
+   "url": "https://openalex.org/W4239312209",
+   "cited_by": 4
+  },
+  {
+   "title": "Bluetooth Mesh under the Microscope",
+   "authors": [
+    "Hauke Petersen",
+    "Peter Kietzmann",
+    "Cenk Gündoğnan",
+    "Thomas C. Schmidt",
+    "Matthias Wählisch"
+   ],
+   "year": 2019,
+   "venue": "ACM Conference on Information-Centric Networking (ICN)",
+   "doi": "https://doi.org/10.1145/3357150.3357398",
+   "url": "https://openalex.org/W4288102927",
+   "cited_by": 5
+  },
+  {
+   "title": "A Motion-Aware Wearable System to Detect and Interrupt Compulsive Phone Scrolling in Real Time using a Bluetooth Low Energy Inertial Sensor and a Flutter Mobile Application",
+   "authors": [
+    "Haoyu He",
+    "Sahagun Jonathan"
+   ],
+   "year": 2026,
+   "venue": "Advances in Computer Science and Engineering",
+   "doi": "https://doi.org/10.5121/csit.2026.161609",
+   "url": "https://openalex.org/W7220835657",
+   "cited_by": 0
+  },
+  {
+   "title": "Security of Bluetooth in Wearable Devices",
+   "authors": [
+    "Keertika Shivkumar",
+    "Rajabhaiya Mourya",
+    "Snehalata Snehalata",
+    "Pralhad Yadhalli",
+    "Vivek Parmar"
+   ],
+   "year": 2026,
+   "venue": "INTERANTIONAL JOURNAL OF SCIENTIFIC RESEARCH IN ENGINEERING AND MANAGEMENT",
+   "doi": "https://doi.org/10.55041/ijsrem60097",
+   "url": "https://openalex.org/W7154365954",
+   "cited_by": 0
+  },
+  {
+   "title": "Model-based energy analysis of battery powered systems",
+   "authors": [
+    "Marijn R. Jongerden"
+   ],
+   "year": 2010,
+   "venue": null,
+   "doi": "https://doi.org/10.3990/1.9789036531146",
+   "url": "https://openalex.org/W1574915741",
+   "cited_by": 23
+  },
+  {
+   "title": "IoT Devices Battery Life Energy Management Scheme",
+   "authors": [
+    "Daniel Dauda Wisdom",
+    "Arinze Uchechukwu Christian",
+    "Agozie Hyacinth Eneh",
+    "Oduntan Odunayo Esther",
+    "Kingsley Theophilus Igulu",
+    "Alpha Baba Garba"
+   ],
+   "year": 2022,
+   "venue": "Computology Journal of Applied Computer Science and Intelligent Technologies",
+   "doi": "https://doi.org/10.17492/computology.v2i2.2201",
+   "url": "https://openalex.org/W4387096085",
+   "cited_by": 1
+  },
+  {
+   "title": "Ultra low-voltage low power backscatter communication and energy harvesting for long-range battery-free sensor tags",
+   "authors": [
+    "Alexander T. Hoang"
+   ],
+   "year": 2019,
+   "venue": "ResearchWorks at the University of Washington (University of Washington)",
+   "doi": null,
+   "url": "https://openalex.org/W3041628886",
+   "cited_by": 0
+  },
+  {
+   "title": "Digital Technology Implementation in Battery-Management Systems for Sustainable Energy Storage: Review, Challenges, and Recommendations",
+   "authors": [
+    "Gopal Krishna",
+    "Rajesh Singh",
+    "Anita Gehlot",
+    "Shaik Vaseem Akram",
+    "Neeraj Priyadarshi",
+    "Bhekisipho Twala"
+   ],
+   "year": 2022,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics11172695",
+   "url": "https://openalex.org/W4293664182",
+   "cited_by": 107
+  },
+  {
+   "title": "Battery-based intrusion detection",
+   "authors": [
+    "Grant A. Jacoby",
+    "N.J. Davis"
+   ],
+   "year": 2005,
+   "venue": "Globecom",
+   "doi": "https://doi.org/10.1109/glocom.2004.1378409",
+   "url": "https://openalex.org/W2166900809",
+   "cited_by": 67
+  },
+  {
+   "title": "An Energy-Efficient Technique to Combat DOS Attacks in Delay Tolerant Networks",
+   "authors": [
+    "Godwin Okon Ansa",
+    "Haitham S. Cruickshank",
+    "Zhili Sun"
+   ],
+   "year": 2012,
+   "venue": "ICST Transactions on Ubiquitous Environments",
+   "doi": "https://doi.org/10.4108/trans.ubienv.2012.e6",
+   "url": "https://openalex.org/W2148892775",
+   "cited_by": 3
+  },
+  {
+   "title": "Model development with saving smartphone battery due to the activity of digital bluetooth and wifi devices to increase the reliability of the digital wireless remote control system",
+   "authors": [
+    "Kodir Aslonov",
+    "Anvar Akhmedov",
+    "Ramziddin Pirimov",
+    "Maktuba Rakhmatova"
+   ],
+   "year": 2020,
+   "venue": "E3S Web of Conferences",
+   "doi": "https://doi.org/10.1051/e3sconf/202021601143",
+   "url": "https://openalex.org/W3112831052",
+   "cited_by": 0
+  },
+  {
+   "title": "Bluetooth Technology: Foundations, Applications, and Emerging Frontiers in IoT, Cyber-Physical Systems, and Robotics",
+   "authors": [
+    "Aleksandar Kirilov",
+    "Petko Stoev",
+    "Denis Chikurtev"
+   ],
+   "year": 2026,
+   "venue": "WSEAS TRANSACTIONS ON SYSTEMS AND CONTROL",
+   "doi": "https://doi.org/10.37394/23203.2026.21.3",
+   "url": "https://openalex.org/W7154586952",
+   "cited_by": 0
+  },
+  {
+   "title": "Bit-chats: A Framework for Secure and Efficient Decentralized Communication over Bluetooth Mobile Ad-Hoc Networks",
+   "authors": [
+    "Anurag Bodkhe",
+    "Sahil Jirapure",
+    "Ujjwal Garud",
+    "Shrinivas Bhore"
+   ],
+   "year": 2025,
+   "venue": null,
+   "doi": "https://doi.org/10.14293/pr2199.002312.v1",
+   "url": "https://openalex.org/W4416420961",
+   "cited_by": 0
+  },
+  {
+   "title": "Adaptive Protection Against Energy Depletion Attacks in Wearable Medical Devices",
+   "authors": [
+    "Shakir Mehdiyev"
+   ],
+   "year": 2025,
+   "venue": "Rəqəmsal tibb 4.0: problemlər, imkanlar və perspektivlər Respublika Elmi-Praktiki Konfransı",
+   "doi": "https://doi.org/10.25045/spcdh4.0.2025.14",
+   "url": "https://openalex.org/W4412515432",
+   "cited_by": 0
+  },
+  {
+   "title": "Impact and Countermeasures of Malware Attacks on Energy-Efficient Wireless Sensor Networks",
+   "authors": [
+    "Leena Arya"
+   ],
+   "year": 2025,
+   "venue": "Journal of Information Systems Engineering & Management",
+   "doi": "https://doi.org/10.52783/jisem.v10i46s.9165",
+   "url": "https://openalex.org/W4410569187",
+   "cited_by": 0
+  },
+  {
+   "title": "A Mobile Secure Bluetooth-Enabled Cryptographic Provider",
+   "authors": [
+    "Ivo Miguel da Silva Rocha"
+   ],
+   "year": 2019,
+   "venue": "Portuguese National Funding Agency for Science, Research and Technology (RCAAP Project by FCT)",
+   "doi": null,
+   "url": "https://openalex.org/W3004528224",
+   "cited_by": 0
+  },
+  {
+   "title": "An Empirical Evaluation of Bluetooth-based Decentralized Contact Tracing in Crowds",
+   "authors": [
+    "Hsu-Chun Hsiao",
+    "Chun‐Ying Huang",
+    "Shin‐Ming Cheng",
+    "Bing-Kai Hong",
+    "Hsin-Yuan Hu",
+    "Chia-Chien Wu",
+    "Jian‐Sin Lee",
+    "Shih-Hong Wang",
+    "Wei Jeng"
+   ],
+   "year": 2020,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2011.04322",
+   "url": "https://openalex.org/W3100051274",
+   "cited_by": 4
+  },
+  {
+   "title": "A Comprehensive Review of Battery‐Free Energy Efficient RF and Microwave Systems",
+   "authors": [
+    "Stella N. Arinze",
+    "Augustine Onyenwe Nwajana"
+   ],
+   "year": 2026,
+   "venue": "Journal of Engineering",
+   "doi": "https://doi.org/10.1155/je/4227736",
+   "url": "https://openalex.org/W7162453532",
+   "cited_by": 3
+  },
+  {
+   "title": "Rural Healthcare IoT Architecture Based on Low-Energy LoRa",
+   "authors": [
+    "Ace Dimitrievski",
+    "Sonja Filiposka",
+    "Francisco José Melero Muñoz",
+    "Eftim Zdravevski",
+    "Petre Lameski",
+    "Ivan Miguel Pires",
+    "Nuno M. García",
+    "José Paulo Lousado",
+    "Vladimir Trajkovik"
+   ],
+   "year": 2021,
+   "venue": "International Journal of Environmental Research and Public Health",
+   "doi": "https://doi.org/10.3390/ijerph18147660",
+   "url": "https://openalex.org/W3183918103",
+   "cited_by": 55
+  },
+  {
+   "title": "Battery-Sensing Intrusion Protection System (B-SIPS)",
+   "authors": [
+    "Timothy K. Buennemeyer"
+   ],
+   "year": 2008,
+   "venue": "VTechWorks (Virginia Tech)",
+   "doi": null,
+   "url": "https://openalex.org/W2593913944",
+   "cited_by": 4
+  },
+  {
+   "title": "Security of the Internet of Things: Vulnerabilities, Attacks, and Countermeasures",
+   "authors": [
+    "İsmail Bütün",
+    "Patrik Osterberg",
+    "Houbing Song"
+   ],
+   "year": 2019,
+   "venue": "IEEE Communications Surveys & Tutorials",
+   "doi": "https://doi.org/10.1109/comst.2019.2953364",
+   "url": "https://openalex.org/W2986455874",
+   "cited_by": 792
+  },
+  {
+   "title": "Backscatter Communications: Inception of the Battery-Free Era—A Comprehensive Survey",
+   "authors": [
+    "Mudasar Latif Memon",
+    "Navrati Saxena",
+    "Abhishek Roy",
+    "Dong Ryeol Shin"
+   ],
+   "year": 2019,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics8020129",
+   "url": "https://openalex.org/W2911832299",
+   "cited_by": 73
+  },
+  {
+   "title": "Cyber-Physical Cloud Battery Management Systems: Review of Security Aspects",
+   "authors": [
+    "Farshid Naseri",
+    "Zahra Kazemi",
+    "Peter Gorm Larsen",
+    "Mohammad Mehdi Arefi",
+    "Erik Schaltz"
+   ],
+   "year": 2023,
+   "venue": "Batteries",
+   "doi": "https://doi.org/10.3390/batteries9070382",
+   "url": "https://openalex.org/W4384823040",
+   "cited_by": 61
+  },
+  {
+   "title": "Attacks and Defenses in Short-Range Wireless Technologies for IoT",
+   "authors": [
+    "Karim Lounis",
+    "Mohammad Zulkernine"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.2993553",
+   "url": "https://openalex.org/W3024606024",
+   "cited_by": 128
+  },
+  {
+   "title": "Bluetooth security analysis of general and intimate health IoT devices and apps: the case of FemTech",
+   "authors": [
+    "Stephen Cook",
+    "Maryam Mehrnezhad",
+    "Ehsan Toreini"
+   ],
+   "year": 2024,
+   "venue": "International Journal of Information Security",
+   "doi": "https://doi.org/10.1007/s10207-024-00883-3",
+   "url": "https://openalex.org/W4401628548",
+   "cited_by": 9
+  }
+ ]
+}

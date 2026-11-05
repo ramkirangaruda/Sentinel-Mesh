@@ -1,0 +1,82 @@
+{
+  "source": "paper/data/E9_traces/traces_field1.csv",
+  "rows": 6968,
+  "sessions": [
+    "1",
+    "2",
+    "3",
+    "budget_1",
+    "budget_2",
+    "budget_3"
+  ],
+  "features_used": [
+    "hs_per_s",
+    "hs_fail",
+    "loss_pct",
+    "dup_pct",
+    "frag_complete_pct"
+  ],
+  "leave_one_session_out": {
+    "auc": 0.9499,
+    "by_label": {
+      "ADAPTIVE": {
+        "rows": 348,
+        "spend": 0.011,
+        "challenge_band": 0.014,
+        "below_challenge": 0.974
+      },
+      "ADAPTIVE_SPOOF": {
+        "rows": 349,
+        "spend": 0.14,
+        "challenge_band": 0.009,
+        "below_challenge": 0.851
+      },
+      "FLOOD": {
+        "rows": 349,
+        "spend": 0.0,
+        "challenge_band": 0.0,
+        "below_challenge": 1.0
+      },
+      "FORGE": {
+        "rows": 348,
+        "spend": 0.0,
+        "challenge_band": 0.0,
+        "below_challenge": 1.0
+      },
+      "FORGE_ECHO": {
+        "rows": 1788,
+        "spend": 0.0,
+        "challenge_band": 0.0,
+        "below_challenge": 1.0
+      },
+      "INSIDER": {
+        "rows": 348,
+        "spend": 0.0,
+        "challenge_band": 0.0,
+        "below_challenge": 1.0
+      },
+      "SLOW_DRIP": {
+        "rows": 348,
+        "spend": 0.934,
+        "challenge_band": 0.066,
+        "below_challenge": 0.0
+      },
+      "normal": {
+        "rows": 3090,
+        "spend": 0.99,
+        "challenge_band": 0.006,
+        "below_challenge": 0.003
+      }
+    }
+  },
+  "thresholds": {
+    "spend": 0.7,
+    "challenge": 0.4
+  },
+  "c_vs_sklearn": {
+    "rows": 6968,
+    "max_abs_diff": 4.506927465675048e-07,
+    "same_side_of_0_7": true,
+    "same_side_of_0_4": true
+  }
+}

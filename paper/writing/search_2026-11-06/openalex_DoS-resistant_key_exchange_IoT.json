@@ -1,0 +1,680 @@
+{
+ "database": "openalex",
+ "query": "DoS-resistant key exchange IoT",
+ "date": "2026-11-06",
+ "total": 4850,
+ "hits": [
+  {
+   "title": "Resilient Intermediary-Based Key Exchange Protocol for IoT",
+   "authors": [
+    "Zhangxiang Hu",
+    "Jun Li",
+    "Christopher B. Wilson"
+   ],
+   "year": 2023,
+   "venue": "ACM Transactions on Internet of Things",
+   "doi": "https://doi.org/10.1145/3632408",
+   "url": "https://openalex.org/W4388827249",
+   "cited_by": 3
+  },
+  {
+   "title": "PUF Based Authentication Protocol for IoT",
+   "authors": [
+    "An Braeken"
+   ],
+   "year": 2018,
+   "venue": "Symmetry",
+   "doi": "https://doi.org/10.3390/sym10080352",
+   "url": "https://openalex.org/W2888413717",
+   "cited_by": 180
+  },
+  {
+   "title": "IoT-Based Smart Irrigation Systems: An Overview on the Recent Trends on Sensors and IoT Systems for Irrigation in Precision Agriculture",
+   "authors": [
+    "Laura García",
+    "Lorena Parra",
+    "Jose Miguel Jimenez",
+    "Jaime Lloret",
+    "Pascal Lorenz"
+   ],
+   "year": 2020,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s20041042",
+   "url": "https://openalex.org/W3006230761",
+   "cited_by": 835
+  },
+  {
+   "title": "Blockchain's adoption in IoT: The challenges, and a way forward",
+   "authors": [
+    "Imran Makhdoom",
+    "Mehran Abolhasan",
+    "Haider Abbas",
+    "Wei Ni"
+   ],
+   "year": 2018,
+   "venue": "Journal of Network and Computer Applications",
+   "doi": "https://doi.org/10.1016/j.jnca.2018.10.019",
+   "url": "https://openalex.org/W2899354183",
+   "cited_by": 507
+  },
+  {
+   "title": "From Pre-Quantum to Post-Quantum IoT Security: A Survey on Quantum-Resistant Cryptosystems for the Internet of Things",
+   "authors": [
+    "Tiago M. Fernández‐Caramés"
+   ],
+   "year": 2019,
+   "venue": "IEEE Internet of Things Journal",
+   "doi": "https://doi.org/10.1109/jiot.2019.2958788",
+   "url": "https://openalex.org/W2995835799",
+   "cited_by": 340
+  },
+  {
+   "title": "A Survey of Internet of Things (IoT) Authentication Schemes",
+   "authors": [
+    "Mohammed Ibrahim El-Hajj",
+    "Ahmad Fadlallah",
+    "Maroun Chamoun",
+    "Ahmed Serhrouchni"
+   ],
+   "year": 2019,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s19051141",
+   "url": "https://openalex.org/W2919782006",
+   "cited_by": 445
+  },
+  {
+   "title": "A survey on the adoption of blockchain in IoT: challenges and solutions",
+   "authors": [
+    "Md. Ashraf Uddin",
+    "Andrew Stranieri",
+    "Iqbal Gondal",
+    "Venki Balasubramanian"
+   ],
+   "year": 2021,
+   "venue": "Blockchain Research and Applications",
+   "doi": "https://doi.org/10.1016/j.bcra.2021.100006",
+   "url": "https://openalex.org/W3133065136",
+   "cited_by": 378
+  },
+  {
+   "title": "Role of Artificial Intelligence in the Internet of Things (IoT) cybersecurity",
+   "authors": [
+    "Murat Kuzlu",
+    "Corinne Fair",
+    "Özgur Güler"
+   ],
+   "year": 2021,
+   "venue": "Discover Internet of Things",
+   "doi": "https://doi.org/10.1007/s43926-020-00001-4",
+   "url": "https://openalex.org/W3165483060",
+   "cited_by": 278
+  },
+  {
+   "title": "Leveraging blockchain for ensuring trust in IoT: A survey",
+   "authors": [
+    "Rajesh Kumar",
+    "Rewa Sharma"
+   ],
+   "year": 2021,
+   "venue": "Journal of King Saud University - Computer and Information Sciences",
+   "doi": "https://doi.org/10.1016/j.jksuci.2021.09.004",
+   "url": "https://openalex.org/W3200276483",
+   "cited_by": 128
+  },
+  {
+   "title": "Security Issues and Challenges for the IoT-based Smart Grid",
+   "authors": [
+    "Chakib Bekara"
+   ],
+   "year": 2014,
+   "venue": "Procedia Computer Science",
+   "doi": "https://doi.org/10.1016/j.procs.2014.07.064",
+   "url": "https://openalex.org/W2060987554",
+   "cited_by": 266
+  },
+  {
+   "title": "Secure, Anonymity-Preserving and Lightweight Mutual Authentication and Key Agreement Protocol for Home Automation IoT Networks",
+   "authors": [
+    "Akash Kumar Gupta",
+    "Gaurav S. Kasbekar"
+   ],
+   "year": 2022,
+   "venue": "International Conference on Communication Systems & Networks (COMSNETS)",
+   "doi": "https://doi.org/10.1109/comsnets53615.2022.9668450",
+   "url": "https://openalex.org/W3161180721",
+   "cited_by": 6
+  },
+  {
+   "title": "An IoT data exchange ecosystem through the use of public blockchains",
+   "authors": [
+    "Bruno Machado Agostinho"
+   ],
+   "year": 2024,
+   "venue": "LA Referencia (Red Federada de Repositorios Institucionales de Publicaciones Científicas)",
+   "doi": null,
+   "url": "https://openalex.org/W7120347133",
+   "cited_by": 0
+  },
+  {
+   "title": "Robust and Lightweight Key Exchange (LKE) Protocol for Industry 4.0",
+   "authors": [
+    "Gurjot Singh Gaba",
+    "Gulshan Kumar",
+    "Himanshu Monga",
+    "Tai-hoon Kim",
+    "Madhusanka Liyanage",
+    "Pardeep Kumar"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.3010302",
+   "url": "https://openalex.org/W3044171471",
+   "cited_by": 56
+  },
+  {
+   "title": "An Empirical Study on System Level Aspects of Internet of Things (IoT)",
+   "authors": [
+    "S. Narayana Swamy",
+    "Kota Solomon Raju"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.3029847",
+   "url": "https://openalex.org/W3092545670",
+   "cited_by": 270
+  },
+  {
+   "title": "EBAKE-SE: A novel ECC-based authenticated key exchange between industrial IoT devices using secure element",
+   "authors": [
+    "Chintan Patel",
+    "Ali Kashif Bashir",
+    "Ahmad Ali AlZubi",
+    "Rutvij H. Jhaveri"
+   ],
+   "year": 2022,
+   "venue": "Digital Communications and Networks",
+   "doi": "https://doi.org/10.1016/j.dcan.2022.11.001",
+   "url": "https://openalex.org/W4308902798",
+   "cited_by": 63
+  },
+  {
+   "title": "Blockchain Security Attacks, Challenges, and Solutions for the Future Distributed IoT Network",
+   "authors": [
+    "Saurabh Singh",
+    "A. S. M. Sanwar Hosen",
+    "Byungun Yoon"
+   ],
+   "year": 2021,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2021.3051602",
+   "url": "https://openalex.org/W3120970772",
+   "cited_by": 373
+  },
+  {
+   "title": "Understanding Security Requirements and Challenges in Internet of Things (IoT): A Review",
+   "authors": [
+    "Sufian Hameed",
+    "Faraz Idris Khan",
+    "Bilal Hameed"
+   ],
+   "year": 2019,
+   "venue": "Journal of Computer Networks and Communications",
+   "doi": "https://doi.org/10.1155/2019/9629381",
+   "url": "https://openalex.org/W2889531475",
+   "cited_by": 221
+  },
+  {
+   "title": "Towards Better Availability and Accountability for IoT Updates by Means of a Blockchain",
+   "authors": [
+    "Aymen Boudguiga",
+    "Nabil Bouzerna",
+    "Louis Granboulan",
+    "Alexis Olivereau",
+    "Flavien Quesnel",
+    "Anthony Roger",
+    "Renaud Sirdey"
+   ],
+   "year": 2017,
+   "venue": "IEEE European Symposium on Security and Privacy Workshops (EuroS&PW)",
+   "doi": "https://doi.org/10.1109/eurospw.2017.50",
+   "url": "https://openalex.org/W2612798110",
+   "cited_by": 211
+  },
+  {
+   "title": "Compatible Authentication and Key Agreement Protocol for Low Power and Lossy Network in Iot Environment.",
+   "authors": [
+    "Ali Peivandizadeh",
+    "Behzad Molavi"
+   ],
+   "year": 2023,
+   "venue": "SSRN Electronic Journal",
+   "doi": "https://doi.org/10.2139/ssrn.4454407",
+   "url": "https://openalex.org/W4379528522",
+   "cited_by": 24
+  },
+  {
+   "title": "A Survey on Consensus Protocols in Blockchain for IoT Networks",
+   "authors": [
+    "Mehrdad Salimitari",
+    "Mainak Chatterjee"
+   ],
+   "year": 2018,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.1809.05613",
+   "url": "https://openalex.org/W2920960013",
+   "cited_by": 133
+  },
+  {
+   "title": "Cybersecurity for Blockchain-Based IoT Systems: A Review",
+   "authors": [
+    "Razan Alajlan",
+    "Norah Alhumam",
+    "Mounir Frikha"
+   ],
+   "year": 2023,
+   "venue": "Applied Sciences",
+   "doi": "https://doi.org/10.3390/app13137432",
+   "url": "https://openalex.org/W4381741281",
+   "cited_by": 85
+  },
+  {
+   "title": "Blockchain Technology for IoT Security and Trust: A Comprehensive SLR",
+   "authors": [
+    "Seetah Almarri",
+    "Ahmed Aljughaiman"
+   ],
+   "year": 2024,
+   "venue": "Sustainability",
+   "doi": "https://doi.org/10.3390/su162310177",
+   "url": "https://openalex.org/W4404592970",
+   "cited_by": 110
+  },
+  {
+   "title": "Quantum secure authentication and key agreement protocols for IoT-enabled applications: A comprehensive survey and open challenges",
+   "authors": [
+    "Raveendra Babu Ponnuru",
+    "Sathish Kumar",
+    "Alavalapati Goutham Reddy",
+    "Ashok Kumar Das"
+   ],
+   "year": 2024,
+   "venue": "Computer Science Review",
+   "doi": "https://doi.org/10.1016/j.cosrev.2024.100676",
+   "url": "https://openalex.org/W4402086997",
+   "cited_by": 54
+  },
+  {
+   "title": "Cyber Secure Framework for Smart Agriculture: Robust and Tamper-Resistant Authentication Scheme for IoT Devices",
+   "authors": [
+    "Saleh Alyahya",
+    "Waseem Ullah Khan",
+    "Salman Ahmed",
+    "Safdar Nawaz Khan Marwat",
+    "Shabana Habib"
+   ],
+   "year": 2022,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics11060963",
+   "url": "https://openalex.org/W4293101289",
+   "cited_by": 64
+  },
+  {
+   "title": "Internet of Things (IoT) of Smart Home: Privacy and Security",
+   "authors": [
+    "Zaied Shouran",
+    "Ahmad Ashari",
+    "Tri Kuntoro"
+   ],
+   "year": 2019,
+   "venue": "International Journal of Computer Applications",
+   "doi": "https://doi.org/10.5120/ijca2019918450",
+   "url": "https://openalex.org/W2913259440",
+   "cited_by": 126
+  },
+  {
+   "title": "Low-Cost Water Quality Sensors for IoT: A Systematic Review",
+   "authors": [
+    "Edson Tavares de Camargo",
+    "Fábio Alexandre Spanhol",
+    "Juliano Scholz Slongo",
+    "Marcos Vinicius Rocha da Silva",
+    "Jaqueline Pazinato",
+    "Adriana Vechai de Lima Lobo",
+    "Fábio Rizental Coutinho",
+    "Felipe Walter Dafico Pfrimer",
+    "Cléber Antônio Lindino",
+    "Márcio Seiji Oyamada",
+    "Leila Droprinchinski Martins"
+   ],
+   "year": 2023,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s23094424",
+   "url": "https://openalex.org/W4367599007",
+   "cited_by": 177
+  },
+  {
+   "title": "Authentication of IoT Device and IoT Server Using Security Key",
+   "authors": [
+    "Wael Alnahari",
+    "Mohammad Tabrez Quasim"
+   ],
+   "year": 2021,
+   "venue": "Research Square",
+   "doi": "https://doi.org/10.21203/rs.3.rs-175858/v2",
+   "url": "https://openalex.org/W4245685416",
+   "cited_by": 2
+  },
+  {
+   "title": "Evolution of Bluetooth Technology: BLE in the IoT Ecosystem",
+   "authors": [
+    "Grigorios Koulouras",
+    "Stylianos Katsoulis",
+    "Fotios Zantalis"
+   ],
+   "year": 2025,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s25040996",
+   "url": "https://openalex.org/W4407252837",
+   "cited_by": 68
+  },
+  {
+   "title": "A Survey on IoT-Enabled Smart Grids: Emerging, Applications, Challenges, and Outlook",
+   "authors": [
+    "Arman Goudarzi",
+    "Farzad Ghayoor",
+    "Muhammad Waseem",
+    "Shah Fahad",
+    "Issa Traoré"
+   ],
+   "year": 2022,
+   "venue": "Energies",
+   "doi": "https://doi.org/10.3390/en15196984",
+   "url": "https://openalex.org/W4297198361",
+   "cited_by": 237
+  },
+  {
+   "title": "AQ-ResCon: Adaptive Quantum-Resistant Lattice-Based Key Agreement Protocol for Secure Distributed Container Orchestration in Edge Cloud Environments",
+   "authors": [
+    "Sajida Memon",
+    "Abdullah  Raza Lakhan",
+    "Quratual Ain Masoi"
+   ],
+   "year": 2025,
+   "venue": "International Journal of Mathematics Statistics and Computer Science",
+   "doi": "https://doi.org/10.59543/ijmscs.v3i.15091",
+   "url": "https://openalex.org/W4412967516",
+   "cited_by": 6
+  },
+  {
+   "title": "Secure user authentication and key agreement scheme for IoT device access control based smart home communications",
+   "authors": [
+    "Sirisha Uppuluri",
+    "Gondi Lakshmeeswari"
+   ],
+   "year": 2022,
+   "venue": "Wireless Networks",
+   "doi": "https://doi.org/10.1007/s11276-022-03197-1",
+   "url": "https://openalex.org/W4311298123",
+   "cited_by": 46
+  },
+  {
+   "title": "On the Convergence of Blockchain and Internet of Things (IoT) Technologies",
+   "authors": [
+    "Mohammad Maroufi",
+    "Reza Abdolee",
+    "Behzad Mozaffari Tazekand"
+   ],
+   "year": 2019,
+   "venue": "Journal of Strategic Innovation and Sustainability",
+   "doi": "https://doi.org/10.33423/jsis.v14i1.990",
+   "url": "https://openalex.org/W2926156718",
+   "cited_by": 73
+  },
+  {
+   "title": "Efficient Lightweight Authenticated Key Management Protocol for Iot-Based Environment",
+   "authors": [
+    "N. Subbareddy Ramireddy",
+    "Kolla Bhanu Prakash"
+   ],
+   "year": 2024,
+   "venue": "African Journal of Biomedical Research",
+   "doi": "https://doi.org/10.53555/ajbr.v27i3.1948",
+   "url": "https://openalex.org/W7220401319",
+   "cited_by": 0
+  },
+  {
+   "title": "LSTM guided homomorphic encryption for threat-resistant IoT networks",
+   "authors": [
+    "Sanjeev Kumar",
+    "Sukhvinder Singh Deora",
+    "Tajinder Kumar",
+    "Purushottam Sharma",
+    "Xiaochun Cheng",
+    "Vishal Garg"
+   ],
+   "year": 2025,
+   "venue": "Discover Computing",
+   "doi": "https://doi.org/10.1007/s10791-025-09843-4",
+   "url": "https://openalex.org/W4417152295",
+   "cited_by": 1
+  },
+  {
+   "title": "Protecting RESTful IoT Devices from Battery Exhaustion DoS Attacks",
+   "authors": [
+    "Stefan Hristozov",
+    "Manuel Huber",
+    "Georg Sigl"
+   ],
+   "year": 2020,
+   "venue": "IEEE International Symposium on Hardware Oriented Security and Trust (HOST)",
+   "doi": "https://doi.org/10.1109/host45689.2020.9300290",
+   "url": "https://openalex.org/W2990594280",
+   "cited_by": 18
+  },
+  {
+   "title": "An Efficient and Novel Key Establishment Scheme for Internet Enabled Wireless Sensor Network in the Context of IOT",
+   "authors": [
+    "M. V. Karthikeyan",
+    "Jashan Selvakumar",
+    "Amal Twinkle Mathew"
+   ],
+   "year": 2015,
+   "venue": "International Journal of Computer Applications",
+   "doi": "https://doi.org/10.5120/20057-2038",
+   "url": "https://openalex.org/W2055816960",
+   "cited_by": 1
+  },
+  {
+   "title": "Security optimization method of key exchange protocol for massive Internet of things terminal equipment",
+   "authors": [
+    "Xinghua Li",
+    "Xiaolong Li",
+    "Feng Wang",
+    "Zhenhua Yan",
+    "Dongge Zhu"
+   ],
+   "year": 2023,
+   "venue": "International Conference on Artificial Intelligence, Systems and Network Security (AISNS)",
+   "doi": "https://doi.org/10.1145/3661638.3661713",
+   "url": "https://openalex.org/W4399254031",
+   "cited_by": 0
+  },
+  {
+   "title": "IoT-based eHealth using blockchain technology: a survey",
+   "authors": [
+    "Aya H. Allam",
+    "Ibrahim A. Gomaa",
+    "Hala H. Zayed",
+    "Mohamed Taha"
+   ],
+   "year": 2024,
+   "venue": "Cluster Computing",
+   "doi": "https://doi.org/10.1007/s10586-024-04357-y",
+   "url": "https://openalex.org/W4393951697",
+   "cited_by": 54
+  },
+  {
+   "title": "Compatible authentication and key agreement protocol for low power and lossy network in IoT environment",
+   "authors": [
+    "Ali Peivandizadeh",
+    "Behzad Molavi"
+   ],
+   "year": 2022,
+   "venue": "Research Square",
+   "doi": "https://doi.org/10.21203/rs.3.rs-2085426/v1",
+   "url": "https://openalex.org/W4297997776",
+   "cited_by": 1
+  },
+  {
+   "title": "Securing IoT-Based RFID Systems: A Robust Authentication Protocol Using Symmetric Cryptography",
+   "authors": [
+    "Khwaja Mansoor",
+    "Anwar Ghani",
+    "Shehzad Ashraf Chaudhry",
+    "Shahaboddin Shamshirband",
+    "Shahbaz Ahmed Khan Ghayyur",
+    "Ely Salwana"
+   ],
+   "year": 2019,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s19214752",
+   "url": "https://openalex.org/W2966248640",
+   "cited_by": 101
+  },
+  {
+   "title": "Provably Secure Lightweight Mutual Authentication and Key Agreement Scheme for Cloud-Based IoT Environments",
+   "authors": [
+    "Sieun Ju",
+    "Yohan Park"
+   ],
+   "year": 2023,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s23249766",
+   "url": "https://openalex.org/W4389542900",
+   "cited_by": 16
+  },
+  {
+   "title": "On the suitability of blockchain platforms for IoT applications: Architectures, security, privacy, and performance",
+   "authors": [
+    "Sotirios Brotsis",
+    "Konstantinos Limniotis",
+    "Gueltoum Bendiab",
+    "Nicholas Kolokotronis",
+    "Stavros N. Shiaeles"
+   ],
+   "year": 2021,
+   "venue": "Computer Networks",
+   "doi": "https://doi.org/10.1016/j.comnet.2021.108005",
+   "url": "https://openalex.org/W3137035939",
+   "cited_by": 99
+  },
+  {
+   "title": "Quantitative Analysis of DoS Attacks and Client Puzzles in IoT Systems",
+   "authors": [
+    "Luca Arnaboldi",
+    "Charles Morisset"
+   ],
+   "year": 2017,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-319-68063-7_16",
+   "url": "https://openalex.org/W2755311586",
+   "cited_by": 8
+  },
+  {
+   "title": "A Systematic Literature Review of Lightweight Blockchain for IoT",
+   "authors": [
+    "Denis Stefanescu",
+    "Leticia Montalvillo",
+    "Patxi Galán-García",
+    "Juanjo Unzilla",
+    "Aitor Urbieta"
+   ],
+   "year": 2022,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2022.3224222",
+   "url": "https://openalex.org/W4312746057",
+   "cited_by": 54
+  },
+  {
+   "title": "Thinking Out of the Blocks: Holochain for Distributed Security in IoT Healthcare",
+   "authors": [
+    "Shakila Zaman",
+    "Muhammad R. A. Khandaker",
+    "Risala Tasin Khan",
+    "Faisal Tariq",
+    "Kai‐Kit Wong"
+   ],
+   "year": 2022,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2022.3163580",
+   "url": "https://openalex.org/W3133686735",
+   "cited_by": 82
+  },
+  {
+   "title": "A Lightweight Authentication Protocol using Implicit Certificates for Securing IoT Systems",
+   "authors": [
+    "V. Siddhartha",
+    "Gurjot Singh Gaba",
+    "Lavish Kansal"
+   ],
+   "year": 2020,
+   "venue": "Procedia Computer Science",
+   "doi": "https://doi.org/10.1016/j.procs.2020.03.185",
+   "url": "https://openalex.org/W3017010041",
+   "cited_by": 30
+  },
+  {
+   "title": "IoT Based Smart Greenhouse Framework and Control Strategies for Sustainable Agriculture",
+   "authors": [
+    "Muhammad Shoaib Farooq",
+    "Rizwan Javid",
+    "Shamyla Riaz",
+    "Zabihullah Atal"
+   ],
+   "year": 2022,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2022.3204066",
+   "url": "https://openalex.org/W4294691616",
+   "cited_by": 124
+  },
+  {
+   "title": "Survey on Blockchain-Based IoT Payment and Marketplaces",
+   "authors": [
+    "Amila Saputhanthri",
+    "Chamitha de Alwis",
+    "Madhusanka Liyanage"
+   ],
+   "year": 2022,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2022.3208688",
+   "url": "https://openalex.org/W4296910455",
+   "cited_by": 45
+  },
+  {
+   "title": "Access Control for IoT: A Survey of Existing Research, Dynamic Policies and Future Directions",
+   "authors": [
+    "Kaushik  Nagarajan Muthusamy Ragothaman",
+    "Yong Wang",
+    "Bhaskar Prasad Rimal",
+    "Mark Lawrence"
+   ],
+   "year": 2023,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s23041805",
+   "url": "https://openalex.org/W4319317939",
+   "cited_by": 117
+  },
+  {
+   "title": "An efficient lightweight key exchange algorithm for internet of things applications",
+   "authors": [
+    "Fasila Kasfa Ali",
+    "Sheena Mathew"
+   ],
+   "year": 2022,
+   "venue": "International Journal of Power Electronics and Drive Systems/International Journal of Electrical and Computer Engineering",
+   "doi": "https://doi.org/10.11591/ijece.v12i5.pp5609-5618",
+   "url": "https://openalex.org/W4289259918",
+   "cited_by": 3
+  }
+ ]
+}

@@ -1,0 +1,675 @@
+{
+ "database": "openalex",
+ "query": "client puzzles constrained devices",
+ "date": "2026-11-06",
+ "total": 7238,
+ "hits": [
+  {
+   "title": "Blockchains for constrained edge devices",
+   "authors": [
+    "Antonyo Douglas",
+    "Richard Holloway",
+    "Jonathan Lohr",
+    "Elijah Morgan",
+    "Khaled Harfoush"
+   ],
+   "year": 2020,
+   "venue": "Blockchain Research and Applications",
+   "doi": "https://doi.org/10.1016/j.bcra.2020.100004",
+   "url": "https://openalex.org/W3116742864",
+   "cited_by": 13
+  },
+  {
+   "title": "Privacy Preservation in Resource-Constrained IoT Devices Using Blockchain—A Survey",
+   "authors": [
+    "Zainab Iftikhar",
+    "Yasir Javed",
+    "Syed Yawar Abbas Zaidi",
+    "Munam Ali Shah",
+    "Zafar Iqbal Khan",
+    "Shafaq Mussadiq",
+    "Kamran Ali Abbasi"
+   ],
+   "year": 2021,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics10141732",
+   "url": "https://openalex.org/W3183189965",
+   "cited_by": 45
+  },
+  {
+   "title": "Research Perspectives and Challenges of Blockchain for Data-Intensive and Resource-Constrained Devices",
+   "authors": [
+    "Muhammad Imran",
+    "Bin Yao",
+    "Waqas Ali",
+    "Adnan Akhunzada",
+    "Muhammad Kashif Azhar",
+    "Muhammad Junaid",
+    "Uzair Iqbal"
+   ],
+   "year": 2022,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2022.3162096",
+   "url": "https://openalex.org/W4220749588",
+   "cited_by": 13
+  },
+  {
+   "title": "Divide-and-Conquer the NAS Puzzle in Resource Constrained Federated Learning Systems",
+   "authors": [
+    "Yeshwanth Venkatesha",
+    "Youngeun Kim",
+    "Hyoungseob Park",
+    "Priyadarshini Panda"
+   ],
+   "year": 2023,
+   "venue": "SSRN Electronic Journal",
+   "doi": "https://doi.org/10.2139/ssrn.4410422",
+   "url": "https://openalex.org/W4362680449",
+   "cited_by": 0
+  },
+  {
+   "title": "Aurora-Trinity: A Super-Light Client for Distributed Ledger Networks Extending the Ethereum Trinity Client",
+   "authors": [
+    "Federico Matteo Benčić",
+    "Ivana Podnar Žarko"
+   ],
+   "year": 2022,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s22051835",
+   "url": "https://openalex.org/W4214763235",
+   "cited_by": 3
+  },
+  {
+   "title": "Security Properties of Light Clients on the Ethereum Blockchain",
+   "authors": [
+    "Santeri Paavolainen",
+    "Christopher Carr"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.3006113",
+   "url": "https://openalex.org/W3038301260",
+   "cited_by": 37
+  },
+  {
+   "title": "A design and modeling approach for resource-constrained internet of things devices",
+   "authors": [
+    "Xinyu Tan",
+    "Kujala Pekka",
+    "Ismo Hakala"
+   ],
+   "year": 2025,
+   "venue": "Design Automation for Embedded Systems",
+   "doi": "https://doi.org/10.1007/s10617-025-09294-6",
+   "url": "https://openalex.org/W4414473621",
+   "cited_by": 1
+  },
+  {
+   "title": "A Survey on Secure and Private Federated Learning Using Blockchain: Theory and Application in Resource-Constrained Computing",
+   "authors": [
+    "Ervin Moore",
+    "Ahmed Imteaj",
+    "Shabnam Rezapour",
+    "M. Hadi Amini"
+   ],
+   "year": 2023,
+   "venue": "IEEE Internet of Things Journal",
+   "doi": "https://doi.org/10.1109/jiot.2023.3313055",
+   "url": "https://openalex.org/W4386494576",
+   "cited_by": 52
+  },
+  {
+   "title": "ASSURE: A Hardware-Based Security Protocol for Resource-Constrained IoT Systems",
+   "authors": [
+    "Yıldıran Yılmaz",
+    "Leonardo Aniello",
+    "Basel Halak"
+   ],
+   "year": 2020,
+   "venue": "Journal of Hardware and Systems Security",
+   "doi": "https://doi.org/10.1007/s41635-020-00102-0",
+   "url": "https://openalex.org/W3080625705",
+   "cited_by": 14
+  },
+  {
+   "title": "Efficient Query Verification for Blockchain Superlight Clients Using SNARKs",
+   "authors": [
+    "Stefano De Angelis",
+    "Ivan Visconti",
+    "Andrea Vitaletti",
+    "Marco Zecchini"
+   ],
+   "year": 2025,
+   "venue": "Blockchain Research and Applications",
+   "doi": "https://doi.org/10.1016/j.bcra.2025.100396",
+   "url": "https://openalex.org/W4414804409",
+   "cited_by": 2
+  },
+  {
+   "title": "Public Resistance to Indexation: A Puzzle",
+   "authors": [
+    "Robert J. Shiller",
+    "Charles L. Schultze",
+    "Robert Ernest Hall"
+   ],
+   "year": 1997,
+   "venue": "Brookings Papers on Economic Activity",
+   "doi": "https://doi.org/10.2307/2534703",
+   "url": "https://openalex.org/W2024417847",
+   "cited_by": 58
+  },
+  {
+   "title": "Foundations, Properties, and Security Applications of Puzzles",
+   "authors": [
+    "Isra Mohamed Ali",
+    "Maurantonio Caprolu",
+    "Roberto Di Pietro"
+   ],
+   "year": 2020,
+   "venue": "ACM Computing Surveys",
+   "doi": "https://doi.org/10.1145/3396374",
+   "url": "https://openalex.org/W3041769641",
+   "cited_by": 43
+  },
+  {
+   "title": "Protecting RESTful IoT Devices from Battery Exhaustion DoS Attacks",
+   "authors": [
+    "Stefan Hristozov",
+    "Manuel Huber",
+    "Georg Sigl"
+   ],
+   "year": 2020,
+   "venue": "IEEE International Symposium on Hardware Oriented Security and Trust (HOST)",
+   "doi": "https://doi.org/10.1109/host45689.2020.9300290",
+   "url": "https://openalex.org/W2990594280",
+   "cited_by": 18
+  },
+  {
+   "title": "Security and Privacy for Implantable Medical Devices",
+   "authors": [
+    "Burleson, Wayne",
+    "Sandro Carrara"
+   ],
+   "year": 2013,
+   "venue": "Springer eBooks",
+   "doi": "https://doi.org/10.1007/978-1-4614-1674-6",
+   "url": "https://openalex.org/W2498411676",
+   "cited_by": 26
+  },
+  {
+   "title": "IMDfence: Architecting a Secure Protocol for Implantable Medical Devices",
+   "authors": [
+    "Muhammad Ali Siddiqi",
+    "Christian Doerr",
+    "Christos Strydis"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.3015686",
+   "url": "https://openalex.org/W3008876543",
+   "cited_by": 28
+  },
+  {
+   "title": "Looting: The Puzzle of Private Equity",
+   "authors": [
+    "Daniel J.H. Greenwood"
+   ],
+   "year": 2008,
+   "venue": "bepress Legal Repository",
+   "doi": null,
+   "url": "https://openalex.org/W81515056",
+   "cited_by": 0
+  },
+  {
+   "title": "Smart Microgrid Energy Market: Evaluating Distributed Ledger Technologies for Remote and Constrained Microgrid Deployments",
+   "authors": [
+    "Lehlogonolo P. I. Ledwaba",
+    "Gerhard Petrus Hancke",
+    "Sherrin John Isaac",
+    "Hein S. Venter"
+   ],
+   "year": 2021,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics10060714",
+   "url": "https://openalex.org/W3138424737",
+   "cited_by": 19
+  },
+  {
+   "title": "Stateless Puzzles for Real Time Online Fraud Preemption",
+   "authors": [
+    "Mizanur Rahman",
+    "Ruben Recabarren",
+    "Bogdan Carbunar",
+    "Dongwon Lee"
+   ],
+   "year": 2017,
+   "venue": "ACM Web Science Conference (WebSci)",
+   "doi": "https://doi.org/10.1145/3091478.3091507",
+   "url": "https://openalex.org/W2623819121",
+   "cited_by": 4
+  },
+  {
+   "title": "Solving the Reemployment Puzzle: From Research to Policy",
+   "authors": [
+    "Stephen A. Wandner"
+   ],
+   "year": 2010,
+   "venue": null,
+   "doi": "https://doi.org/10.17848/9781441680389",
+   "url": "https://openalex.org/W1528348100",
+   "cited_by": 38
+  },
+  {
+   "title": "Evaluating IP security and mobility on lightweight hardware",
+   "authors": [
+    "Andrey Khurri"
+   ],
+   "year": 2009,
+   "venue": "Aaltodoc (Aalto University)",
+   "doi": null,
+   "url": "https://openalex.org/W2749180196",
+   "cited_by": 1
+  },
+  {
+   "title": "BTLE: Atomic swaps with time-lock puzzles",
+   "authors": [
+    "Fadi Barbàra",
+    "Enrico Guglielmino",
+    "Nadir Murru",
+    "Claudio Schifanella"
+   ],
+   "year": 2025,
+   "venue": "Journal of Mathematical Cryptology",
+   "doi": "https://doi.org/10.1515/jmc-2024-0044",
+   "url": "https://openalex.org/W4409471901",
+   "cited_by": 0
+  },
+  {
+   "title": "3-of-3 multisignature approach for enabling lightning network micro-payments on IoT devices",
+   "authors": [
+    "Ahmet Kurt",
+    "Suat Mercan",
+    "Enes Erdin",
+    "Kemal Akkaya"
+   ],
+   "year": 2021,
+   "venue": "ITU Journal on Future and Evolving Technologies",
+   "doi": "https://doi.org/10.52953/wzpc8083",
+   "url": "https://openalex.org/W3199312711",
+   "cited_by": 3
+  },
+  {
+   "title": "Puzzling Problems in Property Settlements-The Tax Anatomy of Divorce",
+   "authors": [
+    "Kilbourn",
+    "Wm. O. Douglas"
+   ],
+   "year": 1962,
+   "venue": "University of Missouri School of Law Scholarship Repository (University of Missouri)",
+   "doi": null,
+   "url": "https://openalex.org/W2624459108",
+   "cited_by": 0
+  },
+  {
+   "title": "Dynamic Cipher Puzzle for Efficient Broadcast Authentication in Wireless Sensor Networks",
+   "authors": [
+    "Farah Afianti",
+    "Wirawan Wirawan",
+    "Titiek Suryani"
+   ],
+   "year": 2018,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s18114021",
+   "url": "https://openalex.org/W2901555957",
+   "cited_by": 9
+  },
+  {
+   "title": "Velum: A 3D Puzzle Game and Facial Analysis Study",
+   "authors": [
+    "August Deford Beers"
+   ],
+   "year": 2017,
+   "venue": "Digital WPI",
+   "doi": null,
+   "url": "https://openalex.org/W2948813952",
+   "cited_by": 0
+  },
+  {
+   "title": "Decentralized Lightweight Detection of Eclipse Attacks on Bitcoin Clients",
+   "authors": [
+    "Bithin Alangot",
+    "Daniël Reijsbergen",
+    "Sarad Venugopalan",
+    "Paweł Szałachowski"
+   ],
+   "year": 2020,
+   "venue": "IEEE International Conference on Blockchain (Blockchain)",
+   "doi": "https://doi.org/10.1109/blockchain50366.2020.00049",
+   "url": "https://openalex.org/W3040161669",
+   "cited_by": 31
+  },
+  {
+   "title": "Intelligent Client Selection for Federated Learning Using Cellular Automata",
+   "authors": [
+    "Nikolaos Pavlidis",
+    "Vasileios Perifanis",
+    "Theodoros Panagiotis Chatzinikolaou",
+    "Georgios Ch. Sirakoulis",
+    "Pavlos S. Efraimidis"
+   ],
+   "year": 2023,
+   "venue": "International Workshop on Cellular Nanoscale Networks and their Applications (CNNA)",
+   "doi": "https://doi.org/10.1109/cnna60945.2023.10652769",
+   "url": "https://openalex.org/W4402264406",
+   "cited_by": 7
+  },
+  {
+   "title": "Cryptographic Scheme for Lightweight Device Such as IoT using Pseudo Stream Cipher and Trigonometric Technique with Key Generation",
+   "authors": [
+    "Bhaskar Prakash Kosta",
+    "P. Sanyasi Naidu"
+   ],
+   "year": 2020,
+   "venue": "International Journal of Engineering and Advanced Technology",
+   "doi": "https://doi.org/10.35940/ijeat.e9542.069520",
+   "url": "https://openalex.org/W3200748623",
+   "cited_by": 1
+  },
+  {
+   "title": "FEAST: Federated Shared-Space Training for Resource-Heterogeneous Clients",
+   "authors": [
+    "Bostan Khan",
+    "Masoud Daneshtalab"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2608.09250",
+   "url": "https://openalex.org/W7202196386",
+   "cited_by": 0
+  },
+  {
+   "title": "Dynamic Message Puzzle as Pre-Authentication Scheme in Wireless Sensor Networks",
+   "authors": [
+    "Farah Afianti",
+    "Wirawan Wirawan",
+    "Titiek Suryani"
+   ],
+   "year": 2019,
+   "venue": "International Journal on Advanced Science Engineering and Information Technology",
+   "doi": "https://doi.org/10.18517/ijaseit.9.1.7582",
+   "url": "https://openalex.org/W2910893897",
+   "cited_by": 2
+  },
+  {
+   "title": "Continuity 2: The Creation of an iPhone Sequel to the Puzzle Platformer Continuity",
+   "authors": [
+    "Stefan Mikaelsson",
+    "Guy Lima"
+   ],
+   "year": 2011,
+   "venue": "Chalmers Publication Library (Chalmers University of Technology)",
+   "doi": null,
+   "url": "https://openalex.org/W224605197",
+   "cited_by": 0
+  },
+  {
+   "title": "Security in product lifecycle of IoT devices: A survey",
+   "authors": [
+    "Narges Yousefnezhad",
+    "Avleen Kaur Malhi",
+    "Kary Främling"
+   ],
+   "year": 2020,
+   "venue": "Journal of Network and Computer Applications",
+   "doi": "https://doi.org/10.1016/j.jnca.2020.102779",
+   "url": "https://openalex.org/W3080382294",
+   "cited_by": 105
+  },
+  {
+   "title": "Lawyers and Clients Symposium: Clinical Education",
+   "authors": [
+    "Stephen Ellmann"
+   ],
+   "year": 1986,
+   "venue": "New York Law School’s Digital Commons (New York Law School)",
+   "doi": null,
+   "url": "https://openalex.org/W2286846770",
+   "cited_by": 0
+  },
+  {
+   "title": "The Preparedness-Performance Puzzle: Adaptive Governance and the Limits of Global Health Security",
+   "authors": [
+    "James C. McKeown"
+   ],
+   "year": 2026,
+   "venue": "International Studies Perspectives",
+   "doi": "https://doi.org/10.1093/isp/ekag016",
+   "url": "https://openalex.org/W7223975585",
+   "cited_by": 0
+  },
+  {
+   "title": "Escape Together: Exploring Multiplayer Presence And Asymmetric Collaboration In VR Puzzle Games",
+   "authors": [
+    "Petra Nurmela",
+    "Sofia Vierula",
+    "Joakim Nivala",
+    "Ashley Colley",
+    "Jonna Häkkilä"
+   ],
+   "year": 2026,
+   "venue": null,
+   "doi": "https://doi.org/10.35199/norddesign2026.30",
+   "url": "https://openalex.org/W7224917854",
+   "cited_by": 0
+  },
+  {
+   "title": "Modelling on mobile devices",
+   "authors": [
+    "Léa Brunschwig",
+    "Esther Guerra",
+    "Juan D. Lara"
+   ],
+   "year": 2021,
+   "venue": "Software & Systems Modeling",
+   "doi": "https://doi.org/10.1007/s10270-021-00897-8",
+   "url": "https://openalex.org/W3175763363",
+   "cited_by": 4
+  },
+  {
+   "title": "Participatory Research as One Piece of the Puzzle: A Systematic Review of Consumer Involvement in Design of Technology-Based Youth Mental Health and Well-Being Interventions",
+   "authors": [
+    "Simone Orlowski",
+    "Sharon Lawn",
+    "Anthony Venning",
+    "Megan Winsall",
+    "Gabrielle Margaret Jones",
+    "Kaisha Wyld",
+    "Raechel Damarell",
+    "Gaston Antezana",
+    "Geoffrey D Schrader",
+    "David Smith",
+    "Philippa J. Collin",
+    "Niranjan P. Bidargaddi"
+   ],
+   "year": 2015,
+   "venue": "JMIR Human Factors",
+   "doi": "https://doi.org/10.2196/humanfactors.4361",
+   "url": "https://openalex.org/W1706695559",
+   "cited_by": 165
+  },
+  {
+   "title": "RemoteME: Experiments in Thin-Client Mobile Computing",
+   "authors": [
+    "Vipul Delwadia"
+   ],
+   "year": 2009,
+   "venue": null,
+   "doi": "https://doi.org/10.26686/wgtn.16969786",
+   "url": "https://openalex.org/W4205442278",
+   "cited_by": 0
+  },
+  {
+   "title": "Credential Provisioning and Device Configuration with EAP",
+   "authors": [
+    "Sebastien Boire",
+    "Tolgahan Akgun",
+    "Philip Ginzboorg",
+    "Pekka Laitinen",
+    "Sandeep Tamrakar",
+    "Tuomas Aura"
+   ],
+   "year": 2021,
+   "venue": "ACM International Symposium on Mobility Management and Wireless Access (MobiWac)",
+   "doi": "https://doi.org/10.1145/3479241.3486705",
+   "url": "https://openalex.org/W3217637696",
+   "cited_by": 2
+  },
+  {
+   "title": "An Overview on Blockchain for Smartphones: State-of-the-Art, Consensus, Implementation, Challenges and Future Trends",
+   "authors": [
+    "Aleksandr Ometov",
+    "Yulia Bardinova",
+    "Alexandra Afanasyeva",
+    "Pavel Mašek",
+    "Жиданов Константин Александрович",
+    "Sergey Vanurin",
+    "Mikhail Sayfullin",
+    "Viktoriia Shubina",
+    "Mikhail Mikhailovich Komarov",
+    "Sergey Valentinovich Bezzateev"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.2998951",
+   "url": "https://openalex.org/W3033685322",
+   "cited_by": 57
+  },
+  {
+   "title": "A Survey and Ontology of Blockchain Consensus Algorithms for Resource-Constrained IoT Systems",
+   "authors": [
+    "Misbah Khan",
+    "Frank den Hartog",
+    "Jiankun Hu"
+   ],
+   "year": 2022,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s22218188",
+   "url": "https://openalex.org/W4307548247",
+   "cited_by": 35
+  },
+  {
+   "title": "Prototype Implementation and Evaluation of a Blockchain Component on IoT Devices",
+   "authors": [
+    "Niclas Kullig",
+    "Philipp Lämmel",
+    "Nikolay Tcholtchev"
+   ],
+   "year": 2020,
+   "venue": "Procedia Computer Science",
+   "doi": "https://doi.org/10.1016/j.procs.2020.07.054",
+   "url": "https://openalex.org/W3047941418",
+   "cited_by": 17
+  },
+  {
+   "title": "Between offer and outcome: the epistemic puzzle of settlement offers in investor-state arbitration",
+   "authors": [
+    "Julien Chaisse"
+   ],
+   "year": 2025,
+   "venue": "Arbitration International",
+   "doi": "https://doi.org/10.1093/arbint/aiaf029",
+   "url": "https://openalex.org/W7167262633",
+   "cited_by": 0
+  },
+  {
+   "title": "Highway to (Digital) Surveillance: When Are Clients Coerced to Share Their Data with Insurers?",
+   "authors": [
+    "Michele Loi",
+    "Christian Hauser",
+    "Markus Christen"
+   ],
+   "year": 2020,
+   "venue": "Journal of Business Ethics",
+   "doi": "https://doi.org/10.1007/s10551-020-04668-1",
+   "url": "https://openalex.org/W3098641353",
+   "cited_by": 15
+  },
+  {
+   "title": "Fear of Missing Out: Constrained Trial of Blockchain in Supply Chain",
+   "authors": [
+    "Roland Kromes",
+    "Tianyu Li",
+    "Maxime Bouillon",
+    "Talha Güler",
+    "Victor van der Hulst",
+    "Zekeriya Erkin"
+   ],
+   "year": 2024,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s24030986",
+   "url": "https://openalex.org/W4391486043",
+   "cited_by": 8
+  },
+  {
+   "title": "A Survey on Consensus Protocols in Blockchain for IoT Networks",
+   "authors": [
+    "Mehrdad Salimitari",
+    "Mainak Chatterjee"
+   ],
+   "year": 2018,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.1809.05613",
+   "url": "https://openalex.org/W2920960013",
+   "cited_by": 133
+  },
+  {
+   "title": "CoLM: Collaborative Large Models via A Client-Server Paradigm",
+   "authors": [
+    "Huang, Siqi",
+    "Huang, Sida",
+    "Zhang, Hongyuan"
+   ],
+   "year": 2025,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2511.06991",
+   "url": "https://openalex.org/W7104837415",
+   "cited_by": 0
+  },
+  {
+   "title": "Piecing the Puzzle: Addressing the Multi-Payer and Fragmented Health Financing System in the Philippines",
+   "authors": [
+    "Ida Marie Pantig",
+    "Valerie Gilbert Ulep"
+   ],
+   "year": 2025,
+   "venue": null,
+   "doi": "https://doi.org/10.62986/dp2025.28",
+   "url": "https://openalex.org/W4416346764",
+   "cited_by": 0
+  },
+  {
+   "title": "The Business Models of Frugal Enterprises for Sustainable Development in a Constrained Environment",
+   "authors": [
+    "Mokter Hossain",
+    "Muhammad Shehryar Shahid",
+    "Sukyung Park"
+   ],
+   "year": 2023,
+   "venue": "IEEE Transactions on Engineering Management",
+   "doi": "https://doi.org/10.1109/tem.2023.3342440",
+   "url": "https://openalex.org/W4389665956",
+   "cited_by": 16
+  },
+  {
+   "title": "Identity formation and emerging intentions in consultant-client relationships",
+   "authors": [
+    "Catherine Palmer-Woodward"
+   ],
+   "year": 2008,
+   "venue": "University of Hertfordshire Research Archive (University of Hertfordshire)",
+   "doi": null,
+   "url": "https://openalex.org/W331313693",
+   "cited_by": 1
+  }
+ ]
+}

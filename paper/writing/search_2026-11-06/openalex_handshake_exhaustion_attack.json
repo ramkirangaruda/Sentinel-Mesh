@@ -1,0 +1,684 @@
+{
+ "database": "openalex",
+ "query": "handshake exhaustion attack",
+ "date": "2026-11-06",
+ "total": 1653,
+ "hits": [
+  {
+   "title": "On the Security Implications of PQC in TLS: Handshake Exhaustion and IDS Degradation",
+   "authors": [
+    "Lin-Fa Lee",
+    "Yi-Yu Chang",
+    "Chia-Mu Yu",
+    "Kuo‐Hui Yeh"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2607.12504",
+   "url": "https://openalex.org/W7168372881",
+   "cited_by": 0
+  },
+  {
+   "title": "Prevention of DoS and Memory Attacks: Enhanced 3-Way Handshake",
+   "authors": [
+    "Paridhi Singhal",
+    "Manoj Diwakar",
+    "Mandeep Katre"
+   ],
+   "year": 2013,
+   "venue": "International Journal of Computer Applications",
+   "doi": "https://doi.org/10.5120/9911-4507",
+   "url": "https://openalex.org/W2160987726",
+   "cited_by": 0
+  },
+  {
+   "title": "Revisiting Client Puzzles for State Exhaustion Attacks Resilience",
+   "authors": [
+    "Mohammad A. Noureddine",
+    "Ahmed Fawaz",
+    "Amanda Hsu",
+    "Cody Guldner",
+    "Sameer Vijay",
+    "Tamer Basar",
+    "William H. Sanders"
+   ],
+   "year": 2019,
+   "venue": "International Conference on Dependable Systems & Networks/Proceedings",
+   "doi": "https://doi.org/10.1109/dsn.2019.00067",
+   "url": "https://openalex.org/W2887525453",
+   "cited_by": 7
+  },
+  {
+   "title": "Static and Dynamic 4-Way Handshake Solutions to Avoid Denial of Service Attack in Wi-Fi Protected Access and IEEE 802.11i",
+   "authors": [
+    "Floriano De Rango",
+    "Dionigi Cristian Lentini",
+    "S. Marano"
+   ],
+   "year": 2006,
+   "venue": "EURASIP Journal on Wireless Communications and Networking",
+   "doi": "https://doi.org/10.1155/wcn/2006/47453",
+   "url": "https://openalex.org/W2062003350",
+   "cited_by": 63
+  },
+  {
+   "title": "Prevention of DoS and Memory Exhaustion Attacks: Key Distribution with Confidentiality and Authentication",
+   "authors": [
+    "Paridhi Singhal",
+    "Manoj Diwakar",
+    "Mandeep Katre"
+   ],
+   "year": 2012,
+   "venue": "International Journal of Computer Applications",
+   "doi": "https://doi.org/10.5120/9365-3812",
+   "url": "https://openalex.org/W2161139349",
+   "cited_by": 0
+  },
+  {
+   "title": "QFAM: Mitigating QUIC Handshake Flooding Attacks Through Crypto Challenges",
+   "authors": [
+    "Abdollah Jabbari",
+    "Y. A. Joarder",
+    "Benjamin Teyssier",
+    "Carol Fung"
+   ],
+   "year": 2024,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2412.08936",
+   "url": "https://openalex.org/W4405354783",
+   "cited_by": 3
+  },
+  {
+   "title": "Enhanced 4-way Handshake Process in IEEE802.11i with Cookies",
+   "authors": [
+    "Hemraj Saini",
+    "Kapil Dev Sharma",
+    "Pankaj Dadheech",
+    "Tarini Charana Panda"
+   ],
+   "year": 2013,
+   "venue": "International Journal of Information and Network Security (IJINS)",
+   "doi": "https://doi.org/10.11591/ijins.v2i3.2088",
+   "url": "https://openalex.org/W1968795030",
+   "cited_by": 2
+  },
+  {
+   "title": "An improved mechanism for four-way handshake procedure in IEEE802.11i",
+   "authors": [
+    "Xiawen Xiao",
+    "Jie Ding",
+    "Nanrun Zhou"
+   ],
+   "year": 2010,
+   "venue": "IEEE International Conference on Computer Science and Information Technology",
+   "doi": "https://doi.org/10.1109/iccsit.2010.5563918",
+   "url": "https://openalex.org/W2084286781",
+   "cited_by": 2
+  },
+  {
+   "title": "Solving Downgrade and DoS Attack Due to the Four Ways Handshake Vulnerabilities (WIFI)",
+   "authors": [
+    "Cyrille Clovis Tchouchoua Teyou",
+    "Pin Zhang"
+   ],
+   "year": 2018,
+   "venue": "International Journal of Engineering and Management Research",
+   "doi": "https://doi.org/10.31033/ijemr.8.4.1",
+   "url": "https://openalex.org/W2886699400",
+   "cited_by": 4
+  },
+  {
+   "title": "DoS attack prevention using methods for reduction of memory usage in 802.11i 4-Way Handshake",
+   "authors": [
+    "Jungyoon Kim",
+    "In-Hwan Kim",
+    "Hyoung-Kee Choi"
+   ],
+   "year": 2010,
+   "venue": "Information Security and Cryptology",
+   "doi": null,
+   "url": "https://openalex.org/W125215959",
+   "cited_by": 0
+  },
+  {
+   "title": "Noisy Neighbor: Exploiting RDMA for Resource Exhaustion Attacks in Containerized Clouds",
+   "authors": [
+    "Gunwoo Kim",
+    "Taejune Park",
+    "Jinwoo Kim"
+   ],
+   "year": 2026,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-032-16092-8_29",
+   "url": "https://openalex.org/W4415270698",
+   "cited_by": 0
+  },
+  {
+   "title": "Enhancing SYN Cookie Security Against DDoS Attacks: Mitigating Replay Attacks with Nonce Implementation",
+   "authors": [
+    "Nazar Abbas Saqib",
+    "Haifa Alobiad",
+    "Layan Alsuliman",
+    "Tala Almulla"
+   ],
+   "year": 2026,
+   "venue": "Future Internet",
+   "doi": "https://doi.org/10.3390/fi18060323",
+   "url": "https://openalex.org/W7164867060",
+   "cited_by": 0
+  },
+  {
+   "title": "Towards Post-Quantum Security for Signal’s X3DH Handshake",
+   "authors": [
+    "Jacqueline Brendel",
+    "Marc Fischlin",
+    "Felix Günther",
+    "Christian Janson",
+    "Douglas Stebila"
+   ],
+   "year": 2021,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-030-81652-0_16",
+   "url": "https://openalex.org/W3087207567",
+   "cited_by": 31
+  },
+  {
+   "title": "Using selective, short‐term memory to improve resilience against DDoS exhaustion attacks",
+   "authors": [
+    "Qi Liao",
+    "David A. Cieslak",
+    "Aaron Striegel",
+    "Nitesh V. Chawla"
+   ],
+   "year": 2008,
+   "venue": "Security and Communication Networks",
+   "doi": "https://doi.org/10.1002/sec.22",
+   "url": "https://openalex.org/W1980559323",
+   "cited_by": 6
+  },
+  {
+   "title": "The Handshake Protocol: Protecting Expert Judgment in Sustained Human-AI Collaboration",
+   "authors": [
+    "William C. Chesher"
+   ],
+   "year": 2026,
+   "venue": "SSRN Electronic Journal",
+   "doi": "https://doi.org/10.2139/ssrn.6505238",
+   "url": "https://openalex.org/W7171728649",
+   "cited_by": 0
+  },
+  {
+   "title": "A tor relay's memory allocation during channel establishment: security implications for DDoS attacks",
+   "authors": [
+    "Rackerseder, Kilian"
+   ],
+   "year": 2025,
+   "venue": "University Library Linz repository (Johannes Kepler Universitat Linz)",
+   "doi": null,
+   "url": "https://openalex.org/W7111913465",
+   "cited_by": 0
+  },
+  {
+   "title": "Optimized machine learning approach for detecting TCP exhaustion attacks in modbus-TCP/IP networks",
+   "authors": [
+    "Zoltán Dobrády",
+    "Szilvia Nagy",
+    "Timót Hidvégi"
+   ],
+   "year": 2025,
+   "venue": "Journal of Intelligent Systems",
+   "doi": "https://doi.org/10.1515/jisys-2025-0015",
+   "url": "https://openalex.org/W7155721446",
+   "cited_by": 0
+  },
+  {
+   "title": "Leverage Slow-port-exhaustion Attacks by Exploiting Abnormal Connections from IoT Devices and Docker Containers",
+   "authors": [
+    "Son Duc Nguyen",
+    "Mamoru Mimura",
+    "Hidema Tanaka"
+   ],
+   "year": 2022,
+   "venue": "Journal of Information Processing",
+   "doi": "https://doi.org/10.2197/ipsjjip.30.486",
+   "url": "https://openalex.org/W4291517575",
+   "cited_by": 1
+  },
+  {
+   "title": "Improved Handshaking Procedures for Transport Layer Security in Software Defined Networks",
+   "authors": [
+    "Xue Jun Li",
+    "Maode Ma",
+    "Cho Wai Hlaing"
+   ],
+   "year": 2021,
+   "venue": "IEEE Region 10 Conference (TENCON)",
+   "doi": "https://doi.org/10.1109/tencon54134.2021.9707184",
+   "url": "https://openalex.org/W4213132808",
+   "cited_by": 2
+  },
+  {
+   "title": "Authentication Mechanism Enhancement Utilising Secure Repository for Passwordless Handshake",
+   "authors": [
+    "Ioannis A. Pikrammenos",
+    "Panagiotis Tolis",
+    "Panagiotis Perakis"
+   ],
+   "year": 2019,
+   "venue": "International Journal of Network Security & Its Applications",
+   "doi": "https://doi.org/10.5121/ijnsa.2019.11401",
+   "url": "https://openalex.org/W2964931020",
+   "cited_by": 4
+  },
+  {
+   "title": "ReACKed QUICer: Measuring the Performance of Instant Acknowledgments in QUIC Handshakes",
+   "authors": [
+    "Jonas Mücke",
+    "Marcin Nawrocki",
+    "Raphael Hiesgen",
+    "Thomas C. Schmidt",
+    "Matthias Wählisch"
+   ],
+   "year": 2024,
+   "venue": "ACM Internet Measurement Conference (IMC)",
+   "doi": "https://doi.org/10.1145/3646547.3689022",
+   "url": "https://openalex.org/W4403981047",
+   "cited_by": 4
+  },
+  {
+   "title": "TurboRetry: Mitigating Large-Scale QUIC Handshake Floods with Off-the-Shelf DPU Offloading",
+   "authors": [
+    "Jiahao Wu",
+    "Heng Pan",
+    "Kai Lv",
+    "Zhenyu Li",
+    "Yanbiao Li",
+    "Gaogang Xie"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2608.02264",
+   "url": "https://openalex.org/W7172433243",
+   "cited_by": 0
+  },
+  {
+   "title": "ZTLS: A DNS-based Approach to Zero Round Trip Delay in TLS handshake",
+   "authors": [
+    "Sangwon Lim",
+    "Hyeonmin Lee",
+    "Hyunsoo Kim",
+    "Hyunwoo Lee",
+    "Taekyoung Kwon"
+   ],
+   "year": 2023,
+   "venue": "International World Wide Web Conference (WWW)",
+   "doi": "https://doi.org/10.1145/3543507.3583516",
+   "url": "https://openalex.org/W4367047223",
+   "cited_by": 5
+  },
+  {
+   "title": "UDP Flooding Attack Dataset (UDP_DDoS_2025)",
+   "authors": [
+    "R, Anurekha"
+   ],
+   "year": 2025,
+   "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+   "doi": "https://doi.org/10.5281/zenodo.17163457",
+   "url": "https://openalex.org/W7105891552",
+   "cited_by": 0
+  },
+  {
+   "title": "A Proposal for DoS-Defensive Internet Key Exchange",
+   "authors": [
+    "MyungSik Choi",
+    "Dongjin Kwak",
+    "SangJae Moon"
+   ],
+   "year": 2003,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/3-540-44843-8_35",
+   "url": "https://openalex.org/W154117460",
+   "cited_by": 0
+  },
+  {
+   "title": "Security of the Internet of Things: Vulnerabilities, Attacks, and Countermeasures",
+   "authors": [
+    "İsmail Bütün",
+    "Patrik Osterberg",
+    "Houbing Song"
+   ],
+   "year": 2019,
+   "venue": "IEEE Communications Surveys & Tutorials",
+   "doi": "https://doi.org/10.1109/comst.2019.2953364",
+   "url": "https://openalex.org/W2986455874",
+   "cited_by": 792
+  },
+  {
+   "title": "QUICsand",
+   "authors": [
+    "Marcin Nawrocki",
+    "Raphael Hiesgen",
+    "Thomas C. Schmidt",
+    "Matthias Wählisch"
+   ],
+   "year": 2021,
+   "venue": "ACM Internet Measurement Conference (IMC)",
+   "doi": "https://doi.org/10.1145/3487552.3487840",
+   "url": "https://openalex.org/W3196394649",
+   "cited_by": 27
+  },
+  {
+   "title": "An enhanced 4-way technique using cookies for robust authentication process in wireless network",
+   "authors": [
+    "Pankaj Dadheech",
+    "Ankit Kumar",
+    "Chothmal Choudhary",
+    "Mahender Kumar Beniwal",
+    "Sanwta Ram Dogiwal",
+    "Basant Agarwal"
+   ],
+   "year": 2019,
+   "venue": "Journal of Statistics and Management Systems",
+   "doi": "https://doi.org/10.1080/09720510.2019.1609557",
+   "url": "https://openalex.org/W2953546236",
+   "cited_by": 33
+  },
+  {
+   "title": "How Resilient is QUIC to Security and Privacy Attacks?",
+   "authors": [
+    "Sengupta, Jayasree",
+    "Debasmita Dey",
+    "Simone Ferlin",
+    "Nirnay Ghosh",
+    "Vaibhav Kumar Bajpai"
+   ],
+   "year": 2024,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2401.06657",
+   "url": "https://openalex.org/W4390900630",
+   "cited_by": 5
+  },
+  {
+   "title": "A Survey of Denial-of-Service Attacks and Solutions in the Smart Grid",
+   "authors": [
+    "Alvin Huseinovic",
+    "Saša Mrdović",
+    "Kemal Biçakcı",
+    "Suleyman Uludag"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.3026923",
+   "url": "https://openalex.org/W3087958975",
+   "cited_by": 216
+  },
+  {
+   "title": "Cyber Threats to Industrial IoT: A Survey on Attacks and Countermeasures",
+   "authors": [
+    "Κωνσταντίνος Τσίκνας",
+    "Dimitrios Taketzis",
+    "Konstantinos Demertzis",
+    "Charalabos A. Skianis"
+   ],
+   "year": 2021,
+   "venue": "IoT",
+   "doi": "https://doi.org/10.3390/iot2010009",
+   "url": "https://openalex.org/W3129061468",
+   "cited_by": 208
+  },
+  {
+   "title": "Slow denial-of-service attacks on software defined networks",
+   "authors": [
+    "Túlio A. Pascoal",
+    "Iguatemi Eduardo da Fonseca",
+    "Vivek Nigam"
+   ],
+   "year": 2020,
+   "venue": "Computer Networks",
+   "doi": "https://doi.org/10.1016/j.comnet.2020.107223",
+   "url": "https://openalex.org/W3010887667",
+   "cited_by": 56
+  },
+  {
+   "title": "DDoS attacks in WSNs: detection and countermeasures",
+   "authors": [
+    "Ademola Philip Abidoye",
+    "Ibidun Christiana Obagbuwa"
+   ],
+   "year": 2017,
+   "venue": "IET Wireless Sensor Systems",
+   "doi": "https://doi.org/10.1049/iet-wss.2017.0029",
+   "url": "https://openalex.org/W2798501092",
+   "cited_by": 42
+  },
+  {
+   "title": "Denial of service attack detection through machine learning for the IoT",
+   "authors": [
+    "Naeem Syed",
+    "Zubair Ahmed Baig",
+    "Ahmed Ibrahim",
+    "Craig Valli"
+   ],
+   "year": 2020,
+   "venue": "Journal of Information and Telecommunication",
+   "doi": "https://doi.org/10.1080/24751839.2020.1767484",
+   "url": "https://openalex.org/W3034273612",
+   "cited_by": 148
+  },
+  {
+   "title": "IMP4GT: IMPersonation Attacks in 4G NeTworks",
+   "authors": [
+    "David Rupprecht",
+    "Katharina Siobhan Kohls",
+    "Thorsten Holz",
+    "Christina Pöpper"
+   ],
+   "year": 2020,
+   "venue": "Network and Distributed System Security Symposium",
+   "doi": "https://doi.org/10.14722/ndss.2020.24283",
+   "url": "https://openalex.org/W3008993478",
+   "cited_by": 68
+  },
+  {
+   "title": "HqcLethe: Streaming HQC Encapsulation for Tiny Stateless Servers",
+   "authors": [
+    "Wong Wind",
+    "Klaus v. Gleissenthall"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2610.36808",
+   "url": "https://openalex.org/W7224132476",
+   "cited_by": 0
+  },
+  {
+   "title": "A Full Image of the Wormhole Attacks - Towards Introducing Complex Wormhole Attacks in wireless Ad Hoc Networks",
+   "authors": [
+    "Marianne Amir Azer",
+    "Sherif El-Kassas",
+    "Magdy S. El-Soudani"
+   ],
+   "year": 2009,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.0906.1245",
+   "url": "https://openalex.org/W1663459603",
+   "cited_by": 47
+  },
+  {
+   "title": "Smart grid security: Attacks and defence techniques",
+   "authors": [
+    "Yoonjib Kim",
+    "Saqib Hakak",
+    "Ali Akbar Ghorbani"
+   ],
+   "year": 2022,
+   "venue": "IET Smart Grid",
+   "doi": "https://doi.org/10.1049/stg2.12090",
+   "url": "https://openalex.org/W4298001180",
+   "cited_by": 73
+  },
+  {
+   "title": "TCP Cookie Transactions (TCPCT) Rapid Restart",
+   "authors": [
+    "William A. Simpson"
+   ],
+   "year": 2011,
+   "venue": null,
+   "doi": null,
+   "url": "https://openalex.org/W2980642601",
+   "cited_by": 2
+  },
+  {
+   "title": "Non-Trivial Off-Path Network Measurements without Shared Side-Channel Resource Exhaustion",
+   "authors": [
+    "Geoffrey Alexander"
+   ],
+   "year": 2019,
+   "venue": "UNM’s Digital Repository (University of New Mexico)",
+   "doi": null,
+   "url": "https://openalex.org/W3010553650",
+   "cited_by": 0
+  },
+  {
+   "title": "Attacks and Counterattacks on Wireless Sensor Networks",
+   "authors": [
+    "Nusrat Fatema",
+    "Remus Brad"
+   ],
+   "year": 2013,
+   "venue": "International Journal of Ad hoc Sensor & Ubiquitous Computing",
+   "doi": "https://doi.org/10.5121/ijasuc.2013.4601",
+   "url": "https://openalex.org/W2979130093",
+   "cited_by": 25
+  },
+  {
+   "title": "A DDoS Attack Mitigation Scheme in ISP Networks Using Machine Learning Based on SDN",
+   "authors": [
+    "Nguyễn Ngọc Tuấn",
+    "Pham Huy Hung",
+    "Nguyen Danh Nghia",
+    "Nguyen Van Tho",
+    "Trung V. Phan",
+    "Nguyen Huu Thanh"
+   ],
+   "year": 2020,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics9030413",
+   "url": "https://openalex.org/W3010220852",
+   "cited_by": 102
+  },
+  {
+   "title": "Analysis of Security Attacks and Taxonomy in Underwater Wireless Sensor Networks",
+   "authors": [
+    "Irfan Ahmad",
+    "Taj Rahman",
+    "Asim Zeb",
+    "Inayat Ullah Khan",
+    "Inam Ullah",
+    "Habib Hamam",
+    "Omar Cheikhrouhou"
+   ],
+   "year": 2021,
+   "venue": "Wireless Communications and Mobile Computing",
+   "doi": "https://doi.org/10.1155/2021/1444024",
+   "url": "https://openalex.org/W4200453904",
+   "cited_by": 60
+  },
+  {
+   "title": "On the Detection of Low-Rate Denial of Service Attacks at Transport and Application Layers",
+   "authors": [
+    "Vasudha Vedula",
+    "Palden Lama",
+    "Rajendra V. Boppana",
+    "Luis A. Trejo"
+   ],
+   "year": 2021,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics10172105",
+   "url": "https://openalex.org/W3198430296",
+   "cited_by": 31
+  },
+  {
+   "title": "Detection & Mitigation of DDOS Attack",
+   "authors": [
+    "Muhammad Zulkifl Hasan",
+    "Muhammad Zunnurain Hussain",
+    "Muhammad Zeeshan Nazar",
+    "A Mahelak",
+    "Fatima Anjum",
+    "Muhammad Atif Yaqub",
+    "Muzzamil Mustafa",
+    "Saad Hussain Chuhan",
+    "Zaima Mubarak",
+    "Adeel Ahmad Siddiqui",
+    "Ali Moiz Qureshi",
+    "Ghulam Mustafa"
+   ],
+   "year": 2023,
+   "venue": "Research Square",
+   "doi": "https://doi.org/10.21203/rs.3.rs-2586448/v1",
+   "url": "https://openalex.org/W4321103029",
+   "cited_by": 2
+  },
+  {
+   "title": "Are BGP Routers Open to Attack? An Experiment",
+   "authors": [
+    "Ludovico Cavedon",
+    "Christopher Kruegel",
+    "Giovanni Vigna"
+   ],
+   "year": 2011,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-642-19228-9_8",
+   "url": "https://openalex.org/W1591995464",
+   "cited_by": 4
+  },
+  {
+   "title": "Modern DDoS Attacks and Defences -- Survey",
+   "authors": [
+    "Jonah Burgess"
+   ],
+   "year": 2022,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2211.15404",
+   "url": "https://openalex.org/W3165757726",
+   "cited_by": 3
+  },
+  {
+   "title": "Simulation of Attacks for Security in Wireless Sensor Network",
+   "authors": [
+    "Alvaro Diaz",
+    "Pablo Sánchez"
+   ],
+   "year": 2016,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s16111932",
+   "url": "https://openalex.org/W2557015516",
+   "cited_by": 56
+  },
+  {
+   "title": "Efficient Distributed Denial-of-Service Attack Defense in SDN-Based Cloud",
+   "authors": [
+    "Trung V. Phan",
+    "Minho Park"
+   ],
+   "year": 2019,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2019.2896783",
+   "url": "https://openalex.org/W2912944969",
+   "cited_by": 133
+  },
+  {
+   "title": "A Survey of Trends in Massive DDOS Attacks and Cloud-Based Mitigations",
+   "authors": [
+    "FuiFui Wong",
+    "Cheng Xiang Tan"
+   ],
+   "year": 2014,
+   "venue": "International Journal of Network Security & Its Applications",
+   "doi": "https://doi.org/10.5121/ijnsa.2014.6305",
+   "url": "https://openalex.org/W1991471031",
+   "cited_by": 44
+  }
+ ]
+}

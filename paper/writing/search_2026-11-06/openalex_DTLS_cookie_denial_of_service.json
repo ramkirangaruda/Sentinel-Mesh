@@ -1,0 +1,674 @@
+{
+ "database": "openalex",
+ "query": "DTLS cookie denial of service",
+ "date": "2026-11-06",
+ "total": 243,
+ "hits": [
+  {
+   "title": "Cyber Secure Framework for Smart Containers Based on Novel Hybrid DTLS Protocol",
+   "authors": [
+    "Waseem Ullah Khan",
+    "Safdar Nawaz Khan Marwat",
+    "Salman Ahmed"
+   ],
+   "year": 2022,
+   "venue": "Computer Systems Science and Engineering",
+   "doi": "https://doi.org/10.32604/csse.2022.024018",
+   "url": "https://openalex.org/W4285250096",
+   "cited_by": 17
+  },
+  {
+   "title": "DTLS-HIMMO: Achieving DTLS Certificate Security with Symmetric Key Overhead",
+   "authors": [
+    "Óscar García-Morchón",
+    "Ronald Rietman",
+    "Sahil Sharma",
+    "Ludo M. G. M. Tolhuizen",
+    "Jose Luis Torre-Arce"
+   ],
+   "year": 2015,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-319-24174-6_12",
+   "url": "https://openalex.org/W2253213552",
+   "cited_by": 4
+  },
+  {
+   "title": "Data protection in IoT using CoAP based on enhanced DTLS",
+   "authors": [
+    "A. Sara",
+    "J. Randa"
+   ],
+   "year": 2024,
+   "venue": "AIP conference proceedings",
+   "doi": "https://doi.org/10.1063/5.0194823",
+   "url": "https://openalex.org/W4391621750",
+   "cited_by": 2
+  },
+  {
+   "title": "Data Protection in IoT using CoAP based on Enhanced DTLS",
+   "authors": [],
+   "year": 2023,
+   "venue": "International Journal of Advanced Trends in Computer Science and Engineering",
+   "doi": "https://doi.org/10.30534/ijatcse/2023/041242023",
+   "url": "https://openalex.org/W4385740395",
+   "cited_by": 0
+  },
+  {
+   "title": "DTLS Performance in Duty-Cycled Networks",
+   "authors": [
+    "Mališa Vučinić",
+    "Bernard Tourancheau",
+    "Thomas Watteyne",
+    "Franck S. Rousseau",
+    "Andrzej Duda",
+    "Roberto Guizzetti",
+    "Laurent Damon"
+   ],
+   "year": 2015,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.1507.05810",
+   "url": "https://openalex.org/W2133205306",
+   "cited_by": 7
+  },
+  {
+   "title": "Application Layer-Based Denial-of-Service Attacks Detection against IoT-CoAP",
+   "authors": [
+    "Sultan M. Almeghlef",
+    "Abdullah Saad Al-Malaise ALGhamdi",
+    "Muhammad Sher Ramzan",
+    "Mahmoud Ragab"
+   ],
+   "year": 2023,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics12122563",
+   "url": "https://openalex.org/W4379648139",
+   "cited_by": 29
+  },
+  {
+   "title": "DTLS with Post Quantum Security for Origin Authentication and Integrity",
+   "authors": [
+    "Simpy Parveen"
+   ],
+   "year": 2020,
+   "venue": "Libraries and Cultural Resources (University of Calgary)",
+   "doi": "https://doi.org/10.11575/prism/38263",
+   "url": "https://openalex.org/W3090907244",
+   "cited_by": 2
+  },
+  {
+   "title": "Datagram Transport Layer Security (DTLS) as a Transport Layer for RADIUS",
+   "authors": [
+    "Alan DeKok"
+   ],
+   "year": 2014,
+   "venue": null,
+   "doi": "https://doi.org/10.17487/rfc7360",
+   "url": "https://openalex.org/W2291496119",
+   "cited_by": 4
+  },
+  {
+   "title": "Datagram Transport Layer Security (DTLS) as Transport for Session Traversal Utilities for NAT (STUN)",
+   "authors": [
+    "Marc Petit-Huguenin",
+    "Gonzalo Salgueiro"
+   ],
+   "year": 2014,
+   "venue": null,
+   "doi": "https://doi.org/10.17487/rfc7350",
+   "url": "https://openalex.org/W2296756811",
+   "cited_by": 5
+  },
+  {
+   "title": "Low-Power IoT Communication Security: On the Performance of DTLS and TLS 1.3",
+   "authors": [
+    "Gabriele Restuccia",
+    "Hannes Tschofenig",
+    "Emmanuel Baccelli"
+   ],
+   "year": 2020,
+   "venue": null,
+   "doi": "https://doi.org/10.23919/pemwn50727.2020.9293085",
+   "url": "https://openalex.org/W3106668253",
+   "cited_by": 42
+  },
+  {
+   "title": "Performance Comparison of EDHOC and DTLS 1.3 in Internet-of-Things Environments",
+   "authors": [
+    "Geovane Fedrecheski",
+    "Mališa Vučinić",
+    "Thomas Watteyne"
+   ],
+   "year": 2024,
+   "venue": "IEEE Wireless Communications and Networking Conference",
+   "doi": "https://doi.org/10.1109/wcnc57260.2024.10570830",
+   "url": "https://openalex.org/W4400277394",
+   "cited_by": 15
+  },
+  {
+   "title": "Comprehensive Security Analysis and DoS Attack Mitigation in Thread Networks",
+   "authors": [
+    "Kumar Murugesan",
+    "Muralidhara VN",
+    "Tirth Master"
+   ],
+   "year": 2025,
+   "venue": "IEEE Wireless Communications and Networking Conference",
+   "doi": "https://doi.org/10.1109/wcnc61545.2025.10978458",
+   "url": "https://openalex.org/W4410228905",
+   "cited_by": 1
+  },
+  {
+   "title": "DoS Attacks Analysis and Improvement in DTLS Protocol for Internet of Things",
+   "authors": [
+    "Yassine Maleh",
+    "Abdellah Ezzati",
+    "Mustapha Belaissaoui"
+   ],
+   "year": 2016,
+   "venue": "International Conference on Big Data and Advanced Wireless Technologies (BDAW)",
+   "doi": "https://doi.org/10.1145/3010089.3010139",
+   "url": "https://openalex.org/W2586903846",
+   "cited_by": 20
+  },
+  {
+   "title": "Vulnerabilities of Live-Streaming Services in Korea",
+   "authors": [
+    "Sun-Hong Hwang",
+    "Ga-Yeong Kim",
+    "Su-Hwan Myeong",
+    "Tai-Sic Yun",
+    "Seung-Min Yoon",
+    "Tai-Ho Kim",
+    "Ieck-Chae Euom"
+   ],
+   "year": 2022,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s22103766",
+   "url": "https://openalex.org/W4280595608",
+   "cited_by": 3
+  },
+  {
+   "title": "End-to-end security scheme for mobility enabled healthcare Internet of Things",
+   "authors": [
+    "Sanaz Rahimi Moosavi",
+    "Tuan Nguyen Gia",
+    "Ethiopia Nigussie",
+    "Amir M. Rahmani",
+    "Seppo Virtanen",
+    "Hannu Tenhunen",
+    "Jouni Isoaho"
+   ],
+   "year": 2016,
+   "venue": "Future Generation Computer Systems",
+   "doi": "https://doi.org/10.1016/j.future.2016.02.020",
+   "url": "https://openalex.org/W2292382605",
+   "cited_by": 282
+  },
+  {
+   "title": "Service availability for the Session Initiation Protocol in a hostile environment",
+   "authors": [
+    "Liljeqvist, Ove"
+   ],
+   "year": 2009,
+   "venue": "Aaltodoc (Aalto University)",
+   "doi": null,
+   "url": "https://openalex.org/W7113399086",
+   "cited_by": 0
+  },
+  {
+   "title": "Lightweight Payload Encryption-Based Authentication Scheme for Advanced Metering Infrastructure Sensor Networks",
+   "authors": [
+    "Nasr Abosata",
+    "Saba Al-Rubaye",
+    "Gökhan İnalhan"
+   ],
+   "year": 2022,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s22020534",
+   "url": "https://openalex.org/W4206429422",
+   "cited_by": 21
+  },
+  {
+   "title": "Secure Media Independent Handover Message Transport in Heterogeneous Networks",
+   "authors": [
+    "Jeong-Jae Won",
+    "Murahari Vadapalli",
+    "Choong-Ho Cho",
+    "Victor C. M. Leung"
+   ],
+   "year": 2009,
+   "venue": "EURASIP Journal on Wireless Communications and Networking",
+   "doi": "https://doi.org/10.1155/2009/716480",
+   "url": "https://openalex.org/W2118858431",
+   "cited_by": 8
+  },
+  {
+   "title": "Automata-Based Automated Detection of State Machine Bugs in Protocol Implementations",
+   "authors": [
+    "Paul Fiterău-Broştean",
+    "Bengt Jönsson",
+    "Konstantinos Sagonas",
+    "Fredrik Tåquist"
+   ],
+   "year": 2023,
+   "venue": "Network and Distributed System Security Symposium",
+   "doi": "https://doi.org/10.14722/ndss.2023.23068",
+   "url": "https://openalex.org/W4324007121",
+   "cited_by": 22
+  },
+  {
+   "title": "Quality of service and privacy in internet of things dedicated to healthcare",
+   "authors": [
+    "Randa Mohammed abdelmonem aboelfotoh"
+   ],
+   "year": 2021,
+   "venue": null,
+   "doi": "https://doi.org/10.70675/163084eez3747z4aaaz91c8zd90057293c86",
+   "url": "https://openalex.org/W4393368709",
+   "cited_by": 3
+  },
+  {
+   "title": "A Low Latency Secure Communication Architecture for Microgrid Control",
+   "authors": [
+    "Aron W. Kondoro",
+    "Imed Ben Dhaou",
+    "Hannu Tenhunen",
+    "Nerey H. Mvungi"
+   ],
+   "year": 2021,
+   "venue": "Energies",
+   "doi": "https://doi.org/10.3390/en14196262",
+   "url": "https://openalex.org/W3207649046",
+   "cited_by": 26
+  },
+  {
+   "title": "Security services provision for SOA-based IoT middleware systems",
+   "authors": [
+    "Ramão Tiago Tiburski"
+   ],
+   "year": 2016,
+   "venue": "Americanae (AECID Library)",
+   "doi": null,
+   "url": "https://openalex.org/W2483401218",
+   "cited_by": 2
+  },
+  {
+   "title": "Secure Service Proxy: A CoAP(s) Intermediary for a Securer and Smarter Web of Things",
+   "authors": [
+    "Floris Van den Abeele",
+    "Ingrid Moerman",
+    "Piet Demeester",
+    "Jeroen Hoebeke"
+   ],
+   "year": 2017,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s17071609",
+   "url": "https://openalex.org/W2735372394",
+   "cited_by": 11
+  },
+  {
+   "title": "Improving efficiency and security of IIoT communications using in-network validation of server certificate",
+   "authors": [
+    "Asier Atutxa",
+    "Jasone Astorga",
+    "Marc Barceló",
+    "Aitor Urbieta",
+    "Eduardo Jacob"
+   ],
+   "year": 2022,
+   "venue": "Computers in Industry",
+   "doi": "https://doi.org/10.1016/j.compind.2022.103802",
+   "url": "https://openalex.org/W4309576663",
+   "cited_by": 23
+  },
+  {
+   "title": "AmIOnline: Blockchain-based Availability Testing Service",
+   "authors": [
+    "Sabina Belyaeva",
+    "Maksim Ivanov",
+    "A. Korneev",
+    "Yury Yanovich"
+   ],
+   "year": 2022,
+   "venue": null,
+   "doi": "https://doi.org/10.1145/3581971.3581989",
+   "url": "https://openalex.org/W4362686714",
+   "cited_by": 2
+  },
+  {
+   "title": "Revisiting the Feasibility of Public Key Cryptography in Light of IIoT Communications",
+   "authors": [
+    "Jasone Astorga",
+    "Marc Barceló",
+    "Aitor Urbieta",
+    "Eduardo Jacob"
+   ],
+   "year": 2022,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s22072561",
+   "url": "https://openalex.org/W4220925336",
+   "cited_by": 17
+  },
+  {
+   "title": "Security risks in O-RAN: Vulnerabilities and mitigation countermeasures",
+   "authors": [
+    "Johnny Choque",
+    "Alberto E. García",
+    "Luis F. Diez",
+    "Ramón Agüero"
+   ],
+   "year": 2026,
+   "venue": "Computer Networks",
+   "doi": "https://doi.org/10.1016/j.comnet.2026.112480",
+   "url": "https://openalex.org/W7164888198",
+   "cited_by": 0
+  },
+  {
+   "title": "Session Attestation for Unmodified TLS Services in Confidential Virtual Machines",
+   "authors": [
+    "Qi Gu",
+    "Wenmao Liu",
+    "Weijing You",
+    "Yifei Chen",
+    "Sheng Ma",
+    "Fozhong Chen"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2609.09668",
+   "url": "https://openalex.org/W7212137604",
+   "cited_by": 0
+  },
+  {
+   "title": "An Overview of Moderation Strategies of Refusal of-Administration Assault on Web of Things",
+   "authors": [
+    "N. Raghunarh",
+    "G V K Murthy",
+    "B. Nagaraju",
+    "B. Vijaychandra"
+   ],
+   "year": 2021,
+   "venue": "International Journal of Innovative Research in Engineering & Management",
+   "doi": "https://doi.org/10.55524/ijirem.2021.8.6.231",
+   "url": "https://openalex.org/W4388431729",
+   "cited_by": 0
+  },
+  {
+   "title": "Implementation of random number generator service with IoT device",
+   "authors": [
+    "Rafał Wojszczyk",
+    "Aneta Hapka",
+    "Kacper Akdağ-Ochnik"
+   ],
+   "year": 2025,
+   "venue": "Annals of Computer Science and Information Systems",
+   "doi": "https://doi.org/10.15439/2025f6466",
+   "url": "https://openalex.org/W4415421869",
+   "cited_by": 0
+  },
+  {
+   "title": "Evaluating Susceptibility of VPN Implementations to DoS Attacks Using Adversarial Testing",
+   "authors": [
+    "Fabio Streun",
+    "Joel Wanner",
+    "Adrian Perrig"
+   ],
+   "year": 2022,
+   "venue": "Network and Distributed System Security Symposium",
+   "doi": "https://doi.org/10.14722/ndss.2022.24043",
+   "url": "https://openalex.org/W3204348757",
+   "cited_by": 10
+  },
+  {
+   "title": "Assesing the Services, security Threaths, Challenges and Solutions in the Internet of Things",
+   "authors": [
+    "Syed Rameem Zahra",
+    "Mohammad Ahsan Chishti"
+   ],
+   "year": 2019,
+   "venue": "Scalable Computing Practice and Experience",
+   "doi": "https://doi.org/10.12694/scpe.v20i3.1544",
+   "url": "https://openalex.org/W2975613098",
+   "cited_by": 11
+  },
+  {
+   "title": "Trust Management in Industrial Internet of Things using a Trusted E-Lithe Protocol",
+   "authors": [
+    "Ahmed Motmi",
+    "Samah Alhazmi",
+    "Ahmed Ismail Abu-Khadrah",
+    "Mousa Al-Akhras",
+    "Fuad Alhosban"
+   ],
+   "year": 2022,
+   "venue": "International Journal of Advanced Computer Science and Applications",
+   "doi": "https://doi.org/10.14569/ijacsa.2022.0130239",
+   "url": "https://openalex.org/W4214554910",
+   "cited_by": 4
+  },
+  {
+   "title": "A framework for cyber threat modeling and risk assessment in smart city environments",
+   "authors": [
+    "Mariya Ouaissa",
+    "Mariyam Ouaissa",
+    "Zineb Nadifi",
+    "Sarah El Himer",
+    "Yassine Al Masmoudi",
+    "Ali Kartit"
+   ],
+   "year": 2025,
+   "venue": "Frontiers in Computer Science",
+   "doi": "https://doi.org/10.3389/fcomp.2025.1647179",
+   "url": "https://openalex.org/W4412546521",
+   "cited_by": 11
+  },
+  {
+   "title": "Addressing the challenges of modern DNS a comprehensive tutorial",
+   "authors": [
+    "Olivier van der Toorn",
+    "Moritz Müller",
+    "Sara Dickinson",
+    "Cristian Hesselman",
+    "Anna Sperotto",
+    "Roland van Rijswijk-Deij"
+   ],
+   "year": 2022,
+   "venue": "Computer Science Review",
+   "doi": "https://doi.org/10.1016/j.cosrev.2022.100469",
+   "url": "https://openalex.org/W4281772378",
+   "cited_by": 33
+  },
+  {
+   "title": "USING ELLIPTIC CURVE CRYPTOGRAPHY FOR AUTHENTICATION AND KEY EXCHANGE IN CONSTRAINED INTERNET OF THINGS NETWORKS",
+   "authors": [
+    "İbrahim Karataş",
+    "Selim Bayraklı"
+   ],
+   "year": 2024,
+   "venue": "İstanbul Ticaret Üniversitesi Fen Bilimleri Dergisi",
+   "doi": "https://doi.org/10.55071/ticaretfbd.1439890",
+   "url": "https://openalex.org/W4399189829",
+   "cited_by": 1
+  },
+  {
+   "title": "Towards an Efficient Datagram Transport Layer Security for Constrained Applications in Internet of Things",
+   "authors": [
+    "Yassine Maleh",
+    "Abdellah Ezzati"
+   ],
+   "year": 2016,
+   "venue": "International Review on Computers and Software (IRECOS)",
+   "doi": "https://doi.org/10.15866/irecos.v11i7.9438",
+   "url": "https://openalex.org/W2523429068",
+   "cited_by": 6
+  },
+  {
+   "title": "Web of Things: Security Challenges and Mechanisms",
+   "authors": [
+    "Ruhma Sardar",
+    "Tayyaba Anees"
+   ],
+   "year": 2021,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2021.3057655",
+   "url": "https://openalex.org/W3128644737",
+   "cited_by": 31
+  },
+  {
+   "title": "Attack on WiFi-based Location Services and SSL using Proxy Servers",
+   "authors": [
+    "Jun Liang Feng"
+   ],
+   "year": 2014,
+   "venue": "UWSpace (University of Waterloo)",
+   "doi": null,
+   "url": "https://openalex.org/W2284682694",
+   "cited_by": 0
+  },
+  {
+   "title": "The Application-Layer Traffic Optimization (ALTO) Transport Information Publication Service (TIPS)",
+   "authors": [
+    "K. Gao",
+    "R. Schott",
+    "Yufan Yang",
+    "L. Delwiche",
+    "L. Keller"
+   ],
+   "year": 2024,
+   "venue": null,
+   "doi": "https://doi.org/10.17487/rfc9569",
+   "url": "https://openalex.org/W4402463120",
+   "cited_by": 0
+  },
+  {
+   "title": "Robotic systems in internet of things: addressing security challenges through threat modeling and penetration testing",
+   "authors": [
+    "Muhammed Rafeeq War",
+    "Aqsa Sayeed",
+    "Shahid Ahmad Wani",
+    "Ayoob Lone",
+    "Mohammad Shuaib Mir",
+    "Yonis Gulzar"
+   ],
+   "year": 2026,
+   "venue": "Scientific Reports",
+   "doi": "https://doi.org/10.1038/s41598-026-48287-8",
+   "url": "https://openalex.org/W7154997843",
+   "cited_by": 1
+  },
+  {
+   "title": "Connection-Oriented DNS to Improve Privacy and Security",
+   "authors": [
+    "Liang Zhu",
+    "Zi Hu",
+    "John Heidemann",
+    "Duane Wessels",
+    "Allison Mankin",
+    "Nikita Somaiya"
+   ],
+   "year": 2015,
+   "venue": "IEEE Symposium on Security and Privacy (S&P)",
+   "doi": "https://doi.org/10.1109/sp.2015.18",
+   "url": "https://openalex.org/W1924829439",
+   "cited_by": 105
+  },
+  {
+   "title": "A Review of Research on Secure Time Synchronization Technology of Precision Time Protocol",
+   "authors": [
+    "Yanqing Xu"
+   ],
+   "year": 2025,
+   "venue": "Journal of Computer Science and Artificial Intelligence",
+   "doi": "https://doi.org/10.54097/r4c00h88",
+   "url": "https://openalex.org/W4415770758",
+   "cited_by": 0
+  },
+  {
+   "title": "Ein Sicherheitskonzept für IoT-Plattformen",
+   "authors": [
+    "Marvin Wohlfarth"
+   ],
+   "year": 2019,
+   "venue": "OPUS Publication Server of the University of Stuttgart (University of Stuttgart)",
+   "doi": "https://doi.org/10.18419/opus-10798",
+   "url": "https://openalex.org/W3127014550",
+   "cited_by": 0
+  },
+  {
+   "title": "Performance of the Transport Layer Security Handshake Over 6TiSCH",
+   "authors": [
+    "Timothy Claeys",
+    "Mališa Vučinić",
+    "Thomas Watteyne",
+    "Franck S. Rousseau",
+    "Bernard Tourancheau"
+   ],
+   "year": 2021,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s21062192",
+   "url": "https://openalex.org/W3136338128",
+   "cited_by": 7
+  },
+  {
+   "title": "Energy-efficient protocols and hardware architectures for transport layer security",
+   "authors": [
+    "Utsav Banerjee"
+   ],
+   "year": 2017,
+   "venue": "DSpace@MIT (Massachusetts Institute of Technology)",
+   "doi": null,
+   "url": "https://openalex.org/W2765676966",
+   "cited_by": 3
+  },
+  {
+   "title": "Arquitectura de seguridad ligera para el Internet de las Cosas basada en HIMMO",
+   "authors": [
+    "Torre Arce",
+    "José Luís"
+   ],
+   "year": 2015,
+   "venue": "UCrea (University of Cantabria)",
+   "doi": null,
+   "url": "https://openalex.org/W2280203691",
+   "cited_by": 0
+  },
+  {
+   "title": "Efficient Security Protocol for RESTful IoT devices",
+   "authors": [
+    "Karnarjun Kantharajan",
+    "Sahar Shirafkan"
+   ],
+   "year": 2020,
+   "venue": "Lund University Publications Student Papers (Lund University)",
+   "doi": null,
+   "url": "https://openalex.org/W3120633564",
+   "cited_by": 0
+  },
+  {
+   "title": "“Things” Fall Apart : Adventures in Securing a World of Connected Chaos",
+   "authors": [
+    "Carlotta Tagliaro"
+   ],
+   "year": 2026,
+   "venue": "reposiTUm (TU Wien)",
+   "doi": "https://doi.org/10.34726/hss.2026.100308",
+   "url": "https://openalex.org/W7139946054",
+   "cited_by": 0
+  },
+  {
+   "title": "MinimaLT",
+   "authors": [
+    "W. Michael Petullo",
+    "Xu Zhang",
+    "Jon A. Solworth",
+    "Daniel J. Bernstein",
+    "Tanja Lange"
+   ],
+   "year": 2013,
+   "venue": "ACM SIGSAC Conference on Computer and Communications Security (CCS)",
+   "doi": "https://doi.org/10.1145/2508859.2516737",
+   "url": "https://openalex.org/W2109740421",
+   "cited_by": 27
+  }
+ ]
+}

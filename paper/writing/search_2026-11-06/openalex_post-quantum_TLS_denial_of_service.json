@@ -1,0 +1,698 @@
+{
+ "database": "openalex",
+ "query": "post-quantum TLS denial of service",
+ "date": "2026-11-06",
+ "total": 1435,
+ "hits": [
+  {
+   "title": "Denial-of-Service in Quantum Based Key Exchange Over Classical Network Protocols",
+   "authors": [
+    "Swarnendu Sekhar Mandal",
+    "Harsh Raj",
+    "Shivam Prakash",
+    "Akhil Vikram Singh",
+    "Hrudaya Kumar Tripathy",
+    "Hind Ahmed Naji Almaamra"
+   ],
+   "year": 2026,
+   "venue": "Lecture notes in networks and systems",
+   "doi": "https://doi.org/10.1007/978-3-032-26898-3_8",
+   "url": "https://openalex.org/W7172447979",
+   "cited_by": 0
+  },
+  {
+   "title": "Privacy-Preserving and Post-Quantum Counter Denial of Service Framework for Wireless Networks",
+   "authors": [
+    "Saleh Darzi",
+    "Attila A. Yavuz"
+   ],
+   "year": 2024,
+   "venue": "IEEE Military Communications Conference (MILCOM)",
+   "doi": "https://doi.org/10.1109/milcom61039.2024.10773665",
+   "url": "https://openalex.org/W4405103374",
+   "cited_by": 4
+  },
+  {
+   "title": "From Pre-Quantum to Post-Quantum IoT Security: A Survey on Quantum-Resistant Cryptosystems for the Internet of Things",
+   "authors": [
+    "Tiago M. Fernández‐Caramés"
+   ],
+   "year": 2019,
+   "venue": "IEEE Internet of Things Journal",
+   "doi": "https://doi.org/10.1109/jiot.2019.2958788",
+   "url": "https://openalex.org/W2995835799",
+   "cited_by": 340
+  },
+  {
+   "title": "Hybrid Quantum-Safe integration of TLS in SDN networks",
+   "authors": [
+    "Jaime S. Buruaga",
+    "Ruben B. Méndez",
+    "Juan P. Brito",
+    "Vicente Martín"
+   ],
+   "year": 2025,
+   "venue": "Computer Networks",
+   "doi": "https://doi.org/10.1016/j.comnet.2025.111355",
+   "url": "https://openalex.org/W4410540793",
+   "cited_by": 15
+  },
+  {
+   "title": "Classifying Implementations of Cryptographic Primitives and Protocols that Use Post-Quantum Algorithms",
+   "authors": [
+    "Tushin Mallick",
+    "Ashish Kundu",
+    "Ramana Rao Kompella",
+    "Cristina Nita-Rotaru"
+   ],
+   "year": 2026,
+   "venue": "ACM Symposium on Access Control Models and Technologies (SACMAT)",
+   "doi": "https://doi.org/10.1145/3750555.3811889",
+   "url": "https://openalex.org/W4409200995",
+   "cited_by": 3
+  },
+  {
+   "title": "Quantum Threat Analysis of TLS, IPsec, and DNSSEC Protocols Using STRIDE and PASTA Models",
+   "authors": [
+    "Sujata Swain",
+    "Saunak Saha",
+    "Ritoja Poddar",
+    "Swapnanil Bera",
+    "Anjan Bandyopadhyay",
+    "Vikas Chouhan"
+   ],
+   "year": 2026,
+   "venue": "F1000Research",
+   "doi": "https://doi.org/10.12688/f1000research.168473.1",
+   "url": "https://openalex.org/W7163735133",
+   "cited_by": 0
+  },
+  {
+   "title": "A Lightweight and Tight-Binding Post-Quantum Authenticated Key Exchange for IoT using ML-KEM",
+   "authors": [
+    "Pham Tuan Khiem"
+   ],
+   "year": 2026,
+   "venue": "SSRN Electronic Journal",
+   "doi": "https://doi.org/10.2139/ssrn.6543598",
+   "url": "https://openalex.org/W7171679729",
+   "cited_by": 0
+  },
+  {
+   "title": "On the Security Implications of PQC in TLS: Handshake Exhaustion and IDS Degradation",
+   "authors": [
+    "Lin-Fa Lee",
+    "Yi-Yu Chang",
+    "Chia-Mu Yu",
+    "Kuo‐Hui Yeh"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2607.12504",
+   "url": "https://openalex.org/W7168372881",
+   "cited_by": 0
+  },
+  {
+   "title": "TLS Encrypted Client Hello",
+   "authors": [
+    "E. Rescorla",
+    "K. Oku",
+    "N. Sullivan",
+    "C. A. Wood"
+   ],
+   "year": 2026,
+   "venue": null,
+   "doi": "https://doi.org/10.17487/rfc9849",
+   "url": "https://openalex.org/W7133529659",
+   "cited_by": 15
+  },
+  {
+   "title": "Quantum-resistant Transport Layer Security",
+   "authors": [
+    "Carlos Rubio García",
+    "Simon Rommel",
+    "Sofıane Takarabt",
+    "Juan José Vegas Olmos",
+    "Sylvain Guilley",
+    "Philippe E. Nguyen",
+    "Idelfonso Tafur Monroy"
+   ],
+   "year": 2023,
+   "venue": "Computer Communications",
+   "doi": "https://doi.org/10.1016/j.comcom.2023.11.010",
+   "url": "https://openalex.org/W4388588841",
+   "cited_by": 73
+  },
+  {
+   "title": "Security Risks for Enterprises in the Post-Quantum Computing World",
+   "authors": [
+    "Milan Gupta"
+   ],
+   "year": 2026,
+   "venue": "International Journal of Emerging Trends in Computer Science and Information Technology",
+   "doi": "https://doi.org/10.63282/3050-9246.ijetcsit-v7i1p147",
+   "url": "https://openalex.org/W7153202036",
+   "cited_by": 1
+  },
+  {
+   "title": "Post-Quantum WireGuard",
+   "authors": [
+    "Peter Membrey",
+    "Timo Beyel"
+   ],
+   "year": 2025,
+   "venue": null,
+   "doi": "https://doi.org/10.31224/5020",
+   "url": "https://openalex.org/W4413133314",
+   "cited_by": 0
+  },
+  {
+   "title": "Navigating quantum security risks in networked environments: A comprehensive study of quantum-safe network protocols",
+   "authors": [
+    "Yaser Baseri",
+    "Vikas Chouhan",
+    "Abdelhakim Senhaji Hafid"
+   ],
+   "year": 2024,
+   "venue": "Computers & Security",
+   "doi": "https://doi.org/10.1016/j.cose.2024.103883",
+   "url": "https://openalex.org/W4396558186",
+   "cited_by": 77
+  },
+  {
+   "title": "Study of Post Quantum status of Widely Used Protocols",
+   "authors": [
+    "Tushin Mallick",
+    "Ashish Kundu",
+    "Ramana Rao Kompella"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2603.28728",
+   "url": "https://openalex.org/W7147137698",
+   "cited_by": 2
+  },
+  {
+   "title": "Cyber Resilience Assessment of Smart Port Infrastructures through Secure Handshake Protocols and Supersingular Isogeny-Based Post-Quantum Cryptography",
+   "authors": [
+    "Laura-Christina Simionescu Dobrescu",
+    "Ovidiu Constantin Novac",
+    "Valentin Alexandru Stan",
+    "Cornelia-Mihaela Novac",
+    "Răzvan Andrei Gheorghiu"
+   ],
+   "year": 2026,
+   "venue": "International Conference on Electronics, Computers and Artificial Intelligence (ECAI)",
+   "doi": "https://doi.org/10.1109/ecai69016.2026.11613689",
+   "url": "https://openalex.org/W7170276246",
+   "cited_by": 0
+  },
+  {
+   "title": "Quantum-Resistant Domain Name System: A Comprehensive System-Level Study",
+   "authors": [
+    "Juyoul Lee",
+    "Sanzida Hoque",
+    "Abdullah Aydeger",
+    "Engin Zeydan"
+   ],
+   "year": 2025,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2506.19943",
+   "url": "https://openalex.org/W4414988017",
+   "cited_by": 1
+  },
+  {
+   "title": "Post-Quantum Era Privacy Protection for Intelligent Infrastructures",
+   "authors": [
+    "Lukáš Malina",
+    "Petr Dzurenda",
+    "Sara Ricci",
+    "Jan Hajný",
+    "Gautam Srivastava",
+    "Raimundas Matulevičius",
+    "Abasi-amefon Obot Affia",
+    "Maryline Laurent",
+    "Nazatul Haque Sultan",
+    "Qiang Tang"
+   ],
+   "year": 2021,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2021.3062201",
+   "url": "https://openalex.org/W3135750780",
+   "cited_by": 121
+  },
+  {
+   "title": "Post-Quantum Cryptography: Current state and quantum mitigation",
+   "authors": [
+    "Ward Beullens",
+    "Jan-Pieter D’Anvers",
+    "Andreas Hülsing",
+    "Tanja Lange",
+    "Lorenz Panny",
+    "Cyprien Delpech de Saint Guilhem",
+    "Nigel Paul Smart"
+   ],
+   "year": 2021,
+   "venue": "TU/e Research Portal",
+   "doi": "https://doi.org/10.2824/92307",
+   "url": "https://openalex.org/W3185288957",
+   "cited_by": 35
+  },
+  {
+   "title": "Automated security analyses of the TLS ecosystem",
+   "authors": [
+    "Marcel Maehren"
+   ],
+   "year": 2026,
+   "venue": "Dokumentenrepositorium der RUB (Ruhr University Bochum)",
+   "doi": "https://doi.org/10.13154/294-14204",
+   "url": "https://openalex.org/W7164014299",
+   "cited_by": 0
+  },
+  {
+   "title": "A Lightweight and Tight-Binding Post-Quantum Authenticated Key Exchange for IoT Using ML-KEM",
+   "authors": [
+    "Khiem Pham Tuan",
+    "Dong Bui-Huu",
+    "Dac-Tot Tran"
+   ],
+   "year": 2026,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-981-92-5641-9_22",
+   "url": "https://openalex.org/W7221787096",
+   "cited_by": 0
+  },
+  {
+   "title": "Securing web transactions TLS server certificate management",
+   "authors": [
+    "Mehwish Akram",
+    "William C. Barker",
+    "Rob Clatterbuck",
+    "Donna F. Dodson",
+    "Brandon Everhart",
+    "Jane Gilbert",
+    "William Haag",
+    "Brian R. Johnson",
+    "Alexandros Kapasouris",
+    "Dung N. Lam",
+    "Brett Pleasant",
+    "Mary Raguso",
+    "Murugiah Souppaya",
+    "Susan Symington",
+    "Paul A. Turner",
+    "Clint Wilson"
+   ],
+   "year": 2020,
+   "venue": null,
+   "doi": "https://doi.org/10.6028/nist.sp.1800-16",
+   "url": "https://openalex.org/W3035720390",
+   "cited_by": 10
+  },
+  {
+   "title": "Denial of Service (DoS & DDoS) Attacks: A Comprehensive Review of Threats, Detection, and Mitigation Strategies",
+   "authors": [],
+   "year": 2026,
+   "venue": "International Research Journal of Modernization in Engineering Technology and Science",
+   "doi": "https://doi.org/10.56726/irjmets89762",
+   "url": "https://openalex.org/W7129619498",
+   "cited_by": 0
+  },
+  {
+   "title": "Combining Post-Quantum Cryptography and Quantum Key Distribution: Taxonomy, Constructions, Proofs, Standards, Deployments and Open Problems",
+   "authors": [
+    "Mona Alotaibi",
+    "Noora Fetais",
+    "Saif M. Al-Kuwari"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2610.19039",
+   "url": "https://openalex.org/W7222212699",
+   "cited_by": 0
+  },
+  {
+   "title": "Comparative Analysis of HTTPS / TLS Implementations for Healthcare Web Applications",
+   "authors": [
+    "Vladyslav Malanin"
+   ],
+   "year": 2025,
+   "venue": "International Journal of Scientific Engineering and Research",
+   "doi": "https://doi.org/10.70729/se25522112222",
+   "url": "https://openalex.org/W4410746939",
+   "cited_by": 3
+  },
+  {
+   "title": "Post-Quantum DNSSEC: A Systematic Review of Transport Constraints, Security Vulnerabilities, and Migration Pathways",
+   "authors": [
+    "Maksim Iavich",
+    "Audrius Lopata",
+    "Nino Bagalishvili"
+   ],
+   "year": 2026,
+   "venue": "Mathematics",
+   "doi": "https://doi.org/10.3390/math14142555",
+   "url": "https://openalex.org/W7169039903",
+   "cited_by": 0
+  },
+  {
+   "title": "The intersection of post-quantum cryptography and QaaS: architecting quantum-safe cloud infrastructures",
+   "authors": [
+    "Akshay Joseph",
+    "Radhakrishnan Delhibabu"
+   ],
+   "year": 2026,
+   "venue": "Frontiers in Computer Science",
+   "doi": "https://doi.org/10.3389/fcomp.2026.1879744",
+   "url": "https://openalex.org/W7207767570",
+   "cited_by": 0
+  },
+  {
+   "title": "A Review of Post-Quantum Cryptographic Approaches for Securing FHIR-Based Healthcare Data Exchange",
+   "authors": [
+    "İbrahim Manga",
+    "Yunusa Aaron Yawachi",
+    "Bulus Bali"
+   ],
+   "year": 2026,
+   "venue": "International Journal of Research and Innovation in Applied Science",
+   "doi": "https://doi.org/10.51584/ijrias.2026.11090144",
+   "url": "https://openalex.org/W7223181379",
+   "cited_by": 0
+  },
+  {
+   "title": "A Survey on the Security of 5G and Beyond Networks in the Post-Quantum Era",
+   "authors": [
+    "Ximing Zhang",
+    "Pushpendu Kar",
+    "Alejandro Guerra-Manzanares",
+    "David Heng Tze Chieng",
+    "Chiew Foong Kwong"
+   ],
+   "year": 2026,
+   "venue": "Computer Networks",
+   "doi": "https://doi.org/10.1016/j.comnet.2026.112803",
+   "url": "https://openalex.org/W7214346951",
+   "cited_by": 0
+  },
+  {
+   "title": "Adaptive Optimization of TLS Overhead for Wireless Communication in Critical Infrastructure",
+   "authors": [
+    "Jörn Bodenhausen",
+    "Laurenz Grote",
+    "Michael Rademacher",
+    "Martin Henze"
+   ],
+   "year": 2024,
+   "venue": "Cyber Security in Networking Conference (CSNet)",
+   "doi": "https://doi.org/10.1109/csnet64211.2024.10851719",
+   "url": "https://openalex.org/W4406892252",
+   "cited_by": 2
+  },
+  {
+   "title": "Post-quantum MACsec in Ethernet Networks",
+   "authors": [
+    "Joo Yeon Cho",
+    "Andrew Sergeev"
+   ],
+   "year": 2021,
+   "venue": "Journal of Cyber Security and Mobility",
+   "doi": "https://doi.org/10.13052/jcsm2245-1439.1016",
+   "url": "https://openalex.org/W3150314915",
+   "cited_by": 12
+  },
+  {
+   "title": "Post Quantum Migration of Tor",
+   "authors": [
+    "Berger, Denis",
+    "Mouad Lemoudden",
+    "William Johnston Buchanan"
+   ],
+   "year": 2025,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2503.10238",
+   "url": "https://openalex.org/W4416039100",
+   "cited_by": 1
+  },
+  {
+   "title": "Post-Quantum Cryptography:Integration study",
+   "authors": [
+    "Daniel J. Bernstein",
+    "Andreas Hülsing",
+    "Tanja Lange"
+   ],
+   "year": 2022,
+   "venue": "TU/e Research Portal",
+   "doi": null,
+   "url": "https://openalex.org/W7128871355",
+   "cited_by": 0
+  },
+  {
+   "title": "Post-Quantum Migration of the Tor Application",
+   "authors": [
+    "Denis Berger",
+    "Mouad Lemoudden",
+    "William Johnston Buchanan"
+   ],
+   "year": 2025,
+   "venue": "Journal of Cybersecurity and Privacy",
+   "doi": "https://doi.org/10.3390/jcp5020013",
+   "url": "https://openalex.org/W4409057976",
+   "cited_by": 3
+  },
+  {
+   "title": "A Post-Quantum Testbed for EV and DER Communications through Grid-Connected Home Energy Management Systems",
+   "authors": [
+    "Robert L. Marlin",
+    "Yateendra Mishra",
+    "Yuchen Zhang"
+   ],
+   "year": 2026,
+   "venue": "International Conference on Smart City and Green Energy (ICSCGE)",
+   "doi": "https://doi.org/10.1109/icscge70903.2026.11747064",
+   "url": "https://openalex.org/W7128216105",
+   "cited_by": 0
+  },
+  {
+   "title": "Helol Tunnel: Covert Channel Exploitation of TLS Extensibility & Privacy Features",
+   "authors": [
+    "Reza Soosahabi",
+    "Rakesh Seal"
+   ],
+   "year": 2025,
+   "venue": "Silicon Valley Cybersecurity Conference (SVCC)",
+   "doi": "https://doi.org/10.1109/svcc65277.2025.11133623",
+   "url": "https://openalex.org/W4413755368",
+   "cited_by": 0
+  },
+  {
+   "title": "Extensible Post Quantum Cryptography-Based Authentication",
+   "authors": [
+    "Homer A. Riva-Cambrin",
+    "Rahul Singh",
+    "Sanju Lama",
+    "Garnette Roy Sutherland"
+   ],
+   "year": 2026,
+   "venue": "IEEE Transactions on Information Forensics and Security",
+   "doi": "https://doi.org/10.1109/tifs.2026.3705933",
+   "url": "https://openalex.org/W4415329547",
+   "cited_by": 2
+  },
+  {
+   "title": "Cybersecurity in the quantum era: Assessing the impact of quantum computing on infrastructure",
+   "authors": [
+    "Yaser Baseri",
+    "Vikas Chouhan",
+    "Ali Akbar Ghorbani"
+   ],
+   "year": 2026,
+   "venue": "Computers & Security",
+   "doi": "https://doi.org/10.1016/j.cose.2026.104917",
+   "url": "https://openalex.org/W4394906531",
+   "cited_by": 75
+  },
+  {
+   "title": "Post-Quantum Adversarial Modeling: A User’s Perspective",
+   "authors": [
+    "Teik Guan Tan",
+    "Jianying Zhou",
+    "Vishal Sharma",
+    "Saraju P. Mohanty"
+   ],
+   "year": 2023,
+   "venue": "Computer",
+   "doi": "https://doi.org/10.1109/mc.2022.3218046",
+   "url": "https://openalex.org/W4385516655",
+   "cited_by": 5
+  },
+  {
+   "title": "Empowering Mobile Networks Security Resilience by using Post-Quantum Cryptography",
+   "authors": [
+    "Ricardo Alves Faval",
+    "Rodrigo Moreira",
+    "Flávio de Oliveira Silva"
+   ],
+   "year": 2026,
+   "venue": "Joint European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit)",
+   "doi": "https://doi.org/10.1109/eucnc/6gsummit68295.2026.11577513",
+   "url": "https://openalex.org/W7166871561",
+   "cited_by": 3
+  },
+  {
+   "title": "Post-Quantum E-Voting",
+   "authors": [
+    "Rolf Furrer",
+    "Lukas Lätsch",
+    "Romeo Spinas"
+   ],
+   "year": 2019,
+   "venue": "HSR (HSR University of Applied Sciences Rapperswil)",
+   "doi": null,
+   "url": "https://openalex.org/W3129277771",
+   "cited_by": 0
+  },
+  {
+   "title": "Detection of Distributed Denial of Service (DDoS) Attacks in IOT Based Monitoring System of Banking Sector Using Machine Learning Models",
+   "authors": [
+    "Umar Islam",
+    "Ali Muhammad",
+    "Rafiq Mansoor",
+    "Md Shamim Hossain",
+    "Ijaz Ahmad",
+    "Sayed M. Eldin",
+    "Javed Ali Khan",
+    "Ateeq Ur Rehman",
+    "Muhammad Shafiq"
+   ],
+   "year": 2022,
+   "venue": "Sustainability",
+   "doi": "https://doi.org/10.3390/su14148374",
+   "url": "https://openalex.org/W4285006276",
+   "cited_by": 168
+  },
+  {
+   "title": "Enhancing the Security of Software Defined Networks via Quantum Key Distribution and Post-Quantum Cryptography",
+   "authors": [
+    "Carlos Rubio García",
+    "Simon Rommel",
+    "Juan José Vegas Olmos",
+    "Idelfonso Tafur Monroy"
+   ],
+   "year": 2023,
+   "venue": "Lecture notes in networks and systems",
+   "doi": "https://doi.org/10.1007/978-3-031-38318-2_42",
+   "url": "https://openalex.org/W4385247794",
+   "cited_by": 12
+  },
+  {
+   "title": "Post-Quantum Impacts on V2X Certificates – Already at The End of The Road",
+   "authors": [
+    "Takahito Yoshizawa",
+    "Bart Preneel A"
+   ],
+   "year": 2023,
+   "venue": "IEEE Vehicular Technology Conference",
+   "doi": "https://doi.org/10.1109/vtc2023-spring57618.2023.10199793",
+   "url": "https://openalex.org/W4385801245",
+   "cited_by": 15
+  },
+  {
+   "title": "Implementation of post-quantum cryptography in Android",
+   "authors": [
+    "Jaroslav Novotný"
+   ],
+   "year": 2026,
+   "venue": "Brno University of Technology Digital Library (Brno University of Technology)",
+   "doi": null,
+   "url": "https://openalex.org/W7165500000",
+   "cited_by": 0
+  },
+  {
+   "title": "Identity Refined at the Quantum Gate: Framing the AI + Post-Quantum Challenge for IAM",
+   "authors": [
+    "Sravanakumar Nidamanooru"
+   ],
+   "year": 2025,
+   "venue": "Preprints.org",
+   "doi": "https://doi.org/10.20944/preprints202509.0090.v1",
+   "url": "https://openalex.org/W4413899246",
+   "cited_by": 0
+  },
+  {
+   "title": "Agile, post-quantum secure cryptography in avionics",
+   "authors": [
+    "Karolin Varner",
+    "Wanja Zaeske",
+    "Sven Friedrich",
+    "Aaron Kaiser",
+    "Alice Michaela Bowman"
+   ],
+   "year": 2025,
+   "venue": "CEAS Aeronautical Journal",
+   "doi": "https://doi.org/10.1007/s13272-025-00806-5",
+   "url": "https://openalex.org/W4410311313",
+   "cited_by": 6
+  },
+  {
+   "title": "Distributed Denial of Service Attack Detection in SDN using Machine Learning",
+   "authors": [
+    "Amandeep Jha",
+    "Bratin Das",
+    "Deepa Reddy K.",
+    "Desai Vaishnavi Jitendra",
+    "S. Rezni"
+   ],
+   "year": 2023,
+   "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+   "doi": "https://doi.org/10.5281/zenodo.7601895",
+   "url": "https://openalex.org/W4319054655",
+   "cited_by": 0
+  },
+  {
+   "title": "Evaluating Post-Quantum Key Exchange in WireGuard",
+   "authors": [
+    "Ludvig Järvi"
+   ],
+   "year": 2026,
+   "venue": "Högskolan Kristianstad Publikationer",
+   "doi": null,
+   "url": "https://openalex.org/W7208798579",
+   "cited_by": 0
+  },
+  {
+   "title": "Quantum Key Distribution",
+   "authors": [
+    "Miralem Mehić",
+    "Marcin Niemiec",
+    "Stefan Raß",
+    "Jiajun Ma",
+    "Momtchil Peev",
+    "Alejandro Aguado",
+    "Vicente Martín",
+    "Stefan Schauer",
+    "Andreas Poppe",
+    "Christoph Pacher",
+    "Miroslav Vozn̆ák"
+   ],
+   "year": 2020,
+   "venue": "ACM Computing Surveys",
+   "doi": "https://doi.org/10.1145/3402192",
+   "url": "https://openalex.org/W3090453402",
+   "cited_by": 340
+  },
+  {
+   "title": "Post-Quantum Cryptography for the Internet of Things: new approach",
+   "authors": [
+    "Pablo Rubens De Moura",
+    "Elmer Rolando Llanos Villarreal",
+    "Diego Antonio de Moura Fonsêca",
+    "Andrés Ortiz Salazar"
+   ],
+   "year": 2025,
+   "venue": "The Journal of Engineering and Exact Sciences",
+   "doi": "https://doi.org/10.18540/jcecvl11iss1pp21741",
+   "url": "https://openalex.org/W4410948687",
+   "cited_by": 5
+  }
+ ]
+}

@@ -1,0 +1,688 @@
+{
+ "database": "openalex",
+ "query": "LoRaWAN join denial of service",
+ "date": "2026-11-06",
+ "total": 488,
+ "hits": [
+  {
+   "title": "Security Analysis of LoRaWAN Join Procedure for Internet of Things Networks",
+   "authors": [
+    "Stefano Tomasin",
+    "Simone Zulian",
+    "Lorenzo Vangelista"
+   ],
+   "year": 2017,
+   "venue": "IEEE Wireless Communications and Networking Conference Workshops (WCNCW)",
+   "doi": "https://doi.org/10.1109/wcncw.2017.7919091",
+   "url": "https://openalex.org/W2610892288",
+   "cited_by": 110
+  },
+  {
+   "title": "Network Intrusion Detection System for Jamming Attack in LoRaWAN Join Procedure",
+   "authors": [
+    "Syed Muhammad Danish",
+    "Arfa Nasir",
+    "Hassaan Khaliq Qureshi",
+    "Ayesha Binte Ashfaq",
+    "Shahid Mumtaz",
+    "Jonathan Rodrı́guez"
+   ],
+   "year": 2018,
+   "venue": "International Conference on Communications",
+   "doi": "https://doi.org/10.1109/icc.2018.8422721",
+   "url": "https://openalex.org/W2886473400",
+   "cited_by": 50
+  },
+  {
+   "title": "A Survey of LoRaWAN for IoT: From Technology to Application",
+   "authors": [
+    "Jetmir Haxhibeqiri",
+    "Eli De Poorter",
+    "Ingrid Moerman",
+    "Jeroen Hoebeke"
+   ],
+   "year": 2018,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s18113995",
+   "url": "https://openalex.org/W2901111720",
+   "cited_by": 643
+  },
+  {
+   "title": "Jamming Attack Analysis of Wireless Power Transfer on LoRaWAN Join Procedure",
+   "authors": [
+    "Syed Muhammad Danish",
+    "Hassaan Khaliq Qureshi",
+    "Sobia Jangsher"
+   ],
+   "year": 2018,
+   "venue": "IEEE Globecom Workshops (GC Wkshps)",
+   "doi": "https://doi.org/10.1109/glocomw.2018.8644280",
+   "url": "https://openalex.org/W2918726032",
+   "cited_by": 7
+  },
+  {
+   "title": "A Survey on LoRaWAN Architecture, Protocol and Technologies",
+   "authors": [
+    "Mehmet Ali Ertürk",
+    "Muhammed Ali Aydın",
+    "muhammet talha buyukakkaslar",
+    "Hayrettin Evirgen"
+   ],
+   "year": 2019,
+   "venue": "Future Internet",
+   "doi": "https://doi.org/10.3390/fi11100216",
+   "url": "https://openalex.org/W2981228028",
+   "cited_by": 231
+  },
+  {
+   "title": "A Lightweight Blockchain Based Two Factor Authentication Mechanism for LoRaWAN Join Procedure",
+   "authors": [
+    "Syed Muhammad Danish",
+    "Marios Lestas",
+    "Waqar Asif",
+    "Hassaan Khaliq Qureshi",
+    "Muttukrishnan Rajarajan"
+   ],
+   "year": 2019,
+   "venue": "IEEE International Conference on Communications workshops",
+   "doi": "https://doi.org/10.1109/iccw.2019.8756673",
+   "url": "https://openalex.org/W2958219835",
+   "cited_by": 54
+  },
+  {
+   "title": "Security of LoRaWAN v1.1 in Backward Compatibility Scenarios",
+   "authors": [
+    "Tahsin C. M. Dönmez",
+    "Ethiopia Nigussie"
+   ],
+   "year": 2018,
+   "venue": "Procedia Computer Science",
+   "doi": "https://doi.org/10.1016/j.procs.2018.07.143",
+   "url": "https://openalex.org/W2887417333",
+   "cited_by": 54
+  },
+  {
+   "title": "Reactive Jamming Detection for LoRaWAN Based on Meta-Data Differencing",
+   "authors": [
+    "Henri Ruotsalainen"
+   ],
+   "year": 2022,
+   "venue": "International Conference on Availability, Reliability and Security (ARES)",
+   "doi": "https://doi.org/10.1145/3538969.3543805",
+   "url": "https://openalex.org/W4292158436",
+   "cited_by": 13
+  },
+  {
+   "title": "Authenticated Preambles for Denial of Service Mitigation in LPWANs",
+   "authors": [
+    "Ioana Suciu",
+    "José Carlos Pacho",
+    "Bartoli, Andrea",
+    "Xavier Vilajosana"
+   ],
+   "year": 2019,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.1904.08179",
+   "url": "https://openalex.org/W2951139839",
+   "cited_by": 0
+  },
+  {
+   "title": "Review of LoRaWAN Applications",
+   "authors": [
+    "Lucas Roberti de Oliveira",
+    "Poliana de Moraes",
+    "Lauro P. Silva Neto",
+    "Arlindo Flávio da Conceição"
+   ],
+   "year": 2020,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2004.05871",
+   "url": "https://openalex.org/W3015239368",
+   "cited_by": 9
+  },
+  {
+   "title": "Enhancing Key Management in LoRaWAN with Permissioned Blockchain",
+   "authors": [
+    "Victor Pasknel de Alencar Ribeiro",
+    "Raimir Holanda Filho",
+    "Alex Lacerda Ramos",
+    "Joel J. P. C. Rodrigues"
+   ],
+   "year": 2020,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s20113068",
+   "url": "https://openalex.org/W3029302022",
+   "cited_by": 51
+  },
+  {
+   "title": "LoRaWan Sensitivity Analysis and Prevention Strategies Against Wireless DoS Attacks",
+   "authors": [
+    "Neeli Rashmi Prasad",
+    "Per Lynggaard"
+   ],
+   "year": 2022,
+   "venue": "Wireless Personal Communications",
+   "doi": "https://doi.org/10.1007/s11277-022-09884-8",
+   "url": "https://openalex.org/W4283262357",
+   "cited_by": 15
+  },
+  {
+   "title": "Insights into the Issue of Deploying a Private LoRaWAN",
+   "authors": [
+    "Radek Fujdiak",
+    "Konstantin Mikhaylov",
+    "Jan Pospíšil",
+    "Aleš Povalač",
+    "Jiří Mišurec"
+   ],
+   "year": 2022,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s22052042",
+   "url": "https://openalex.org/W4220973987",
+   "cited_by": 20
+  },
+  {
+   "title": "Cybersecurity in LoRaWAN Networks",
+   "authors": [
+    "Lucas Henrique Malaquias da Silva Donadi"
+   ],
+   "year": 2025,
+   "venue": "Institutional Repository of the Federal Technological University of Paraná (RIUT) (Federal University of Technology – Paraná)",
+   "doi": null,
+   "url": "https://openalex.org/W7155463205",
+   "cited_by": 0
+  },
+  {
+   "title": "LoRaWAN Physical Layer-Based Attacks and Countermeasures, A Review",
+   "authors": [
+    "Henri Ruotsalainen",
+    "Guanxiong Shen",
+    "Junqing Zhang",
+    "Radek Fujdiak"
+   ],
+   "year": 2022,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s22093127",
+   "url": "https://openalex.org/W4224234761",
+   "cited_by": 46
+  },
+  {
+   "title": "Investigation on Security Risk of LoRaWAN: Compatibility Scenarios",
+   "authors": [
+    "Slim Loukil",
+    "Lamia Chaari Fourati",
+    "Anand Nayyar",
+    "Chakchai So–In"
+   ],
+   "year": 2022,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2022.3208171",
+   "url": "https://openalex.org/W4296501415",
+   "cited_by": 27
+  },
+  {
+   "title": "Survey of IoT for Developing Countries: Performance Analysis of LoRaWAN and Cellular NB-IoT Networks",
+   "authors": [
+    "Stephen Ugwuanyi",
+    "Greig Paul",
+    "James M. Irvine"
+   ],
+   "year": 2021,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics10182224",
+   "url": "https://openalex.org/W3200032234",
+   "cited_by": 114
+  },
+  {
+   "title": "Privacy-Preserving Pseudonyms for LoRaWAN",
+   "authors": [
+    "Samuel Pélissier",
+    "Jan Aalmoes",
+    "Abhishek Kumar Mishra",
+    "Mathieu Cunche",
+    "Vincent Roca",
+    "Didier Donsez"
+   ],
+   "year": 2024,
+   "venue": "ACM Conference on Security and Privacy in Wireless and Mobile Networks (WiSec)",
+   "doi": "https://doi.org/10.1145/3643833.3656120",
+   "url": "https://openalex.org/W4398131465",
+   "cited_by": 2
+  },
+  {
+   "title": "Analysis of LoRaWAN 1.0 and 1.1 Protocols Security Mechanisms",
+   "authors": [
+    "Slim Loukil",
+    "Lamia Chaari Fourati",
+    "Anand Nayyar",
+    "K.-W.-A. Chee"
+   ],
+   "year": 2022,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s22103717",
+   "url": "https://openalex.org/W4280544318",
+   "cited_by": 34
+  },
+  {
+   "title": "Analysis, design and implementation of secure LoRaWAN sensor networks",
+   "authors": [
+    "Bogdan Oniga",
+    "Vasile Teodor Dădârlat",
+    "Eli De Poorter",
+    "Adrian Munteanu"
+   ],
+   "year": 2017,
+   "venue": "IEEE International Conference on Intelligent Computer Communication and Processing (ICCP)",
+   "doi": "https://doi.org/10.1109/iccp.2017.8117042",
+   "url": "https://openalex.org/W2770004421",
+   "cited_by": 38
+  },
+  {
+   "title": "Enhancing LoRaWAN Security through a Lightweight and Authenticated Key Management Approach",
+   "authors": [
+    "Ramón Sanchez‐Iborra",
+    "Jesús Sánchez-Gómez",
+    "Salvador Pérez",
+    "Pedro J. Fernández",
+    "José Santa",
+    "José L. Hernández-Ramos",
+    "Antonio Skármeta"
+   ],
+   "year": 2018,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s18061833",
+   "url": "https://openalex.org/W2806705211",
+   "cited_by": 77
+  },
+  {
+   "title": "A Security-Conscious Primer on LoRa and LoRaWAN Technologies",
+   "authors": [
+    "Tomás Simões",
+    "Tiago Cruz",
+    "Bruno Sousa",
+    "Paulo Simões"
+   ],
+   "year": 2025,
+   "venue": "European Conference on Cyber Warfare and Security",
+   "doi": "https://doi.org/10.34190/eccws.24.1.3575",
+   "url": "https://openalex.org/W4411666841",
+   "cited_by": 3
+  },
+  {
+   "title": "LoRaWAN Meets ML: A Survey on Enhancing Performance with Machine Learning",
+   "authors": [
+    "Arshad Farhad",
+    "Jae-Young Pyun"
+   ],
+   "year": 2023,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s23156851",
+   "url": "https://openalex.org/W4385461687",
+   "cited_by": 60
+  },
+  {
+   "title": "A Systematic Review of Security in the LoRaWAN Network Protocol",
+   "authors": [
+    "Poliana de Moraes",
+    "Arlindo Flávio da Conceição"
+   ],
+   "year": 2021,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2105.00384",
+   "url": "https://openalex.org/W3157470865",
+   "cited_by": 11
+  },
+  {
+   "title": "LoRaWAN AS PART OF A SMART CITY STRATEGY",
+   "authors": [
+    "Aik Wirsbinna"
+   ],
+   "year": 2022,
+   "venue": "International Journal of Innovative Technologies in Economy",
+   "doi": "https://doi.org/10.31435/rsglobal_ijite/30092022/7841",
+   "url": "https://openalex.org/W4291000700",
+   "cited_by": 2
+  },
+  {
+   "title": "LoRaWAN attack in military use case",
+   "authors": [
+    "Georges Derache",
+    "Mounira Msahli",
+    "Aurelien Botbol",
+    "Fabien Romain",
+    "Jerome Champlon",
+    "Gauthier Canet"
+   ],
+   "year": 2024,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2412.18447",
+   "url": "https://openalex.org/W4405792528",
+   "cited_by": 0
+  },
+  {
+   "title": "Development and Testing of a Real-Time LoRawan Sniffer Based on GNU-Radio",
+   "authors": [
+    "Andrés F. Bravo-Montoya",
+    "Jefersson S. Rondón-Sanabria",
+    "Elvis Eduardo Gaona García"
+   ],
+   "year": 2019,
+   "venue": "TecnoLógicas",
+   "doi": "https://doi.org/10.22430/22565337.1491",
+   "url": "https://openalex.org/W2978511632",
+   "cited_by": 3
+  },
+  {
+   "title": "IoT security vulnerabilities and predictive signal jamming attack analysis in LoRaWAN",
+   "authors": [
+    "Max Ingham",
+    "Jims Marchang",
+    "Deepayan Bhowmik"
+   ],
+   "year": 2020,
+   "venue": "IET Information Security",
+   "doi": "https://doi.org/10.1049/iet-ifs.2019.0447",
+   "url": "https://openalex.org/W2999002156",
+   "cited_by": 50
+  },
+  {
+   "title": "LoRaWAN End Nodes: Security and Energy Efficiency Analysis",
+   "authors": [
+    "Miralem Mehić",
+    "Mugdim Duliman",
+    "Nejra Selimovic",
+    "Miroslav Vozn̆ák"
+   ],
+   "year": 2022,
+   "venue": "Alexandria Engineering Journal",
+   "doi": "https://doi.org/10.1016/j.aej.2022.02.035",
+   "url": "https://openalex.org/W4214572237",
+   "cited_by": 16
+  },
+  {
+   "title": "Enhancing LoRaWAN Security: An Advanced AES-Based Cryptographic Approach",
+   "authors": [
+    "Samira Abboud",
+    "Nabil Abdoun"
+   ],
+   "year": 2023,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2023.3348416",
+   "url": "https://openalex.org/W4390423632",
+   "cited_by": 24
+  },
+  {
+   "title": "Enabling Roaming Across Heterogeneous IoT Wireless Networks: LoRaWAN MEETS 5G",
+   "authors": [
+    "Elena Torroglosa-Garcia",
+    "José M. Alcaraz Calero",
+    "Jorge Bernal Bernabé",
+    "Antonio Skármeta"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.2998416",
+   "url": "https://openalex.org/W3029006526",
+   "cited_by": 56
+  },
+  {
+   "title": "LoRaWAN Security Analysis : An Experimental Evaluation of Attacks",
+   "authors": [
+    "Frank Hessel"
+   ],
+   "year": 2021,
+   "venue": "TUbilio (Technical University of Darmstadt)",
+   "doi": "https://doi.org/10.26083/tuprints-00017550",
+   "url": "https://openalex.org/W3139581375",
+   "cited_by": 2
+  },
+  {
+   "title": "Enhancing Cyber Security of LoRaWAN Gateways under Adversarial Attacks",
+   "authors": [
+    "Ali Wagdy Mohamed",
+    "Franz Wang",
+    "İsmail Bütün",
+    "Junaid Qadir",
+    "Robert Lagerström",
+    "Paolo Gastaldo",
+    "Daniele D. Caviglia"
+   ],
+   "year": 2022,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s22093498",
+   "url": "https://openalex.org/W4229046661",
+   "cited_by": 23
+  },
+  {
+   "title": "LoRaWAN & The Helium Blockchain: A Study on Military IoT Deployment",
+   "authors": [
+    "Michael Reyneke",
+    "Barry Mullins",
+    "Mark G. Reith"
+   ],
+   "year": 2023,
+   "venue": "International Conference on Cyber Warfare and Security",
+   "doi": "https://doi.org/10.34190/iccws.18.1.944",
+   "url": "https://openalex.org/W4322622626",
+   "cited_by": 10
+  },
+  {
+   "title": "Evaluating the cost of beyond AES-128 LoRaWAN security",
+   "authors": [
+    "Phithak Thaenkaew",
+    "Bruno Quoitin",
+    "Ahmed Meddahi"
+   ],
+   "year": 2022,
+   "venue": "International Symposium on Networks, Computers and Communications (ISNCC)",
+   "doi": "https://doi.org/10.1109/isncc55209.2022.9851811",
+   "url": "https://openalex.org/W4291909991",
+   "cited_by": 10
+  },
+  {
+   "title": "Impersonating LoRaWAN gateways using Semtech Packet Forwarder",
+   "authors": [
+    "Lukas Simon Laufenberg"
+   ],
+   "year": 2019,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.1904.10728",
+   "url": "https://openalex.org/W2940851493",
+   "cited_by": 4
+  },
+  {
+   "title": "A Fault-Tolerant and Secure Architecture for Key Management in LoRaWAN Based on Permissioned Blockchain",
+   "authors": [
+    "Victor Pasknel de Alencar Ribeiro",
+    "Raimir Holanda Filho",
+    "Alex Lacerda Ramos",
+    "Joel J. P. C. Rodrigues"
+   ],
+   "year": 2022,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2022.3179004",
+   "url": "https://openalex.org/W4285149626",
+   "cited_by": 12
+  },
+  {
+   "title": "Analysis of LoRaWAN and NB-IoT for Critical and Massive Communication",
+   "authors": [
+    "Mateo Campoverde-Fordon",
+    "Birger Andersen"
+   ],
+   "year": 2024,
+   "venue": "EAI/Springer Innovations in Communication and Computing",
+   "doi": "https://doi.org/10.1007/978-3-031-53028-9_3",
+   "url": "https://openalex.org/W4392918099",
+   "cited_by": 2
+  },
+  {
+   "title": "Reliability of LoRaWAN Communications in Mining Environments: A Survey on Challenges and Design Requirements",
+   "authors": [
+    "Sonile K. Musonda",
+    "Musa Ndiaye",
+    "Hastings Maboshe Libati",
+    "Adnan Mohammed I Abu-Mahfouz"
+   ],
+   "year": 2024,
+   "venue": "Journal of Sensor and Actuator Networks",
+   "doi": "https://doi.org/10.3390/jsan13010016",
+   "url": "https://openalex.org/W4391683077",
+   "cited_by": 30
+  },
+  {
+   "title": "Testbed for LoRaWAN Security: Design and Validation through Man-in-the-Middle Attacks Study",
+   "authors": [
+    "Ondřej Pospíšil",
+    "Radek Fujdiak",
+    "Konstantin Mikhaylov",
+    "Henri Ruotsalainen",
+    "Jiří Mišurec"
+   ],
+   "year": 2021,
+   "venue": "Applied Sciences",
+   "doi": "https://doi.org/10.3390/app11167642",
+   "url": "https://openalex.org/W3193982829",
+   "cited_by": 22
+  },
+  {
+   "title": "A Comprehensive Analysis of LoRaWAN Key Security Models and Possible Attack Solutions",
+   "authors": [
+    "Koketso Ntshabele",
+    "Bassey Echeng Isong",
+    "Naison Gasela",
+    "Adnan Mohammed I Abu-Mahfouz"
+   ],
+   "year": 2022,
+   "venue": "Mathematics",
+   "doi": "https://doi.org/10.3390/math10193421",
+   "url": "https://openalex.org/W4296620249",
+   "cited_by": 13
+  },
+  {
+   "title": "A Trusted Security Key Management Server in LoRaWAN: Modelling and Analysis",
+   "authors": [
+    "Koketso Ntshabele",
+    "Bassey Echeng Isong",
+    "Naison Gasela",
+    "Adnan Mohammed I Abu-Mahfouz"
+   ],
+   "year": 2022,
+   "venue": "Journal of Sensor and Actuator Networks",
+   "doi": "https://doi.org/10.3390/jsan11030052",
+   "url": "https://openalex.org/W4294930907",
+   "cited_by": 7
+  },
+  {
+   "title": "Mitigating Cyber Attacks in LoRaWAN via Lightweight Secure Key Management Scheme",
+   "authors": [
+    "Junaid Qadir",
+    "İsmail Bütün",
+    "Paolo Gastaldo",
+    "Orazio Aiello",
+    "Daniele D. Caviglia"
+   ],
+   "year": 2023,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2023.3291420",
+   "url": "https://openalex.org/W4382998674",
+   "cited_by": 17
+  },
+  {
+   "title": "A Novel Secure Root Key Updating Scheme for LoRaWANs Based on CTR_AES DRBG 128",
+   "authors": [
+    "Nur Qomariyah Hayati",
+    "Kalamullah Ramli",
+    "Susila Windarta",
+    "Muhammad Suryanegara"
+   ],
+   "year": 2022,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2022.3150281",
+   "url": "https://openalex.org/W4211236184",
+   "cited_by": 19
+  },
+  {
+   "title": "Efficiently linking LoRaWAN identifiers through multi-domain fingerprinting",
+   "authors": [
+    "Samuel Pélissier",
+    "Abhishek Kumar Mishra",
+    "Mathieu Cunche",
+    "Vincent Roca",
+    "Didier Donsez"
+   ],
+   "year": 2025,
+   "venue": "Pervasive and Mobile Computing",
+   "doi": "https://doi.org/10.1016/j.pmcj.2025.102082",
+   "url": "https://openalex.org/W4411334366",
+   "cited_by": 0
+  },
+  {
+   "title": "Leveraging Larger AES Keys in LoRaWAN: A Practical Evaluation of Energy and Time Costs",
+   "authors": [
+    "Phithak Thaenkaew",
+    "Bruno Quoitin",
+    "Ahmed Meddahi"
+   ],
+   "year": 2023,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s23229172",
+   "url": "https://openalex.org/W4388667640",
+   "cited_by": 18
+  },
+  {
+   "title": "Systematic Literature Review of Security and Privacy Management in LoRaWAN Networks",
+   "authors": [
+    "Kawthar Chroudi",
+    "Mongi Ben Ameur",
+    "Mohamed hadi Habaebi",
+    "Jalel Chebil",
+    "Mohammed Abdulla Salim Al Husaini",
+    "Jamel Bel Hadj Tahar"
+   ],
+   "year": 2026,
+   "venue": "Research Square",
+   "doi": "https://doi.org/10.21203/rs.3.rs-10831325/v1",
+   "url": "https://openalex.org/W7221709970",
+   "cited_by": 0
+  },
+  {
+   "title": "Towards a Protocol-Aware Intrusion Detection System for LoRaWAN Networks",
+   "authors": [
+    "Zsolt Bringye",
+    "Rita Fleiner",
+    "Eszter Kail"
+   ],
+   "year": 2026,
+   "venue": "Future Internet",
+   "doi": "https://doi.org/10.3390/fi18030140",
+   "url": "https://openalex.org/W7134260206",
+   "cited_by": 0
+  },
+  {
+   "title": "MDLBA-LORA : A MULTIDIMENSIONAL LEARNING-BASED LIGHTWEIGHT ROUTING PROTOCOL FOR SECURE AND EFFICIENT COMMUNICATION IN LORAWAN.",
+   "authors": [
+    "Nilofar S. Hunnargi"
+   ],
+   "year": 2025,
+   "venue": "International Journal of Apllied Mathematics",
+   "doi": "https://doi.org/10.12732/ijam.v38i11s.1249",
+   "url": "https://openalex.org/W4416940726",
+   "cited_by": 0
+  },
+  {
+   "title": "Analysis of vulnerabilities in low-power wide-area networks by example of the LoRaWAN",
+   "authors": [
+    "Исхаков Сергей Юнусович",
+    "Roman Valerievich Meshcheryakov",
+    "Anastasia O. Iskhakova",
+    "С. С. Бондарчук"
+   ],
+   "year": 2017,
+   "venue": "International Conference on Information Technologies in Science, Management, Social Sphere and Medicine (ITSMSSM)",
+   "doi": "https://doi.org/10.2991/itsmssm-17.2017.69",
+   "url": "https://openalex.org/W2790922933",
+   "cited_by": 5
+  }
+ ]
+}
