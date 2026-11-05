@@ -1,0 +1,226 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+[    33][I][esp32-hal-i2c.c:75] i2cInit(): Initialising I2C Master: sda=21 scl=22 freq=100000
+[    43][W][Wire.cpp:301] begin(): Bus already started in Master Mode.
+LOG monitor boot complete
+monitor,op,us,mJ,peak_current_mA
+LOG cal n=1000 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.314 mean_mw=-0.276
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=988 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.317 mean_mw=-0.277
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.309 mean_mw=-0.268
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.297 mean_mw=-0.262
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.302 mean_mw=-0.266
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.302 mean_mw=-0.264
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.307 mean_mw=-0.269
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.303 mean_mw=-0.264
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.303 mean_mw=-0.266
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.291 mean_mw=-0.255
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.310 mean_mw=-0.272
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.302 mean_mw=-0.265
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.306 mean_mw=-0.270
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.299 mean_mw=-0.261
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.298 mean_mw=-0.261
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.312 mean_mw=-0.276
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.303 mean_mw=-0.267
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.010 bus_v=0.878 current_ma=-0.311 mean_mw=-0.273
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.307 mean_mw=-0.269
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.010 bus_v=0.878 current_ma=-0.309 mean_mw=-0.273
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.307 mean_mw=-0.271
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.304 mean_mw=-0.267
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.307 mean_mw=-0.272
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.305 mean_mw=-0.268
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.312 mean_mw=-0.275
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.304 mean_mw=-0.268
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.879 current_ma=-0.304 mean_mw=-0.265
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.301 mean_mw=-0.263
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.302 mean_mw=-0.265
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.300 mean_mw=-0.262
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.879 current_ma=-0.295 mean_mw=-0.260
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.010 bus_v=0.878 current_ma=-0.303 mean_mw=-0.266
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.311 mean_mw=-0.272
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.309 mean_mw=-0.272
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.010 bus_v=0.878 current_ma=-0.294 mean_mw=-0.258
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.308 mean_mw=-0.272
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.309 mean_mw=-0.269
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.010 bus_v=0.878 current_ma=-0.309 mean_mw=-0.273
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.294 mean_mw=-0.260
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.306 mean_mw=-0.273
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.303 mean_mw=-0.267
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.307 mean_mw=-0.271
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.308 mean_mw=-0.269
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.302 mean_mw=-0.263
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.305 mean_mw=-0.271
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.010 bus_v=0.879 current_ma=-0.292 mean_mw=-0.258
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.303 mean_mw=-0.265
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=0.000 bus_v=0.878 current_ma=-0.312 mean_mw=-0.275
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.293 mean_mw=-0.259
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.303 mean_mw=-0.264
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.308 mean_mw=-0.270
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.010 bus_v=0.878 current_ma=-0.302 mean_mw=-0.265
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.299 mean_mw=-0.263
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.879 current_ma=-0.304 mean_mw=-0.266
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.879 current_ma=-0.293 mean_mw=-0.257
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.302 mean_mw=-0.265
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.300 mean_mw=-0.262
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.289 mean_mw=-0.254
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.308 mean_mw=-0.272
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.010 bus_v=0.878 current_ma=-0.296 mean_mw=-0.262
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.879 current_ma=-0.299 mean_mw=-0.264
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.306 mean_mw=-0.268
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.879 current_ma=-0.299 mean_mw=-0.261
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.299 mean_mw=-0.261
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.879 current_ma=-0.304 mean_mw=-0.264
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=0.000 bus_v=0.879 current_ma=-0.303 mean_mw=-0.268
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.010 bus_v=0.878 current_ma=-0.303 mean_mw=-0.265
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.299 mean_mw=-0.262
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.301 mean_mw=-0.264
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.308 mean_mw=-0.270
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.879 current_ma=-0.310 mean_mw=-0.274
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.297 mean_mw=-0.261
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.304 mean_mw=-0.267
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.301 mean_mw=-0.264
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.308 mean_mw=-0.270
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.879 current_ma=-0.304 mean_mw=-0.266
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.010 bus_v=0.879 current_ma=-0.300 mean_mw=-0.264
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.310 mean_mw=-0.272
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.303 mean_mw=-0.266
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=0.000 bus_v=0.878 current_ma=-0.305 mean_mw=-0.268
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.879 current_ma=-0.292 mean_mw=-0.257
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.879 current_ma=-0.302 mean_mw=-0.263
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.879 current_ma=-0.302 mean_mw=-0.267
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.060 bus_v=0.879 current_ma=-0.303 mean_mw=-0.265
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.301 mean_mw=-0.265
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.302 mean_mw=-0.265
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.310 mean_mw=-0.272
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+����������������������������������������������������������������OG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.304 mean_mw=-0.265
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.305 mean_mw=-0.267
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.879 current_ma=-0.296 mean_mw=-0.262
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.306 mean_mw=-0.267
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.303 mean_mw=-0.266
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.306 mean_mw=-0.268
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.312 mean_mw=-0.274
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.306 mean_mw=-0.271
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.879 current_ma=-0.308 mean_mw=-0.269
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.040 bus_v=0.878 current_ma=-0.296 mean_mw=-0.259
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.302 mean_mw=-0.266
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+����������������������������������������������������������������cal n=989 shunt_mv=-0.030 bus_v=0.879 current_ma=-0.307 mean_mw=-0.270
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.879 current_ma=-0.302 mean_mw=-0.262
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.309 mean_mw=-0.271
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.314 mean_mw=-0.278
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.878 current_ma=-0.310 mean_mw=-0.273
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.050 bus_v=0.878 current_ma=-0.307 mean_mw=-0.267
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.020 bus_v=0.879 current_ma=-0.311 mean_mw=-0.274
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
+LOG cal n=989 shunt_mv=-0.030 bus_v=0.878 current_ma=-0.311 mean_mw=-0.276
+LOG monitor: negative power -- are the shunt's A0/A1 leads swapped?
