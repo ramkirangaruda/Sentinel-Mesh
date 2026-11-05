@@ -238,3 +238,21 @@ Cookie, FORGE echo, 300 s, 9 runs. Only A moved, by hand: close, 20 cm and 40 cm
 5. **Insider figures sag:** in section 9's echoing insider runs the bus fell about 0.05 V under load, so measured +73 and +69 mW would be roughly 6-10 mW higher at a fixed voltage (ESTIMATED from those runs, not a rerun). Keep the measured figures. The conclusions do not change.
 6. **New, usable result:** the real gateway got through 49 % of the time with A at 40 cm against 17-18 % nearer, while F still spent at 4.36/s. So an attacker further from the gateway still drains F but hurts the gateway less. n = 3 per spot, and A to F signal was not measured.
 7. **Caveats to carry:** spots were placed by hand and the close spot read -24 to -44 dBm. The 20 cm runs all came late, so time may confound them. "At fixed 4.85 V" is a derived comparison figure, not a measurement.
+
+## 12. Done for you in `paper.tex`, 2026-11-06 (Chaitanya's session)
+Sections 8-11 above are applied to `paper/ieee/paper.tex`, and `paper.pdf` is rebuilt (7 pages, no warnings, no overfull boxes). **Please read the
+new PDF; nothing is left for you to write unless you disagree with a choice below.**
+- **Abstract** rewritten: forger +14.7 ± 0.9 (repeated), insider +91.2; the gate stops attackers that neither echo nor fool the score; the forger's
+  echo under cookie is a +10 to +20 mW range; the echoing insider is not stopped (+69.0 vs +73.2); the budget caps charges, not drain.
+- **C3, the insider and the Conclusion** now say the echoing insider is not stopped and the budget's cut in drain depends on c_h overcharging (8.6, 9.2-9.3).
+- **Results:** Table IV states its firmware and that absolute values don't carry across sessions (8.7-8.9). The cookie table is rebuilt (control
+  is gate v2, fits the column; 8.2). There is a new cross-session echo table with the paired 1-2 Nov gate runs (8.5, 9.4, 10.2) and a new insider table
+  (9.1). Echo rate 4.6/s (8.3), recovery wording (8.4), the RSSI gateway result (11.6) and the insider supply sag, marked ESTIMATED (11.5).
+- **Setup:** DT830D called a hobby meter, plus the bus-voltage systematic (8.11) and a supply paragraph (11.4).
+- **Limitations** rewritten: echo power doesn't repeat, with section 11's wording (10.3, 11.3), placeholder budget both ways, no defence against
+  an echoing insider, Figure 1 wording (8.12), C2 ratio aligned (8.13), and firmware per table (8.9).
+- **Your c_h decision, taken as the default:** placeholders kept and the 30 mJ charge reported as ESTIMATED future work. Tell us if you'd rather rerun it.
+- **Citations (8.14):** `gillot1` (Cryptography 10(4) art. 55, doi 10.3390/cryptography10040055), `gillot2` (arXiv:2610.27766, QSIoT 2026) and
+  `leetls` (arXiv:2607.12504; authors Lin-Fa Lee, Yi-Yu Chang, Chia-Mu Yu, Kuo-Hui Yeh) are confirmed and now have full author names. **`karcz` could not
+  be found** on PLOS ONE or anywhere else we could search, so it and its sentence are removed. Add it back only with a DOI.
+- The header comment now names `paper.tex` as canonical (8.15). The `[TODO H]` meter line in `paper.md` is gone (8.11).

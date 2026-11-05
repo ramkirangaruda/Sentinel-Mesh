@@ -382,7 +382,7 @@ working range) and about 0.17 mA below 20 mA; we use max(0.2 mA, 0.6 %) as the r
 add one sample period (~1 ms) of timing to each marked interval. Two systematic terms are
 quoted separately because they have the same sign for every reading:
 - the INA219 reads 3.67 % above the DT830D, and we have not established which instrument is
-  right [TODO H: check two loads against a calibrated bench meter]; this affects absolute
+  right (the DT830D is a hobby meter; no calibrated meter check is planned); this affects absolute
   joules (C1) but cancels in energy ratios (C2);
 - the INA219 bus voltage reads 1.4 % (5 mA) to 3.1 % (232 mA) above the DT830D; the growing part
   is a real ~0.3 Ω drop in the jumper and breadboard between sensor and load. Bus voltage is
