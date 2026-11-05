@@ -40,7 +40,13 @@ def guess(text):
     return "UNKNOWN"
 
 def main():
-    ports = sys.argv[1:] or [p.device for p in sorted(list_ports.comports(), key=lambda p: int(re.sub(r"\D", "", p.device) or 0))]
+    # boot garbage bytes crash a cp1252 Windows console without this
+    sys.stdout.reconfigure(errors="replace")
+    # USB serial only (vid set): skips Bluetooth COM ports, which hang or waste 5 s each
+    usb = [p for p in list_ports.comports() if p.vid is not None]
+    ports = sys.argv[1:] or [p.device for p in sorted(usb, key=lambda p: int(re.sub(r"\D", "", p.device) or 0))]
+    if not ports:
+        print("no USB serial ports found: check the cables (charge-only cables give power but no data)")
     for p in ports:
         try:
             txt = read_boot(p)

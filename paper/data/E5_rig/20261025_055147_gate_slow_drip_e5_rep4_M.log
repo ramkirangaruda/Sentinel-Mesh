@@ -1,0 +1,558 @@
+[    0.76s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.818 mean_mw=616.206
+[    0.76s] NRG {"ts":19399051,"power_mw":616.2,"volts":5.060,"amps":0.1211,"battery_pct":100.0}
+[    1.58s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.700 mean_mw=615.594
+[    1.78s] NRG {"ts":19400051,"power_mw":615.6,"volts":5.056,"amps":0.1209,"battery_pct":100.0}
+[    2.40s] monitor,op_6498,129000,95.762,149.90
+[    2.60s] LOG cal n=989 shunt_mv=12.140 bus_v=5.047 current_ma=129.252 mean_mw=651.492
+[    2.60s] NRG {"ts":19401051,"power_mw":651.5,"volts":5.056,"amps":0.1222,"battery_pct":100.0}
+[    3.63s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.860 mean_mw=616.364
+[    3.63s] NRG {"ts":19402051,"power_mw":616.4,"volts":5.056,"amps":0.1219,"battery_pct":100.0}
+[    4.66s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.759 mean_mw=615.828
+[    4.66s] NRG {"ts":19403051,"power_mw":615.8,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[    5.68s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.741 mean_mw=615.741
+[    5.68s] NRG {"ts":19404051,"power_mw":615.7,"volts":5.060,"amps":0.1230,"battery_pct":100.0}
+[    6.70s] LOG cal n=989 shunt_mv=12.250 bus_v=5.058 current_ma=121.932 mean_mw=616.727
+[    6.70s] NRG {"ts":19405051,"power_mw":616.7,"volts":5.060,"amps":0.1225,"battery_pct":100.0}
+[    7.73s] LOG cal n=989 shunt_mv=12.260 bus_v=5.058 current_ma=121.765 mean_mw=615.935
+[    7.73s] NRG {"ts":19406051,"power_mw":615.9,"volts":5.060,"amps":0.1226,"battery_pct":100.0}
+[    8.76s] LOG cal n=989 shunt_mv=12.380 bus_v=5.058 current_ma=121.797 mean_mw=616.094
+[    8.76s] NRG {"ts":19407051,"power_mw":616.1,"volts":5.056,"amps":0.1217,"battery_pct":100.0}
+[    9.58s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.917 mean_mw=616.655
+[    9.58s] NRG {"ts":19408051,"power_mw":616.7,"volts":5.056,"amps":0.1215,"battery_pct":100.0}
+[   10.61s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.774 mean_mw=615.992
+[   10.61s] NRG {"ts":19409051,"power_mw":616.0,"volts":5.060,"amps":0.1217,"battery_pct":100.0}
+[   11.64s] LOG cal n=989 shunt_mv=12.090 bus_v=5.058 current_ma=121.840 mean_mw=616.296
+[   11.64s] NRG {"ts":19410051,"power_mw":616.3,"volts":5.060,"amps":0.1214,"battery_pct":100.0}
+[   12.66s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.832 mean_mw=616.110
+[   12.66s] NRG {"ts":19411051,"power_mw":616.1,"volts":5.056,"amps":0.1211,"battery_pct":100.0}
+[   13.68s] LOG cal n=989 shunt_mv=12.080 bus_v=5.058 current_ma=121.756 mean_mw=615.827
+[   13.68s] NRG {"ts":19412051,"power_mw":615.8,"volts":5.056,"amps":0.1208,"battery_pct":100.0}
+[   14.71s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.759 mean_mw=615.847
+[   14.71s] NRG {"ts":19413051,"power_mw":615.8,"volts":5.060,"amps":0.1222,"battery_pct":100.0}
+[   15.73s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.887 mean_mw=616.481
+[   15.73s] NRG {"ts":19414051,"power_mw":616.5,"volts":5.056,"amps":0.1221,"battery_pct":100.0}
+[   16.75s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.784 mean_mw=615.938
+[   16.75s] NRG {"ts":19415051,"power_mw":615.9,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[   17.57s] LOG cal n=989 shunt_mv=12.260 bus_v=5.058 current_ma=121.778 mean_mw=615.915
+[   17.78s] NRG {"ts":19416051,"power_mw":615.9,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[   18.60s] LOG cal n=989 shunt_mv=12.260 bus_v=5.058 current_ma=121.865 mean_mw=616.422
+[   18.60s] NRG {"ts":19417051,"power_mw":616.4,"volts":5.056,"amps":0.1227,"battery_pct":100.0}
+[   19.62s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.759 mean_mw=615.849
+[   19.62s] NRG {"ts":19418051,"power_mw":615.8,"volts":5.056,"amps":0.1215,"battery_pct":100.0}
+[   20.65s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.753 mean_mw=615.863
+[   20.65s] NRG {"ts":19419051,"power_mw":615.9,"volts":5.060,"amps":0.1215,"battery_pct":100.0}
+[   21.67s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.811 mean_mw=616.131
+[   21.67s] NRG {"ts":19420051,"power_mw":616.1,"volts":5.060,"amps":0.1213,"battery_pct":100.0}
+[   22.69s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.761 mean_mw=615.926
+[   22.69s] NRG {"ts":19421051,"power_mw":615.9,"volts":5.060,"amps":0.1216,"battery_pct":100.0}
+[   23.72s] LOG cal n=989 shunt_mv=12.080 bus_v=5.058 current_ma=121.773 mean_mw=615.965
+[   23.72s] NRG {"ts":19422051,"power_mw":616.0,"volts":5.060,"amps":0.1214,"battery_pct":100.0}
+[   24.75s] LOG cal n=989 shunt_mv=12.100 bus_v=5.058 current_ma=121.829 mean_mw=616.218
+[   24.75s] NRG {"ts":19423051,"power_mw":616.2,"volts":5.056,"amps":0.1205,"battery_pct":100.0}
+[   25.77s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.776 mean_mw=615.964
+[   25.77s] NRG {"ts":19424051,"power_mw":616.0,"volts":5.060,"amps":0.1212,"battery_pct":100.0}
+[   26.59s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.716 mean_mw=615.674
+[   26.59s] NRG {"ts":19425051,"power_mw":615.7,"volts":5.056,"amps":0.1219,"battery_pct":100.0}
+[   27.62s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.862 mean_mw=616.375
+[   27.62s] NRG {"ts":19426051,"power_mw":616.4,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[   28.64s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.777 mean_mw=615.971
+[   28.64s] NRG {"ts":19427051,"power_mw":616.0,"volts":5.056,"amps":0.1218,"battery_pct":100.0}
+[   29.67s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.789 mean_mw=615.990
+[   29.67s] NRG {"ts":19428051,"power_mw":616.0,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[   30.69s] LOG cal n=989 shunt_mv=12.250 bus_v=5.058 current_ma=122.010 mean_mw=617.105
+[   30.69s] NRG {"ts":19429051,"power_mw":617.1,"volts":5.060,"amps":0.1224,"battery_pct":100.0}
+[   31.72s] LOG cal n=989 shunt_mv=12.230 bus_v=5.058 current_ma=121.773 mean_mw=615.968
+[   31.72s] NRG {"ts":19430051,"power_mw":616.0,"volts":5.056,"amps":0.1226,"battery_pct":100.0}
+[   32.75s] LOG cal n=989 shunt_mv=16.790 bus_v=5.058 current_ma=121.812 mean_mw=616.139
+[   32.75s] NRG {"ts":19431051,"power_mw":616.1,"volts":5.068,"amps":0.1172,"battery_pct":100.0}
+[   32.95s] monitor,op_6499,127000,94.451,150.20
+[   33.77s] LOG cal n=989 shunt_mv=12.200 bus_v=5.048 current_ma=129.602 mean_mw=653.000
+[   33.77s] NRG {"ts":19432051,"power_mw":653.0,"volts":5.060,"amps":0.1218,"battery_pct":100.0}
+[   34.59s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.836 mean_mw=616.301
+[   34.59s] NRG {"ts":19433051,"power_mw":616.3,"volts":5.060,"amps":0.1215,"battery_pct":100.0}
+[   35.62s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.768 mean_mw=615.956
+[   35.62s] NRG {"ts":19434051,"power_mw":616.0,"volts":5.060,"amps":0.1214,"battery_pct":100.0}
+[   36.64s] LOG cal n=989 shunt_mv=12.100 bus_v=5.058 current_ma=121.873 mean_mw=616.440
+[   36.64s] NRG {"ts":19435051,"power_mw":616.4,"volts":5.056,"amps":0.1210,"battery_pct":100.0}
+[   37.67s] LOG cal n=989 shunt_mv=12.100 bus_v=5.058 current_ma=121.758 mean_mw=615.851
+[   37.67s] NRG {"ts":19436051,"power_mw":615.9,"volts":5.056,"amps":0.1210,"battery_pct":100.0}
+[   38.69s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.709 mean_mw=615.625
+[   38.69s] NRG {"ts":19437051,"power_mw":615.6,"volts":5.060,"amps":0.1209,"battery_pct":100.0}
+[   39.71s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.799 mean_mw=616.059
+[   39.71s] NRG {"ts":19438051,"power_mw":616.1,"volts":5.056,"amps":0.1219,"battery_pct":100.0}
+[   40.74s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.740 mean_mw=615.737
+[   40.74s] NRG {"ts":19439051,"power_mw":615.7,"volts":5.056,"amps":0.1218,"battery_pct":100.0}
+[   41.77s] LOG cal n=989 shunt_mv=12.230 bus_v=5.058 current_ma=121.724 mean_mw=615.697
+[   41.77s] NRG {"ts":19440051,"power_mw":615.7,"volts":5.060,"amps":0.1217,"battery_pct":100.0}
+[   42.58s] LOG cal n=989 shunt_mv=12.230 bus_v=5.058 current_ma=121.853 mean_mw=616.302
+[   42.58s] NRG {"ts":19441051,"power_mw":616.3,"volts":5.060,"amps":0.1226,"battery_pct":100.0}
+[   43.61s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.740 mean_mw=615.777
+[   43.61s] NRG {"ts":19442051,"power_mw":615.8,"volts":5.060,"amps":0.1222,"battery_pct":100.0}
+[   44.63s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.746 mean_mw=615.826
+[   44.63s] NRG {"ts":19443051,"power_mw":615.8,"volts":5.060,"amps":0.1215,"battery_pct":100.0}
+[   45.66s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.861 mean_mw=616.424
+[   45.66s] NRG {"ts":19444051,"power_mw":616.4,"volts":5.056,"amps":0.1214,"battery_pct":100.0}
+[   46.68s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.788 mean_mw=616.074
+[   46.68s] NRG {"ts":19445051,"power_mw":616.1,"volts":5.056,"amps":0.1217,"battery_pct":100.0}
+[   47.70s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.807 mean_mw=616.186
+[   47.70s] NRG {"ts":19446051,"power_mw":616.2,"volts":5.056,"amps":0.1213,"battery_pct":100.0}
+[   48.72s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.946 mean_mw=616.845
+[   48.72s] NRG {"ts":19447051,"power_mw":616.8,"volts":5.056,"amps":0.1213,"battery_pct":100.0}
+[   49.75s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.787 mean_mw=616.025
+[   49.75s] NRG {"ts":19448051,"power_mw":616.0,"volts":5.060,"amps":0.1211,"battery_pct":100.0}
+[   50.77s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.765 mean_mw=615.898
+[   50.77s] NRG {"ts":19449051,"power_mw":615.9,"volts":5.060,"amps":0.1213,"battery_pct":100.0}
+[   51.59s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.824 mean_mw=616.179
+[   51.59s] NRG {"ts":19450051,"power_mw":616.2,"volts":5.060,"amps":0.1218,"battery_pct":100.0}
+[   52.62s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.764 mean_mw=615.898
+[   52.62s] NRG {"ts":19451051,"power_mw":615.9,"volts":5.060,"amps":0.1218,"battery_pct":100.0}
+[   53.64s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.752 mean_mw=615.799
+[   53.64s] NRG {"ts":19452051,"power_mw":615.8,"volts":5.052,"amps":0.1214,"battery_pct":100.0}
+[   54.66s] LOG cal n=989 shunt_mv=12.240 bus_v=5.058 current_ma=121.840 mean_mw=616.229
+[   54.66s] NRG {"ts":19453051,"power_mw":616.2,"volts":5.056,"amps":0.1222,"battery_pct":100.0}
+[   55.69s] LOG cal n=989 shunt_mv=12.240 bus_v=5.058 current_ma=121.759 mean_mw=615.915
+[   55.69s] NRG {"ts":19454051,"power_mw":615.9,"volts":5.060,"amps":0.1222,"battery_pct":100.0}
+[   56.71s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.753 mean_mw=615.832
+[   56.71s] NRG {"ts":19455051,"power_mw":615.8,"volts":5.060,"amps":0.1226,"battery_pct":100.0}
+[   57.73s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.875 mean_mw=616.448
+[   57.73s] NRG {"ts":19456051,"power_mw":616.4,"volts":5.060,"amps":0.1213,"battery_pct":100.0}
+[   58.76s] LOG cal n=989 shunt_mv=12.100 bus_v=5.058 current_ma=121.718 mean_mw=615.724
+[   58.76s] NRG {"ts":19457051,"power_mw":615.7,"volts":5.060,"amps":0.1210,"battery_pct":100.0}
+[   59.57s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.726 mean_mw=615.785
+[   59.78s] NRG {"ts":19458051,"power_mw":615.8,"volts":5.056,"amps":0.1218,"battery_pct":100.0}
+[   60.60s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.831 mean_mw=616.260
+[   60.60s] NRG {"ts":19459051,"power_mw":616.3,"volts":5.056,"amps":0.1218,"battery_pct":100.0}
+[   61.63s] LOG cal n=989 shunt_mv=12.120 bus_v=5.058 current_ma=121.799 mean_mw=616.057
+[   61.63s] NRG {"ts":19460051,"power_mw":616.1,"volts":5.060,"amps":0.1213,"battery_pct":100.0}
+[   62.65s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.749 mean_mw=615.855
+[   62.65s] NRG {"ts":19461051,"power_mw":615.9,"volts":5.056,"amps":0.1209,"battery_pct":100.0}
+[   63.47s] monitor,op_6500,214000,159.499,193.90
+[   63.67s] LOG cal n=989 shunt_mv=12.100 bus_v=5.044 current_ma=131.768 mean_mw=663.606
+[   63.67s] NRG {"ts":19462051,"power_mw":663.6,"volts":5.056,"amps":0.1217,"battery_pct":100.0}
+[   64.70s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.840 mean_mw=616.196
+[   64.70s] NRG {"ts":19463051,"power_mw":616.2,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[   65.72s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.803 mean_mw=616.071
+[   65.72s] NRG {"ts":19464051,"power_mw":616.1,"volts":5.056,"amps":0.1221,"battery_pct":100.0}
+[   66.75s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.929 mean_mw=616.674
+[   66.75s] NRG {"ts":19465051,"power_mw":616.7,"volts":5.060,"amps":0.1222,"battery_pct":100.0}
+[   67.77s] LOG cal n=989 shunt_mv=12.250 bus_v=5.058 current_ma=121.775 mean_mw=615.942
+[   67.77s] NRG {"ts":19466051,"power_mw":615.9,"volts":5.056,"amps":0.1225,"battery_pct":100.0}
+[   68.59s] LOG cal n=989 shunt_mv=12.230 bus_v=5.058 current_ma=121.824 mean_mw=616.236
+[   68.59s] NRG {"ts":19467051,"power_mw":616.2,"volts":5.060,"amps":0.1223,"battery_pct":100.0}
+[   69.62s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.884 mean_mw=616.525
+[   69.62s] NRG {"ts":19468051,"power_mw":616.5,"volts":5.056,"amps":0.1218,"battery_pct":100.0}
+[   70.65s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.842 mean_mw=616.274
+[   70.65s] NRG {"ts":19469051,"power_mw":616.3,"volts":5.056,"amps":0.1211,"battery_pct":100.0}
+[   71.67s] LOG cal n=989 shunt_mv=12.050 bus_v=5.058 current_ma=121.767 mean_mw=615.946
+[   71.67s] NRG {"ts":19470051,"power_mw":615.9,"volts":5.060,"amps":0.1216,"battery_pct":100.0}
+[   72.70s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.821 mean_mw=616.214
+[   72.70s] NRG {"ts":19471051,"power_mw":616.2,"volts":5.056,"amps":0.1216,"battery_pct":100.0}
+[   73.73s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.783 mean_mw=615.999
+[   73.73s] NRG {"ts":19472051,"power_mw":616.0,"volts":5.056,"amps":0.1213,"battery_pct":100.0}
+[   74.75s] LOG cal n=989 shunt_mv=12.120 bus_v=5.058 current_ma=121.768 mean_mw=615.923
+[   74.75s] NRG {"ts":19473051,"power_mw":615.9,"volts":5.056,"amps":0.1212,"battery_pct":100.0}
+[   75.77s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.844 mean_mw=616.271
+[   75.77s] NRG {"ts":19474051,"power_mw":616.3,"volts":5.056,"amps":0.1211,"battery_pct":100.0}
+[   76.59s] LOG cal n=989 shunt_mv=12.030 bus_v=5.058 current_ma=121.671 mean_mw=615.330
+[   76.59s] NRG {"ts":19475051,"power_mw":615.3,"volts":5.060,"amps":0.1209,"battery_pct":100.0}
+[   77.62s] LOG cal n=989 shunt_mv=12.040 bus_v=5.058 current_ma=121.686 mean_mw=615.479
+[   77.62s] NRG {"ts":19476051,"power_mw":615.5,"volts":5.056,"amps":0.1220,"battery_pct":100.0}
+[   78.64s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.764 mean_mw=615.852
+[   78.64s] NRG {"ts":19477051,"power_mw":615.9,"volts":5.056,"amps":0.1217,"battery_pct":100.0}
+[   79.66s] LOG cal n=989 shunt_mv=12.520 bus_v=5.058 current_ma=121.848 mean_mw=616.289
+[   79.66s] NRG {"ts":19478051,"power_mw":616.3,"volts":5.060,"amps":0.1259,"battery_pct":100.0}
+[   80.69s] LOG cal n=989 shunt_mv=12.240 bus_v=5.058 current_ma=121.811 mean_mw=616.331
+[   80.69s] NRG {"ts":19479051,"power_mw":616.3,"volts":5.060,"amps":0.1224,"battery_pct":100.0}
+[   81.71s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.823 mean_mw=616.189
+[   81.71s] NRG {"ts":19480051,"power_mw":616.2,"volts":5.060,"amps":0.1222,"battery_pct":100.0}
+[   82.74s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.707 mean_mw=615.640
+[   82.74s] NRG {"ts":19481051,"power_mw":615.6,"volts":5.060,"amps":0.1214,"battery_pct":100.0}
+[   83.76s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.773 mean_mw=615.966
+[   83.76s] NRG {"ts":19482051,"power_mw":616.0,"volts":5.052,"amps":0.1216,"battery_pct":100.0}
+[   84.58s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.882 mean_mw=616.495
+[   84.58s] NRG {"ts":19483051,"power_mw":616.5,"volts":5.052,"amps":0.1208,"battery_pct":100.0}
+[   85.61s] LOG cal n=989 shunt_mv=12.080 bus_v=5.058 current_ma=121.806 mean_mw=616.152
+[   85.61s] NRG {"ts":19484051,"power_mw":616.2,"volts":5.056,"amps":0.1216,"battery_pct":100.0}
+[   86.63s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.778 mean_mw=615.878
+[   86.63s] NRG {"ts":19485051,"power_mw":615.9,"volts":5.056,"amps":0.1211,"battery_pct":100.0}
+[   87.66s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.907 mean_mw=616.770
+[   87.66s] NRG {"ts":19486051,"power_mw":616.8,"volts":5.056,"amps":0.1213,"battery_pct":100.0}
+[   88.68s] LOG cal n=989 shunt_mv=12.060 bus_v=5.058 current_ma=121.786 mean_mw=616.006
+[   88.68s] NRG {"ts":19487051,"power_mw":616.0,"volts":5.060,"amps":0.1206,"battery_pct":100.0}
+[   89.71s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.779 mean_mw=615.978
+[   89.71s] NRG {"ts":19488051,"power_mw":616.0,"volts":5.056,"amps":0.1218,"battery_pct":100.0}
+[   90.52s] monitor,op_6501,164000,121.933,150.40
+[   90.73s] LOG cal n=989 shunt_mv=12.190 bus_v=5.046 current_ma=130.595 mean_mw=657.962
+[   90.73s] NRG {"ts":19489051,"power_mw":658.0,"volts":5.064,"amps":0.1219,"battery_pct":100.0}
+[   91.75s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.815 mean_mw=616.116
+[   91.75s] NRG {"ts":19490051,"power_mw":616.1,"volts":5.056,"amps":0.1221,"battery_pct":100.0}
+[   92.78s] LOG cal n=989 shunt_mv=12.240 bus_v=5.058 current_ma=121.787 mean_mw=615.952
+[   92.78s] NRG {"ts":19491051,"power_mw":616.0,"volts":5.060,"amps":0.1225,"battery_pct":100.0}
+[   93.60s] LOG cal n=989 shunt_mv=12.750 bus_v=5.058 current_ma=121.720 mean_mw=615.702
+[   93.60s] NRG {"ts":19492051,"power_mw":615.7,"volts":5.056,"amps":0.1192,"battery_pct":100.0}
+[   93.80s] monitor,op_6502,131000,97.431,149.90
+[   94.62s] LOG cal n=989 shunt_mv=12.130 bus_v=5.047 current_ma=129.460 mean_mw=653.998
+[   94.62s] NRG {"ts":19493051,"power_mw":654.0,"volts":5.052,"amps":0.1206,"battery_pct":100.0}
+[   95.65s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.713 mean_mw=615.658
+[   95.65s] NRG {"ts":19494051,"power_mw":615.7,"volts":5.060,"amps":0.1217,"battery_pct":100.0}
+[   96.67s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.796 mean_mw=616.053
+[   96.67s] NRG {"ts":19495051,"power_mw":616.1,"volts":5.056,"amps":0.1215,"battery_pct":100.0}
+[   97.70s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.686 mean_mw=615.556
+[   97.70s] NRG {"ts":19496051,"power_mw":615.6,"volts":5.056,"amps":0.1215,"battery_pct":100.0}
+[   98.72s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.761 mean_mw=615.842
+[   98.72s] NRG {"ts":19497051,"power_mw":615.8,"volts":5.056,"amps":0.1216,"battery_pct":100.0}
+[   99.75s] LOG cal n=989 shunt_mv=12.060 bus_v=5.058 current_ma=121.867 mean_mw=616.447
+[   99.75s] NRG {"ts":19498051,"power_mw":616.4,"volts":5.056,"amps":0.1207,"battery_pct":100.0}
+[  100.77s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.703 mean_mw=615.594
+[  100.77s] NRG {"ts":19499051,"power_mw":615.6,"volts":5.056,"amps":0.1209,"battery_pct":100.0}
+[  101.60s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.731 mean_mw=615.734
+[  101.60s] NRG {"ts":19500051,"power_mw":615.7,"volts":5.060,"amps":0.1221,"battery_pct":100.0}
+[  102.61s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.859 mean_mw=616.335
+[  102.61s] NRG {"ts":19501051,"power_mw":616.3,"volts":5.060,"amps":0.1221,"battery_pct":100.0}
+[  103.64s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.754 mean_mw=615.758
+[  103.64s] NRG {"ts":19502051,"power_mw":615.8,"volts":5.060,"amps":0.1221,"battery_pct":100.0}
+[  104.66s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.769 mean_mw=616.084
+[  104.66s] NRG {"ts":19503051,"power_mw":616.1,"volts":5.056,"amps":0.1219,"battery_pct":100.0}
+[  105.69s] LOG cal n=989 shunt_mv=12.620 bus_v=5.058 current_ma=121.878 mean_mw=616.410
+[  105.69s] NRG {"ts":19504051,"power_mw":616.4,"volts":5.064,"amps":0.1262,"battery_pct":100.0}
+[  106.71s] LOG cal n=989 shunt_mv=12.250 bus_v=5.058 current_ma=121.826 mean_mw=616.226
+[  106.71s] NRG {"ts":19505051,"power_mw":616.2,"volts":5.060,"amps":0.1224,"battery_pct":100.0}
+[  107.74s] LOG cal n=989 shunt_mv=12.000 bus_v=5.058 current_ma=121.792 mean_mw=616.058
+[  107.74s] NRG {"ts":19506051,"power_mw":616.1,"volts":5.064,"amps":0.1221,"battery_pct":100.0}
+[  108.76s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.863 mean_mw=616.394
+[  108.76s] NRG {"ts":19507051,"power_mw":616.4,"volts":5.060,"amps":0.1212,"battery_pct":100.0}
+[  109.58s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.785 mean_mw=616.056
+[  109.58s] NRG {"ts":19508051,"power_mw":616.1,"volts":5.060,"amps":0.1218,"battery_pct":100.0}
+[  110.61s] LOG cal n=989 shunt_mv=11.990 bus_v=5.058 current_ma=121.776 mean_mw=616.019
+[  110.61s] NRG {"ts":19509051,"power_mw":616.0,"volts":5.056,"amps":0.1218,"battery_pct":100.0}
+[  111.64s] LOG cal n=989 shunt_mv=12.080 bus_v=5.058 current_ma=121.866 mean_mw=616.451
+[  111.64s] NRG {"ts":19510051,"power_mw":616.5,"volts":5.060,"amps":0.1208,"battery_pct":100.0}
+[  112.66s] LOG cal n=989 shunt_mv=12.090 bus_v=5.058 current_ma=121.755 mean_mw=615.876
+[  112.66s] NRG {"ts":19511051,"power_mw":615.9,"volts":5.056,"amps":0.1209,"battery_pct":100.0}
+[  113.68s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.762 mean_mw=615.887
+[  113.68s] NRG {"ts":19512051,"power_mw":615.9,"volts":5.060,"amps":0.1217,"battery_pct":100.0}
+[  114.71s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.803 mean_mw=616.079
+[  114.71s] NRG {"ts":19513051,"power_mw":616.1,"volts":5.060,"amps":0.1218,"battery_pct":100.0}
+[  115.73s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.712 mean_mw=615.652
+[  115.73s] NRG {"ts":19514051,"power_mw":615.7,"volts":5.060,"amps":0.1218,"battery_pct":100.0}
+[  116.76s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.745 mean_mw=615.781
+[  116.76s] NRG {"ts":19515051,"power_mw":615.8,"volts":5.056,"amps":0.1220,"battery_pct":100.0}
+[  117.58s] LOG cal n=989 shunt_mv=12.230 bus_v=5.058 current_ma=121.824 mean_mw=616.146
+[  117.58s] NRG {"ts":19516051,"power_mw":616.1,"volts":5.064,"amps":0.1220,"battery_pct":100.0}
+[  118.61s] LOG cal n=989 shunt_mv=12.260 bus_v=5.058 current_ma=121.746 mean_mw=615.814
+[  118.61s] NRG {"ts":19517051,"power_mw":615.8,"volts":5.056,"amps":0.1224,"battery_pct":100.0}
+[  119.63s] LOG cal n=989 shunt_mv=12.260 bus_v=5.058 current_ma=121.740 mean_mw=615.811
+[  119.63s] NRG {"ts":19518051,"power_mw":615.8,"volts":5.060,"amps":0.1226,"battery_pct":100.0}
+[  120.65s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.817 mean_mw=616.203
+[  120.65s] NRG {"ts":19519051,"power_mw":616.2,"volts":5.060,"amps":0.1216,"battery_pct":100.0}
+[  121.68s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.753 mean_mw=615.873
+[  121.68s] NRG {"ts":19520051,"power_mw":615.9,"volts":5.060,"amps":0.1213,"battery_pct":100.0}
+[  122.71s] LOG cal n=989 shunt_mv=12.240 bus_v=5.058 current_ma=121.731 mean_mw=615.772
+[  122.71s] NRG {"ts":19521051,"power_mw":615.8,"volts":5.056,"amps":0.1214,"battery_pct":100.0}
+[  123.73s] LOG cal n=989 shunt_mv=12.090 bus_v=5.058 current_ma=121.900 mean_mw=616.617
+[  123.73s] NRG {"ts":19522051,"power_mw":616.6,"volts":5.056,"amps":0.1214,"battery_pct":100.0}
+[  124.14s] monitor,op_6503,90000,66.812,150.30
+[  124.75s] LOG cal n=989 shunt_mv=12.100 bus_v=5.049 current_ma=128.381 mean_mw=647.423
+[  124.75s] NRG {"ts":19523051,"power_mw":647.4,"volts":5.056,"amps":0.1213,"battery_pct":100.0}
+[  125.77s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.840 mean_mw=616.276
+[  125.77s] NRG {"ts":19524051,"power_mw":616.3,"volts":5.056,"amps":0.1213,"battery_pct":100.0}
+[  126.59s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.924 mean_mw=616.675
+[  126.59s] NRG {"ts":19525051,"power_mw":616.7,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[  127.62s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.808 mean_mw=616.103
+[  127.62s] NRG {"ts":19526051,"power_mw":616.1,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[  128.64s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.777 mean_mw=615.920
+[  128.64s] NRG {"ts":19527051,"power_mw":615.9,"volts":5.060,"amps":0.1218,"battery_pct":100.0}
+[  129.66s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.874 mean_mw=616.384
+[  129.66s] NRG {"ts":19528051,"power_mw":616.4,"volts":5.060,"amps":0.1218,"battery_pct":100.0}
+[  130.69s] LOG cal n=989 shunt_mv=12.090 bus_v=5.058 current_ma=121.823 mean_mw=616.105
+[  130.69s] NRG {"ts":19529051,"power_mw":616.1,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[  131.72s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.787 mean_mw=616.016
+[  131.72s] NRG {"ts":19530051,"power_mw":616.0,"volts":5.060,"amps":0.1227,"battery_pct":100.0}
+[  132.74s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.832 mean_mw=616.234
+[  132.74s] NRG {"ts":19531051,"power_mw":616.2,"volts":5.060,"amps":0.1213,"battery_pct":100.0}
+[  133.76s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.731 mean_mw=615.723
+[  133.76s] NRG {"ts":19532051,"power_mw":615.7,"volts":5.060,"amps":0.1216,"battery_pct":100.0}
+[  134.58s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.720 mean_mw=615.715
+[  134.58s] NRG {"ts":19533051,"power_mw":615.7,"volts":5.060,"amps":0.1216,"battery_pct":100.0}
+[  135.61s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.812 mean_mw=616.180
+[  135.61s] NRG {"ts":19534051,"power_mw":616.2,"volts":5.056,"amps":0.1214,"battery_pct":100.0}
+[  136.63s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.732 mean_mw=615.785
+[  136.63s] NRG {"ts":19535051,"power_mw":615.8,"volts":5.060,"amps":0.1211,"battery_pct":100.0}
+[  137.66s] LOG cal n=989 shunt_mv=12.100 bus_v=5.058 current_ma=121.751 mean_mw=615.807
+[  137.66s] NRG {"ts":19536051,"power_mw":615.8,"volts":5.056,"amps":0.1209,"battery_pct":100.0}
+[  138.68s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.981 mean_mw=616.977
+[  138.68s] NRG {"ts":19537051,"power_mw":617.0,"volts":5.056,"amps":0.1217,"battery_pct":100.0}
+[  139.71s] LOG cal n=989 shunt_mv=12.030 bus_v=5.058 current_ma=121.755 mean_mw=615.846
+[  139.71s] NRG {"ts":19538051,"power_mw":615.8,"volts":5.052,"amps":0.1206,"battery_pct":100.0}
+[  140.73s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.763 mean_mw=615.820
+[  140.73s] NRG {"ts":19539051,"power_mw":615.8,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[  141.76s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.849 mean_mw=616.280
+[  141.76s] NRG {"ts":19540051,"power_mw":616.3,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[  142.57s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.757 mean_mw=615.846
+[  142.78s] NRG {"ts":19541051,"power_mw":615.8,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[  143.60s] LOG cal n=989 shunt_mv=12.270 bus_v=5.058 current_ma=121.801 mean_mw=616.098
+[  143.60s] NRG {"ts":19542051,"power_mw":616.1,"volts":5.056,"amps":0.1227,"battery_pct":100.0}
+[  144.63s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.836 mean_mw=616.292
+[  144.63s] NRG {"ts":19543051,"power_mw":616.3,"volts":5.060,"amps":0.1221,"battery_pct":100.0}
+[  145.65s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.792 mean_mw=616.032
+[  145.65s] NRG {"ts":19544051,"power_mw":616.0,"volts":5.056,"amps":0.1215,"battery_pct":100.0}
+[  146.68s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.812 mean_mw=616.191
+[  146.68s] NRG {"ts":19545051,"power_mw":616.2,"volts":5.060,"amps":0.1214,"battery_pct":100.0}
+[  147.70s] LOG cal n=989 shunt_mv=12.060 bus_v=5.058 current_ma=121.871 mean_mw=616.445
+[  147.70s] NRG {"ts":19546051,"power_mw":616.4,"volts":5.052,"amps":0.1216,"battery_pct":100.0}
+[  148.72s] LOG cal n=989 shunt_mv=12.090 bus_v=5.058 current_ma=121.748 mean_mw=615.865
+[  148.72s] NRG {"ts":19547051,"power_mw":615.9,"volts":5.060,"amps":0.1209,"battery_pct":100.0}
+[  149.75s] LOG cal n=989 shunt_mv=12.080 bus_v=5.058 current_ma=121.732 mean_mw=615.698
+[  149.75s] NRG {"ts":19548051,"power_mw":615.7,"volts":5.056,"amps":0.1208,"battery_pct":100.0}
+[  150.57s] monitor,op_6504,166000,123.444,149.90
+[  150.57s] LOG cal n=989 shunt_mv=12.200 bus_v=5.045 current_ma=130.377 mean_mw=656.872
+[  150.78s] NRG {"ts":19549051,"power_mw":656.9,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[  151.60s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.771 mean_mw=615.938
+[  151.60s] NRG {"ts":19550051,"power_mw":615.9,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[  152.63s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.725 mean_mw=615.693
+[  152.63s] NRG {"ts":19551051,"power_mw":615.7,"volts":5.060,"amps":0.1215,"battery_pct":100.0}
+[  153.66s] LOG cal n=989 shunt_mv=12.250 bus_v=5.058 current_ma=121.868 mean_mw=616.358
+[  153.66s] NRG {"ts":19552051,"power_mw":616.4,"volts":5.056,"amps":0.1220,"battery_pct":100.0}
+[  154.69s] monitor,op_6505,92000,68.395,150.10
+[  154.69s] LOG cal n=989 shunt_mv=20.510 bus_v=5.054 current_ma=124.683 mean_mw=629.793
+[  154.69s] NRG {"ts":19553051,"power_mw":629.8,"volts":5.032,"amps":0.1677,"battery_pct":100.0}
+[  155.71s] LOG cal n=989 shunt_mv=12.250 bus_v=5.055 current_ma=124.765 mean_mw=634.537
+[  155.71s] NRG {"ts":19554051,"power_mw":634.5,"volts":5.060,"amps":0.1225,"battery_pct":100.0}
+[  156.73s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.864 mean_mw=616.411
+[  156.73s] NRG {"ts":19555051,"power_mw":616.4,"volts":5.056,"amps":0.1216,"battery_pct":100.0}
+[  157.76s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.731 mean_mw=615.757
+[  157.76s] NRG {"ts":19556051,"power_mw":615.8,"volts":5.060,"amps":0.1217,"battery_pct":100.0}
+[  158.58s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.765 mean_mw=615.970
+[  158.58s] NRG {"ts":19557051,"power_mw":616.0,"volts":5.060,"amps":0.1216,"battery_pct":100.0}
+[  159.60s] LOG cal n=989 shunt_mv=12.100 bus_v=5.058 current_ma=121.855 mean_mw=616.369
+[  159.60s] NRG {"ts":19558051,"power_mw":616.4,"volts":5.056,"amps":0.1215,"battery_pct":100.0}
+[  160.63s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.771 mean_mw=615.961
+[  160.63s] NRG {"ts":19559051,"power_mw":616.0,"volts":5.056,"amps":0.1209,"battery_pct":100.0}
+[  161.65s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.776 mean_mw=615.926
+[  161.65s] NRG {"ts":19560051,"power_mw":615.9,"volts":5.056,"amps":0.1208,"battery_pct":100.0}
+[  162.68s] LOG cal n=989 shunt_mv=12.030 bus_v=5.058 current_ma=121.914 mean_mw=616.646
+[  162.68s] NRG {"ts":19561051,"power_mw":616.6,"volts":5.060,"amps":0.1217,"battery_pct":100.0}
+[  163.70s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.812 mean_mw=616.039
+[  163.70s] NRG {"ts":19562051,"power_mw":616.0,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[  164.72s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.762 mean_mw=615.890
+[  164.72s] NRG {"ts":19563051,"power_mw":615.9,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[  165.75s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.834 mean_mw=616.172
+[  165.75s] NRG {"ts":19564051,"power_mw":616.2,"volts":5.060,"amps":0.1216,"battery_pct":100.0}
+[  166.77s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.722 mean_mw=615.631
+[  166.77s] NRG {"ts":19565051,"power_mw":615.6,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[  167.59s] LOG cal n=989 shunt_mv=12.290 bus_v=5.058 current_ma=121.717 mean_mw=615.683
+[  167.59s] NRG {"ts":19566051,"power_mw":615.7,"volts":5.060,"amps":0.1226,"battery_pct":100.0}
+[  168.61s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.897 mean_mw=616.490
+[  168.61s] NRG {"ts":19567051,"power_mw":616.5,"volts":5.060,"amps":0.1221,"battery_pct":100.0}
+[  169.63s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.713 mean_mw=615.684
+[  169.63s] NRG {"ts":19568051,"power_mw":615.7,"volts":5.056,"amps":0.1215,"battery_pct":100.0}
+[  170.66s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.749 mean_mw=615.795
+[  170.66s] NRG {"ts":19569051,"power_mw":615.8,"volts":5.056,"amps":0.1215,"battery_pct":100.0}
+[  171.69s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.778 mean_mw=615.993
+[  171.69s] NRG {"ts":19570051,"power_mw":616.0,"volts":5.056,"amps":0.1216,"battery_pct":100.0}
+[  172.71s] LOG cal n=989 shunt_mv=12.070 bus_v=5.058 current_ma=121.693 mean_mw=615.576
+[  172.71s] NRG {"ts":19571051,"power_mw":615.6,"volts":5.056,"amps":0.1207,"battery_pct":100.0}
+[  173.74s] LOG cal n=989 shunt_mv=12.080 bus_v=5.058 current_ma=121.688 mean_mw=615.543
+[  173.74s] NRG {"ts":19572051,"power_mw":615.5,"volts":5.060,"amps":0.1210,"battery_pct":100.0}
+[  174.77s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.763 mean_mw=615.851
+[  174.77s] NRG {"ts":19573051,"power_mw":615.9,"volts":5.060,"amps":0.1211,"battery_pct":100.0}
+[  175.58s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.718 mean_mw=615.665
+[  175.58s] NRG {"ts":19574051,"power_mw":615.7,"volts":5.056,"amps":0.1218,"battery_pct":100.0}
+[  176.61s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.729 mean_mw=615.697
+[  176.61s] NRG {"ts":19575051,"power_mw":615.7,"volts":5.060,"amps":0.1222,"battery_pct":100.0}
+[  177.64s] LOG cal n=989 shunt_mv=12.250 bus_v=5.058 current_ma=121.807 mean_mw=616.085
+[  177.64s] NRG {"ts":19576051,"power_mw":616.1,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[  178.66s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.729 mean_mw=615.710
+[  178.66s] NRG {"ts":19577051,"power_mw":615.7,"volts":5.056,"amps":0.1220,"battery_pct":100.0}
+[  179.69s] LOG cal n=989 shunt_mv=12.280 bus_v=5.058 current_ma=121.719 mean_mw=615.703
+[  179.69s] NRG {"ts":19578051,"power_mw":615.7,"volts":5.060,"amps":0.1228,"battery_pct":100.0}
+[  180.71s] LOG cal n=989 shunt_mv=12.250 bus_v=5.058 current_ma=121.845 mean_mw=616.344
+[  180.71s] NRG {"ts":19579051,"power_mw":616.3,"volts":5.060,"amps":0.1225,"battery_pct":100.0}
+[  181.74s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.782 mean_mw=616.020
+[  181.74s] NRG {"ts":19580051,"power_mw":616.0,"volts":5.056,"amps":0.1218,"battery_pct":100.0}
+[  182.77s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.750 mean_mw=615.847
+[  182.77s] NRG {"ts":19581051,"power_mw":615.8,"volts":5.056,"amps":0.1214,"battery_pct":100.0}
+[  183.59s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.932 mean_mw=616.749
+[  183.59s] NRG {"ts":19582051,"power_mw":616.7,"volts":5.056,"amps":0.1219,"battery_pct":100.0}
+[  184.61s] LOG cal n=989 shunt_mv=12.090 bus_v=5.058 current_ma=121.751 mean_mw=615.914
+[  184.61s] NRG {"ts":19583051,"power_mw":615.9,"volts":5.060,"amps":0.1215,"battery_pct":100.0}
+[  185.23s] monitor,op_6506,239000,177.688,149.90
+[  185.64s] LOG cal n=989 shunt_mv=12.090 bus_v=5.043 current_ma=132.335 mean_mw=666.346
+[  185.64s] NRG {"ts":19584051,"power_mw":666.3,"volts":5.060,"amps":0.1209,"battery_pct":100.0}
+[  186.67s] LOG cal n=989 shunt_mv=12.100 bus_v=5.058 current_ma=121.902 mean_mw=616.525
+[  186.67s] NRG {"ts":19585051,"power_mw":616.5,"volts":5.052,"amps":0.1210,"battery_pct":100.0}
+[  187.69s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.799 mean_mw=616.061
+[  187.69s] NRG {"ts":19586051,"power_mw":616.1,"volts":5.056,"amps":0.1219,"battery_pct":100.0}
+[  188.72s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.716 mean_mw=615.629
+[  188.72s] NRG {"ts":19587051,"power_mw":615.6,"volts":5.060,"amps":0.1217,"battery_pct":100.0}
+[  189.74s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.876 mean_mw=616.404
+[  189.74s] NRG {"ts":19588051,"power_mw":616.4,"volts":5.056,"amps":0.1220,"battery_pct":100.0}
+[  190.76s] LOG cal n=989 shunt_mv=12.260 bus_v=5.058 current_ma=121.717 mean_mw=615.646
+[  190.76s] NRG {"ts":19589051,"power_mw":615.6,"volts":5.060,"amps":0.1221,"battery_pct":100.0}
+[  191.58s] LOG cal n=989 shunt_mv=12.090 bus_v=5.058 current_ma=121.689 mean_mw=615.533
+[  191.58s] NRG {"ts":19590051,"power_mw":615.5,"volts":5.060,"amps":0.1226,"battery_pct":100.0}
+[  192.60s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.781 mean_mw=615.975
+[  192.60s] NRG {"ts":19591051,"power_mw":616.0,"volts":5.060,"amps":0.1224,"battery_pct":100.0}
+[  193.63s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.685 mean_mw=615.544
+[  193.63s] NRG {"ts":19592051,"power_mw":615.5,"volts":5.060,"amps":0.1217,"battery_pct":100.0}
+[  194.66s] LOG cal n=989 shunt_mv=11.990 bus_v=5.058 current_ma=121.730 mean_mw=615.744
+[  194.66s] NRG {"ts":19593051,"power_mw":615.7,"volts":5.060,"amps":0.1199,"battery_pct":100.0}
+[  195.68s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.819 mean_mw=616.183
+[  195.68s] NRG {"ts":19594051,"power_mw":616.2,"volts":5.060,"amps":0.1217,"battery_pct":100.0}
+[  196.71s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.800 mean_mw=616.139
+[  196.71s] NRG {"ts":19595051,"power_mw":616.1,"volts":5.060,"amps":0.1215,"battery_pct":100.0}
+[  197.73s] LOG cal n=989 shunt_mv=12.100 bus_v=5.058 current_ma=121.727 mean_mw=615.777
+[  197.73s] NRG {"ts":19596051,"power_mw":615.8,"volts":5.056,"amps":0.1211,"battery_pct":100.0}
+[  198.75s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.832 mean_mw=616.139
+[  198.75s] NRG {"ts":19597051,"power_mw":616.1,"volts":5.056,"amps":0.1211,"battery_pct":100.0}
+[  199.57s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.781 mean_mw=615.976
+[  199.77s] NRG {"ts":19598051,"power_mw":616.0,"volts":5.056,"amps":0.1212,"battery_pct":100.0}
+[  200.59s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.809 mean_mw=616.131
+[  200.59s] NRG {"ts":19599051,"power_mw":616.1,"volts":5.060,"amps":0.1221,"battery_pct":100.0}
+[  201.62s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.854 mean_mw=616.344
+[  201.62s] NRG {"ts":19600051,"power_mw":616.3,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[  202.64s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.765 mean_mw=615.841
+[  202.64s] NRG {"ts":19601051,"power_mw":615.8,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[  203.67s] LOG cal n=989 shunt_mv=12.090 bus_v=5.058 current_ma=121.780 mean_mw=615.956
+[  203.67s] NRG {"ts":19602051,"power_mw":616.0,"volts":5.060,"amps":0.1221,"battery_pct":100.0}
+[  204.70s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.842 mean_mw=616.438
+[  204.70s] NRG {"ts":19603051,"power_mw":616.4,"volts":5.060,"amps":0.1222,"battery_pct":100.0}
+[  205.72s] LOG cal n=989 shunt_mv=12.060 bus_v=5.058 current_ma=121.729 mean_mw=615.736
+[  205.72s] NRG {"ts":19604051,"power_mw":615.7,"volts":5.060,"amps":0.1207,"battery_pct":100.0}
+[  206.75s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.736 mean_mw=615.765
+[  206.75s] NRG {"ts":19605051,"power_mw":615.8,"volts":5.056,"amps":0.1216,"battery_pct":100.0}
+[  207.77s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.798 mean_mw=616.058
+[  207.77s] NRG {"ts":19606051,"power_mw":616.1,"volts":5.060,"amps":0.1217,"battery_pct":100.0}
+[  208.59s] LOG cal n=989 shunt_mv=12.010 bus_v=5.058 current_ma=121.732 mean_mw=615.751
+[  208.59s] NRG {"ts":19607051,"power_mw":615.8,"volts":5.052,"amps":0.1201,"battery_pct":100.0}
+[  209.62s] LOG cal n=989 shunt_mv=12.020 bus_v=5.058 current_ma=121.700 mean_mw=615.631
+[  209.62s] NRG {"ts":19608051,"power_mw":615.6,"volts":5.060,"amps":0.1202,"battery_pct":100.0}
+[  210.64s] LOG cal n=989 shunt_mv=14.770 bus_v=5.049 current_ma=128.131 mean_mw=646.450
+[  210.64s] NRG {"ts":19609051,"power_mw":646.4,"volts":5.016,"amps":0.1477,"battery_pct":100.0}
+[  210.64s] monitor,op_6507,257000,191.087,150.00
+[  211.67s] LOG cal n=989 shunt_mv=12.080 bus_v=5.052 current_ma=126.450 mean_mw=639.581
+[  211.67s] NRG {"ts":19610051,"power_mw":639.6,"volts":5.060,"amps":0.1207,"battery_pct":100.0}
+[  212.70s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.737 mean_mw=615.737
+[  212.70s] NRG {"ts":19611051,"power_mw":615.7,"volts":5.060,"amps":0.1209,"battery_pct":100.0}
+[  213.73s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.821 mean_mw=616.095
+[  213.73s] NRG {"ts":19612051,"power_mw":616.1,"volts":5.060,"amps":0.1216,"battery_pct":100.0}
+[  214.75s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.743 mean_mw=615.782
+[  214.75s] NRG {"ts":19613051,"power_mw":615.8,"volts":5.056,"amps":0.1219,"battery_pct":100.0}
+[  215.56s] monitor,op_6508,116000,86.079,150.10
+[  215.77s] LOG cal n=989 shunt_mv=12.240 bus_v=5.048 current_ma=128.729 mean_mw=648.889
+[  215.77s] NRG {"ts":19614051,"power_mw":648.9,"volts":5.060,"amps":0.1221,"battery_pct":100.0}
+[  216.59s] LOG cal n=989 shunt_mv=12.250 bus_v=5.058 current_ma=121.837 mean_mw=616.214
+[  216.59s] NRG {"ts":19615051,"power_mw":616.2,"volts":5.060,"amps":0.1225,"battery_pct":100.0}
+[  217.61s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.705 mean_mw=615.599
+[  217.61s] NRG {"ts":19616051,"power_mw":615.6,"volts":5.060,"amps":0.1222,"battery_pct":100.0}
+[  218.64s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.746 mean_mw=615.808
+[  218.64s] NRG {"ts":19617051,"power_mw":615.8,"volts":5.060,"amps":0.1223,"battery_pct":100.0}
+[  219.66s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.879 mean_mw=616.719
+[  219.66s] NRG {"ts":19618051,"power_mw":616.7,"volts":5.056,"amps":0.1219,"battery_pct":100.0}
+[  220.69s] LOG cal n=989 shunt_mv=12.030 bus_v=5.058 current_ma=121.794 mean_mw=616.041
+[  220.69s] NRG {"ts":19619051,"power_mw":616.0,"volts":5.052,"amps":0.1200,"battery_pct":100.0}
+[  221.72s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.767 mean_mw=615.914
+[  221.72s] NRG {"ts":19620051,"power_mw":615.9,"volts":5.056,"amps":0.1218,"battery_pct":100.0}
+[  222.74s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.867 mean_mw=616.459
+[  222.74s] NRG {"ts":19621051,"power_mw":616.5,"volts":5.056,"amps":0.1209,"battery_pct":100.0}
+[  223.77s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.763 mean_mw=615.942
+[  223.77s] NRG {"ts":19622051,"power_mw":615.9,"volts":5.056,"amps":0.1211,"battery_pct":100.0}
+[  224.59s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.762 mean_mw=615.870
+[  224.59s] NRG {"ts":19623051,"power_mw":615.9,"volts":5.056,"amps":0.1211,"battery_pct":100.0}
+[  225.61s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.837 mean_mw=616.236
+[  225.61s] NRG {"ts":19624051,"power_mw":616.2,"volts":5.056,"amps":0.1217,"battery_pct":100.0}
+[  226.63s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.743 mean_mw=615.774
+[  226.63s] NRG {"ts":19625051,"power_mw":615.8,"volts":5.056,"amps":0.1217,"battery_pct":100.0}
+[  227.66s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.729 mean_mw=615.685
+[  227.66s] NRG {"ts":19626051,"power_mw":615.7,"volts":5.060,"amps":0.1222,"battery_pct":100.0}
+[  228.68s] LOG cal n=989 shunt_mv=12.240 bus_v=5.058 current_ma=121.779 mean_mw=615.908
+[  228.68s] NRG {"ts":19627051,"power_mw":615.9,"volts":5.060,"amps":0.1221,"battery_pct":100.0}
+[  229.71s] LOG cal n=989 shunt_mv=12.260 bus_v=5.058 current_ma=121.699 mean_mw=615.568
+[  229.71s] NRG {"ts":19628051,"power_mw":615.6,"volts":5.056,"amps":0.1225,"battery_pct":100.0}
+[  230.74s] LOG cal n=989 shunt_mv=12.240 bus_v=5.058 current_ma=121.707 mean_mw=615.611
+[  230.74s] NRG {"ts":19629051,"power_mw":615.6,"volts":5.060,"amps":0.1223,"battery_pct":100.0}
+[  231.77s] LOG cal n=989 shunt_mv=12.260 bus_v=5.058 current_ma=121.801 mean_mw=616.081
+[  231.77s] NRG {"ts":19630051,"power_mw":616.1,"volts":5.060,"amps":0.1226,"battery_pct":100.0}
+[  232.59s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.752 mean_mw=615.900
+[  232.59s] NRG {"ts":19631051,"power_mw":615.9,"volts":5.056,"amps":0.1217,"battery_pct":100.0}
+[  233.61s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.756 mean_mw=615.884
+[  233.61s] NRG {"ts":19632051,"power_mw":615.9,"volts":5.052,"amps":0.1214,"battery_pct":100.0}
+[  234.63s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.898 mean_mw=616.620
+[  234.63s] NRG {"ts":19633051,"power_mw":616.6,"volts":5.056,"amps":0.1214,"battery_pct":100.0}
+[  235.66s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.752 mean_mw=615.895
+[  235.66s] NRG {"ts":19634051,"power_mw":615.9,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[  236.68s] LOG cal n=989 shunt_mv=12.120 bus_v=5.058 current_ma=121.736 mean_mw=615.781
+[  236.68s] NRG {"ts":19635051,"power_mw":615.8,"volts":5.056,"amps":0.1212,"battery_pct":100.0}
+[  237.71s] LOG cal n=989 shunt_mv=12.270 bus_v=5.058 current_ma=121.861 mean_mw=616.364
+[  237.71s] NRG {"ts":19636051,"power_mw":616.4,"volts":5.056,"amps":0.1197,"battery_pct":100.0}
+[  238.74s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.820 mean_mw=616.166
+[  238.74s] NRG {"ts":19637051,"power_mw":616.2,"volts":5.056,"amps":0.1219,"battery_pct":100.0}
+[  239.77s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.746 mean_mw=615.835
+[  239.77s] NRG {"ts":19638051,"power_mw":615.8,"volts":5.060,"amps":0.1217,"battery_pct":100.0}
+[  240.59s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.853 mean_mw=616.307
+[  240.59s] NRG {"ts":19639051,"power_mw":616.3,"volts":5.056,"amps":0.1220,"battery_pct":100.0}
+[  241.61s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.744 mean_mw=615.778
+[  241.61s] NRG {"ts":19640051,"power_mw":615.8,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[  242.63s] LOG cal n=989 shunt_mv=12.250 bus_v=5.058 current_ma=121.735 mean_mw=615.719
+[  242.63s] NRG {"ts":19641051,"power_mw":615.7,"volts":5.064,"amps":0.1224,"battery_pct":100.0}
+[  243.65s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.883 mean_mw=616.474
+[  243.65s] NRG {"ts":19642051,"power_mw":616.5,"volts":5.060,"amps":0.1223,"battery_pct":100.0}
+[  244.66s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.807 mean_mw=616.164
+[  244.66s] NRG {"ts":19643051,"power_mw":616.2,"volts":5.056,"amps":0.1226,"battery_pct":100.0}
+[  245.69s] LOG cal n=989 shunt_mv=12.090 bus_v=5.058 current_ma=121.756 mean_mw=615.866
+[  245.69s] NRG {"ts":19644051,"power_mw":615.9,"volts":5.056,"amps":0.1214,"battery_pct":100.0}
+[  246.09s] monitor,op_6509,246000,183.051,150.80
+[  246.71s] LOG cal n=989 shunt_mv=12.110 bus_v=5.043 current_ma=132.644 mean_mw=667.851
+[  246.71s] NRG {"ts":19645051,"power_mw":667.9,"volts":5.056,"amps":0.1214,"battery_pct":100.0}
+[  247.72s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.727 mean_mw=615.808
+[  247.72s] NRG {"ts":19646051,"power_mw":615.8,"volts":5.060,"amps":0.1218,"battery_pct":100.0}
+[  248.74s] LOG cal n=989 shunt_mv=12.100 bus_v=5.058 current_ma=121.709 mean_mw=615.683
+[  248.74s] NRG {"ts":19647051,"power_mw":615.7,"volts":5.060,"amps":0.1210,"battery_pct":100.0}
+[  249.76s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.846 mean_mw=616.338
+[  249.76s] NRG {"ts":19648051,"power_mw":616.3,"volts":5.056,"amps":0.1208,"battery_pct":100.0}
+[  250.57s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.685 mean_mw=615.514
+[  250.77s] NRG {"ts":19649051,"power_mw":615.5,"volts":5.060,"amps":0.1210,"battery_pct":100.0}
+[  251.59s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.745 mean_mw=615.751
+[  251.59s] NRG {"ts":19650051,"power_mw":615.8,"volts":5.056,"amps":0.1220,"battery_pct":100.0}
+[  252.61s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.810 mean_mw=616.113
+[  252.61s] NRG {"ts":19651051,"power_mw":616.1,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[  253.63s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.752 mean_mw=615.823
+[  253.63s] NRG {"ts":19652051,"power_mw":615.8,"volts":5.060,"amps":0.1218,"battery_pct":100.0}
+[  254.65s] LOG cal n=989 shunt_mv=12.140 bus_v=5.058 current_ma=121.700 mean_mw=615.557
+[  254.65s] NRG {"ts":19653051,"power_mw":615.6,"volts":5.060,"amps":0.1214,"battery_pct":100.0}
+[  255.67s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.959 mean_mw=616.790
+[  255.67s] NRG {"ts":19654051,"power_mw":616.8,"volts":5.060,"amps":0.1220,"battery_pct":100.0}
+[  256.69s] LOG cal n=989 shunt_mv=12.260 bus_v=5.058 current_ma=121.840 mean_mw=616.295
+[  256.69s] NRG {"ts":19655051,"power_mw":616.3,"volts":5.060,"amps":0.1226,"battery_pct":100.0}
+[  257.72s] LOG cal n=989 shunt_mv=12.060 bus_v=5.058 current_ma=121.817 mean_mw=616.178
+[  257.72s] NRG {"ts":19656051,"power_mw":616.2,"volts":5.060,"amps":0.1238,"battery_pct":100.0}
+[  258.75s] LOG cal n=989 shunt_mv=12.540 bus_v=5.058 current_ma=121.879 mean_mw=616.482
+[  258.75s] NRG {"ts":19657051,"power_mw":616.5,"volts":5.060,"amps":0.1206,"battery_pct":100.0}
+[  259.77s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.790 mean_mw=616.065
+[  259.77s] NRG {"ts":19658051,"power_mw":616.1,"volts":5.056,"amps":0.1214,"battery_pct":100.0}
+[  260.59s] LOG cal n=989 shunt_mv=12.170 bus_v=5.058 current_ma=121.758 mean_mw=615.930
+[  260.59s] NRG {"ts":19659051,"power_mw":615.9,"volts":5.060,"amps":0.1215,"battery_pct":100.0}
+[  261.61s] LOG cal n=989 shunt_mv=12.130 bus_v=5.058 current_ma=121.842 mean_mw=616.325
+[  261.61s] NRG {"ts":19660051,"power_mw":616.3,"volts":5.056,"amps":0.1216,"battery_pct":100.0}
+[  262.64s] LOG cal n=989 shunt_mv=12.110 bus_v=5.058 current_ma=121.830 mean_mw=616.271
+[  262.64s] NRG {"ts":19661051,"power_mw":616.3,"volts":5.060,"amps":0.1211,"battery_pct":100.0}
+[  263.66s] LOG cal n=989 shunt_mv=12.090 bus_v=5.058 current_ma=121.773 mean_mw=615.913
+[  263.66s] NRG {"ts":19662051,"power_mw":615.9,"volts":5.056,"amps":0.1209,"battery_pct":100.0}
+[  264.68s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.821 mean_mw=616.150
+[  264.68s] NRG {"ts":19663051,"power_mw":616.2,"volts":5.056,"amps":0.1221,"battery_pct":100.0}
+[  265.71s] LOG cal n=989 shunt_mv=12.190 bus_v=5.058 current_ma=121.761 mean_mw=615.867
+[  265.71s] NRG {"ts":19664051,"power_mw":615.9,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[  266.73s] LOG cal n=989 shunt_mv=12.160 bus_v=5.058 current_ma=121.683 mean_mw=615.422
+[  266.73s] NRG {"ts":19665051,"power_mw":615.4,"volts":5.060,"amps":0.1219,"battery_pct":100.0}
+[  267.76s] LOG cal n=989 shunt_mv=12.180 bus_v=5.058 current_ma=121.789 mean_mw=615.972
+[  267.76s] NRG {"ts":19666051,"power_mw":616.0,"volts":5.060,"amps":0.1215,"battery_pct":100.0}
+[  268.58s] LOG cal n=989 shunt_mv=12.210 bus_v=5.058 current_ma=121.674 mean_mw=615.383
+[  268.58s] NRG {"ts":19667051,"power_mw":615.4,"volts":5.060,"amps":0.1218,"battery_pct":100.0}
+[  269.60s] LOG cal n=989 shunt_mv=12.200 bus_v=5.058 current_ma=121.727 mean_mw=615.749
+[  269.60s] NRG {"ts":19668051,"power_mw":615.7,"volts":5.060,"amps":0.1230,"battery_pct":100.0}
+[  270.63s] LOG cal n=989 shunt_mv=12.220 bus_v=5.058 current_ma=121.783 mean_mw=616.018
+[  270.63s] NRG {"ts":19669051,"power_mw":616.0,"volts":5.060,"amps":0.1222,"battery_pct":100.0}
+[  271.65s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.717 mean_mw=615.693
+[  271.65s] NRG {"ts":19670051,"power_mw":615.7,"volts":5.060,"amps":0.1215,"battery_pct":100.0}
+[  272.68s] LOG cal n=989 shunt_mv=12.150 bus_v=5.058 current_ma=121.700 mean_mw=615.609
+[  272.68s] NRG {"ts":19671051,"power_mw":615.6,"volts":5.060,"amps":0.1215,"battery_pct":100.0}

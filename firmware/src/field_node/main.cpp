@@ -391,7 +391,8 @@ static void on_hello_frag0(const PacketHeader& hdr, const uint8_t* payload, size
     build_gate_features(f, now_ms);
     GateInputs in;
     in.prob_real = energygate_score(f);
-    in.cookie_echoed = (payload_len >= pqc::COOKIE_BYTES) && g_cookie.verify(hdr.sender, now_ms, payload);
+    in.cookie_echoed = (payload_len >= pqc::COOKIE_BYTES) &&
+                       g_cookie.verify(hdr.sender, hdr.epoch, hdr.seq, now_ms, payload);
     uint32_t last = g_last_attempt_ms[hdr.sender];
     in.ms_since_last_attempt = (last == 0) ? NEVER_SEEN : (now_ms - last);
     g_last_attempt_ms[hdr.sender] = now_ms ? now_ms : 1;
@@ -418,7 +419,7 @@ static void on_hello_frag0(const PacketHeader& hdr, const uint8_t* payload, size
     } else if (action == GateAction::CHALLENGE) {
         g_n_challenge++;
         uint8_t cookie[COOKIE_LEN];
-        g_cookie.generate(hdr.sender, CookieChallenge::time_window_for(now_ms), cookie);
+        g_cookie.generate(hdr.sender, hdr.epoch, hdr.seq, CookieChallenge::time_window_for(now_ms), cookie);
         send_plain(MsgType::CHALLENGE, hdr.epoch, hdr.seq, cookie, sizeof(cookie));
     } else {
         g_n_drop++;
@@ -642,6 +643,23 @@ void loop() {
     }
 #else
     (void)last_stat_ms;
+#endif
+
+#if GATE_VERBOSE
+    // Recorded traces for retraining EnergyGate (paper Section 9): field-1's own feature vector, in
+    // FEATURE_ORDER, once a second, with the score the model gives it. The window slides (5 x 1 s
+    // buckets), so consecutive rows overlap; labels come from the host's run timeline, not the board.
+    static uint32_t last_feat_ms = 0;
+    if (now - last_feat_ms >= 1000) {
+        last_feat_ms = now;
+        float f[ENERGYGATE_NUM_FEATURES];
+        build_gate_features(f, now);
+        Serial.printf("FEAT {\"ts\":%lu,\"node\":\"field-1\",\"hs_per_s\":%.3f,\"hs_fail\":%.0f,\"rssi_mean\":%.2f,"
+                      "\"rssi_var\":%.3f,\"loss_pct\":%.2f,\"dup_pct\":%.2f,\"frag_complete_pct\":%.2f,"
+                      "\"battery_pct\":%.1f,\"p\":%.4f,\"defence\":\"%s\",\"budget_j\":%.3f}\n",
+                      (unsigned long)now, f[0], f[1], f[2], f[3], f[4], f[5], f[6], f[7], energygate_score(f),
+                      defense_mode_name(g_defense), g_energy.balance_j());
+    }
 #endif
 
     if (handled == 0) delay(1);   // nothing to do: yield (the radio and crypto task run elsewhere)

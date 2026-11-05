@@ -88,7 +88,7 @@ All ESP32-WROOM-32 devkits (micro-USB, CP2102). MACs let you identify them:
 | **F** | field node (EnergyGate, the victim) | A4:F0:0F:77:A2:70 | flashed `field_node_bench` |
 | **G** | gateway | 5C:01:3B:BE:A0:10 | flashed `gateway` |
 | **A** | attacker | 8C:94:DF:58:DA:1C | flashed plain `attacker` (starts OFF) |
-| **M** | monitor for the energy rig | (unknown) | flashed `monitor_ina219`; INA219 wired and found on I2C |
+| **M** | monitor for the energy rig | 30:76:F5:05:3E:A0 | flashed `monitor_ina219`; INA219 wired and found on I2C |
 
 **COM port numbers change when a cable moves.** They were G=COM6/F=COM7 earlier, then F=COM6, G=COM9 (later
 COM8), M=COM7, A=COM10. Never trust a remembered number: run `python paper\tools\identify_ports.py`, which
@@ -269,3 +269,7 @@ firmware. All three boards stay on the laptop.
 
 ## Update: PRs merged into master (2026-10-15)
 PRs #9, #10 (hardware fixes only), #11 are integrated into master; see `paper/decisions.md`. First thing: `git pull`, then `pio run` for every env (not verified in the cloud), check the LCD shows text (address 0x27, else 0x3F in `board_config.h`).
+
+## Update: 2026-10-24 (Chaitanya)
+Work continued on branch `paper/e5-grid-tooling`: tooling, Day 0 bench check, rig safety checks and the INA219
+calibration are done. Read `paper/CONTEXT_2026-10-24.md` for what changed and `paper/WORK_SPLIT.md` for who does what next.
