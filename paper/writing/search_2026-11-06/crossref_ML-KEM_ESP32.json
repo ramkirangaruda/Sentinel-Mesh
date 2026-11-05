@@ -1,0 +1,333 @@
+{
+ "database": "crossref",
+ "query": "ML-KEM ESP32",
+ "date": "2026-11-06",
+ "total": 106876,
+ "hits": [
+  {
+   "title": "Exploring hardware implementation feasibility of post-quantum cryptography in embedded systems: Evaluation of NIST-standardized ML-KEM, ML-DSA and SLH-DSA on ESP32-C6",
+   "authors": [
+    "Daniel Patryk Karcz",
+    "Marcin Niemiec",
+    "Michail Alexandros Kourtis",
+    "Tobias Köppl"
+   ],
+   "year": 2026,
+   "venue": "PLOS One",
+   "doi": "10.1371/journal.pone.0355179",
+   "url": "https://doi.org/10.1371/journal.pone.0355179"
+  },
+  {
+   "title": "Table 2: Performance of ML-DSA and ML-KEM phases measured in clock cycles.",
+   "authors": [],
+   "year": null,
+   "venue": "",
+   "doi": "10.7717/peerj-cs.4003/table-2",
+   "url": "https://doi.org/10.7717/peerj-cs.4003/table-2"
+  },
+  {
+   "title": "Table 4: Input data structure for ML-DSA-44 signing and ML-KEM-512 decapsulation.",
+   "authors": [],
+   "year": null,
+   "venue": "",
+   "doi": "10.7717/peerj-cs.4003/table-4",
+   "url": "https://doi.org/10.7717/peerj-cs.4003/table-4"
+  },
+  {
+   "title": "Figure 2: Data flow of ML-KEM key decapsulation phase.",
+   "authors": [],
+   "year": null,
+   "venue": "",
+   "doi": "10.7717/peerj-cs.4003/fig-2",
+   "url": "https://doi.org/10.7717/peerj-cs.4003/fig-2"
+  },
+  {
+   "title": "Algorithm 2: ML-KEM D\n                      <scp>ecapsulation</scp>\n                      (\n                      <i>c, s</i>\n                      ).",
+   "authors": [],
+   "year": null,
+   "venue": "",
+   "doi": "10.7717/peerj-cs.4003/table-6",
+   "url": "https://doi.org/10.7717/peerj-cs.4003/table-6"
+  },
+  {
+   "title": "Implémentations matérielles crypto-agiles des standards PQC NIST : ML-KEM et HQC",
+   "authors": [
+    "Antonio Ras"
+   ],
+   "year": null,
+   "venue": "",
+   "doi": "10.70675/2374f971z4f14z4eeaz98c8z6b806aef33b1",
+   "url": "https://doi.org/10.70675/2374f971z4f14z4eeaz98c8z6b806aef33b1"
+  },
+  {
+   "title": "Distributional Signatures in ML-KEM Ciphertext: A Black-Box Statistical Measurement",
+   "authors": [
+    "David Tom Foss"
+   ],
+   "year": 2026,
+   "venue": "",
+   "doi": "10.2139/ssrn.6213499",
+   "url": "https://doi.org/10.2139/ssrn.6213499"
+  },
+  {
+   "title": "Quantum-Resistant AI-Adaptive Cryptography System: Integrating ML-KEM, ML-DSA, and Machine Learning-Based Algorithm Selection with Real-Time Attack Detection",
+   "authors": [
+    "Rimsha Rani",
+    "Uma Ammara"
+   ],
+   "year": 2026,
+   "venue": "",
+   "doi": "10.2139/ssrn.7343778",
+   "url": "https://doi.org/10.2139/ssrn.7343778"
+  },
+  {
+   "title": "PQ-WB-KEM: Toward a White-Box Construction of ML-KEM-768 with Arithmetic Masking for M2M Communications",
+   "authors": [
+    "Uğur Coruh"
+   ],
+   "year": 2026,
+   "venue": "Mathematics",
+   "doi": "10.3390/math14173072",
+   "url": "https://doi.org/10.3390/math14173072"
+  },
+  {
+   "title": "Auditable Conformance and Cross-Library Interoperability Testing for ML-KEM and ML-DSA",
+   "authors": [
+    "Sijiang Xie",
+    "Xingyu Lu",
+    "Haida Wang",
+    "Hong Zhao"
+   ],
+   "year": 2026,
+   "venue": "Computers",
+   "doi": "10.3390/computers15100642",
+   "url": "https://doi.org/10.3390/computers15100642"
+  },
+  {
+   "title": "An Enhanced Two-Step CPA Side-Channel Analysis Attack on ML-KEM",
+   "authors": [
+    "Mark Kennaway",
+    "Tuan Hoang",
+    "Ayesha Khalid",
+    "Ciara Rafferty",
+    "Máire O’Neill"
+   ],
+   "year": 2025,
+   "venue": "Proceedings of the 22nd International Conference on Security and Cryptography",
+   "doi": "10.5220/0013638600003979",
+   "url": "https://doi.org/10.5220/0013638600003979"
+  },
+  {
+   "title": "A One-Bitstream KV260 Accelerator for ML-KEM-512 and ML-DSA-44 with Split KEM Datapaths and Sign-Path Early Rejection",
+   "authors": [
+    "Chaozheng Li",
+    "Ding Deng",
+    "Lu Li",
+    "Wenhao Wang",
+    "Pengyue Sun",
+    "Gang Ou"
+   ],
+   "year": 2026,
+   "venue": "2026 IEEE International Test Conference in Asia (ITC-Asia)",
+   "doi": "10.1109/itc-asia71864.2026.11710897",
+   "url": "https://doi.org/10.1109/itc-asia71864.2026.11710897"
+  },
+  {
+   "title": "Hybrid Post-quantum Secure Wireless Healthcare Network Using Ml-kem, Ml-dsa, Blockchain Audit Logging and Ai-based Intrusion Detection",
+   "authors": [
+    "Veera Venkata Ravi Teja Sunnam",
+    "D. Latha"
+   ],
+   "year": 2026,
+   "venue": "",
+   "doi": "10.21203/rs.3.rs-10558164/v1",
+   "url": "https://doi.org/10.21203/rs.3.rs-10558164/v1"
+  },
+  {
+   "title": "Use of ML-KEM in the Cryptographic Message Syntax (CMS)",
+   "authors": [
+    "P. Julien",
+    "M. Ounsworth",
+    "D. Van Geest"
+   ],
+   "year": 2026,
+   "venue": "",
+   "doi": "10.17487/rfc9936",
+   "url": "https://doi.org/10.17487/rfc9936"
+  },
+  {
+   "title": "Monitoring of Historical Structure by IoT Technology with Use of ESP32 Development Board",
+   "authors": [
+    "Miroslav Vokáč",
+    "Lukáš Balík",
+    "Petr Bouška"
+   ],
+   "year": 2020,
+   "venue": "Key Engineering Materials",
+   "doi": "10.4028/www.scientific.net/kem.868.180",
+   "url": "https://doi.org/10.4028/www.scientific.net/kem.868.180"
+  },
+  {
+   "title": "High-Performance Unified Hardware Architecture for ML-DSA and ML-KEM PQC Standards",
+   "authors": [
+    "Quang Dang Truong",
+    "Yunseong Jang",
+    "Hanho Lee"
+   ],
+   "year": 2025,
+   "venue": "IEEE Access",
+   "doi": "10.1109/access.2025.3628733",
+   "url": "https://doi.org/10.1109/access.2025.3628733"
+  },
+  {
+   "title": "EMPIRICAL PERFORMANCE EVALUATION OF NIST POST-QUANTUM CRYPTOGRAPHIC ALGORITHMS ML-KEM, ML-DSA, AND SLH-DSA ACROSS JDK VERSIONS",
+   "authors": [
+    "Yurii Oleksiichuk"
+   ],
+   "year": 2026,
+   "venue": "Cybersecurity Education Science Technique",
+   "doi": "10.28925/2663-4023.2026.33.1210",
+   "url": "https://doi.org/10.28925/2663-4023.2026.33.1210"
+  },
+  {
+   "title": "A Systems-Level Performance Study of Post-Quantum TLS with ML-KEM and ML-DSA in Modern OpenSSL",
+   "authors": [
+    "Volodymyr Dubetskyy",
+    "Maria-Dolores Cano"
+   ],
+   "year": 2026,
+   "venue": "Information",
+   "doi": "10.3390/info17111098",
+   "url": "https://doi.org/10.3390/info17111098"
+  },
+  {
+   "title": "Efficient Polynomial Arithmetic and Hash Modules for ML-DSA and ML-KEM Standards",
+   "authors": [
+    "Quang Dang Truong",
+    "Hanho Lee"
+   ],
+   "year": 2024,
+   "venue": "2024 IEEE Asia Pacific Conference on Circuits and Systems (APCCAS)",
+   "doi": "10.1109/apccas62602.2024.10808736",
+   "url": "https://doi.org/10.1109/apccas62602.2024.10808736"
+  },
+  {
+   "title": "A Comparative Study on Parallel Optimization of the ML-KEM Algorithm Based on ARM and RISC-V Architectures",
+   "authors": [
+    "",
+    "Hyesoo Cheon",
+    "Seongmin Kim"
+   ],
+   "year": 2025,
+   "venue": "Jouranl of Information and Security",
+   "doi": "10.33778/kcsa.2025.25.3.113",
+   "url": "https://doi.org/10.33778/kcsa.2025.25.3.113"
+  },
+  {
+   "title": "A Lightweight Unified Keccak Module for Efficient Hashing in ML-KEM and ML-DSA",
+   "authors": [
+    "Suraj Mandal",
+    "Debapriya Basu Roy"
+   ],
+   "year": 2025,
+   "venue": "Proceedings of the 2025 Quantum Security and Privacy Workshop",
+   "doi": "10.1145/3733825.3765279",
+   "url": "https://doi.org/10.1145/3733825.3765279"
+  },
+  {
+   "title": "Accelerating the Post-Quantum Transition: A GPU-Based Performance Comparison of ML-KEM and ML-DSA",
+   "authors": [
+    "Sangeetha K",
+    "Shreya Khodanpur"
+   ],
+   "year": 2026,
+   "venue": "2026 International Conference on Current Trends in Advanced Computing (ICCTAC)",
+   "doi": "10.1109/icctac68277.2026.11524500",
+   "url": "https://doi.org/10.1109/icctac68277.2026.11524500"
+  },
+  {
+   "title": "A Lightweight and Tight-Binding Post-Quantum Authenticated Key Exchange for IoT using ML-KEM",
+   "authors": [
+    "Pham Tuan Khiem"
+   ],
+   "year": 2026,
+   "venue": "",
+   "doi": "10.2139/ssrn.6543598",
+   "url": "https://doi.org/10.2139/ssrn.6543598"
+  },
+  {
+   "title": "Majax: A Post-quantum Augmented Signal Architecture With Ml-kem-1024 Envelope and Zero-trace Backen",
+   "authors": [
+    "Majid Nimar"
+   ],
+   "year": 2025,
+   "venue": "",
+   "doi": "10.2139/ssrn.5798604",
+   "url": "https://doi.org/10.2139/ssrn.5798604"
+  },
+  {
+   "title": "Exact Walsh–Hadamard Spectral Analysis of ML–KEM Compression Maps",
+   "authors": [
+    "Samed Bajrić"
+   ],
+   "year": 2026,
+   "venue": "Mathematics",
+   "doi": "10.3390/math14152829",
+   "url": "https://doi.org/10.3390/math14152829"
+  },
+  {
+   "title": "A Unified Hybrid ECDHE–ML-KEM-768 Key Exchange Scheme for Quantum-Resilient Mobile Communication_supp1-3727264.pdf",
+   "authors": [
+    "Widiarti Rista Maya"
+   ],
+   "year": null,
+   "venue": "",
+   "doi": "10.1109/access.2026.3727264/mm1",
+   "url": "https://doi.org/10.1109/access.2026.3727264/mm1"
+  },
+  {
+   "title": "Performance Evaluation of ML-KEM and ML-DSA Post-Quantum Algorithms in Real-World IoT Networks",
+   "authors": [
+    "Cemile İnce"
+   ],
+   "year": 2026,
+   "venue": "Sakarya University Journal of Computer and Information Sciences",
+   "doi": "10.35377/saucis...1874093",
+   "url": "https://doi.org/10.35377/saucis...1874093"
+  },
+  {
+   "title": "MLXDH: Security Hardening of Signal’s Initial Key Establishment Using ML-KEM and ML-DSA",
+   "authors": [
+    "Akash Angom",
+    "Nirmalya Kar",
+    "Tribid Debbarma",
+    "Priyanka Biswas"
+   ],
+   "year": 2025,
+   "venue": "2025 IEEE 6th India Council International Subsections Conference (INDISCON)",
+   "doi": "10.1109/indiscon66021.2025.11254562",
+   "url": "https://doi.org/10.1109/indiscon66021.2025.11254562"
+  },
+  {
+   "title": "BB84 with ML-KEM Decapsulation-Failure-Based Security Parameters",
+   "authors": [
+    "Sara Nikula",
+    "Mari Muurman"
+   ],
+   "year": 2026,
+   "venue": "Cryptography",
+   "doi": "10.3390/cryptography10050064",
+   "url": "https://doi.org/10.3390/cryptography10050064"
+  },
+  {
+   "title": "Evaluating Web-Based Post-Quantum Cryptography: A Statistical Analysis of ML-KEM-768 in Controlled Browser Environments",
+   "authors": [
+    "Samin Yasar"
+   ],
+   "year": 2026,
+   "venue": "",
+   "doi": "10.2139/ssrn.6744539",
+   "url": "https://doi.org/10.2139/ssrn.6744539"
+  }
+ ]
+}

@@ -1,0 +1,93 @@
+date,topic,database,query,total_hits,kept,file,error
+2026-11-06,T1 PQC cost on microcontrollers,dblp,post-quantum cryptography energy microcontroller,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T1 PQC cost on microcontrollers,arxiv,post-quantum cryptography energy microcontroller,4,4,arxiv_post-quantum_cryptography_energy_microcontroller.json,
+2026-11-06,T1 PQC cost on microcontrollers,crossref,post-quantum cryptography energy microcontroller,4556883,30,crossref_post-quantum_cryptography_energy_microcontroller.json,
+2026-11-06,T1 PQC cost on microcontrollers,dblp,ML-KEM ESP32,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T1 PQC cost on microcontrollers,arxiv,ML-KEM ESP32,3,3,arxiv_ML-KEM_ESP32.json,
+2026-11-06,T1 PQC cost on microcontrollers,crossref,ML-KEM ESP32,106876,30,crossref_ML-KEM_ESP32.json,
+2026-11-06,T1 PQC cost on microcontrollers,dblp,ML-DSA microcontroller,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T1 PQC cost on microcontrollers,arxiv,ML-DSA microcontroller,2,2,arxiv_ML-DSA_microcontroller.json,
+2026-11-06,T1 PQC cost on microcontrollers,crossref,ML-DSA microcontroller,62367,30,crossref_ML-DSA_microcontroller.json,
+2026-11-06,T1 PQC cost on microcontrollers,dblp,Kyber Dilithium energy IoT,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T1 PQC cost on microcontrollers,arxiv,Kyber Dilithium energy IoT,0,0,arxiv_Kyber_Dilithium_energy_IoT.json,
+2026-11-06,T1 PQC cost on microcontrollers,crossref,Kyber Dilithium energy IoT,2865772,30,crossref_Kyber_Dilithium_energy_IoT.json,
+2026-11-06,T1 PQC cost on microcontrollers,dblp,post-quantum ESP32,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T1 PQC cost on microcontrollers,arxiv,post-quantum ESP32,9,9,arxiv_post-quantum_ESP32.json,
+2026-11-06,T1 PQC cost on microcontrollers,crossref,post-quantum ESP32,1855628,30,crossref_post-quantum_ESP32.json,
+2026-11-06,T2 PQC handshake denial of service,dblp,post-quantum handshake denial of service,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T2 PQC handshake denial of service,arxiv,post-quantum handshake denial of service,0,0,arxiv_post-quantum_handshake_denial_of_service.json,
+2026-11-06,T2 PQC handshake denial of service,crossref,post-quantum handshake denial of service,2611041,30,crossref_post-quantum_handshake_denial_of_service.json,
+2026-11-06,T2 PQC handshake denial of service,dblp,post-quantum key exchange DoS,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T2 PQC handshake denial of service,arxiv,post-quantum key exchange DoS,6,6,arxiv_post-quantum_key_exchange_DoS.json,
+2026-11-06,T2 PQC handshake denial of service,crossref,post-quantum key exchange DoS,3108772,30,crossref_post-quantum_key_exchange_DoS.json,
+2026-11-06,T2 PQC handshake denial of service,dblp,handshake exhaustion attack,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T2 PQC handshake denial of service,arxiv,handshake exhaustion attack,7,7,arxiv_handshake_exhaustion_attack.json,
+2026-11-06,T2 PQC handshake denial of service,crossref,handshake exhaustion attack,102987,30,crossref_handshake_exhaustion_attack.json,
+2026-11-06,T2 PQC handshake denial of service,dblp,post-quantum TLS denial of service,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T2 PQC handshake denial of service,arxiv,post-quantum TLS denial of service,0,0,arxiv_post-quantum_TLS_denial_of_service.json,
+2026-11-06,T2 PQC handshake denial of service,crossref,post-quantum TLS denial of service,2614262,30,crossref_post-quantum_TLS_denial_of_service.json,
+2026-11-06,T3 battery exhaustion,dblp,battery exhaustion attack,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T3 battery exhaustion,arxiv,battery exhaustion attack,9,9,arxiv_battery_exhaustion_attack.json,
+2026-11-06,T3 battery exhaustion,crossref,battery exhaustion attack,260992,30,crossref_battery_exhaustion_attack.json,
+2026-11-06,T3 battery exhaustion,dblp,sleep deprivation attack,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T3 battery exhaustion,arxiv,sleep deprivation attack,5,5,arxiv_sleep_deprivation_attack.json,
+2026-11-06,T3 battery exhaustion,crossref,sleep deprivation attack,410466,30,crossref_sleep_deprivation_attack.json,
+2026-11-06,T3 battery exhaustion,dblp,energy depletion attack IoT,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T3 battery exhaustion,arxiv,energy depletion attack IoT,2,2,arxiv_energy_depletion_attack_IoT.json,
+2026-11-06,T3 battery exhaustion,crossref,energy depletion attack IoT,2998222,30,crossref_energy_depletion_attack_IoT.json,
+2026-11-06,T3 battery exhaustion,dblp,denial of sleep attack,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T3 battery exhaustion,arxiv,denial of sleep attack,0,0,arxiv_denial_of_sleep_attack.json,
+2026-11-06,T3 battery exhaustion,crossref,denial of sleep attack,386616,30,crossref_denial_of_sleep_attack.json,
+2026-11-06,T4 puzzles and cookies,dblp,client puzzles constrained devices,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T4 puzzles and cookies,arxiv,client puzzles constrained devices,0,0,arxiv_client_puzzles_constrained_devices.json,
+2026-11-06,T4 puzzles and cookies,crossref,client puzzles constrained devices,645253,30,crossref_client_puzzles_constrained_devices.json,
+2026-11-06,T4 puzzles and cookies,dblp,DoS-resistant key exchange IoT,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T4 puzzles and cookies,arxiv,DoS-resistant key exchange IoT,0,0,arxiv_DoS-resistant_key_exchange_IoT.json,
+2026-11-06,T4 puzzles and cookies,crossref,DoS-resistant key exchange IoT,1758601,30,crossref_DoS-resistant_key_exchange_IoT.json,
+2026-11-06,T4 puzzles and cookies,dblp,DTLS cookie denial of service,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T4 puzzles and cookies,arxiv,DTLS cookie denial of service,0,0,arxiv_DTLS_cookie_denial_of_service.json,
+2026-11-06,T4 puzzles and cookies,crossref,DTLS cookie denial of service,764581,30,crossref_DTLS_cookie_denial_of_service.json,
+2026-11-06,T5 learned admission,dblp,machine learning admission control handshake,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T5 learned admission,arxiv,machine learning admission control handshake,0,0,arxiv_machine_learning_admission_control_handshake.json,
+2026-11-06,T5 learned admission,crossref,machine learning admission control handshake,5890786,30,crossref_machine_learning_admission_control_handshake.json,
+2026-11-06,T5 learned admission,dblp,lightweight intrusion detection energy IoT DoS,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T5 learned admission,arxiv,lightweight intrusion detection energy IoT DoS,2,2,arxiv_lightweight_intrusion_detection_energy_IoT_DoS.json,
+2026-11-06,T5 learned admission,crossref,lightweight intrusion detection energy IoT DoS,4921751,30,crossref_lightweight_intrusion_detection_energy_IoT_DoS.json,
+2026-11-06,T6 ESP-NOW,dblp,ESP-NOW security,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T6 ESP-NOW,arxiv,ESP-NOW security,0,0,arxiv_ESP-NOW_security.json,
+2026-11-06,T6 ESP-NOW,crossref,ESP-NOW security,962874,30,crossref_ESP-NOW_security.json,
+2026-11-06,T7 energy budgets,dblp,energy budget token bucket,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T7 energy budgets,arxiv,energy budget token bucket,0,0,arxiv_energy_budget_token_bucket.json,
+2026-11-06,T7 energy budgets,crossref,energy budget token bucket,2762066,30,crossref_energy_budget_token_bucket.json,
+2026-11-06,T7 energy budgets,dblp,energy-aware denial of service defense IoT,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T7 energy budgets,arxiv,energy-aware denial of service defense IoT,0,0,arxiv_energy-aware_denial_of_service_defense_IoT.json,
+2026-11-06,T7 energy budgets,crossref,energy-aware denial of service defense IoT,3886856,30,crossref_energy-aware_denial_of_service_defense_IoT.json,
+2026-11-06,T8 join procedures,dblp,LoRaWAN join denial of service,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T8 join procedures,arxiv,LoRaWAN join denial of service,0,0,arxiv_LoRaWAN_join_denial_of_service.json,
+2026-11-06,T8 join procedures,crossref,LoRaWAN join denial of service,781016,30,crossref_LoRaWAN_join_denial_of_service.json,
+2026-11-06,T8 join procedures,dblp,Bluetooth Low Energy battery drain attack,,,,"URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))"
+2026-11-06,T8 join procedures,arxiv,Bluetooth Low Energy battery drain attack,0,0,arxiv_Bluetooth_Low_Energy_battery_drain_attack.json,
+2026-11-06,T8 join procedures,crossref,Bluetooth Low Energy battery drain attack,4393806,30,crossref_Bluetooth_Low_Energy_battery_drain_attack.json,
+2026-11-06,T1 PQC cost on microcontrollers,openalex,post-quantum cryptography energy microcontroller,1613,50,openalex_post-quantum_cryptography_energy_microcontroller.json,
+2026-11-06,T1 PQC cost on microcontrollers,openalex,ML-KEM ESP32,127,50,openalex_ML-KEM_ESP32.json,
+2026-11-06,T1 PQC cost on microcontrollers,openalex,ML-DSA microcontroller,400,50,openalex_ML-DSA_microcontroller.json,
+2026-11-06,T1 PQC cost on microcontrollers,openalex,Kyber Dilithium energy IoT,757,50,openalex_Kyber_Dilithium_energy_IoT.json,
+2026-11-06,T1 PQC cost on microcontrollers,openalex,post-quantum ESP32,731,50,openalex_post-quantum_ESP32.json,
+2026-11-06,T2 PQC handshake denial of service,openalex,post-quantum handshake denial of service,761,50,openalex_post-quantum_handshake_denial_of_service.json,
+2026-11-06,T2 PQC handshake denial of service,openalex,post-quantum key exchange DoS,11920,50,openalex_post-quantum_key_exchange_DoS.json,
+2026-11-06,T2 PQC handshake denial of service,openalex,handshake exhaustion attack,1653,50,openalex_handshake_exhaustion_attack.json,
+2026-11-06,T2 PQC handshake denial of service,openalex,post-quantum TLS denial of service,1435,50,openalex_post-quantum_TLS_denial_of_service.json,
+2026-11-06,T3 battery exhaustion,openalex,battery exhaustion attack,7966,50,openalex_battery_exhaustion_attack.json,
+2026-11-06,T3 battery exhaustion,openalex,sleep deprivation attack,37732,50,openalex_sleep_deprivation_attack.json,
+2026-11-06,T3 battery exhaustion,openalex,energy depletion attack IoT,7171,50,openalex_energy_depletion_attack_IoT.json,
+2026-11-06,T3 battery exhaustion,openalex,denial of sleep attack,44157,50,openalex_denial_of_sleep_attack.json,
+2026-11-06,T4 puzzles and cookies,openalex,client puzzles constrained devices,7238,50,openalex_client_puzzles_constrained_devices.json,
+2026-11-06,T4 puzzles and cookies,openalex,DoS-resistant key exchange IoT,4850,50,openalex_DoS-resistant_key_exchange_IoT.json,
+2026-11-06,T4 puzzles and cookies,openalex,DTLS cookie denial of service,243,50,openalex_DTLS_cookie_denial_of_service.json,
+2026-11-06,T5 learned admission,openalex,machine learning admission control handshake,1160,50,openalex_machine_learning_admission_control_handshake.json,
+2026-11-06,T5 learned admission,openalex,lightweight intrusion detection energy IoT DoS,7528,50,openalex_lightweight_intrusion_detection_energy_IoT_DoS.json,
+2026-11-06,T6 ESP-NOW,openalex,ESP-NOW security,43686,50,openalex_ESP-NOW_security.json,
+2026-11-06,T7 energy budgets,openalex,energy budget token bucket,2077,50,openalex_energy_budget_token_bucket.json,
+2026-11-06,T7 energy budgets,openalex,energy-aware denial of service defense IoT,9219,50,openalex_energy-aware_denial_of_service_defense_IoT.json,
+2026-11-06,T8 join procedures,openalex,LoRaWAN join denial of service,488,50,openalex_LoRaWAN_join_denial_of_service.json,
+2026-11-06,T8 join procedures,openalex,Bluetooth Low Energy battery drain attack,1562,50,openalex_Bluetooth_Low_Energy_battery_drain_attack.json,

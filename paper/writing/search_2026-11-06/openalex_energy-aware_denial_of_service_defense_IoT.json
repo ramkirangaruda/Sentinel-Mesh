@@ -1,0 +1,700 @@
+{
+ "database": "openalex",
+ "query": "energy-aware denial of service defense IoT",
+ "date": "2026-11-06",
+ "total": 9219,
+ "hits": [
+  {
+   "title": "Threat Analysis and Distributed Denial of Service (DDoS) Attack Recognition in the Internet of Things (IoT)",
+   "authors": [
+    "Mohammed Hasan Ali",
+    "Mustafa Musa Jaber",
+    "Sura Khalil",
+    "Amjad Ur Rehman",
+    "Mazhar Javed Awan",
+    "Robertas Damaševičius",
+    "Saeed Ali Bahaj"
+   ],
+   "year": 2022,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics11030494",
+   "url": "https://openalex.org/W4211244664",
+   "cited_by": 152
+  },
+  {
+   "title": "Mitigating Denial of Service Attacks in RPL-Based IoT Environments: Trust-Based Approach",
+   "authors": [
+    "Farag Azzedin"
+   ],
+   "year": 2023,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2023.3331030",
+   "url": "https://openalex.org/W4388642438",
+   "cited_by": 36
+  },
+  {
+   "title": "Cybersecurity challenges in IoT-based smart renewable energy",
+   "authors": [
+    "Alexandre Rekeraho",
+    "Daniel Tudor Cotfas",
+    "Petru Adrian Cotfas",
+    "Titus Bălan",
+    "Emmanuel Tuyishime",
+    "Rebecca Acheampong"
+   ],
+   "year": 2023,
+   "venue": "International Journal of Information Security",
+   "doi": "https://doi.org/10.1007/s10207-023-00732-9",
+   "url": "https://openalex.org/W4385454844",
+   "cited_by": 67
+  },
+  {
+   "title": "A Survey of Distributed Denial of Service Attacks and Defenses",
+   "authors": [
+    "Tandon, Rajat"
+   ],
+   "year": 2020,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2008.01345",
+   "url": "https://openalex.org/W3047023812",
+   "cited_by": 24
+  },
+  {
+   "title": "Blockchain Based Solutions to Mitigate Distributed Denial of Service (DDoS) Attacks in the Internet of Things (IoT): A Survey",
+   "authors": [
+    "Zawar Shah",
+    "Imdad Ullah",
+    "Huiling Li",
+    "Andrew Vakarau Levula",
+    "Khawar Khurshid"
+   ],
+   "year": 2022,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s22031094",
+   "url": "https://openalex.org/W4210631259",
+   "cited_by": 134
+  },
+  {
+   "title": "Understanding Denial of Service Attacks in IoT Sensor and Wireless Sensor Networks",
+   "authors": [
+    "Bonsa Guyo",
+    "Lucy Carolyne Wairimu Gitau"
+   ],
+   "year": 2026,
+   "venue": "International Journal of Recent Advances in Multidisciplinary Topics",
+   "doi": "https://doi.org/10.65138/ijramt.2026.v7i2.3203",
+   "url": "https://openalex.org/W7132832906",
+   "cited_by": 0
+  },
+  {
+   "title": "Identification of Critical Nodes for Enhanced Network Defense in MANET-IoT Networks",
+   "authors": [
+    "Zhao Niu",
+    "Qiang Li",
+    "Chunlai Ma",
+    "Haozhu Li",
+    "Hong Shan",
+    "Fang Yang"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.3029736",
+   "url": "https://openalex.org/W3092450451",
+   "cited_by": 38
+  },
+  {
+   "title": "A Survey of Denial-of-Service Attacks and Solutions in the Smart Grid",
+   "authors": [
+    "Alvin Huseinovic",
+    "Saša Mrdović",
+    "Kemal Biçakcı",
+    "Suleyman Uludag"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.3026923",
+   "url": "https://openalex.org/W3087958975",
+   "cited_by": 216
+  },
+  {
+   "title": "Security-Aware Provenance for Transparency in IoT Data Propagation",
+   "authors": [
+    "Fariha Tasmin Jaigirdar",
+    "Boyu Tan",
+    "Carsten Rudolph",
+    "Chris Bain"
+   ],
+   "year": 2023,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2023.3280928",
+   "url": "https://openalex.org/W4378715571",
+   "cited_by": 19
+  },
+  {
+   "title": "CNN-Based Network Intrusion Detection against Denial-of-Service Attacks",
+   "authors": [
+    "Jiyeon Kim",
+    "Jiwon Kim",
+    "Hyunjung Kim",
+    "Minsun Shim",
+    "Eunjung Choi"
+   ],
+   "year": 2020,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics9060916",
+   "url": "https://openalex.org/W3032021129",
+   "cited_by": 447
+  },
+  {
+   "title": "An Architectural Mechanism for Resilient IoT Services",
+   "authors": [
+    "Hokeun Kim",
+    "Eunsuk Kang",
+    "David Broman",
+    "Edward A. Lee"
+   ],
+   "year": 2017,
+   "venue": null,
+   "doi": "https://doi.org/10.1145/3137003.3137010",
+   "url": "https://openalex.org/W2775845333",
+   "cited_by": 13
+  },
+  {
+   "title": "Application Layer-Based Denial-of-Service Attacks Detection against IoT-CoAP",
+   "authors": [
+    "Sultan M. Almeghlef",
+    "Abdullah Saad Al-Malaise ALGhamdi",
+    "Muhammad Sher Ramzan",
+    "Mahmoud Ragab"
+   ],
+   "year": 2023,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics12122563",
+   "url": "https://openalex.org/W4379648139",
+   "cited_by": 29
+  },
+  {
+   "title": "Moving Target Defense-Based Denial-of-Service Mitigation in Cloud Environments: A Survey",
+   "authors": [
+    "Minh Nguyen",
+    "Saptarshi Debroy"
+   ],
+   "year": 2022,
+   "venue": "Security and Communication Networks",
+   "doi": "https://doi.org/10.1155/2022/2223050",
+   "url": "https://openalex.org/W4221127802",
+   "cited_by": 18
+  },
+  {
+   "title": "A Detailed Review on The Denial of Service (DoS) and Distributed Denial of Service (DDoS) Attacks in Software Defined Networks (SDNs) and Defense Strategies",
+   "authors": [
+    "Elvis Tamakloe",
+    "Benjamin Kommey",
+    "Emmanuel Akowuah",
+    "Daniel Opoku"
+   ],
+   "year": 2023,
+   "venue": "International Journal of Applied Sciences and Smart Technologies",
+   "doi": "https://doi.org/10.24071/ijasst.v5i2.6380",
+   "url": "https://openalex.org/W4390508971",
+   "cited_by": 1
+  },
+  {
+   "title": "Denial-of-Sleep Attacks against IoT Networks",
+   "authors": [
+    "Antoine Gallais",
+    "Thin-Hinen Hedli",
+    "Valéria Loscrì",
+    "Nathalie Mitton"
+   ],
+   "year": 2019,
+   "venue": "International Conference on Control, Decision and Information Technologies (CoDIT)",
+   "doi": "https://doi.org/10.1109/codit.2019.8820402",
+   "url": "https://openalex.org/W2971920366",
+   "cited_by": 22
+  },
+  {
+   "title": "Attacks and Defenses in Short-Range Wireless Technologies for IoT",
+   "authors": [
+    "Karim Lounis",
+    "Mohammad Zulkernine"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.2993553",
+   "url": "https://openalex.org/W3024606024",
+   "cited_by": 128
+  },
+  {
+   "title": "IoT Security Techniques Based on Machine Learning: How Do IoT Devices Use AI to Enhance Security?",
+   "authors": [
+    "Liang Xiao",
+    "Xiaoyue Wan",
+    "Xiaozhen Lu",
+    "Yanyong Zhang",
+    "Di Wu"
+   ],
+   "year": 2018,
+   "venue": "IEEE Signal Processing Magazine",
+   "doi": "https://doi.org/10.1109/msp.2018.2825478",
+   "url": "https://openalex.org/W2892077825",
+   "cited_by": 779
+  },
+  {
+   "title": "Evaluation Approach for Efficient Countermeasure Techniques Against Denial-of-Service Attack on MPSoC-Based IoT Using Multi-Criteria Decision-Making",
+   "authors": [
+    "Ahmed Abbas Jasim Al-Hchaimi",
+    "Nasri Sulaiman",
+    "Mohd Amrallah Mustafa",
+    "Mohd Nazim Mohtar",
+    "Siti Lailatul Mohd Hassan",
+    "Yousif Raad Muhsen"
+   ],
+   "year": 2022,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2022.3232395",
+   "url": "https://openalex.org/W4313591296",
+   "cited_by": 44
+  },
+  {
+   "title": "Cyberscurity Threats and Defense Mechanisms in IoT network",
+   "authors": [
+    "Thai Dao",
+    "Minh Nhat Nguyen",
+    "Son Tung Do",
+    "Hoang Tran"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2601.00556",
+   "url": "https://openalex.org/W7118683685",
+   "cited_by": 4
+  },
+  {
+   "title": "Denial-of-sleep attacks on IoT networks",
+   "authors": [
+    "Émilie Bout"
+   ],
+   "year": 2022,
+   "venue": null,
+   "doi": "https://doi.org/10.70675/3d9258c2z939az4e64z8535z04856954fcf3",
+   "url": "https://openalex.org/W7151489361",
+   "cited_by": 2
+  },
+  {
+   "title": "DoS and DDoS vulnerability of IoT: A review",
+   "authors": [
+    "Emina Džaferović",
+    "Ajla Sokol",
+    "Ali Abd Almisreb",
+    "Syamimi Mohd Norzeli"
+   ],
+   "year": 2019,
+   "venue": "Sustainable Engineering and Innovation",
+   "doi": "https://doi.org/10.37868/sei.v1i1.36",
+   "url": "https://openalex.org/W3010801423",
+   "cited_by": 56
+  },
+  {
+   "title": "Context-Aware Autonomous Security Assertion for Industrial IoT",
+   "authors": [
+    "Usman Tariq",
+    "Ahmad O. Aseeri",
+    "Mohammed Saeed Alkatheiri",
+    "Yu Zhuang"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.3032436",
+   "url": "https://openalex.org/W3093596903",
+   "cited_by": 23
+  },
+  {
+   "title": "Secure Wake-up Radio against Denial-of-Sleep Attacks for Wireless Multi-Hop IoT Networks",
+   "authors": [
+    "Taiki Kirigami",
+    "Noriko Matsumoto",
+    "Norihiko Yoshida"
+   ],
+   "year": 2026,
+   "venue": "International Journal of Network and Communication Research",
+   "doi": "https://doi.org/10.37745/ijncr.16/vol1019",
+   "url": "https://openalex.org/W7203635749",
+   "cited_by": 0
+  },
+  {
+   "title": "Insecurity of operational cellular IoT service",
+   "authors": [
+    "Sihan Wang",
+    "Guan-Hua Tu",
+    "Xinyu Lei",
+    "Tian Xie",
+    "Chi-Yu Li",
+    "Po-Yi Chou",
+    "Fucheng Hsieh",
+    "Yiwen Hu",
+    "Li Xiao",
+    "Chunyi Peng"
+   ],
+   "year": 2021,
+   "venue": "ACM Annual International Conference on Mobile Computing and Networking (MobiCom)",
+   "doi": "https://doi.org/10.1145/3447993.3483239",
+   "url": "https://openalex.org/W3208953084",
+   "cited_by": 14
+  },
+  {
+   "title": "Secure and Energy-Aware Cryptographic Framework for IoT-Enabled UAV Systems",
+   "authors": [
+    "Dauriya Zhaksigulova",
+    "Maksim Iavich",
+    "Saule Rakhmetullina",
+    "Kuanysh Alipbayev"
+   ],
+   "year": 2025,
+   "venue": "Symmetry",
+   "doi": "https://doi.org/10.3390/sym17111987",
+   "url": "https://openalex.org/W4416296515",
+   "cited_by": 0
+  },
+  {
+   "title": "Distributed Denial of Service Attack Detection in IoT Networks using Deep Learning and Feature Fusion: A Review",
+   "authors": [
+    "Abdulhafiz Nuhu",
+    "Anis Farihan Mat Raffei",
+    "Mohd Faizal Ab Razak",
+    "Ahmad Abubakar"
+   ],
+   "year": 2024,
+   "venue": "Mesopotamian Journal of CyberSecurity",
+   "doi": "https://doi.org/10.58496/mjcs/2024/004",
+   "url": "https://openalex.org/W4396238673",
+   "cited_by": 23
+  },
+  {
+   "title": "A Review of Denial of Service Attack and Mitigation in the Smart Grid Using Reinforcement Learning",
+   "authors": [
+    "Ines Ortega-Fernandez",
+    "Francesco Liberati"
+   ],
+   "year": 2023,
+   "venue": "Energies",
+   "doi": "https://doi.org/10.3390/en16020635",
+   "url": "https://openalex.org/W4313534169",
+   "cited_by": 94
+  },
+  {
+   "title": "DI-ADS: A Deep Intelligent Distributed Denial of Service Attack Detection Scheme for Fog-Based IoT Applications",
+   "authors": [
+    "Surya Pavan Kumar Gudla",
+    "Sourav Kumar Bhoi",
+    "Soumya Ranjan Nayak",
+    "Amit Verma"
+   ],
+   "year": 2022,
+   "venue": "Mathematical Problems in Engineering",
+   "doi": "https://doi.org/10.1155/2022/3747302",
+   "url": "https://openalex.org/W4290739294",
+   "cited_by": 32
+  },
+  {
+   "title": "Adversarial Attacks and Defenses in 6G Network-Assisted IoT Systems",
+   "authors": [
+    "Bui Duc Son",
+    "Tiến Hoa Nguyễn",
+    "Trinh Van Chien",
+    "Waqas Khalid",
+    "Mohamed Amine Ferrag",
+    "Wan Choi",
+    "Merouane Abdelkader Debbah"
+   ],
+   "year": 2024,
+   "venue": "IEEE Internet of Things Journal",
+   "doi": "https://doi.org/10.1109/jiot.2024.3373808",
+   "url": "https://openalex.org/W4392523536",
+   "cited_by": 81
+  },
+  {
+   "title": "Internet of Things (IoT) Cybersecurity: Literature Review and IoT Cyber Risk Management",
+   "authors": [
+    "In Lee"
+   ],
+   "year": 2020,
+   "venue": "Future Internet",
+   "doi": "https://doi.org/10.3390/fi12090157",
+   "url": "https://openalex.org/W3087386645",
+   "cited_by": 283
+  },
+  {
+   "title": "Security and Privacy Threats for Bluetooth Low Energy in IoT and Wearable Devices: A Comprehensive Survey",
+   "authors": [
+    "Arup Barua",
+    "Md Abdullah Al Alamin",
+    "Md. Shohrab Hossain",
+    "Ekram Hossain"
+   ],
+   "year": 2022,
+   "venue": "IEEE Open Journal of the Communications Society",
+   "doi": "https://doi.org/10.1109/ojcoms.2022.3149732",
+   "url": "https://openalex.org/W4210895381",
+   "cited_by": 159
+  },
+  {
+   "title": "Cyber-secure decentralized energy management for IoT-enabled active distribution networks",
+   "authors": [
+    "Zhiyi Li",
+    "Mohammad Shahidehpour",
+    "Xuan Liu"
+   ],
+   "year": 2018,
+   "venue": "Journal of Modern Power Systems and Clean Energy",
+   "doi": "https://doi.org/10.1007/s40565-018-0425-1",
+   "url": "https://openalex.org/W2872613152",
+   "cited_by": 85
+  },
+  {
+   "title": "A Machine Learning Security Framework for Iot Systems",
+   "authors": [
+    "Miloud Bagaa",
+    "Tarik Taleb",
+    "Jorge Bernal Bernabé",
+    "Antonio Skármeta"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2020.2996214",
+   "url": "https://openalex.org/W3026477862",
+   "cited_by": 281
+  },
+  {
+   "title": "IOT BASED BLOCKCHAIN SOLUTION: COVID-19 AND DEFENSE",
+   "authors": [
+    "Vaishali Garg",
+    "Komal Sukhija",
+    "Seema Verma"
+   ],
+   "year": 2020,
+   "venue": "International Journal of Technical Research & Science",
+   "doi": "https://doi.org/10.30780/specialissue-icaccg2020/006",
+   "url": "https://openalex.org/W3048443487",
+   "cited_by": 1
+  },
+  {
+   "title": "Widespread Characterization and Organization of Evolving Distributed Denial of Service (Ddos) Threats in Heterogeneous Internet of Things (Iot) Environments",
+   "authors": [
+    "Selvi. T."
+   ],
+   "year": 2026,
+   "venue": "Journal of Propulsion Technology",
+   "doi": null,
+   "url": "https://openalex.org/W7216938982",
+   "cited_by": 0
+  },
+  {
+   "title": "Blockchain-Integrated Secure Authentication Framework for Smart Grid IoT Using Energy-Aware Consensus Mechanisms",
+   "authors": [
+    "Omar Abdullah Saleh",
+    "Mesüt Çevik"
+   ],
+   "year": 2025,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s25216622",
+   "url": "https://openalex.org/W4415650160",
+   "cited_by": 16
+  },
+  {
+   "title": "CASA‐IoT: Scalable and context‐aware IoT access control supporting multiple users",
+   "authors": [
+    "Tiago O. Castro",
+    "Vítor Gabriel Reis Caitité",
+    "Daniel Fernandes Macedo",
+    "Aldri Luiz dos Santos"
+   ],
+   "year": 2019,
+   "venue": "International Journal of Network Management",
+   "doi": "https://doi.org/10.1002/nem.2084",
+   "url": "https://openalex.org/W2970349623",
+   "cited_by": 7
+  },
+  {
+   "title": "STATE OF THE ART ANALYSIS ON BATTERY-RELATED THREATS AND DEFENSES OF IOT DEVICES USING KITCHENHAM",
+   "authors": [
+    "Azka Ghafara Putra Agung",
+    "Aditya Pradana",
+    "Rahmat Budiarto"
+   ],
+   "year": 2024,
+   "venue": "Jurnal Teknik Informatika (Jutif)",
+   "doi": "https://doi.org/10.52436/1.jutif.2024.5.1.1567",
+   "url": "https://openalex.org/W4410468904",
+   "cited_by": 3
+  },
+  {
+   "title": "Design the IoT Botnet Defense Process for Cybersecurity in Smart City",
+   "authors": [
+    "Donghyun Kim",
+    "Seungho Jeon",
+    "Jiho Shin",
+    "Jung Taek Seo"
+   ],
+   "year": 2023,
+   "venue": "Intelligent Automation & Soft Computing",
+   "doi": "https://doi.org/10.32604/iasc.2023.040019",
+   "url": "https://openalex.org/W4386494288",
+   "cited_by": 5
+  },
+  {
+   "title": "A Survey on Energy-Aware Security Mechanisms for the Internet of Things",
+   "authors": [
+    "Peixiong He",
+    "Yi Xin Zhou",
+    "Xiao Qin"
+   ],
+   "year": 2024,
+   "venue": "Future Internet",
+   "doi": "https://doi.org/10.3390/fi16040128",
+   "url": "https://openalex.org/W4394577649",
+   "cited_by": 43
+  },
+  {
+   "title": "THE DANGER OF DENIAL OF SERVICE ATTACKS IN OPERATING SYSTEMS",
+   "authors": [
+    "Yordan Shterev",
+    "V. Andonov"
+   ],
+   "year": 2025,
+   "venue": "Высшая школа: научные исследования",
+   "doi": "https://doi.org/10.34660/inf.2025.98.13.047",
+   "url": "https://openalex.org/W4412190849",
+   "cited_by": 0
+  },
+  {
+   "title": "DDOS Attack on IOT devices",
+   "authors": [
+    "Amit Amit",
+    "Akshaya Dhingra",
+    "Anil Sangwan",
+    "Vikas Sindhu"
+   ],
+   "year": 2022,
+   "venue": "International Journal of Circuit Computing and Networking",
+   "doi": "https://doi.org/10.33545/27075923.2022.v3.i1a.41",
+   "url": "https://openalex.org/W4376486703",
+   "cited_by": 2
+  },
+  {
+   "title": "A Machine Learning Approach to Detect Denial of Sleep Attacks in Internet of Things (IoT)",
+   "authors": [
+    "Ishara Dissanayake",
+    "Anuradhi Malshika Welhenge",
+    "K.G.G. Weerasinghe"
+   ],
+   "year": 2025,
+   "venue": "IoT",
+   "doi": "https://doi.org/10.3390/iot6040071",
+   "url": "https://openalex.org/W4416458449",
+   "cited_by": 3
+  },
+  {
+   "title": "A Review of Performance, Energy and Privacy of Intrusion Detection Systems for IoT",
+   "authors": [
+    "Junaid Arshad",
+    "Muhammad Ajmal Azad",
+    "Roohi Amad",
+    "Khaled Salah",
+    "Mamoun Alazab",
+    "Razi Iqbal"
+   ],
+   "year": 2020,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics9040629",
+   "url": "https://openalex.org/W2905988697",
+   "cited_by": 112
+  },
+  {
+   "title": "Artificial intelligence-driven method for the discovery and prevention of distributed denial of service attacks",
+   "authors": [
+    "Ashraf ALDabbas",
+    "Laith H. Baniata",
+    "Bayan Al-Saaidah",
+    "Zaid Mustafa",
+    "Muath Alali",
+    "Roqia Rateb"
+   ],
+   "year": 2024,
+   "venue": "IAES International Journal of Artificial Intelligence",
+   "doi": "https://doi.org/10.11591/ijai.v14.i1.pp614-628",
+   "url": "https://openalex.org/W4404852804",
+   "cited_by": 193
+  },
+  {
+   "title": "A Survey on Resilience in the IoT",
+   "authors": [
+    "Christian Berger",
+    "Philipp Eichhammer",
+    "Hans P. Reiser",
+    "Jörg Domaschka",
+    "Franz J. Hauck",
+    "Gerhard Habiger"
+   ],
+   "year": 2021,
+   "venue": "ACM Computing Surveys",
+   "doi": "https://doi.org/10.1145/3462513",
+   "url": "https://openalex.org/W3200998187",
+   "cited_by": 93
+  },
+  {
+   "title": "Blockchain's adoption in IoT: The challenges, and a way forward",
+   "authors": [
+    "Imran Makhdoom",
+    "Mehran Abolhasan",
+    "Haider Abbas",
+    "Wei Ni"
+   ],
+   "year": 2018,
+   "venue": "Journal of Network and Computer Applications",
+   "doi": "https://doi.org/10.1016/j.jnca.2018.10.019",
+   "url": "https://openalex.org/W2899354183",
+   "cited_by": 507
+  },
+  {
+   "title": "IoT: Communication protocols and security threats",
+   "authors": [
+    "Apostolos Gerodimos",
+    "Leandros A. Maglaras",
+    "Mohamed Amine Ferrag",
+    "Nick Ayres",
+    "Ioanna Kantzavelou"
+   ],
+   "year": 2023,
+   "venue": "Internet of Things and Cyber-Physical Systems",
+   "doi": "https://doi.org/10.1016/j.iotcps.2022.12.003",
+   "url": "https://openalex.org/W4313529598",
+   "cited_by": 184
+  },
+  {
+   "title": "Secure Software Engineering for Industrial IoT: A Comprehensive Review of Threat Modeling and Defense Mechanisms",
+   "authors": [
+    "A Ali",
+    "Misbah Ali",
+    "Uqba Mushtaq",
+    "Malik Arslan Akram"
+   ],
+   "year": 2025,
+   "venue": "ICCK Journal of Software Engineering",
+   "doi": "https://doi.org/10.62762/jse.2025.834259",
+   "url": "https://openalex.org/W4415818594",
+   "cited_by": 3
+  },
+  {
+   "title": "Channel Access in Wireless Networks: Protocol Design of Energy-Aware Schemes for the IoT and Analysis of Existing Technologies",
+   "authors": [
+    "Chiara Pielli"
+   ],
+   "year": 2018,
+   "venue": "Padua@research (University of Padova)",
+   "doi": null,
+   "url": "https://openalex.org/W2996847726",
+   "cited_by": 0
+  }
+ ]
+}

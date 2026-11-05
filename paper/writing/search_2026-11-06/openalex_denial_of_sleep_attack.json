@@ -1,0 +1,640 @@
+{
+ "database": "openalex",
+ "query": "denial of sleep attack",
+ "date": "2026-11-06",
+ "total": 44157,
+ "hits": [
+  {
+   "title": "Wireless sensor network denial of sleep attack",
+   "authors": [
+    "Michael I. Brownfield",
+    "Yatharth Gupta",
+    "N.J. Davis"
+   ],
+   "year": 2005,
+   "venue": "IEEE SMC Information Assurance Workshop (IAW)",
+   "doi": "https://doi.org/10.1109/iaw.2005.1495974",
+   "url": "https://openalex.org/W2112274222",
+   "cited_by": 116
+  },
+  {
+   "title": "Effects of Denial-of-Sleep Attacks on Wireless Sensor Network MAC Protocols",
+   "authors": [
+    "David Raymond",
+    "Randy C. Marchany",
+    "Michael I. Brownfield",
+    "Scott F. Midkiff"
+   ],
+   "year": 2009,
+   "venue": "IEEE Transactions on Vehicular Technology",
+   "doi": "https://doi.org/10.1109/tvt.2008.921621",
+   "url": "https://openalex.org/W2004235835",
+   "cited_by": 212
+  },
+  {
+   "title": "AMC Model for Denial of Sleep Attack Detection",
+   "authors": [
+    "Tapalina Bhattasali",
+    "Rituparna Chaki"
+   ],
+   "year": 2012,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.1203.1777",
+   "url": "https://openalex.org/W2398714481",
+   "cited_by": 18
+  },
+  {
+   "title": "Denial-of-Sleep Attacks against IoT Networks",
+   "authors": [
+    "Antoine Gallais",
+    "Thin-Hinen Hedli",
+    "Valéria Loscrì",
+    "Nathalie Mitton"
+   ],
+   "year": 2019,
+   "venue": "International Conference on Control, Decision and Information Technologies (CoDIT)",
+   "doi": "https://doi.org/10.1109/codit.2019.8820402",
+   "url": "https://openalex.org/W2971920366",
+   "cited_by": 22
+  },
+  {
+   "title": "Countering Three Denial-of-Sleep Attacks on ContikiMAC",
+   "authors": [
+    "Konrad-Felix Krentz",
+    "Christoph Meinel",
+    "Hendrik Graupner"
+   ],
+   "year": 2017,
+   "venue": "International Conference on Embedded Wireless Systems and Networks",
+   "doi": "https://doi.org/10.5555/3108009.3108024",
+   "url": "https://openalex.org/W2724619822",
+   "cited_by": 14
+  },
+  {
+   "title": "Effects of Denial of Sleep Attacks on Wireless Sensor Network MAC Protocols",
+   "authors": [
+    "David Raymond",
+    "Randy C. Marchany",
+    "Michael I. Brownfield",
+    "Scott F. Midkiff"
+   ],
+   "year": 2006,
+   "venue": "IEEE SMC Information Assurance Workshop (IAW)",
+   "doi": "https://doi.org/10.1109/iaw.2006.1652109",
+   "url": "https://openalex.org/W2098410227",
+   "cited_by": 41
+  },
+  {
+   "title": "Denial of Sleep attacks in Bluetooth Low Energy wireless sensor networks",
+   "authors": [
+    "Jason Uher",
+    "Ryan G Mennecke",
+    "Bassam S. Farroha"
+   ],
+   "year": 2016,
+   "venue": "IEEE Military Communications Conference (MILCOM)",
+   "doi": "https://doi.org/10.1109/milcom.2016.7795499",
+   "url": "https://openalex.org/W2562173206",
+   "cited_by": 28
+  },
+  {
+   "title": "A Survey on Prevention Approaches for Denial of Sleep Attacks in Wireless Networks",
+   "authors": [
+    "G.S. Mahalakshmi",
+    "P. Subathra"
+   ],
+   "year": 2014,
+   "venue": "Journal of Emerging Technologies in Web Intelligence",
+   "doi": "https://doi.org/10.4304/jetwi.6.1.106-110",
+   "url": "https://openalex.org/W2063479338",
+   "cited_by": 5
+  },
+  {
+   "title": "Denial-of-sleep attacks on IoT networks",
+   "authors": [
+    "Émilie Bout"
+   ],
+   "year": 2022,
+   "venue": null,
+   "doi": "https://doi.org/10.70675/3d9258c2z939az4e64z8535z04856954fcf3",
+   "url": "https://openalex.org/W7151489361",
+   "cited_by": 2
+  },
+  {
+   "title": "Security from Denial of Sleep Attack in Wireless Sensor Network",
+   "authors": [
+    "Simerpreet Kaur",
+    "Md. Ataullah",
+    "Monika Garg"
+   ],
+   "year": 2005,
+   "venue": "INTERNATIONAL JOURNAL OF COMPUTERS & TECHNOLOGY",
+   "doi": "https://doi.org/10.24297/ijct.v4i2b1.3230",
+   "url": "https://openalex.org/W838767333",
+   "cited_by": 3
+  },
+  {
+   "title": "An Effective Scheme for Defending Denial-of-Sleep Attack in Wireless Sensor Networks",
+   "authors": [
+    "Chen Chen",
+    "Hui Li",
+    "Qingqi Pei",
+    "Lv Ning",
+    "Qingquan Peng"
+   ],
+   "year": 2009,
+   "venue": "International Conference on Information Assurance and Security (IAS)",
+   "doi": "https://doi.org/10.1109/ias.2009.33",
+   "url": "https://openalex.org/W2085986472",
+   "cited_by": 23
+  },
+  {
+   "title": "Conservation of Energy in Wireless Sensor Network by Preventing Denial of Sleep Attack",
+   "authors": [
+    "Swapna Naik",
+    "Narendra M. Shekokar"
+   ],
+   "year": 2015,
+   "venue": "Procedia Computer Science",
+   "doi": "https://doi.org/10.1016/j.procs.2015.03.164",
+   "url": "https://openalex.org/W2088718752",
+   "cited_by": 23
+  },
+  {
+   "title": "Identification and Simulation of a Denial-of-Sleep Attack on Open Metering System",
+   "authors": [
+    "Stefan G. Hoffmann",
+    "Gerd Bumiller"
+   ],
+   "year": 2019,
+   "venue": "IEEE PES Innovative Smart Grid Technologies Europe",
+   "doi": "https://doi.org/10.1109/isgteurope.2019.8905768",
+   "url": "https://openalex.org/W2989639107",
+   "cited_by": 3
+  },
+  {
+   "title": "Clustered Adaptive Rate Limiting: Defeating Denial-of-Sleep Attacks in Wireless Sensor Networks",
+   "authors": [
+    "David Raymond",
+    "Scott F. Midkiff"
+   ],
+   "year": 2007,
+   "venue": "IEEE Military Communications Conference (MILCOM)",
+   "doi": "https://doi.org/10.1109/milcom.2007.4455251",
+   "url": "https://openalex.org/W2101363008",
+   "cited_by": 30
+  },
+  {
+   "title": "A Survey on the Solutions for the Problems of Denial of sleep Attacks",
+   "authors": [
+    "Ram Ram",
+    "eepKaur",
+    "Vinodsharma"
+   ],
+   "year": 2014,
+   "venue": "International Journal of Innovative Research in Computer and Communication Engineering",
+   "doi": null,
+   "url": "https://openalex.org/W2553286460",
+   "cited_by": 2
+  },
+  {
+   "title": "GA-DoSLD: Genetic Algorithm Based Denial-of-Sleep Attack Detection in WSN",
+   "authors": [
+    "Mahalakshmi Gunasekaran",
+    "Subathra Periakaruppan"
+   ],
+   "year": 2017,
+   "venue": "Security and Communication Networks",
+   "doi": "https://doi.org/10.1155/2017/9863032",
+   "url": "https://openalex.org/W2579167848",
+   "cited_by": 20
+  },
+  {
+   "title": "Defending Against Denial of Sleep Attack in Wireless Sensor Network",
+   "authors": [
+    "Manju V.C",
+    "Dr.Sasi Kumar."
+   ],
+   "year": 2013,
+   "venue": "INTERNATIONAL JOURNAL OF COMPUTERS & TECHNOLOGY",
+   "doi": "https://doi.org/10.24297/ijct.v9i2.4164",
+   "url": "https://openalex.org/W2737561120",
+   "cited_by": 0
+  },
+  {
+   "title": "Mechanisms for detecting and preventing denial of sleep attacks on wireless sensor networks",
+   "authors": [
+    "V. C. Manju",
+    "S. L. Senthil Lekha",
+    "M. Sasi Kumar"
+   ],
+   "year": 2013,
+   "venue": "IEEE Conference on Information and Communication Technologies (ICT)",
+   "doi": "https://doi.org/10.1109/cict.2013.6558065",
+   "url": "https://openalex.org/W2062831425",
+   "cited_by": 10
+  },
+  {
+   "title": "Detecting denial of sleep attacks by analysis of wireless sensor networks and the Internet of Things",
+   "authors": [
+    "R. Rita Jenifer",
+    "V.S.J. Prakash"
+   ],
+   "year": 2023,
+   "venue": "THE SCIENTIFIC TEMPER",
+   "doi": "https://doi.org/10.58414/scientifictemper.2023.14.4.52",
+   "url": "https://openalex.org/W4391290476",
+   "cited_by": 3
+  },
+  {
+   "title": "Swarm Based Defense Technique for Denial-of-Sleep Attacks in Wireless Sensor Networks",
+   "authors": [
+    "S. Periyanayagi",
+    "V. Sumathy"
+   ],
+   "year": 2013,
+   "venue": "International Review on Computers and Software (IRECOS)",
+   "doi": "https://doi.org/10.15866/irecos.v8i6.3276",
+   "url": "https://openalex.org/W2264193449",
+   "cited_by": 5
+  },
+  {
+   "title": "Securing the Wireless Sensor Network from Denial of Sleep attack by isolating the Nodes",
+   "authors": [
+    "Simerpreet Kaur",
+    "Md. Ataullah"
+   ],
+   "year": 2014,
+   "venue": "International Journal of Computer Applications",
+   "doi": "https://doi.org/10.5120/18040-8920",
+   "url": "https://openalex.org/W2121115523",
+   "cited_by": 5
+  },
+  {
+   "title": "Machine learning-based detection of Denial-of-Sleep attacks in wireless sensor networks",
+   "authors": [
+    "Vasily Alekseevich Desnitsky"
+   ],
+   "year": 2022,
+   "venue": "LETI Transactions on Electrical Engineering & Computer Science",
+   "doi": "https://doi.org/10.32603/2071-8985-2022-15-5/6-32-40",
+   "url": "https://openalex.org/W4386903712",
+   "cited_by": 0
+  },
+  {
+   "title": "Counteracting Denial-of-Sleep Attacks in Wake-Up-Radio-Based Sensing Systems",
+   "authors": [
+    "Angelo Capossele",
+    "Valerio Cervo",
+    "Chiara Petrioli B",
+    "Dora Spenza"
+   ],
+   "year": 2016,
+   "venue": "IEEE International Conference on Sensing, Communication, and Networking (SECON)",
+   "doi": "https://doi.org/10.1109/sahcn.2016.7732978",
+   "url": "https://openalex.org/W2468009514",
+   "cited_by": 35
+  },
+  {
+   "title": "Performance Analysis of Denial-of-Sleep Attack-Prone MAC Protocols in Wireless Sensor Networks",
+   "authors": [
+    "Ekereuke Udoh",
+    "Vladimir Getov"
+   ],
+   "year": 2018,
+   "venue": "UKSim International Conference on Computer Modelling and Simulation (UKSim)",
+   "doi": "https://doi.org/10.1109/uksim.2018.00038",
+   "url": "https://openalex.org/W2804959787",
+   "cited_by": 10
+  },
+  {
+   "title": "Securing Wireless Sensor Networks Against Denial‐of‐Sleep Attacks Using RSA Cryptography Algorithm and Interlock Protocol",
+   "authors": [
+    "Reza Fotohi",
+    "Somayyeh Firoozi Bari",
+    "Yusefi Mehdi"
+   ],
+   "year": 2019,
+   "venue": "International Journal of Communication Systems",
+   "doi": "https://doi.org/10.1002/dac.4234",
+   "url": "https://openalex.org/W2990880729",
+   "cited_by": 98
+  },
+  {
+   "title": "Genetic Algorithm Based Denial of Sleep Attack Detection in WSN",
+   "authors": [
+    "Prof. Sucheta Raut",
+    "Priyanka Ghodmare",
+    "Nidhi Meshram",
+    "Mangesh Jibhkate",
+    "Vaibhao Bele",
+    "Pranoti Girhe"
+   ],
+   "year": 2018,
+   "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+   "doi": "https://doi.org/10.5281/zenodo.21567813",
+   "url": "https://openalex.org/W7171130173",
+   "cited_by": 0
+  },
+  {
+   "title": "Modeling and Detection of Denial-of-Sleep Attacks on Autonomous IoT Devices in Wireless Sensor Networks",
+   "authors": [
+    "Vasily Alekseevich Desnitsky"
+   ],
+   "year": 2022,
+   "venue": "Internet of things",
+   "doi": "https://doi.org/10.1007/978-3-031-21940-5_5",
+   "url": "https://openalex.org/W4366504590",
+   "cited_by": 2
+  },
+  {
+   "title": "Denial-of-Sleep Attack Detection in NB-IoT Using Deep Learning",
+   "authors": [
+    "Tahani Bani-Yaseen",
+    "Ashraf A. Tahat",
+    "Kira Kastell",
+    "Talal A. Edwan"
+   ],
+   "year": 2022,
+   "venue": "Journal of Telecommunications and the Digital Economy",
+   "doi": "https://doi.org/10.18080/jtde.v10n3.532",
+   "url": "https://openalex.org/W4296816705",
+   "cited_by": 6
+  },
+  {
+   "title": "A novel countermeasure technique to protect WSN against denial-of-sleep attacks using firefly and Hopfield neural network (HNN) algorithms",
+   "authors": [
+    "Reza Fotohi",
+    "Somayyeh Firoozi Bari"
+   ],
+   "year": 2020,
+   "venue": "The Journal of Supercomputing",
+   "doi": "https://doi.org/10.1007/s11227-019-03131-x",
+   "url": "https://openalex.org/W2998835287",
+   "cited_by": 78
+  },
+  {
+   "title": "IMPLEMENTATION OF A MITIGATION STRATEGY FOR DENIAL OF SLEEP ATTACK AT NETWORK ORGANIZATION LEVEL IN WIRELESS SENSOR NETWORKS",
+   "authors": [
+    "Mairo Shua'ibu",
+    "Isah Rambo Saidu",
+    "Abayomi Jegede",
+    "A Oloyede",
+    "Marcus Musa Magaji",
+    "Jessie Mazadu"
+   ],
+   "year": 2022,
+   "venue": "Journal of Advanced Computing Technology and Application (JACTA)",
+   "doi": "https://doi.org/10.54554/jacta.2022.04.02.002",
+   "url": "https://openalex.org/W4412079185",
+   "cited_by": 0
+  },
+  {
+   "title": "A Cross Layer Energy Efficient Security Mechanism for Denial of Sleep Attacks on Wireless Sensor Network",
+   "authors": [
+    "Djallel Eddine Boubiche",
+    "Azeddine Bilami",
+    "Samir Athmani"
+   ],
+   "year": 2012,
+   "venue": "Communications in computer and information science",
+   "doi": "https://doi.org/10.1007/978-3-642-30567-2_13",
+   "url": "https://openalex.org/W190487970",
+   "cited_by": 2
+  },
+  {
+   "title": "HIPS: Hierarchical Intrusion Prevention System for Conquering Denial of Sleep Attacks in Internet of Things",
+   "authors": [
+    "A. Jahir Husain",
+    "M. A. Maluk Mohamed"
+   ],
+   "year": 2017,
+   "venue": "Asian Journal of Research in Social Sciences and Humanities",
+   "doi": "https://doi.org/10.5958/2249-7315.2017.00225.8",
+   "url": "https://openalex.org/W2603839942",
+   "cited_by": 1
+  },
+  {
+   "title": "IMBF - Counteracting Denial-of-Sleep Attacks in 6LowPAN Based Internet of Things.",
+   "authors": [
+    "Akhtar Husain",
+    "M. A. Maluk Mohamed"
+   ],
+   "year": 2019,
+   "venue": "Journal of information science and engineering",
+   "doi": null,
+   "url": "https://openalex.org/W2929722887",
+   "cited_by": 7
+  },
+  {
+   "title": "An Energy Aware and Secure MAC Protocol for Tackling Denial of Sleep Attacks in Wireless Sensor Networks",
+   "authors": [
+    "Ekereuke Udoh"
+   ],
+   "year": 2019,
+   "venue": "WestminsterResearch (University of Westminster)",
+   "doi": "https://doi.org/10.34737/qz08w",
+   "url": "https://openalex.org/W3044845375",
+   "cited_by": 0
+  },
+  {
+   "title": "Secure Wake-up Radio against Denial-of-Sleep Attacks for Wireless Multi-Hop IoT Networks",
+   "authors": [
+    "Taiki Kirigami",
+    "Noriko Matsumoto",
+    "Norihiko Yoshida"
+   ],
+   "year": 2026,
+   "venue": "International Journal of Network and Communication Research",
+   "doi": "https://doi.org/10.37745/ijncr.16/vol1019",
+   "url": "https://openalex.org/W7203635749",
+   "cited_by": 0
+  },
+  {
+   "title": "A Machine Learning Approach to Detect Denial of Sleep Attacks in Internet of Things (IoT)",
+   "authors": [
+    "Ishara Dissanayake",
+    "Anuradhi Malshika Welhenge",
+    "K.G.G. Weerasinghe"
+   ],
+   "year": 2025,
+   "venue": "IoT",
+   "doi": "https://doi.org/10.3390/iot6040071",
+   "url": "https://openalex.org/W4416458449",
+   "cited_by": 3
+  },
+  {
+   "title": "Energy-Efficient Framework to Mitigate Denial of Sleep Attacks in Wireless Body Area Networks",
+   "authors": [
+    "Mayyda Mukhtar",
+    "Muhammad Hanif Lashari",
+    "Musaed A. Alhussein",
+    "Sarang Karim",
+    "Khursheed Aurangzeb"
+   ],
+   "year": 2024,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2024.3453997",
+   "url": "https://openalex.org/W4402187064",
+   "cited_by": 13
+  },
+  {
+   "title": "A Novel Hybrid HNN and Firefly Algorithm to Overcome Denial of Sleep Attack on Wireless Sensor Nodes",
+   "authors": [
+    "B Vivekanandam"
+   ],
+   "year": 2021,
+   "venue": "Journal of Ubiquitous Computing and Communication Technologies",
+   "doi": "https://doi.org/10.36548/jucct.2020.4.006",
+   "url": "https://openalex.org/W3121113735",
+   "cited_by": 4
+  },
+  {
+   "title": "Vulnerability Analysis and Detection Mechanism against Denial of Sleep Attacks in Sensor Network based on IEEE 802.15.4",
+   "authors": [
+    "A-Reum Kim",
+    "Mi-Hui Kim",
+    "Kijoon Chae"
+   ],
+   "year": 2010,
+   "venue": "The KIPS Transactions PartC",
+   "doi": "https://doi.org/10.3745/kipstc.2010.17c.1.001",
+   "url": "https://openalex.org/W2085476950",
+   "cited_by": 0
+  },
+  {
+   "title": "Approach to Detection of Denial-of-Sleep Attacks in Wireless Sensor Networks on the Base of Machine Learning",
+   "authors": [
+    "Anastasia Balueva",
+    "Vasily Alekseevich Desnitsky",
+    "Igor Ushakov"
+   ],
+   "year": 2019,
+   "venue": "Studies in computational intelligence",
+   "doi": "https://doi.org/10.1007/978-3-030-32258-8_41",
+   "url": "https://openalex.org/W2978200349",
+   "cited_by": 11
+  },
+  {
+   "title": "Securing wake up radio for green wireless sensor networks against denial of sleep attacks",
+   "authors": [
+    "Rachid Zagrouba",
+    "Amine Kardi"
+   ],
+   "year": 2021,
+   "venue": "International Journal of Sensor Networks",
+   "doi": "https://doi.org/10.1504/ijsnet.2021.10039560",
+   "url": "https://openalex.org/W3182994051",
+   "cited_by": 2
+  },
+  {
+   "title": "A generation of dataset towards an Anomaly-Based Intrusion Detection System to detect Denial of Sleep Attacks in Internet of Things (IoT)",
+   "authors": [
+    "Ishara Dissanayake",
+    "Hesiri Weerasinghe",
+    "Anuradhi Malshika Welhenge"
+   ],
+   "year": 2022,
+   "venue": "International Conference on Advances in ICT for Emerging Regions",
+   "doi": "https://doi.org/10.1109/icter58063.2022.10024090",
+   "url": "https://openalex.org/W4318002278",
+   "cited_by": 3
+  },
+  {
+   "title": "DEFENDING AGAINST DENIAL OF SLEEP ATTACK IN B-MAC PROTOCOL IN WIRELESS SENSOR NETWORK",
+   "authors": [
+    "Manju V.C",
+    "S. Tanuz Kumar"
+   ],
+   "year": 2013,
+   "venue": "International Journal on Information Sciences and Computing",
+   "doi": "https://doi.org/10.18000/ijisac.50138",
+   "url": "https://openalex.org/W2350217715",
+   "cited_by": 0
+  },
+  {
+   "title": "A Hybrid Cryptographic and Token-based Framework to Mitigate Denial-of-sleep Attacks in Wireless Sensor Networks",
+   "authors": [
+    "Jibin Joy"
+   ],
+   "year": 2025,
+   "venue": "Research Square",
+   "doi": "https://doi.org/10.21203/rs.3.rs-8103226/v1",
+   "url": "https://openalex.org/W4416716743",
+   "cited_by": 0
+  },
+  {
+   "title": "Denial-of-Service in Wireless Sensor Networks: Attacks and Defenses",
+   "authors": [
+    "David Raymond",
+    "Scott F. Midkiff"
+   ],
+   "year": 2008,
+   "venue": "IEEE Pervasive Computing",
+   "doi": "https://doi.org/10.1109/mprv.2008.6",
+   "url": "https://openalex.org/W2142100695",
+   "cited_by": 462
+  },
+  {
+   "title": "Denial-of-sleep defenses for IEEE 802.15.4 coordinated sampled listening (CSL)",
+   "authors": [
+    "Konrad-Felix Krentz",
+    "Christoph Meinel"
+   ],
+   "year": 2018,
+   "venue": "Computer Networks",
+   "doi": "https://doi.org/10.1016/j.comnet.2018.10.021",
+   "url": "https://openalex.org/W2898924899",
+   "cited_by": 11
+  },
+  {
+   "title": "Performance analysis of sleeping attacks in wireless sensor networks",
+   "authors": [
+    "Шахов Владимир Владимирович",
+    "Vladimir Popkov"
+   ],
+   "year": 2008,
+   "venue": "IEEE Region International Conference on Computational Technologies in Electrical and Electronics Engineering",
+   "doi": "https://doi.org/10.1109/sibircon.2008.4602623",
+   "url": "https://openalex.org/W2117102715",
+   "cited_by": 10
+  },
+  {
+   "title": "Denial of Sleeping: Performance Analysis and Counteracting Strategy",
+   "authors": [
+    "Шахов Владимир Владимирович",
+    "Hyunseung Choo"
+   ],
+   "year": 2008,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-540-70585-7_5",
+   "url": "https://openalex.org/W1844875900",
+   "cited_by": 1
+  },
+  {
+   "title": "Denial-of-Sleep-Resilient Session Key Establishment for IEEE 802.15.4 Security: From Adaptive to Responsive",
+   "authors": [
+    "Christoph Meinel Konrad-Felix Krentz",
+    "Hendrik Graupner"
+   ],
+   "year": 2018,
+   "venue": "International Conference on Embedded Wireless Systems and Networks",
+   "doi": "https://doi.org/10.5555/3234847.3234852",
+   "url": "https://openalex.org/W2887641652",
+   "cited_by": 1
+  },
+  {
+   "title": "A Novel SVM Based IDS for Distributed Denial of Sleep Strike in Wireless Sensor Networks",
+   "authors": [
+    "Noor Mohd",
+    "Annapurna Singh",
+    "H.S. Bhadauria"
+   ],
+   "year": 2019,
+   "venue": "Wireless Personal Communications",
+   "doi": "https://doi.org/10.1007/s11277-019-06969-9",
+   "url": "https://openalex.org/W2990855986",
+   "cited_by": 43
+  }
+ ]
+}

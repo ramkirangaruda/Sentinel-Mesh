@@ -92,3 +92,43 @@ search WORK_SPLIT asks for.**
 4. Look for energy-denial work on LoRaWAN/BLE/Zigbee join procedures (the same shape: an unauthenticated request
    that triggers expensive work).
 5. Citation keys: add a `references.bib` once the venue (and so the format) is chosen.
+
+## 7. Structured search, 2026-11-06 (replaces section 5 as the search the paper describes)
+**Script:** `paper/analysis/related_search.py`. **Raw results and log:** `paper/writing/search_2026-11-06/` (one JSON per database
+and query, `log.csv` with date, query and hit count).
+
+- **Databases:** OpenAlex (top 50 per query), arXiv (all words must match, up to 50), Crossref (top 30 by relevance). DBLP
+  was tried first but answered automated requests with a bot check, so it is logged as failed and OpenAlex stands in.
+- **Queries:** 24 fixed strings over eight topics, listed in the script: PQC cost on microcontrollers, PQC handshake
+  DoS, battery exhaustion, puzzles and cookies, learned admission, ESP-NOW, energy budgets, join procedures.
+- **Screening:** 1,542 unique titles after removing duplicates. A keyword filter kept 329, and one author (Claude, for
+  Chaitanya) read those titles. A paper was included if it measured or defended against energy or compute exhaustion
+  caused by requests to a device or key exchange, or measured PQC cost on an ESP32-class device. The abstracts of
+  included papers were read through OpenAlex or Crossref. Full texts were not read.
+- **Resolved:** Hristozov et al. (section 1's missing anchor) is *Protecting RESTful IoT Devices from Battery Exhaustion
+  DoS Attacks*, IEEE HOST 2020 (arXiv 1911.08134). Karcz et al. (P1) is confirmed: PLOS ONE 21(8), 2026,
+  doi 10.1371/journal.pone.0355179. It had briefly been removed from the paper on 11-06 because PLOS's search page blocks
+  automated queries.
+
+**Added to the paper:**
+
+| Key | Paper | Why it is cited |
+|---|---|---|
+| hristozov | Hristozov, Huber, Sigl. HOST 2020 | Battery exhaustion through costly requests to an IoT device, including compromised requesters; throttling through a trusted backend. Closest prior defence. |
+| krentz | Krentz, Meinel, Graupner. EWSN 2018 | Injected session-key-establishment requests drain 802.15.4 nodes; evaluates a symmetric scheme's defences. Closest prior attack shape. |
+| martin | Martin, Hsiao, Ha, Krishnaswami. PerCom 2004 | "Service request" power attacks: the victim spends energy deciding whether to honour a request. |
+| raymond | Raymond et al. IEEE TVT 58(1), 2009 | Denial of sleep against MAC protocols. |
+| kuaban | Kuaban et al. Sensors 23(13), 2023 | Battery depletion attack modelling. |
+| sammo | Sammo et al. Electronics 15(15), 2026 | Post-quantum signature substitution as a CPU amplification attack on TLS servers. |
+| darzi | Darzi, Yavuz. MILCOM 2024 | Post-quantum counter-DoS framework for spectrum access. |
+| tiloca | Tiloca, Gehrmann, Seitz. IJIS 16, 2017 | DoS resistance of the DTLS handshake for constrained devices. |
+| aura | Aura, Nikander, Leiwo. SPW 2000 (LNCS 2001) | Client puzzles. |
+| segatz | Segatz, Al Hafiz. arXiv 2503.10207 | Kyber on the ESP32. |
+| benahmed | Ben Ahmed, Labrecque, Meddeb. CCECE 2026 | PQ signature benchmarks on ESP32 and Raspberry Pi. |
+
+**Seen and not cited**, as they fall outside the paper's angle: generic PQC-for-IoT surveys and frameworks; QKD denial
+of service; WSN denial-of-sleep detectors (many, mostly MAC or clustering level); QUIC handshake-flood mitigations
+(server side); ESP-NOW application papers (none on its security under attack).
+
+**What the paper may now say:** the search, its date, databases and screening are stated in Section II. The "no prior
+measurement" sentence stays, qualified as a title screen by one author, not a full systematic review.

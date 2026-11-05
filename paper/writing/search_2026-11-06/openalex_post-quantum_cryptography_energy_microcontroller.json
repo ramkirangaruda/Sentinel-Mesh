@@ -1,0 +1,677 @@
+{
+ "database": "openalex",
+ "query": "post-quantum cryptography energy microcontroller",
+ "date": "2026-11-06",
+ "total": 1613,
+ "hits": [
+  {
+   "title": "Power Analysis of Post-quantum Cryptography NIST Algorithms in Resource-Constrained Microcontroller",
+   "authors": [
+    "Gennaro Pio Rimoli",
+    "Luigi Gallo",
+    "Pietro Fusco",
+    "Massimo Ficco"
+   ],
+   "year": 2025,
+   "venue": "Lecture notes on data engineering and communications technologies",
+   "doi": "https://doi.org/10.1007/978-3-031-87784-1_15",
+   "url": "https://openalex.org/W4409618220",
+   "cited_by": 1
+  },
+  {
+   "title": "Efficiency Analysis of Lightweight Post-Quantum Cryptographic Algorithms",
+   "authors": [
+    "Andrei Istrate",
+    "Dan Avram",
+    "Iulian Aciobăniţei"
+   ],
+   "year": 2025,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-031-87760-5_9",
+   "url": "https://openalex.org/W4412651540",
+   "cited_by": 1
+  },
+  {
+   "title": "Securing the future internet of things with post‐quantum cryptography",
+   "authors": [
+    "Adarsh Kumar",
+    "Carlo Ottaviani",
+    "Sukhpal Singh Gill",
+    "Rajkumar Buyya"
+   ],
+   "year": 2021,
+   "venue": "Security and Privacy",
+   "doi": "https://doi.org/10.1002/spy2.200",
+   "url": "https://openalex.org/W4200100773",
+   "cited_by": 115
+  },
+  {
+   "title": "Status report on the third round of the NIST Post-Quantum Cryptography Standardization process",
+   "authors": [
+    "Gorjan Alagic",
+    "Daniel Apon",
+    "David A. Cooper",
+    "Quynh H. Dang",
+    "Thinh Dang",
+    "John M. Kelsey",
+    "Jacob Lichtinger",
+    "Yi-Kai Liu",
+    "Carl A. Miller",
+    "Dustin Moody",
+    "René Peralta",
+    "Ray A. Perlner",
+    "Angela Robinson",
+    "Daniel Smith-Tone"
+   ],
+   "year": 2022,
+   "venue": null,
+   "doi": "https://doi.org/10.6028/nist.ir.8413",
+   "url": "https://openalex.org/W4226075590",
+   "cited_by": 452
+  },
+  {
+   "title": "Post-Quantum Cryptographic Algorithm Performance on IoT Devices",
+   "authors": [
+    "Siddharth"
+   ],
+   "year": 2025,
+   "venue": "International Journal of Advanced Research in Computer Science and Engineering",
+   "doi": null,
+   "url": "https://openalex.org/W7217506845",
+   "cited_by": 0
+  },
+  {
+   "title": "Mobile Energy Requirements of the Upcoming NIST Post-Quantum Cryptography Standards",
+   "authors": [
+    "Markku-Juhani Olavi Saarinen"
+   ],
+   "year": 2020,
+   "venue": "IEEE International Conference on Mobile Cloud Computing, Services, and Engineering (MobileCloud)",
+   "doi": "https://doi.org/10.1109/mobilecloud48802.2020.00012",
+   "url": "https://openalex.org/W2991233179",
+   "cited_by": 32
+  },
+  {
+   "title": "Post-Quantum Cryptography: Current state and quantum mitigation",
+   "authors": [
+    "Ward Beullens",
+    "Jan-Pieter D’Anvers",
+    "Andreas Hülsing",
+    "Tanja Lange",
+    "Lorenz Panny",
+    "Cyprien Delpech de Saint Guilhem",
+    "Nigel Paul Smart"
+   ],
+   "year": 2021,
+   "venue": "TU/e Research Portal",
+   "doi": "https://doi.org/10.2824/92307",
+   "url": "https://openalex.org/W3185288957",
+   "cited_by": 35
+  },
+  {
+   "title": "Status report on the third round of the NIST Post-Quantum Cryptography Standardization process",
+   "authors": [
+    "Gorjan Alagic",
+    "Daniel Apon",
+    "David A. Cooper",
+    "Quynh H. Dang",
+    "Thinh Dang",
+    "John M. Kelsey",
+    "Jacob Lichtinger",
+    "Yi-Kai Liu",
+    "Carl C. Miller",
+    "Dustin Moody",
+    "René Peralta",
+    "Ray A. Perlner",
+    "Angela Robinson",
+    "Daniel Smith-Tone"
+   ],
+   "year": 2022,
+   "venue": null,
+   "doi": "https://doi.org/10.6028/nist.ir.8413-upd1",
+   "url": "https://openalex.org/W4296842505",
+   "cited_by": 337
+  },
+  {
+   "title": "Analysis of the NTRU Post-Quantum Cryptographic Scheme in Constrained IoT Edge Devices",
+   "authors": [
+    "Jaime Señor",
+    "Jorge Portilla",
+    "Gabriel Mujica"
+   ],
+   "year": 2022,
+   "venue": "IEEE Internet of Things Journal",
+   "doi": "https://doi.org/10.1109/jiot.2022.3162254",
+   "url": "https://openalex.org/W4226106055",
+   "cited_by": 49
+  },
+  {
+   "title": "Masked Accelerators and Instruction Set Extensions for Post-Quantum Cryptography",
+   "authors": [
+    "Tim Fritzmann",
+    "Michiel Van Beirendonck",
+    "Debapriya Basu Roy",
+    "Patrick Karl",
+    "Thomas Schamberger",
+    "Ingrid M.R. Verbauwhede",
+    "Georg Sigl"
+   ],
+   "year": 2021,
+   "venue": "IACR Transactions on Cryptographic Hardware and Embedded Systems",
+   "doi": "https://doi.org/10.46586/tches.v2022.i1.414-460",
+   "url": "https://openalex.org/W3159164431",
+   "cited_by": 97
+  },
+  {
+   "title": "RISQ-V: Tightly Coupled RISC-V Accelerators for Post-Quantum Cryptography",
+   "authors": [
+    "Tim Fritzmann",
+    "Georg Sigl",
+    "Johanna Sepúlveda"
+   ],
+   "year": 2020,
+   "venue": "IACR Transactions on Cryptographic Hardware and Embedded Systems",
+   "doi": "https://doi.org/10.46586/tches.v2020.i4.239-280",
+   "url": "https://openalex.org/W3021991761",
+   "cited_by": 171
+  },
+  {
+   "title": "Quantum-Safe Smart EV Charging and Secure Billing System Using IoT and Post-Quantum Cryptography",
+   "authors": [
+    "Chelsea Sharma",
+    "Dr. Abid Hussain"
+   ],
+   "year": 2026,
+   "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+   "doi": "https://doi.org/10.5281/zenodo.20470378",
+   "url": "https://openalex.org/W7162931762",
+   "cited_by": 0
+  },
+  {
+   "title": "Post-Quantum Cryptography for Internet of Things: A Survey on Performance and Optimization",
+   "authors": [
+    "Tao Liu",
+    "Gowri Sankar Ramachandran",
+    "Raja Jurdak"
+   ],
+   "year": 2024,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2401.17538",
+   "url": "https://openalex.org/W4391462588",
+   "cited_by": 72
+  },
+  {
+   "title": "Constrained Device Performance Benchmarking with the Implementation of Post-Quantum Cryptography",
+   "authors": [
+    "Gregory Fitzgibbon",
+    "Carlo Ottaviani"
+   ],
+   "year": 2024,
+   "venue": "Cryptography",
+   "doi": "https://doi.org/10.3390/cryptography8020021",
+   "url": "https://openalex.org/W4398233521",
+   "cited_by": 66
+  },
+  {
+   "title": "Analysis and Evaluation of the Impact of Post-Quantum Cryptography at the Edge of IoT",
+   "authors": [
+    "Jaime Señor"
+   ],
+   "year": 2024,
+   "venue": null,
+   "doi": "https://doi.org/10.20868/upm.thesis.81443",
+   "url": "https://openalex.org/W4396223424",
+   "cited_by": 1
+  },
+  {
+   "title": "A Review of the Present Cryptographic Arsenal to Deal with Post-Quantum Threats",
+   "authors": [
+    "Gagan Yalamuri",
+    "Prasad B. Honnavalli",
+    "Sivaraman Eswaran"
+   ],
+   "year": 2022,
+   "venue": "Procedia Computer Science",
+   "doi": "https://doi.org/10.1016/j.procs.2022.12.086",
+   "url": "https://openalex.org/W4313313267",
+   "cited_by": 44
+  },
+  {
+   "title": "A Comparative Study of Post-Quantum Cryptographic Algorithm Implementations for Secure and Efficient Energy Systems Monitoring",
+   "authors": [
+    "Gandeva Bayu Satrya",
+    "Yosafat Marselino Agus",
+    "Adel Ben Mnaouer"
+   ],
+   "year": 2023,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics12183824",
+   "url": "https://openalex.org/W4386617805",
+   "cited_by": 34
+  },
+  {
+   "title": "Exploring Post Quantum Cryptography with Quantum Key Distribution for Sustainable Mobile Network Architecture Design",
+   "authors": [
+    "Sanzida Hoque",
+    "Abdullah Aydeger",
+    "Engin Zeydan"
+   ],
+   "year": 2024,
+   "venue": null,
+   "doi": "https://doi.org/10.1145/3659997.3660033",
+   "url": "https://openalex.org/W4402454188",
+   "cited_by": 45
+  },
+  {
+   "title": "Simultaneous Integration of Kyber and Dilithium on Embedded Microcontrollers: Towards Quantum-Resistant IoT Systems",
+   "authors": [
+    "Do Thi Bac",
+    "Khanh-Linh Dinh"
+   ],
+   "year": 2026,
+   "venue": "Engineering Technology & Applied Science Research",
+   "doi": "https://doi.org/10.48084/etasr.17148",
+   "url": "https://openalex.org/W7160394079",
+   "cited_by": 0
+  },
+  {
+   "title": "Energy Consumption of Post-Quantum Cryptography on Constrained and General-Purpose Architectures",
+   "authors": [
+    "Olivier Gillot",
+    "William Johnston Buchanan",
+    "Madjid Tehrani"
+   ],
+   "year": 2026,
+   "venue": "Cryptography",
+   "doi": "https://doi.org/10.3390/cryptography10040055",
+   "url": "https://openalex.org/W7172346943",
+   "cited_by": 1
+  },
+  {
+   "title": "Towards post-quantum security for IoT endpoints with NTRU",
+   "authors": [
+    "Oscar M. Guillen",
+    "Thomas Pöppelmann",
+    "Jose Maria Bermudo Mera",
+    "Elena Fuentes Bongenaar",
+    "Georg Sigl",
+    "Johanna Sepúlveda"
+   ],
+   "year": 2017,
+   "venue": "Design, Automation, and Test in Europe",
+   "doi": "https://doi.org/10.23919/date.2017.7927079",
+   "url": "https://openalex.org/W2613976703",
+   "cited_by": 58
+  },
+  {
+   "title": "Optimizing Post-Quantum Cryptography for IoT: A Lazy Reduction and Residue Number System Approach",
+   "authors": [
+    "Md Sazzad Hossain"
+   ],
+   "year": 2024,
+   "venue": "International Journal For Multidisciplinary Research",
+   "doi": "https://doi.org/10.36948/ijfmr.2024.v06i05.78519",
+   "url": "https://openalex.org/W7161155883",
+   "cited_by": 0
+  },
+  {
+   "title": "Post-Quantum Cryptography for the Internet of Things: new approach",
+   "authors": [
+    "Pablo Rubens De Moura",
+    "Elmer Rolando Llanos Villarreal",
+    "Diego Antonio de Moura Fonsêca",
+    "Andrés Ortiz Salazar"
+   ],
+   "year": 2025,
+   "venue": "The Journal of Engineering and Exact Sciences",
+   "doi": "https://doi.org/10.18540/jcecvl11iss1pp21741",
+   "url": "https://openalex.org/W4410948687",
+   "cited_by": 5
+  },
+  {
+   "title": "Post Quantum Cryptography: Techniques, Challenges, Standardization, and Directions for Future Research",
+   "authors": [
+    "Ritik Bavdekar",
+    "Eashan Jayant Chopde",
+    "Ashutosh Bhatia",
+    "Kamlesh Tiwari",
+    "Sandeep Joshua Daniel",
+    "Atul Atul"
+   ],
+   "year": 2022,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2202.02826",
+   "url": "https://openalex.org/W4221158900",
+   "cited_by": 49
+  },
+  {
+   "title": "QuantumCharge: Post-Quantum Cryptography for Electric Vehicle Charging",
+   "authors": [
+    "Dustin Kern",
+    "Christoph Krauß",
+    "Timm Lauser",
+    "Nouri Alnahawi",
+    "Alexander Wiesmaier",
+    "Ruben Niederhagen"
+   ],
+   "year": 2023,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-031-33491-7_4",
+   "url": "https://openalex.org/W4378551632",
+   "cited_by": 15
+  },
+  {
+   "title": "POST-QUANTUM CRYPTOGRAPHY FOR SECURE 5G AND IOT: LATTICE-BASED ENCRYPTION SCHEMES",
+   "authors": [
+    "M Poomani",
+    "Bikash Chandra Saha"
+   ],
+   "year": 2025,
+   "venue": "ICTACT Journal on Communication Technology",
+   "doi": "https://doi.org/10.21917/ijct.2025.0537",
+   "url": "https://openalex.org/W4414545051",
+   "cited_by": 0
+  },
+  {
+   "title": "EAS-PQC: Analyzing Post Quantum Cryptography Algorithm Selection for IoT Device Classes",
+   "authors": [
+    "Aisha Nasser Ahmed",
+    "Norziana Jamil",
+    "Nadia Badawi",
+    "Aymen Dia Eddine Berini",
+    "Yasir Amer Abbas"
+   ],
+   "year": 2026,
+   "venue": "Student Research Conference on Applied Computing (SRC)",
+   "doi": "https://doi.org/10.1109/src70627.2026.11550479",
+   "url": "https://openalex.org/W7163998603",
+   "cited_by": 0
+  },
+  {
+   "title": "Post-quantum cryptographic authentication protocol for industrial IoT using lattice-based cryptography",
+   "authors": [
+    "Abdul Basit Shahid",
+    "Khwaja Mansoor",
+    "Yawar Abbas Bangash",
+    "Waseem Iqbal",
+    "Shynar Mussiraliyeva"
+   ],
+   "year": 2026,
+   "venue": "Scientific Reports",
+   "doi": "https://doi.org/10.1038/s41598-025-28413-8",
+   "url": "https://openalex.org/W7133335887",
+   "cited_by": 13
+  },
+  {
+   "title": "Analysis of the computational cost of cryptography in microcontrollers",
+   "authors": [
+    "Cristian Manuel Sierra Jerez",
+    "Abad Plata Vera"
+   ],
+   "year": 2025,
+   "venue": "Universidad Industrial de Santander",
+   "doi": null,
+   "url": "https://openalex.org/W7133416601",
+   "cited_by": 0
+  },
+  {
+   "title": "Protocol extension to support post-quantum cryptography",
+   "authors": [
+    "Patrik Lažek"
+   ],
+   "year": 2026,
+   "venue": "Brno University of Technology Digital Library (Brno University of Technology)",
+   "doi": null,
+   "url": "https://openalex.org/W7204152824",
+   "cited_by": 0
+  },
+  {
+   "title": "Quantum-Safe (Post-Quantum) Cryptography for Secure Network Infrastructures",
+   "authors": [
+    "Augustine Chidiebere Onuora",
+    "Taiwo Adisa Oyeniran",
+    "Trajkumar Yesuraj"
+   ],
+   "year": 2026,
+   "venue": null,
+   "doi": "https://doi.org/10.70593/978-93-7185-255-5_12",
+   "url": "https://openalex.org/W7171830426",
+   "cited_by": 0
+  },
+  {
+   "title": "Fortifying Future IoT Security: A Comprehensive Review on Lightweight Post-Quantum Cryptography",
+   "authors": [
+    "Liyth H. Mahdi",
+    "Alharith A. Abdullah"
+   ],
+   "year": 2025,
+   "venue": "Engineering Technology & Applied Science Research",
+   "doi": "https://doi.org/10.48084/etasr.10141",
+   "url": "https://openalex.org/W4409174971",
+   "cited_by": 41
+  },
+  {
+   "title": "Quantum-Resilient Lightweight Cryptography for Resource-Constrained IoT Devices",
+   "authors": [
+    "Sudeepa K B"
+   ],
+   "year": 2026,
+   "venue": "Journal of Intelligent Decision Making and Information Science",
+   "doi": "https://doi.org/10.59543/jidmis.v3.956",
+   "url": "https://openalex.org/W7170191614",
+   "cited_by": 0
+  },
+  {
+   "title": "Securing Data against Quantum Threats: Post-Quantum Cryptography Approaches",
+   "authors": [
+    "Taban Habibu",
+    "Francis Xavier Ovoni"
+   ],
+   "year": 2025,
+   "venue": "DS Journal of Digital Science and Technology",
+   "doi": "https://doi.org/10.59232/dst-v4i4p101",
+   "url": "https://openalex.org/W7161135687",
+   "cited_by": 1
+  },
+  {
+   "title": "Improving post-quantum cryptography through cryptanalysis",
+   "authors": [
+    "John M. Schanck"
+   ],
+   "year": 2020,
+   "venue": "UWSpace (University of Waterloo)",
+   "doi": null,
+   "url": "https://openalex.org/W3048119426",
+   "cited_by": 2
+  },
+  {
+   "title": "A comprehensive review of post-quantum cryptography: Challenges and advances",
+   "authors": [
+    "Seyed M. Hosseini",
+    "Hossein Pilaram"
+   ],
+   "year": 2025,
+   "venue": "International Journal of Data and Network Science",
+   "doi": "https://doi.org/10.5267/j.ijdns.2024.12.003",
+   "url": "https://openalex.org/W4408632924",
+   "cited_by": 8
+  },
+  {
+   "title": "Analysis of Post-Quantum Cryptography in User Equipment in 5G and Beyond",
+   "authors": [
+    "Sanzida Hoque",
+    "Abdullah Aydeger",
+    "Engin Zeydan",
+    "Madhusanka Liyanage"
+   ],
+   "year": 2025,
+   "venue": "Conference on Local Computer Networks",
+   "doi": "https://doi.org/10.1109/lcn65610.2025.11146323",
+   "url": "https://openalex.org/W4414197332",
+   "cited_by": 16
+  },
+  {
+   "title": "Resilience of Post-Quantum Cryptography in Lightweight IoT Protocols: A Systematic Review",
+   "authors": [
+    "Mohammed M. Almutairi",
+    "Frederick T. Sheldon"
+   ],
+   "year": 2025,
+   "venue": "Eng—Advances in Engineering",
+   "doi": "https://doi.org/10.3390/eng6120346",
+   "url": "https://openalex.org/W4416940589",
+   "cited_by": 26
+  },
+  {
+   "title": "Quantum cryptography and combined schemes of quantum cryptography communication networks",
+   "authors": [
+    "Alexey Yu. Bykovsky",
+    "Igor N. Kompanets"
+   ],
+   "year": 2018,
+   "venue": "Quantum Electronics",
+   "doi": "https://doi.org/10.1070/qel16732",
+   "url": "https://openalex.org/W2895154952",
+   "cited_by": 31
+  },
+  {
+   "title": "Quantum Encryption Resilience Score (QERS) : A System-Level Evaluation Framework for Post-Quantum Cryptography across Computer Systems, IoT-IIoT, Network and Internet Architecture",
+   "authors": [
+    "Jonatan Rassekhnia"
+   ],
+   "year": 2026,
+   "venue": "DiVA (Luleå University of Technology)",
+   "doi": null,
+   "url": "https://openalex.org/W7165833568",
+   "cited_by": 0
+  },
+  {
+   "title": "Post‐Quantum Cryptography in Resource Constrained Embedded Systems",
+   "authors": [
+    "Suhani Agarwal",
+    "Aswani Kumar Cherukuri",
+    "Amit Kumar Tyagi"
+   ],
+   "year": 2026,
+   "venue": "Wiley eBooks",
+   "doi": "https://doi.org/10.1002/9781394399222.ch12",
+   "url": "https://openalex.org/W7214354151",
+   "cited_by": 0
+  },
+  {
+   "title": "Lattice-based cryptography and post-quantum security: Algebraic number theory in the design of quantum-resistant cryptographic schemes",
+   "authors": [
+    "Thripurala Renuka Devi"
+   ],
+   "year": 2026,
+   "venue": "International Journal of Physics and Mathematics",
+   "doi": "https://doi.org/10.33545/26648636.2026.v8.i2a.256",
+   "url": "https://openalex.org/W7213345540",
+   "cited_by": 0
+  },
+  {
+   "title": "Post-Quantum Cryptography: Challenges and Opportunities for Robust and Secure HW Design",
+   "authors": [
+    "Davide Bellizia",
+    "Nadia El Mrabet",
+    "Apostolos P. Fournaris",
+    "Simon Pontié",
+    "Francesco Regazzoni",
+    "François‐Xavier Standaert",
+    "Élise Tasso",
+    "Emanuele Valea"
+   ],
+   "year": 2021,
+   "venue": "Proceedings",
+   "doi": "https://doi.org/10.1109/dft52944.2021.9568301",
+   "url": "https://openalex.org/W3205186576",
+   "cited_by": 20
+  },
+  {
+   "title": "A Practical Performance Benchmark of Post-Quantum Cryptography Across Heterogeneous Computing Environments",
+   "authors": [
+    "Maryam Abbasi",
+    "Filipe Cardoso",
+    "Paulo Váz",
+    "José Périto Leite Rodrigues da Silva",
+    "Pedro Martins"
+   ],
+   "year": 2025,
+   "venue": "Cryptography",
+   "doi": "https://doi.org/10.3390/cryptography9020032",
+   "url": "https://openalex.org/W4410581134",
+   "cited_by": 93
+  },
+  {
+   "title": "Post-quantum cryptography acceleration for next generation computers",
+   "authors": [
+    "Ioannis-Vatistas Kostalampros"
+   ],
+   "year": 2024,
+   "venue": null,
+   "doi": "https://doi.org/10.5821/dissertation-2117-441612",
+   "url": "https://openalex.org/W4414268836",
+   "cited_by": 0
+  },
+  {
+   "title": "Lightweight ASIP Design for Lattice-Based Post-quantum Cryptography Algorithms",
+   "authors": [
+    "Latif Akçay",
+    "Berna Örs"
+   ],
+   "year": 2024,
+   "venue": "Arabian Journal for Science and Engineering",
+   "doi": "https://doi.org/10.1007/s13369-024-08976-w",
+   "url": "https://openalex.org/W4394977178",
+   "cited_by": 18
+  },
+  {
+   "title": "Evaluating Post-Quantum Cryptographic Algorithms on Resource-Constrained Devices",
+   "authors": [
+    "Lopez, Jesus",
+    "Cadena, Viviana",
+    "Mohammad Saidur Rahman"
+   ],
+   "year": 2025,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2507.08312",
+   "url": "https://openalex.org/W4417275619",
+   "cited_by": 4
+  },
+  {
+   "title": "A migration framework for post quantum cryptography in 6G telecommunications",
+   "authors": [
+    "Ankit Gupta",
+    "Shilpi Mittal",
+    "Gahangir Hossain"
+   ],
+   "year": 2026,
+   "venue": "Discover Telecommunications",
+   "doi": "https://doi.org/10.1007/s44595-026-00007-3",
+   "url": "https://openalex.org/W7220948761",
+   "cited_by": 0
+  },
+  {
+   "title": "Secure and Energy-Efficient Hardware Design for Post-Quantum Cryptographic Algorithms in IoT Edge Devices",
+   "authors": [
+    "Manish Jain"
+   ],
+   "year": 2026,
+   "venue": "International Journal of Research Publication and Reviews",
+   "doi": "https://doi.org/10.55248/gengpi.07.0926.3110",
+   "url": "https://openalex.org/W7221179025",
+   "cited_by": 0
+  },
+  {
+   "title": "From Pre-Quantum to Post-Quantum IoT Security: A Survey on Quantum-Resistant Cryptosystems for the Internet of Things",
+   "authors": [
+    "Tiago M. Fernández‐Caramés"
+   ],
+   "year": 2019,
+   "venue": "IEEE Internet of Things Journal",
+   "doi": "https://doi.org/10.1109/jiot.2019.2958788",
+   "url": "https://openalex.org/W2995835799",
+   "cited_by": 340
+  }
+ ]
+}

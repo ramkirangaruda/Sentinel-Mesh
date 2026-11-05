@@ -1,0 +1,660 @@
+{
+ "database": "openalex",
+ "query": "battery exhaustion attack",
+ "date": "2026-11-06",
+ "total": 7966,
+ "hits": [
+  {
+   "title": "Towards an Intrusion Detection System for Battery Exhaustion Attacks on Mobile Computing Devices",
+   "authors": [
+    "Daniel C. Nash",
+    "Thomas L. Martin",
+    "Dong Sam Ha",
+    "Michael S. Hsiao"
+   ],
+   "year": 2005,
+   "venue": "IEEE International Conference on Pervasive Computing and Communications Workshops (PerCom Workshops)",
+   "doi": "https://doi.org/10.1109/percomw.2005.86",
+   "url": "https://openalex.org/W2129302654",
+   "cited_by": 91
+  },
+  {
+   "title": "Defending Battery Exhaustion Attacks on Mobile Systems",
+   "authors": [
+    "Sung-Yong Shin",
+    "Taek Lee",
+    "Hoh Peter In"
+   ],
+   "year": 2009,
+   "venue": "IEEE Annual International Computer Software and Applications Conference (COMPSAC)",
+   "doi": "https://doi.org/10.1109/compsac.2009.158",
+   "url": "https://openalex.org/W2102757703",
+   "cited_by": 2
+  },
+  {
+   "title": "An Intrusion Detection System for Battery Exhaustion Attacks on Mobile Computers",
+   "authors": [
+    "Daniel C. Nash"
+   ],
+   "year": 2005,
+   "venue": "VTechWorks (Virginia Tech)",
+   "doi": null,
+   "url": "https://openalex.org/W79237751",
+   "cited_by": 7
+  },
+  {
+   "title": "Battery Exhaustion Attack Detection with Small Handheld Mobile Computers",
+   "authors": [
+    "Timothy K. Buennemeyer",
+    "Michael A. Gora",
+    "Randy C. Marchany",
+    "Joseph G. Tront"
+   ],
+   "year": 2007,
+   "venue": "IEEE International Conference on Portable Information Devices (PORTABLE)",
+   "doi": "https://doi.org/10.1109/portable.2007.35",
+   "url": "https://openalex.org/W2132266244",
+   "cited_by": 41
+  },
+  {
+   "title": "Effects of Wi-Fi and Bluetooth Battery Exhaustion Attacks on Mobile Devices",
+   "authors": [
+    "Benjamin R. Moyers",
+    "John P. Dunning",
+    "Randolph C. Marchany",
+    "Joseph G. Tront"
+   ],
+   "year": 2010,
+   "venue": "Hawaii International Conference on System Sciences (HICSS)",
+   "doi": "https://doi.org/10.1109/hicss.2010.170",
+   "url": "https://openalex.org/W2031161583",
+   "cited_by": 42
+  },
+  {
+   "title": "An efficient approach to prevent Battery Exhaustion Attack on BLE-based mesh networks",
+   "authors": [
+    "Zonglin Guo",
+    "Ian G. Harris",
+    "Yutong Jiang",
+    "Lih-feng Tsaur"
+   ],
+   "year": 2017,
+   "venue": "2012 International Conference on Computing, Networking and Communications (ICNC)",
+   "doi": "https://doi.org/10.1109/iccnc.2017.7876092",
+   "url": "https://openalex.org/W2603073654",
+   "cited_by": 25
+  },
+  {
+   "title": "An Intrusion Detection System for Battery Exhaustion Attack in Mobile Devices",
+   "authors": [
+    "Jaya Kaushik",
+    "Naresh Grover"
+   ],
+   "year": 2024,
+   "venue": "International Conference on Advances in Computation, Communication and Information Technology (ICAICCIT)",
+   "doi": "https://doi.org/10.1109/icaiccit64383.2024.10912394",
+   "url": "https://openalex.org/W4408401631",
+   "cited_by": 0
+  },
+  {
+   "title": "Battery Exhaustion Attack in Wireless Sensor Networks : Comparative Study",
+   "authors": [
+    "Basil Peter",
+    "E. Anna Devi"
+   ],
+   "year": 2025,
+   "venue": "International Conference on Data Intelligence and Cognitive Informatics (ICDICI)",
+   "doi": "https://doi.org/10.1109/icdici66477.2025.11134912",
+   "url": "https://openalex.org/W4413917472",
+   "cited_by": 0
+  },
+  {
+   "title": "Protecting RESTful IoT Devices from Battery Exhaustion DoS Attacks",
+   "authors": [
+    "Stefan Hristozov",
+    "Manuel Huber",
+    "Georg Sigl"
+   ],
+   "year": 2020,
+   "venue": "IEEE International Symposium on Hardware Oriented Security and Trust (HOST)",
+   "doi": "https://doi.org/10.1109/host45689.2020.9300290",
+   "url": "https://openalex.org/W2990594280",
+   "cited_by": 18
+  },
+  {
+   "title": "BEAMS: Battery Exhaustion Anomaly Monitoring System model in SENSORNET",
+   "authors": [
+    "Tapalina Bhattasali",
+    "Rituparna Chaki"
+   ],
+   "year": 2012,
+   "venue": "International Conference on Sensing Technology",
+   "doi": "https://doi.org/10.1109/icsenst.2012.6461770",
+   "url": "https://openalex.org/W2555510222",
+   "cited_by": 0
+  },
+  {
+   "title": "Depletion-of-Battery Attack: Specificity, Modelling and Analysis",
+   "authors": [
+    "Шахов Владимир Владимирович",
+    "Insoo Koo"
+   ],
+   "year": 2018,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s18061849",
+   "url": "https://openalex.org/W2805885073",
+   "cited_by": 46
+  },
+  {
+   "title": "Energy exhaustion attacks in wireless networks",
+   "authors": [
+    "Шахов Владимир Владимирович",
+    "Insoo Koo",
+    "Alexey S. Rodionov"
+   ],
+   "year": 2017,
+   "venue": "International Multi-Conference on Engineering, Computer and Information Sciences (SIBIRCON)",
+   "doi": "https://doi.org/10.1109/sibircon.2017.8109825",
+   "url": "https://openalex.org/W2769057206",
+   "cited_by": 11
+  },
+  {
+   "title": "Denial-of-service attacks on battery-powered mobile computers",
+   "authors": [
+    "Thomas L. Martin",
+    "Michael S. Hsiao",
+    "Dong Sam Ha",
+    "J. Krishnaswami"
+   ],
+   "year": 2004,
+   "venue": "IEEE International Conference on Pervasive Computing and Communications",
+   "doi": "https://doi.org/10.1109/percom.2004.1276868",
+   "url": "https://openalex.org/W2140141884",
+   "cited_by": 176
+  },
+  {
+   "title": "Energy Depletion Attacks in Low Power Wireless Networks",
+   "authors": [
+    "Van-Linh Nguyen",
+    "Po‐Ching Lin",
+    "Ren‐Hung Hwang"
+   ],
+   "year": 2019,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2019.2911424",
+   "url": "https://openalex.org/W2941918278",
+   "cited_by": 75
+  },
+  {
+   "title": "SMACK: Short message authentication check against battery exhaustion in the Internet of Things",
+   "authors": [
+    "Christian Gehrmann",
+    "Marco Tiloca",
+    "Rikard Höglund"
+   ],
+   "year": 2015,
+   "venue": "IEEE International Conference on Sensing, Communication, and Networking (SECON)",
+   "doi": "https://doi.org/10.1109/sahcn.2015.7338326",
+   "url": "https://openalex.org/W1844226267",
+   "cited_by": 16
+  },
+  {
+   "title": "Hardware Trojans - detective countermeasure against HLS-based hardware Trojan attack",
+   "authors": [
+    "Anirban Sengupta",
+    "Mahendra Rathor"
+   ],
+   "year": 2024,
+   "venue": null,
+   "doi": "https://doi.org/10.1049/pbcs084e_ch11",
+   "url": "https://openalex.org/W4401934223",
+   "cited_by": 0
+  },
+  {
+   "title": "Energy Exhaustion Attack on Barrett's Reduction",
+   "authors": [
+    "Mohannad Mostafa",
+    "Tanushree Banerjee",
+    "M.A. Hasan"
+   ],
+   "year": 2018,
+   "venue": "IEEE International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom)",
+   "doi": "https://doi.org/10.1109/trustcom/bigdatase.2018.00116",
+   "url": "https://openalex.org/W2891699835",
+   "cited_by": 1
+  },
+  {
+   "title": "An Advertising Overflow Attack Against Android Exposure Notification System Impacting COVID-19 Contact Tracing Applications",
+   "authors": [
+    "Henrique Faria",
+    "Sara Paiva",
+    "Pedro Pinto"
+   ],
+   "year": 2021,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2021.3099017",
+   "url": "https://openalex.org/W3185618113",
+   "cited_by": 7
+  },
+  {
+   "title": "Improving assurance of a sustainable route-split MANET routing by adapting node battery exhaustion",
+   "authors": [
+    "Mario Takeuchi",
+    "Eitaro Kohno",
+    "Tomoyuki Ohta",
+    "Yoshiaki Kakuda"
+   ],
+   "year": 2013,
+   "venue": "Telecommunication Systems",
+   "doi": "https://doi.org/10.1007/s11235-013-9714-1",
+   "url": "https://openalex.org/W1966536347",
+   "cited_by": 5
+  },
+  {
+   "title": "Public Key Techniques for Prevention of Resource Exhaustion Attack in Wireless Sensor Networks",
+   "authors": [
+    "Ju Seung Heo",
+    "Kisang Ok",
+    "Kee-Cheon Kim"
+   ],
+   "year": 2013,
+   "venue": "Advanced materials research",
+   "doi": "https://doi.org/10.4028/www.scientific.net/amr.740.159",
+   "url": "https://openalex.org/W1964521438",
+   "cited_by": 1
+  },
+  {
+   "title": "Evaluation of Resource Exhaustion Attacks against Wireless Mobile Devices",
+   "authors": [
+    "Vasily Alekseevich Desnitsky",
+    "Igor Vitalievich Kotenko",
+    "D A Zakoldaev"
+   ],
+   "year": 2019,
+   "venue": "Electronics",
+   "doi": "https://doi.org/10.3390/electronics8050500",
+   "url": "https://openalex.org/W2943037184",
+   "cited_by": 10
+  },
+  {
+   "title": "Revisiting Black-Hat HLS: A Lightweight Countermeasure to HLS-Aided Trojan Attack",
+   "authors": [
+    "Mahendra Rathor",
+    "Anirban Sengupta"
+   ],
+   "year": 2023,
+   "venue": "IEEE Embedded Systems Letters",
+   "doi": "https://doi.org/10.1109/les.2023.3327793",
+   "url": "https://openalex.org/W4388207347",
+   "cited_by": 8
+  },
+  {
+   "title": "Battery-Sensing Intrusion Protection System (B-SIPS)",
+   "authors": [
+    "Timothy K. Buennemeyer"
+   ],
+   "year": 2008,
+   "venue": "VTechWorks (Virginia Tech)",
+   "doi": null,
+   "url": "https://openalex.org/W2593913944",
+   "cited_by": 4
+  },
+  {
+   "title": "Hierarchical and On‐Demand Attack Defence Framework for IoT Devices",
+   "authors": [
+    "Pradeep Sudhakaran",
+    "Manikannan Kaliyaperumal",
+    "T. Senthil Kumar",
+    "R. Jeya",
+    "B. Sowmiya"
+   ],
+   "year": 2022,
+   "venue": "Wireless Communications and Mobile Computing",
+   "doi": "https://doi.org/10.1155/2022/4335871",
+   "url": "https://openalex.org/W4224945189",
+   "cited_by": 0
+  },
+  {
+   "title": "A Lightweight Distributed Group Authentication Mechanism",
+   "authors": [
+    "Leonardo A. Martucci",
+    "Tereza Cristina Melo de Brito Carvalho",
+    "Wilson Vicente Ruggiero"
+   ],
+   "year": 2004,
+   "venue": null,
+   "doi": null,
+   "url": "https://openalex.org/W297585352",
+   "cited_by": 20
+  },
+  {
+   "title": "Battery Drain Denial-of-Service Attacks and Defenses in the Internet of Things",
+   "authors": [
+    "Philokypros P. Ioulianou",
+    "Vassilios G. Vassilakis",
+    "Michael D. Logothetis"
+   ],
+   "year": 2019,
+   "venue": "Journal of Telecommunications and Information Technology",
+   "doi": "https://doi.org/10.26636/jtit.2019.131919",
+   "url": "https://openalex.org/W2955781444",
+   "cited_by": 31
+  },
+  {
+   "title": "Quarantine region scheme to mitigate spam attacks in wireless-sensor networks",
+   "authors": [
+    "Vedat Coşkun",
+    "E. Cayirci",
+    "Albert William Levi",
+    "S. Sancak"
+   ],
+   "year": 2006,
+   "venue": "IEEE Transactions on Mobile Computing",
+   "doi": "https://doi.org/10.1109/tmc.2006.121",
+   "url": "https://openalex.org/W2144114227",
+   "cited_by": 19
+  },
+  {
+   "title": "Security Vulnerabilities in LoRaWAN",
+   "authors": [
+    "Xueying Yang",
+    "Evgenios Karampatzakis",
+    "Christian Doerr",
+    "Fernando A. Kuipers"
+   ],
+   "year": 2018,
+   "venue": "IEEE/ACM International Conference on Internet-of-Things Design and Implementation (IoTDI)",
+   "doi": "https://doi.org/10.1109/iotdi.2018.00022",
+   "url": "https://openalex.org/W2807066473",
+   "cited_by": 142
+  },
+  {
+   "title": "DAP-LECP: Dos Attack Prevention and Low Energy Consumption Protocol for Wireless Sensor Networks",
+   "authors": [
+    "Nasir Rashid",
+    "Muhammad Abdus Salam",
+    "M. Raees Khan",
+    "Fakhre Alam"
+   ],
+   "year": 2013,
+   "venue": "International Journal of Computer Applications",
+   "doi": "https://doi.org/10.5120/10462-5173",
+   "url": "https://openalex.org/W2133614130",
+   "cited_by": 0
+  },
+  {
+   "title": "A survey: energy exhausting attacks in MAC protocols in WBANs",
+   "authors": [
+    "Minho Jo",
+    "Longzhe Han",
+    "Nguyêñ Duy Tân",
+    "Hoh Peter In"
+   ],
+   "year": 2014,
+   "venue": "Telecommunication Systems",
+   "doi": "https://doi.org/10.1007/s11235-014-9897-0",
+   "url": "https://openalex.org/W2071462330",
+   "cited_by": 31
+  },
+  {
+   "title": "A New Defensive Technique Against Sleep Deprivation Attacks Driven by Battery Usage",
+   "authors": [
+    "Jean Luc Antoine Olivier Fobe",
+    "Michele Nogueira",
+    "Daniel Macêdo Batista"
+   ],
+   "year": 2022,
+   "venue": "Simpósio Brasileiro de Cibersegurança (SBSeg)",
+   "doi": "https://doi.org/10.5753/sbseg.2022.224911",
+   "url": "https://openalex.org/W4296344038",
+   "cited_by": 5
+  },
+  {
+   "title": "Abnormal leakage of energy in battery-based IoT-devices",
+   "authors": [
+    "Raksha Nawal",
+    "Rajbir Kaur"
+   ],
+   "year": 2017,
+   "venue": "International Conference on Security of Information and Networks (SIN)",
+   "doi": "https://doi.org/10.1145/3136825.3136875",
+   "url": "https://openalex.org/W2785105000",
+   "cited_by": 1
+  },
+  {
+   "title": "Authenticated Preambles for Denial of Service Mitigation in LPWANs",
+   "authors": [
+    "Ioana Suciu",
+    "José Carlos Pacho",
+    "Bartoli, Andrea",
+    "Xavier Vilajosana"
+   ],
+   "year": 2019,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.1904.08179",
+   "url": "https://openalex.org/W2951139839",
+   "cited_by": 0
+  },
+  {
+   "title": "Zero-Power Defense Done Right: Shielding IMDs from Battery-Depletion Attacks",
+   "authors": [
+    "Muhammad Ali Siddiqi",
+    "Wouter A. Serdijn",
+    "Christos Strydis"
+   ],
+   "year": 2020,
+   "venue": "Journal of Signal Processing Systems",
+   "doi": "https://doi.org/10.1007/s11265-020-01530-5",
+   "url": "https://openalex.org/W3015505151",
+   "cited_by": 15
+  },
+  {
+   "title": "Threshold Cryptography-based Group Authentication (TCGA) scheme for the Internet of Things (IoT)",
+   "authors": [
+    "Parikshit Narendra Mahalle",
+    "Neeli Rashmi Prasad",
+    "Ramjee Prasad"
+   ],
+   "year": 2014,
+   "venue": "International Conference on Wireless Communication, Vehicular Technology, Information Theory and Aerospace & Electronic Systems Technology",
+   "doi": "https://doi.org/10.1109/vitae.2014.6934425",
+   "url": "https://openalex.org/W2145486326",
+   "cited_by": 80
+  },
+  {
+   "title": "Authenticated Preambles for Denial of Service Mitigation in LPWANs",
+   "authors": [
+    "Ioana Suciu",
+    "José Carlos Pacho",
+    "Andrea Bartoli",
+    "Xavier Vilajosana"
+   ],
+   "year": 2018,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-030-00247-3_19",
+   "url": "https://openalex.org/W2889556458",
+   "cited_by": 3
+  },
+  {
+   "title": "INTRUSION DETECTION FRAMEWORK FOR GEO-SENSOR NETWORK",
+   "authors": [
+    "Tapalina Bhattasali"
+   ],
+   "year": 2020,
+   "venue": "Azerbaijan Journal of High Performance Computing",
+   "doi": "https://doi.org/10.32010/26166127.2020.3.2.181.189",
+   "url": "https://openalex.org/W3119880928",
+   "cited_by": 0
+  },
+  {
+   "title": "SEGNET: Secure Geo-Sensor Network Model",
+   "authors": [
+    "Tapalina Bhattasali"
+   ],
+   "year": 2012,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.1209.6262",
+   "url": "https://openalex.org/W1561123575",
+   "cited_by": 0
+  },
+  {
+   "title": "Detection of Vampire Attacks in Ad-Hoc Wireless Sensor Network using PLGP protocol",
+   "authors": [
+    "Gaurav Kawde",
+    "Safal Prabhukhanolkar",
+    "Shrinivas Tonpewar",
+    "Kushagra Belorkar",
+    "Shyam Kumar Patle",
+    "Chandu Dajiba Vaidya"
+   ],
+   "year": 2023,
+   "venue": "International Journal of Scientific Research in Computer Science Engineering and Information Technology",
+   "doi": "https://doi.org/10.32628/cseit2390135",
+   "url": "https://openalex.org/W4324103317",
+   "cited_by": 4
+  },
+  {
+   "title": "Identifier based key distribution protocol for Wireless Sensor Networks",
+   "authors": [
+    "Muhammad Adeel",
+    "Munir Hussain",
+    "Urooj Beenish",
+    "Shenila Mehwish",
+    "Laurissa N. Tokarchuk",
+    "Amer Shahzad"
+   ],
+   "year": 2008,
+   "venue": "International Conference on Software, Telecommunications and Computer Networks (SoftCOM)",
+   "doi": "https://doi.org/10.1109/softcom.2008.4669473",
+   "url": "https://openalex.org/W1988497538",
+   "cited_by": 1
+  },
+  {
+   "title": "Estimation of System Power Consumption on Mobile Computing Devices",
+   "authors": [
+    "Niu Limin",
+    "Tan Xiaobin",
+    "Baoqun Yin"
+   ],
+   "year": 2007,
+   "venue": "International Conference on Computational Intelligence and Security (CIS)",
+   "doi": "https://doi.org/10.1109/cis.2007.198",
+   "url": "https://openalex.org/W2131090559",
+   "cited_by": 5
+  },
+  {
+   "title": "A Survey On The Prediction Of Exhaustion Attacks Over Wireless Networks Using Fuzzy Cluster Means (FCM)",
+   "authors": [
+    "K. Abdul Basith",
+    "T. N.Shankar"
+   ],
+   "year": 2026,
+   "venue": "International Journal of Engineering & Technology",
+   "doi": "https://doi.org/10.14419/ijet.v7i4.6.28559",
+   "url": "https://openalex.org/W7150765234",
+   "cited_by": 0
+  },
+  {
+   "title": "DLDM: Deep learning-based defense mechanism for denial of service attacks in wireless sensor networks",
+   "authors": [
+    "M. Joel Premkumar",
+    "T. Sundararajan"
+   ],
+   "year": 2020,
+   "venue": "Microprocessors and Microsystems",
+   "doi": "https://doi.org/10.1016/j.micpro.2020.103278",
+   "url": "https://openalex.org/W3088249606",
+   "cited_by": 116
+  },
+  {
+   "title": "Multi-Attribute Physical-Layer Authentication Against Jamming and Battery-Depletion Attacks in LoRaWAN",
+   "authors": [
+    "Azita Pourghasem",
+    "Raimund Kirner",
+    "Athanasios Tsokanos",
+    "Iosif Mporas",
+    "Alexios Mylonas"
+   ],
+   "year": 2026,
+   "venue": "Future Internet",
+   "doi": "https://doi.org/10.3390/fi18010038",
+   "url": "https://openalex.org/W7119476622",
+   "cited_by": 3
+  },
+  {
+   "title": "Code updates based on minimal backbone and group key management for secure sensor networks",
+   "authors": [
+    "Inshil Doh",
+    "Ji-Young Lim",
+    "Kijoon Chae"
+   ],
+   "year": 2012,
+   "venue": "Mathematical and Computer Modelling",
+   "doi": "https://doi.org/10.1016/j.mcm.2012.04.001",
+   "url": "https://openalex.org/W2047722494",
+   "cited_by": 5
+  },
+  {
+   "title": "Detecting denial of sleep attacks by analysis of wireless sensor networks and the Internet of Things",
+   "authors": [
+    "R. Rita Jenifer",
+    "V.S.J. Prakash"
+   ],
+   "year": 2023,
+   "venue": "THE SCIENTIFIC TEMPER",
+   "doi": "https://doi.org/10.58414/scientifictemper.2023.14.4.52",
+   "url": "https://openalex.org/W4391290476",
+   "cited_by": 3
+  },
+  {
+   "title": "Mitigating Denial of Service Attacks in RPL-Based IoT Environments: Trust-Based Approach",
+   "authors": [
+    "Farag Azzedin"
+   ],
+   "year": 2023,
+   "venue": "IEEE Access",
+   "doi": "https://doi.org/10.1109/access.2023.3331030",
+   "url": "https://openalex.org/W4388642438",
+   "cited_by": 36
+  },
+  {
+   "title": "Fundamentals on HLS-based hardware Trojan",
+   "authors": [
+    "Anirban Sengupta",
+    "Mahendra Rathor"
+   ],
+   "year": 2024,
+   "venue": null,
+   "doi": "https://doi.org/10.1049/pbcs084e_ch10",
+   "url": "https://openalex.org/W4401962786",
+   "cited_by": 0
+  },
+  {
+   "title": "A Review of Attacks and Countermeasures in Internet of Things and Cyber Physical Systems",
+   "authors": [
+    "Vasaki Ponnusamy",
+    "Naveena Devi Regunathan",
+    "Pardeep Kumar",
+    "Robithoh Annur",
+    "Khalid Rafique"
+   ],
+   "year": 2020,
+   "venue": "Advances in computer and electrical engineering book series",
+   "doi": "https://doi.org/10.4018/978-1-7998-2803-7.ch001",
+   "url": "https://openalex.org/W3038722350",
+   "cited_by": 5
+  },
+  {
+   "title": "Defense Countermeasures for DoS Attacks in WSNs Using Deep Radial Basis Networks",
+   "authors": [
+    "M. Joel Premkumar",
+    "T. Sundararajan"
+   ],
+   "year": 2021,
+   "venue": "Wireless Personal Communications",
+   "doi": "https://doi.org/10.1007/s11277-021-08545-6",
+   "url": "https://openalex.org/W3158658439",
+   "cited_by": 25
+  }
+ ]
+}

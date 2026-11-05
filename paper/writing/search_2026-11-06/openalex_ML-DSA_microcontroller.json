@@ -1,0 +1,684 @@
+{
+ "database": "openalex",
+ "query": "ML-DSA microcontroller",
+ "date": "2026-11-06",
+ "total": 400,
+ "hits": [
+  {
+   "title": "Deep Learning-based Public Template Attack against ML-DSA on ARM Microcontrollers",
+   "authors": [
+    "Yuanzhang Zhao",
+    "Zehua Qiao",
+    "Wei Cheng",
+    "Yuejun Liu",
+    "Yongbin Zhou"
+   ],
+   "year": 2026,
+   "venue": "IEEE International Symposium on Circuits and Systems proceedings",
+   "doi": "https://doi.org/10.1109/iscas66217.2026.11562127",
+   "url": "https://openalex.org/W7165141415",
+   "cited_by": 0
+  },
+  {
+   "title": "Exploring hardware implementation feasibility of post-quantum cryptography in embedded systems: Evaluation of NIST-standardized ML-KEM, ML-DSA and SLH-DSA on ESP32-C6",
+   "authors": [
+    "Daniel Karcz",
+    "Marcin Niemiec",
+    "Michail‐Alexandros Kourtis",
+    "Tobias Köppl"
+   ],
+   "year": 2026,
+   "venue": "PLoS ONE",
+   "doi": "https://doi.org/10.1371/journal.pone.0355179",
+   "url": "https://openalex.org/W7203682895",
+   "cited_by": 1
+  },
+  {
+   "title": "Testing TLS 1.3 PQC on constrained devices and microcontrollers",
+   "authors": [
+    "Olivier Gillot",
+    "William J. Buchanan",
+    "Callum Turino"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2610.27766",
+   "url": "https://openalex.org/W7223147673",
+   "cited_by": 0
+  },
+  {
+   "title": "Towards ML-KEM & ML-DSA on OpenTitan",
+   "authors": [
+    "Amin Abdulrahman",
+    "Felix Oberhansl",
+    "Hoang Nguyen Hien Pham",
+    "Jade Philipoom",
+    "Peter Schwabe",
+    "Tobias Stelzer",
+    "Andreas Zankl"
+   ],
+   "year": 2025,
+   "venue": "IEEE Symposium on Security and Privacy (S&P)",
+   "doi": "https://doi.org/10.1109/sp61157.2025.00220",
+   "url": "https://openalex.org/W4411337927",
+   "cited_by": 9
+  },
+  {
+   "title": "MinUn: Accurate ML Inference on Microcontrollers",
+   "authors": [
+    "Shikhar Jaiswal",
+    "Rahul Kranti Kiran Goli",
+    "Aayan Kumar",
+    "Vivek Seshadri",
+    "Rahul Sharma"
+   ],
+   "year": 2023,
+   "venue": "ACM SIGPLAN/SIGBED Conference on Languages, Compilers, and Tools for Embedded Systems (LCTES)",
+   "doi": "https://doi.org/10.1145/3589610.3596278",
+   "url": "https://openalex.org/W4380479896",
+   "cited_by": 6
+  },
+  {
+   "title": "Improving Memory Efficiency of NIST Post-Quantum Cryptography for Microcontrollers",
+   "authors": [
+    "Dominik Marchsreiter",
+    "Holger Kinkelin",
+    "Und Georg Carle"
+   ],
+   "year": 2026,
+   "venue": "IEEE European Symposium on Security and Privacy Workshops (EuroS&PW)",
+   "doi": "https://doi.org/10.1109/eurospw72509.2026.00051",
+   "url": "https://openalex.org/W7197051836",
+   "cited_by": 0
+  },
+  {
+   "title": "Post-Quantum Cryptography on Smart Cards and Microcontrollers",
+   "authors": [
+    "David Zeman"
+   ],
+   "year": 2026,
+   "venue": "Brno University of Technology Digital Library (Brno University of Technology)",
+   "doi": null,
+   "url": "https://openalex.org/W7164453668",
+   "cited_by": 0
+  },
+  {
+   "title": "Performance Evaluation of ML-KEM and ML-DSA Post-Quantum Algorithms in Real-World IoT Networks",
+   "authors": [
+    "Cemile İnce"
+   ],
+   "year": 2026,
+   "venue": "Sakarya University Journal of Computer and Information Sciences",
+   "doi": "https://doi.org/10.35377/saucis...1874093",
+   "url": "https://openalex.org/W7169840398",
+   "cited_by": 1
+  },
+  {
+   "title": "Benchmarking NIST-Standardised ML-KEM and ML-DSA on ARM Cortex-M0+: Latency, Rejection-Sampling Variance, and Memory on the RP2040",
+   "authors": [
+    "R. Chhetri",
+    "Sijan Dhakal",
+    "Asmita Gautam"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.5281/zenodo.19393776",
+   "url": "https://openalex.org/W7140116305",
+   "cited_by": 10
+  },
+  {
+   "title": "Differentiable Neural Network Pruning to Enable Smart Applications on Microcontrollers",
+   "authors": [
+    "Edgar Liberis",
+    "Nicholas D. Lane"
+   ],
+   "year": 2022,
+   "venue": "Proceedings of the ACM on Interactive Mobile Wearable and Ubiquitous Technologies",
+   "doi": "https://doi.org/10.1145/3569468",
+   "url": "https://openalex.org/W4311007713",
+   "cited_by": 29
+  },
+  {
+   "title": "One (Noisy) Bit to Rule Them All: Key Recovery from Randomness Leakage in ML-DSA",
+   "authors": [
+    "Simon Damm",
+    "Nicolai Kraus",
+    "Alexander May",
+    "Julian Nowakowski",
+    "Jonas Thietke"
+   ],
+   "year": 2026,
+   "venue": "Journal of Cryptology",
+   "doi": "https://doi.org/10.1007/s00145-026-09584-7",
+   "url": "https://openalex.org/W7202069272",
+   "cited_by": 0
+  },
+  {
+   "title": "Assinatura Digital Pós-Quântica na Internet das Coisas: Uma Análise da Aplicabilidade do ML-DSA",
+   "authors": [
+    "Gabriel de Souza Rossetto",
+    "Ana Cristina B. Kochem Vendramin",
+    "Daniel Fernando Pigatto",
+    "Juliana de Santi"
+   ],
+   "year": 2026,
+   "venue": "Simpósio Brasileiro de Cibersegurança (SBSeg)",
+   "doi": "https://doi.org/10.5753/sbseg_estendido.2026.28960",
+   "url": "https://openalex.org/W7222124815",
+   "cited_by": 0
+  },
+  {
+   "title": "Low-Stack HAETAE for Memory-Constrained Microcontrollers",
+   "authors": [
+    "YoungBeom Kim",
+    "Christine van Vredendaal",
+    "Gustavo Banegas",
+    "Seog Chung Seo"
+   ],
+   "year": 2026,
+   "venue": "IACR Transactions on Cryptographic Hardware and Embedded Systems",
+   "doi": "https://doi.org/10.46586/tches.v2026.i4.293-315",
+   "url": "https://openalex.org/W7213268923",
+   "cited_by": 0
+  },
+  {
+   "title": "Resolving an Apparent Key-Dependent Timing Side-Channel in Bouncy Castle ML-DSA-65 Signing: A Pre-Registered Discrimination",
+   "authors": [
+    "Arpan Sharma"
+   ],
+   "year": 2026,
+   "venue": "Research Square",
+   "doi": "https://doi.org/10.21203/rs.3.rs-10910294/v1",
+   "url": "https://openalex.org/W7211961021",
+   "cited_by": 0
+  },
+  {
+   "title": "A Stack-Efficient Design of ML-DSA-65 for Resource-Constrained Secure Elements",
+   "authors": [
+    "Fan Dang",
+    "Xiaoyi Liu",
+    "Shengqi Chen",
+    "Yu-Ang Gao"
+   ],
+   "year": 2026,
+   "venue": "ACM Turing Celebration Conference - China (ACM TURC)",
+   "doi": "https://doi.org/10.1145/3833142.3833143",
+   "url": "https://openalex.org/W7221006702",
+   "cited_by": 0
+  },
+  {
+   "title": "Benchmarking NIST-Standardized Post-Quantum Digital Signatures (ML-DSA-44) for Secure IoT Authentication",
+   "authors": [
+    "MD. SOFIKUL ISLAM",
+    "Md Sofikul Islam"
+   ],
+   "year": 2026,
+   "venue": null,
+   "doi": "https://doi.org/10.22541/au.177031479.93526108/v1",
+   "url": "https://openalex.org/W7128068627",
+   "cited_by": 0
+  },
+  {
+   "title": "Optimized Implementations of Keccak, Kyber, and Dilithium on the MSP430 Microcontroller",
+   "authors": [
+    "DongHyun Shin",
+    "YoungBeom Kim",
+    "Ayesha Khalid",
+    "Maire O’Neill",
+    "Seog Chung Seo"
+   ],
+   "year": 2026,
+   "venue": "IACR Transactions on Cryptographic Hardware and Embedded Systems",
+   "doi": "https://doi.org/10.46586/tches.v2026.i2.409-440",
+   "url": "https://openalex.org/W7155418102",
+   "cited_by": 1
+  },
+  {
+   "title": "A Fault-Resistant NTT by Polynomial Evaluation and Interpolation",
+   "authors": [
+    "Sven Bauer",
+    "Fabrizio De Santis",
+    "Kristjane Koleci",
+    "Anita Aghaie"
+   ],
+   "year": 2025,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-032-01405-4_9",
+   "url": "https://openalex.org/W4415359982",
+   "cited_by": 0
+  },
+  {
+   "title": "Efficient TCitH-Based Alternatives to SLH-DSA: Cross-Layer ASIC Design of Mirath",
+   "authors": [
+    "Hiandra Tomasi",
+    "Maximilian Schöffel",
+    "Johannes Feldmann",
+    "Norbert Wehn"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2609.35053",
+   "url": "https://openalex.org/W7214775876",
+   "cited_by": 0
+  },
+  {
+   "title": "Performance Evaluation of Quantum-Resistant Algorithms on Industrial Embedded Systems",
+   "authors": [
+    "Leonie Reichert",
+    "Nicolas Coppik",
+    "Sören Finster"
+   ],
+   "year": 2025,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-032-00630-1_8",
+   "url": "https://openalex.org/W4413247834",
+   "cited_by": 1
+  },
+  {
+   "title": "Carbon Dioxide Digital Subtraction Angiography (CO2 DSA) in Peripheral Intervention-The Malaysian Experience",
+   "authors": [
+    "Alan Koay Choon Chern"
+   ],
+   "year": 2017,
+   "venue": "Journal of Cardiology & Cardiovascular Therapy",
+   "doi": "https://doi.org/10.19080/jocct.2017.08.555738",
+   "url": "https://openalex.org/W2789770896",
+   "cited_by": 0
+  },
+  {
+   "title": "Open-Source vs. Vendor Post-Quantum Cryptography on STM32H563ZI: A Performance, Memory, and Provenance Study",
+   "authors": [
+    "Philipp Schubaur",
+    "Philipp Urlbauer",
+    "Dominik Merli"
+   ],
+   "year": 2026,
+   "venue": "Lecture notes in computer science",
+   "doi": "https://doi.org/10.1007/978-3-032-35586-7_18",
+   "url": "https://openalex.org/W7203615934",
+   "cited_by": 0
+  },
+  {
+   "title": "E-131 A time resolved 3D DSA protocol to evaluate aneurysmal flow following flow diversion",
+   "authors": [
+    "Nickalus R. Khan",
+    "Julie M. DiNitto",
+    "Annette Birkhold",
+    "Adam Stephen Arthur",
+    "Christopher Nickele",
+    "Daniel Alan Hoit",
+    "Violiza Inoa",
+    "Lucas Elijovich"
+   ],
+   "year": 2020,
+   "venue": "Journal of NeuroInterventional Surgery",
+   "doi": "https://doi.org/10.1136/neurintsurg-2020-snis.163",
+   "url": "https://openalex.org/W3048311223",
+   "cited_by": 0
+  },
+  {
+   "title": "EAS-PQC: Analyzing Post Quantum Cryptography Algorithm Selection for IoT Device Classes",
+   "authors": [
+    "Aisha Nasser Ahmed",
+    "Norziana Jamil",
+    "Nadia Badawi",
+    "Aymen Dia Eddine Berini",
+    "Yasir Amer Abbas"
+   ],
+   "year": 2026,
+   "venue": "Student Research Conference on Applied Computing (SRC)",
+   "doi": "https://doi.org/10.1109/src70627.2026.11550479",
+   "url": "https://openalex.org/W7163998603",
+   "cited_by": 0
+  },
+  {
+   "title": "Post-Quantum Authenticated Encryption on Networked Raspberry Pi Hardware: Security Analysis and Masking-Mechanism Ablation",
+   "authors": [
+    "Sangeetha Govindarajan",
+    "Vidya Kuppuraj"
+   ],
+   "year": 2026,
+   "venue": "Symmetry",
+   "doi": "https://doi.org/10.3390/sym18111770",
+   "url": "https://openalex.org/W7223553465",
+   "cited_by": 0
+  },
+  {
+   "title": "Rejected Signatures’ Challenges Pose New Challenges: Key Recovery of CRYSTALS-Dilithium via Side-Channel Attacks",
+   "authors": [
+    "Yuanyuan Zhou",
+    "Weijia Wang",
+    "Yiteng Sun",
+    "Yu Yu"
+   ],
+   "year": 2025,
+   "venue": "IACR Transactions on Cryptographic Hardware and Embedded Systems",
+   "doi": "https://doi.org/10.46586/tches.v2025.i4.817-847",
+   "url": "https://openalex.org/W4414017045",
+   "cited_by": 9
+  },
+  {
+   "title": "Multicore Implementation of ML-KEM on Embedded Devices",
+   "authors": [
+    "Beatriz L. Azevedo",
+    "Vinícius Lagrota",
+    "Moises Vidal Ribeiro"
+   ],
+   "year": 2025,
+   "venue": "Simpósio Brasileiro de Cibersegurança (SBSeg)",
+   "doi": "https://doi.org/10.5753/sbseg.2025.9783",
+   "url": "https://openalex.org/W4414126866",
+   "cited_by": 1
+  },
+  {
+   "title": "Ultra Power-Efficient CNN Domain Specific Accelerator with 9.3TOPS/Watt for Mobile and Embedded Applications",
+   "authors": [
+    "Baohua Sun",
+    "Lin Yang",
+    "Patrick Dong",
+    "Wenhan Zhang",
+    "Jason Dong",
+    "Charles Young"
+   ],
+   "year": 2018,
+   "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
+   "doi": "https://doi.org/10.1109/cvprw.2018.00219",
+   "url": "https://openalex.org/W2964002551",
+   "cited_by": 24
+  },
+  {
+   "title": "Post‐Quantum Cryptography for Smart City Cybersecurity: An Evaluation of PQC Algorithms Across IoT–Edge–Cloud Layers",
+   "authors": [
+    "Ahmed Alrowaili",
+    "Sehmus Can Ozmen",
+    "Muhammad Kazim",
+    "Mujeeb Ur Rehman"
+   ],
+   "year": 2026,
+   "venue": "IET Smart Cities",
+   "doi": "https://doi.org/10.1049/smc2.70040",
+   "url": "https://openalex.org/W7214440257",
+   "cited_by": 3
+  },
+  {
+   "title": "Energy Consumption of Post-Quantum Cryptography on Constrained and General-Purpose Architectures",
+   "authors": [
+    "Olivier Gillot",
+    "William Johnston Buchanan",
+    "Madjid Tehrani"
+   ],
+   "year": 2026,
+   "venue": "Cryptography",
+   "doi": "https://doi.org/10.3390/cryptography10040055",
+   "url": "https://openalex.org/W7172346943",
+   "cited_by": 1
+  },
+  {
+   "title": "Energy-Efficient & Privacy-Preserving Adaptive Post-Quantum Secure Boot for Low-Power RISC-V IoT: A Hardware-Agnostic Approach with Empirical Validation",
+   "authors": [
+    "Faiza Nawaz",
+    "Hamna Mughal",
+    "Sumaira Safeer"
+   ],
+   "year": 2026,
+   "venue": null,
+   "doi": "https://doi.org/10.31224/7707",
+   "url": "https://openalex.org/W7172138882",
+   "cited_by": 0
+  },
+  {
+   "title": "Apples, Oranges, and Signatures",
+   "authors": [
+    "Sébastien Riou",
+    "Jong-Yeon Park",
+    "Anwar Liga",
+    "Axel Y. Poschmann",
+    "Michael Hutter"
+   ],
+   "year": 2026,
+   "venue": "Communications in computer and information science",
+   "doi": "https://doi.org/10.1007/978-3-032-28946-9_7",
+   "url": "https://openalex.org/W7167725356",
+   "cited_by": 1
+  },
+  {
+   "title": "An Overview of Machine Learning within Embedded and Mobile Devices–Optimizations and Applications",
+   "authors": [
+    "Taiwo Samuel Ajani",
+    "Agbotiname Lucky Imoize",
+    "Aderemi A. A. Atayero"
+   ],
+   "year": 2021,
+   "venue": "Sensors",
+   "doi": "https://doi.org/10.3390/s21134412",
+   "url": "https://openalex.org/W3175915085",
+   "cited_by": 185
+  },
+  {
+   "title": "Topo-Kyber: A Lightweight Post-Quantum Authenticated Key Exchange using Topological Data Analysis over Physical Channels",
+   "authors": [
+    "Khiem Pham Tuan",
+    "Minh Quang Le",
+    "Khuong Nguyen-An"
+   ],
+   "year": 2026,
+   "venue": "Research Square",
+   "doi": "https://doi.org/10.21203/rs.3.rs-9698022/v1",
+   "url": "https://openalex.org/W7161121726",
+   "cited_by": 0
+  },
+  {
+   "title": "Post-Quantum Transition for high-level schemes",
+   "authors": [
+    "Jiří Hrachovina"
+   ],
+   "year": 2026,
+   "venue": "Brno University of Technology Digital Library (Brno University of Technology)",
+   "doi": null,
+   "url": "https://openalex.org/W7164464849",
+   "cited_by": 0
+  },
+  {
+   "title": "Post-quantum cryptographic authentication protocol for industrial IoT using lattice-based cryptography",
+   "authors": [
+    "Abdul Basit Shahid",
+    "Khwaja Mansoor",
+    "Yawar Abbas Bangash",
+    "Waseem Iqbal",
+    "Shynar Mussiraliyeva"
+   ],
+   "year": 2026,
+   "venue": "Scientific Reports",
+   "doi": "https://doi.org/10.1038/s41598-025-28413-8",
+   "url": "https://openalex.org/W7133335887",
+   "cited_by": 13
+  },
+  {
+   "title": "Protocol Constraints on Post-Quantum Migration of Offline Authentication in Android HCE Payment System",
+   "authors": [
+    "Chaima Ehbali",
+    "Ali Ouacha",
+    "Ahmed El-Yahyaoui"
+   ],
+   "year": 2026,
+   "venue": "International Journal of Advanced Computer Science and Applications",
+   "doi": "https://doi.org/10.14569/ijacsa.2026.0171028",
+   "url": "https://openalex.org/W7224990650",
+   "cited_by": 0
+  },
+  {
+   "title": "Analysis of Post-Quantum Cryptography in User Equipment in 5G and Beyond",
+   "authors": [
+    "Sanzida Hoque",
+    "Abdullah Aydeger",
+    "Engin Zeydan",
+    "Madhusanka Liyanage"
+   ],
+   "year": 2025,
+   "venue": "Conference on Local Computer Networks",
+   "doi": "https://doi.org/10.1109/lcn65610.2025.11146323",
+   "url": "https://openalex.org/W4414197332",
+   "cited_by": 16
+  },
+  {
+   "title": "Performance analysis and deployment considerations of post-quantum cryptography for consumer Electronics",
+   "authors": [
+    "Daniel Commey",
+    "Benjamin Appiah",
+    "Griffith Selorm Klogo",
+    "Winful Bagyl-Bac",
+    "James Dzisi Gadze",
+    "Yousef S. Alsenani",
+    "Garth V. Crosby"
+   ],
+   "year": 2026,
+   "venue": "Scientific Reports",
+   "doi": "https://doi.org/10.1038/s41598-026-62968-4",
+   "url": "https://openalex.org/W4415067709",
+   "cited_by": 9
+  },
+  {
+   "title": "Toward practical migration to post-quantum SSH: system-level design and evaluation",
+   "authors": [
+    "Shahid Allah Bakhsh",
+    "Inam Ul Haq",
+    "Tarek Helmy",
+    "Fakhri Alam Khan",
+    "Shahid Latif",
+    "Jawad Elsayed Ahmad",
+    "Muhammad Shahbaz Khan"
+   ],
+   "year": 2026,
+   "venue": "Frontiers in Computer Science",
+   "doi": "https://doi.org/10.3389/fcomp.2026.1844445",
+   "url": "https://openalex.org/W7203744797",
+   "cited_by": 0
+  },
+  {
+   "title": "Effizientes Lernen auf dem Gerät in ressourcenbeschränkten Systemen: Adaptive Modelle, Datenauswahl und Sparse Backpropagation",
+   "authors": [
+    "Marcus Rüb"
+   ],
+   "year": 2025,
+   "venue": "mediaTUM – the media and publications repository of the Technical University Munich (Technical University Munich)",
+   "doi": null,
+   "url": "https://openalex.org/W7117190016",
+   "cited_by": 0
+  },
+  {
+   "title": "Comparative Performance Analysis of Classical and Post-Quantum Cryptography (FIPS 203/204) on ARMv8 IoT Devices Across NIST Security Levels",
+   "authors": [
+    "Cemile İnce"
+   ],
+   "year": 2026,
+   "venue": "Türk doğa ve fen dergisi :/Türk doğa ve fen dergisi",
+   "doi": "https://doi.org/10.46810/tdfd.1883893",
+   "url": "https://openalex.org/W7166843858",
+   "cited_by": 1
+  },
+  {
+   "title": "Barrett Modular Multiplication Optimization for Accelerating Number Theoretic Transform",
+   "authors": [
+    "Ahmed Alotaibi",
+    "Mohammed Benaissa"
+   ],
+   "year": 2026,
+   "venue": "Sci",
+   "doi": "https://doi.org/10.3390/sci8090229",
+   "url": "https://openalex.org/W7204905531",
+   "cited_by": 0
+  },
+  {
+   "title": "ENCRYPTION APOCALYPSE? PREPARING DATA SECURITY FOR THE QUANTUM COMPUTING ERA",
+   "authors": [
+    "Kiran Iqbal",
+    "Zainab Ali",
+    "Bilal Aslam"
+   ],
+   "year": 2025,
+   "venue": "Journal of Computer Science Advancements",
+   "doi": "https://doi.org/10.70177/jsca.v3i4.3338",
+   "url": "https://openalex.org/W7201882939",
+   "cited_by": 0
+  },
+  {
+   "title": "Post-Quantum Cryptography for IoT-Enabled Chemical Process Plants: A Security Architecture for Safety-Critical Industrial Control Systems",
+   "authors": [
+    "Ruchit Rathi"
+   ],
+   "year": 2026,
+   "venue": "Figshare",
+   "doi": "https://doi.org/10.6084/m9.figshare.33033950",
+   "url": "https://openalex.org/W7169776035",
+   "cited_by": 0
+  },
+  {
+   "title": "AI-Driven Quantum-Resistant Security Framework for Accelerating the Migration of U.S. Cloud and IOT Systems to NIST Post-Quantum Cryptography Standards",
+   "authors": [
+    "Shaikat Biswas"
+   ],
+   "year": 2026,
+   "venue": "American Journal of Advanced Technology and Engineering Solutions",
+   "doi": "https://doi.org/10.63125/8pwsg720",
+   "url": "https://openalex.org/W7213772584",
+   "cited_by": 1
+  },
+  {
+   "title": "AI-Assisted Design of a Post-Quantum Cryptographic Accelerator: A Deployed-Silicon Case Study",
+   "authors": [
+    "Jungmin Park",
+    "E. Kim",
+    "Wooseop Kim",
+    "Seongjoon Cho",
+    "Byungho Cha"
+   ],
+   "year": 2026,
+   "venue": "arXiv (Cornell University)",
+   "doi": "https://doi.org/10.48550/arxiv.2609.04058",
+   "url": "https://openalex.org/W7208748715",
+   "cited_by": 0
+  },
+  {
+   "title": "Lattice-based Multisignature Optimization for RAM Constrained Devices",
+   "authors": [
+    "Sara Ricci",
+    "Vladyslav Shapoval",
+    "Petr Dzurenda",
+    "Peter B. Roenne",
+    "Jan Oupický",
+    "Lukáš Malina"
+   ],
+   "year": 2024,
+   "venue": "International Conference on Availability, Reliability and Security (ARES)",
+   "doi": "https://doi.org/10.1145/3664476.3670461",
+   "url": "https://openalex.org/W4400977436",
+   "cited_by": 1
+  },
+  {
+   "title": "Quantum and side-channel attacks",
+   "authors": [
+    "Maya Chartouny"
+   ],
+   "year": 2025,
+   "venue": null,
+   "doi": "https://doi.org/10.70675/df2903f6ze80az4acezb7a7zbac3d3410f94",
+   "url": "https://openalex.org/W7152479151",
+   "cited_by": 0
+  },
+  {
+   "title": "PQ-OTSec: a post-quantum secure key exchange framework for Operational Technology protocols",
+   "authors": [
+    "Nasir Muhammad",
+    "Abubakar Sadiq Sani",
+    "Dong Yuan",
+    "Georgia Sakellari",
+    "George Loukas"
+   ],
+   "year": 2026,
+   "venue": "Greenwich Academic Literature Archive (University of Greenwich)",
+   "doi": null,
+   "url": "https://openalex.org/W7212412992",
+   "cited_by": 0
+  }
+ ]
+}
